@@ -60,3 +60,21 @@ La razón de elección de la anterior es por la idea de los paquetes. En nuestro
 ● Formulario de login
 
 Entregable : En repositoirio del sitio carpeta /wireframes
+
+5. Boceto o diseño del sitio,
+
+● Logo
+    /design/logo.svg
+
+● Colores
+    Azul1 #6699cc
+    Naranja #cccc99
+    Verde #ffcc99
+    Azul2 #003366
+    
+● Tipografías
+
+    Familia: 'Rubik'
+    fuentes de Google Fonts. https://fonts.google.com/specimen/Rubik
+
+Entregable : En repositoirio del sitio carpeta /design
