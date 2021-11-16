@@ -2,6 +2,8 @@
 e-comerce, articulos para montaña
 E-commerce de articulos para actividades al aire libre
 
+Sprint 1
+
 1. Crear el repositorio del proyecto y agregar colaboradores.
 El nombre del repositorio será grupo_#_nombre donde # será su número de grupo y nombre será el nombre del proyecto.
 Deberán agregar como colaboradores al resto de los integrantes del grupo. 
@@ -78,3 +80,13 @@ Entregable : En repositoirio del sitio carpeta /wireframes
     fuentes de Google Fonts. https://fonts.google.com/specimen/Rubik
 
 Entregable : En repositoirio del sitio carpeta /design
+
+Sprint 2
+
+1. Realizar una breve retrospectiva
+
+2. Crear un tablero de trabajo
+Tablero de Trello
+https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
+Repositorio Github
+https://github.com/EPM-DH/grupo_1_EPM.git
