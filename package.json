@@ -1,0 +1,20 @@
+{
+  "name": "grupo_1_EPM",
+  "version": "1.0.0",
+  "description": "e-comerce, articulos para montaña\r E-commerce de articulos para actividades al aire libre",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EPM-DH/grupo_1_EPM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EPM-DH/grupo_1_EPM/issues"
+  },
+  "homepage": "https://github.com/EPM-DH/grupo_1_EPM#readme"
+}
