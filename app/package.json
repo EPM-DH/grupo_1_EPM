@@ -2,7 +2,7 @@
   "name": "grupo_1_EPM",
   "version": "1.0.0",
   "description": "e-comerce, articulos para montaña\r E-commerce de articulos para actividades al aire libre",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
