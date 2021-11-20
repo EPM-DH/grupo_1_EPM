@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo Para Montaña</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;1,200&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="boton-hamburguesa" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="ham fas fa-bars"></i>
+            </button>
+            <a href="/">
+                <img src="assets\logo\Asset 3.png" class="logo-navbar ms-2" alt="Logo EPM">
+            </a>
+            <button class="navbar-toggler boton-hambuerguesa" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="men fas fa-angle-double-down"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+                    <form class="d-flex" method="post" action="/searchresult">
+                        <!--Form Busqueda Navbar-->
+                        <input name="userQuery" class="barra-de-busqueda me-2" type="search" placeholder="Busqueda" aria-label="Search">
+                        <button class="boton-busqueda" type="submit">
+                            <i class="busq fas fa-search"></i>
+                        </button>
+                    </form>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/register">Registrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">Ingresa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shoppingcart">
+                            <i class="fas fa-shopping-cart">
+                            </i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown dropstart ">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fab fa-jedi-order"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                            <li><a class="dropdown-item" href="/purchases">Pedidos</a></li>
+                            <li><a class="dropdown-item" href="/whishlist">Lista de Deseos</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Fin del navbar-->
+    <!--offcanvas-->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
+                lists, etc.
+            </div>
+        </div>
+    </div>
+    <!--fin offcanvas-->
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-auto">
+                <h1>Carrito</h1>
+            </div>
+        </div>
+        <!--productos-->
+        <div class="row justify-content-center mt-3">
+            <div class="col-11 producto-linea">
+                <div class="row">
+                    <div class="col-3 pt-2 pb-2">
+                        <button class="boton-flex boton-producto boton-vacio">
+                            <img src="assets\productos\escaladaPTZLatc\front.png" alt="atc-escalada">
+                        </button>
+                    </div>
+                    <div class="col p-0">
+                        <button class="boton-flex boton-vacio p-0" type="button" data-bs-toggle="modal"
+                            data-bs-target="#modalProducto">
+                            <div class="titulo-producto p-1">
+                                PETZL ATC Escalada
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-3 p-0">
+                                <button class="boton-flex boton-vacio p-0">
+                                    <div class="precio-producto">
+                                        $599.00
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button class="p-0">-</button>
+                                <div>1</div>
+                                <button class="p-0">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                Subtotal
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                $650
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal detalle del producto-->
+        <div class="modal fade" id="modalProducto" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content modal-producto">
+                    <div class="modal-header border-0">
+                        <h5 class="titulo-producto-modal" id="staticBackdropLabel">PETZL ATC Escalada</h5>
+                    </div>
+                    <div class="modal-body border-0">
+                        ...
+                        <div id="carouselProducto" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselProducto" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselProducto" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselProducto" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="10000">
+                                    <div class="carrusel-producto">
+                                        <img src="assets\productos\escaladaPTZLatc\front.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                                <div class="carousel-item" data-bs-interval="2000">
+                                    <div class="carrusel-producto">
+                                        <img src="assets\productos\escaladaPTZLatc\front.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carrusel-producto">
+                                        <img src="assets\productos\escaladaPTZLatc\front.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducto"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselProducto"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="precio-producto">
+                                        $599.00
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <button class="boton etiqueta-producto">
+                                        <div>
+                                            Escalada
+                                        </div>
+                                    </button>
+                                    <button class="boton etiqueta-producto">
+                                        <div>
+                                            Básicos
+                                        </div>
+                                    </button>
+                                    <button class="boton etiqueta-producto">
+                                        <div>
+                                            Seguridad
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="boton boton-vacio">
+                                        <i class="carrito-producto fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--fin del modal-->
+        <!--fin de producto-->
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+<footer class="sticky">
+
+</footer>
+<footer class="mt-5 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="">legal</a>
+            </div>
+            <div class="col">
+                <a href="">Quienes somos</a>
+            </div>
+            <div class="col">
+                <a href="">Centro de Ayuda</a>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="">Contacto</a>
+            </div>
+            <div class="col">
+                <a href="">declaracion de privacidad</a>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                Copyrigth © Equipo 1 EPM 2021
+            </div>
+        </div>
+    </div>
+</footer>
