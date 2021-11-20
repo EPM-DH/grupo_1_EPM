@@ -1,0 +1,224 @@
+:root{
+    --primario: #36981E;
+    --complementario: #4D003C;
+    --complementario-dividido:#991F7F;
+    --compuesto: #97A619;
+    --neutro1:#F1F1F1;
+    --neutro2:#666666;
+    --neutro3:#242424;
+    --neutro4:#ffffffb4;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+}
+footer{
+    background-color: #242424e1;
+    color: var(--neutro1);
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+a:link{
+    color:var(--primario);
+}
+a:active{
+    color:var(--complementario-dividido);
+}
+::placeholder {
+    color: var(--neutro4);
+  }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+.logo-navbar{
+    width: 3em;
+}
+.navbar{
+    background-color: var(--primario);
+}
+.navbar-toggler{
+    border: none;
+    background-color: transparent;
+}
+.navbar-toggler:focus{
+    outline: none;
+    box-shadow: none;
+}
+.navbar-toggler:hover .men{
+    color: var(--neutro1);
+}
+.boton-hamburguesa{
+    border: none;
+    background-color: transparent;
+}
+.boton-hamburguesa i{
+    color: var(--neutro4);
+    font-size: 1.5em;
+    transition: 0.3s;
+}
+.boton-hamburguesa:hover .ham{
+    color: var(--neutro1);
+}
+.barra-de-busqueda{
+    border: none;
+    border-bottom: var(--neutro4) solid 2px;
+    background-color: transparent;
+    transition: 0.4s;
+    color: var(--neutro1);
+}
+.barra-de-busqueda:focus{
+    border: none;
+    border-bottom: var(--neutro1) solid 2.2px;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    caret-color: var(--complementario-dividido);
+}
+.boton-busqueda{
+    border: none;
+    background-color: transparent;
+}
+.boton-busqueda i{
+    color: var(--neutro4);
+    transition: 0.2s;
+}
+.boton-busqueda:hover .busq{
+    color: var(--neutro1);
+}
+.boton-flex{
+    width: 100%;
+}
+.boton-vacio{
+    border: none;
+    background-color: transparent;
+}
+.boton-producto{
+    width: 14vw;
+    height: 14vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    border: 6px;
+}
+.boton-producto:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.527);
+}
+.producto-linea{
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.carrito-producto{
+    max-width: 100%;
+}
+.titulo-producto{
+    text-align: start;
+    font-size: 1em;
+}
+.titulo-producto-modal{
+    text-align: start;
+    font-size: 1em;
+    color: var(--neutro1);
+}
+.precio-producto{
+    font-size: 1.1em;
+    color: var(--compuesto);
+    margin-right: 0.3em;
+}
+.etiqueta-producto{
+    font-size: 0.7em;
+    border-radius: 10px;
+    background-color: var(--complementario);
+    color: var(--neutro1);
+    margin: 0.2em;
+    margin-left: 0.3em;
+    transition: 0.2s;
+    border: none;
+}
+.etiqueta-producto:focus{
+    outline: none;
+    box-shadow: none;
+    border: none;
+    color: var(--compuesto);
+}
+.etiqueta-producto:hover{
+    background-color: var(--complementario-dividido);
+}
+.modal-producto{
+    border-radius: 6x;
+    background-color: #242424d7;
+}
+.carrusel-producto{
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    height: 50vw;
+    background-color: white;
+}
+.carrusel-producto img{
+    margin-left: auto;
+  margin-right: auto;
+    height: 100%;
+}
+.form-estandar{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    border-bottom: 1.7px solid var(--primario);
+    transition: 0.3s;
+}
+.form-estandar:focus{
+    outline: none;
+    box-shadow: none;
+    border-bottom: 2px solid var(--complementario-dividido);
+}
+.check-box{
+    background-color: var(--neutro1);
+    border-radius: 6px;
+}
+.check-box:checked{
+    outline: none;
+    box-shadow: none;
+    background-color: var(--primario);
+}
+.boton-estandar{
+    border: none;
+    background-color: var(--primario);
+    border-radius: 6px;
+    color:var(--neutro1);
+    transition: 0.3s;
+    padding: 8px;
+}
+.boton-estandar:hover{
+    background-color: var(--complementario-dividido);
+}
+.boton-estandar:focus{
+    outline: none;
+    box-shadow: none;
+}
+.boton-secundario{
+    border-radius: 6px;
+    background-color: white;
+    border: solid 3px var(--primario);
+    color: var(--primario);
+    padding: 8px;
+    transition: 0.3s;
+}
+.boton-secundario:hover{
+    background-color: var(--complementario-dividido);
+    border: solid 3px var(--complementario-dividido);
+    color: white;
+}
+.boton-secundario:focus{
+    outline: none;
+    box-shadow: none;
+}
+footer div div div a{
+    color: white;
+}
+footer div div div a:hover{
+    color: var(--complementario-dividido);
+}
