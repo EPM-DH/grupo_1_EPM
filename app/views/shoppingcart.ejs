@@ -1,80 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipo Para Montaña</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;1,200&display=swap"
-        rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/base.css">
-</head>
-
-<body>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <button class="boton-hamburguesa" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                <i class="ham fas fa-bars"></i>
-            </button>
-            <a href="/">
-                <img src="assets\logo\Asset 3.png" class="logo-navbar ms-2" alt="Logo EPM">
-            </a>
-            <button class="navbar-toggler boton-hambuerguesa" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="men fas fa-angle-double-down"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
-                    <form class="d-flex" method="post" action="/searchresult">
-                        <!--Form Busqueda Navbar-->
-                        <input name="userQuery" class="barra-de-busqueda me-2" type="search" placeholder="Busqueda" aria-label="Search">
-                        <button class="boton-busqueda" type="submit">
-                            <i class="busq fas fa-search"></i>
-                        </button>
-                    </form>
-                </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/register">Registrate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/login">Ingresa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/shoppingcart">
-                            <i class="fas fa-shopping-cart">
-                            </i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown dropstart ">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fab fa-jedi-order"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
-                            <li><a class="dropdown-item" href="/purchases">Pedidos</a></li>
-                            <li><a class="dropdown-item" href="/whishlist">Lista de Deseos</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--Fin del navbar-->
+<%- include('partials/header.ejs') %>
+<title>Carrito de compras</title>
+<%- include('partials/header2.ejs') %>
+<%- include('partials/navbar.ejs') %>
     <!--offcanvas-->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
@@ -240,35 +167,4 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 </body>
-<footer class="sticky">
-
-</footer>
-<footer class="mt-5 pt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <a href="">legal</a>
-            </div>
-            <div class="col">
-                <a href="">Quienes somos</a>
-            </div>
-            <div class="col">
-                <a href="">Centro de Ayuda</a>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col">
-                <a href="">Contacto</a>
-            </div>
-            <div class="col">
-                <a href="">declaracion de privacidad</a>
-            </div>
-        </div>
-        <div class="row justify-content-end">
-            <div class="col-auto">
-                Copyrigth © Equipo 1 EPM 2021
-            </div>
-        </div>
-    </div>
-</footer>
+<%- include('partials/footer.ejs') %>
