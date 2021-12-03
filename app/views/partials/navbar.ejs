@@ -1,0 +1,102 @@
+</head>
+
+<body>
+  <header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button
+          class="boton-hamburguesa"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample"
+        >
+          <i class="ham fas fa-bars"></i>
+        </button>
+        <a href="/">
+          <img
+            src="assets\logo\Asset 3.png"
+            class="logo-navbar ms-2"
+            alt="Logo EPM"
+          />
+        </a>
+        <button
+          class="navbar-toggler boton-hambuerguesa"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="men fas fa-angle-double-down"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
+            <form class="d-flex" method="post" action="/searchresult">
+              <!--Form Busqueda Navbar-->
+              <input
+                name="userQuery"
+                class="barra-de-busqueda me-2"
+                type="search"
+                placeholder="Busqueda"
+                aria-label="Search"
+              />
+              <button class="boton-busqueda" type="submit">
+                <i class="busq fas fa-search"></i>
+              </button>
+            </form>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/register"
+                >Registrate</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login"
+                >Ingresa</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shoppingcart">
+                <i class="fas fa-shopping-cart"> </i>
+              </a>
+            </li>
+            <li class="nav-item dropdown dropstart">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fab fa-jedi-order"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="navbarDropdown"
+              >
+                <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                <li>
+                  <a class="dropdown-item" href="/purchases">Pedidos</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/whishlist"
+                    >Lista de Deseos</a
+                  >
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Fin del navbar-->
+</header>
