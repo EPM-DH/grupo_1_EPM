@@ -4,7 +4,7 @@ El proyecto integrador se encuentra dentro de larpeta app
 Dentro de la carpeta app se debe instalar express de forma local mediante npm install express
 Se puede ejecutar app.js usando node app.js
 
-# grupo_1_EPM
+grupo_1_EPM
 e-comerce, articulos para montaña
 E-commerce de articulos para actividades al aire libre
 
