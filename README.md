@@ -1,5 +1,8 @@
 Se debe instalar express npm install express
 Se debe de ejecutar app.js desde la carpeta de app
+El proyecto integrador se encuentra dentro de larpeta app
+Dentro de la carpeta app se debe instalar express de forma local mediante npm install express
+Se puede ejecutar app.js usando node app.js
 
 # grupo_1_EPM
 e-comerce, articulos para montaña
