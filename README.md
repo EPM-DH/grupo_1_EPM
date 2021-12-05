@@ -91,45 +91,7 @@ Sprint 2
 
 1. Realizar una breve retrospectiva
 
-Ricardo: 
-- Comenzar a hacer -> Mejor comunicación.
-- Hacer más -> Honestidad.
-- Continuar haciendo -> Honestidad, estar al pendiente del estado del proyecto (no atacar a nadie, sino en general).
-- Hacer menos -> Dividir el proyecto (todos apoyar en todo, pero tener un área de enfoque principal), hacer votaciones (los que tienen más experiencia dirigir).
-- Dejar de hacer -> Apatía hacia el proyecto.
-
-Juan Ma: 
-- Comenzar a hacer -> Mejor organización (tener una reunión semanal), mejor comunicación, mayor iniciativa. 
-- Hacer más -> Honestidad.
-- Continuar haciendo -> Honestidad, aprovechar las fortalezas de todos (los que saben más Figma u otras herramientas apoyar con eso a los que se les dificulta más).
-- Hacer menos -> Estar distraídos del Slack (es decir, responder más rápido). 
-- Dejar de hacer -> ---
-
-Adolfo: 
-- Comenzar a hacer -> Mejor comunicación.
-- Hacer más -> Repartición de trabajo, uso de git
-- Continuar haciendo -> El uso de diversas plataformas y la escucha de todas las opiniones
-- Hacer menos -> Uno tenga mas trabajo que otros 
-- Dejar de hacer -> --
-
-Jonathan: 
-- Comenzar a hacer -> 
-Fijar una espacio cada semana para trabajar en conjunto.
-Pros. mostraría trabajo en equipo
-Contras, Todos tenemos otras actividades.
-
-- Hacer más -> Entregar las actividades solicitadas con previa revisión de alguno de nosotros. 
-- Continuar haciendo -> Entregar las actividades solicitadas con previa revisión de alguno de nosotros. 
-- Hacer menos -> Dejar cosas a votación. Tomar iniciativa y decir esto va a ser así, ¿alguien en contra?
-- Dejar de hacer -> Dirigirse a los profesores en privado por mal desempeño, frustrarse si uno hace más trabajo, o si los demás no le hacen caso. 
-
-
-Conclusiones del equipo:
-- Comenzar a hacer -> Mejorar comunicación, organización, iniciativa y probar algunas de las alternativas presentadas para evaluar su utilidad.
-- Hacer más -> Ser honestos, repartición de trabajo equitativo, uso de git y entregar las actividades en tiempo y forma con previa revisión de todos los miembros. 
-- Continuar haciendo -> Ser honestos, estar al pendiente del estado del proyecto sin atacar a nadie, aprovechar las fortalezas de todos, utilizar diversas plataformas para maximizar el desempeño, escuchar todas las opiniones y entregar todas las actividades en tiempo y forma. 
-- Hacer menos -> Dividir el proyecto de manera que los demás no sepan lo que los otros están haciendo, hacer votaciones (que los más experimentados dirigan), estar distraídos del chat, dividir el trabajo de manera desigual. 
-- Dejar de hacer -> Tener apatía hacia el proyecto y dirigirse a los profesores en privado por mal desempeño. 
+Se dejan todas retrospectivas en el archivo retro.md
 
 2. Crear un tablero de trabajo
 
@@ -158,3 +120,50 @@ Hecho. Grupo1_EPM\views\shoppingcart.html
 
 Hecho. Grupo1_EPM\views\login.html 
 
+Sprint 3
+
+1. Archivo retro.md con el resultado de la retrospectiva.
+
+Se dejan todas retrospectivas en el archivo retro.md
+
+2. Archivo weakly.md con sus opiniones sobre las daylies/weeklies.
+
+Se crea archivo weekly.md
+
+3. Actualizar tablero de trabajo en Trello
+
+Tablero de Trello
+https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
+
+Repositorio Github
+https://github.com/EPM-DH/grupo_1_EPM.git
+
+4. Sitio actualizado con todas las vistas y rutas implementando EJS.
+
+Hecho, Estructura en carpeta app
+
+5. Separar las vistas en carpetas
+
+Hecho. Se crean dentro de la carpeta views , la carpeta products y la carpeta users
+
+grupo_1_EPM\app\views\products
+grupo_1_EPM\app\views\users
+
+6. Separar los componentes repetidos en archivos parciales
+
+Hecho. Archivos en la carpeta grupo_1_EPM\app\views\partials
+
+
+6. Página: carrito de compras
+
+Hecho. Grupo1_EPM\views\shoppingcart.html 
+
+footer.ejs
+header.ejs
+header2.ejs
+navbar.ejs
+offcanvas.ejs
+
+7. Página: creación y edición de productos
+
+Hecho. Grupo1_EPM\views\
