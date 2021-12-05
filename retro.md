@@ -1,3 +1,5 @@
+Sprint 2
+
 Ricardo: 
 1. Comenzar a hacer -> Mejor comunicación.
 2. Hacer más -> Honestidad.
@@ -49,3 +51,32 @@ Conclusiones del equipo:
 3. Continuar haciendo -> Ser honestos, estar al pendiente del estado del proyecto sin atacar a nadie, aprovechar las fortalezas de todos, utilizar diversas plataformas para maximizar el desempeño, escuchar todas las opiniones y entregar todas las actividades en tiempo y forma. 
 4. Hacer menos -> Dividir el proyecto de manera que los demás no sepan lo que los otros están haciendo, hacer votaciones (que los más experimentados dirigan), estar distraídos del chat, dividir el trabajo de manera desigual. 
 5. Dejar de hacer -> Tener apatía hacia el proyecto y dirigirse a los profesores en privado por mal desempeño. 
+
+Sprint 3
+
+Comenzar a hacer 
+    
+    Ser activos en el trello para ver las tareas que se necesitan completar y no solo al final del Sprint
+
+Hacer más 
+
+    Iniciativa en el proyecto
+    Reportar cambios en el repositotio de GIT
+
+Continuar haciendo 
+    Seguir con la metodología gitflow y branches para no afectar el trabajo de los demás
+    Proactividad al momento de separar y asignar tareas
+    Expresar dudas y opiniones
+    Revisar en conjunto los cambios hechos
+
+Hacer menos 
+    Expresar estres cuando no hay  avances
+    Realizar cambios a la branch de main
+    Abstenerse de preguntar si hay dudas
+
+Dejar de hacer 
+    Ignorar los sprints del proyecto
+    No reportar cambios en el repositorio
+
+Conclusiones
+Se mejoro el tiempo en que se realizan los trabajos que se realiza, hay que seguir trabjando en la comunicacion, para comunicar los cambios que se realizan. El usar ramas, ha sido eficiente.
