@@ -1,0 +1,37 @@
+[{
+    "id": 1,
+    "name": "PETZL ATC Escalada", 
+    "price": 599, 
+    "categories": ["Escalada", "Básicos", "Seguridad"], 
+    "description": "Dispositivo de aseguramiento / rappel versátil y liviano, para usar con uno o dos hilos de cuerda y capacidad para asegurar a un seguidor del ancla",
+    "modal": "modalPetzl",
+    "image": "front.png",
+    "carouselImages": ["front.png", "front.png", "front.png"]
+}, {
+    "id": 2,
+    "name": "ESLINGA DYNEEMA QUICKDRAW 16 MM", 
+    "price": 65, 
+    "categories": ["Escalada", "Mosquetones y conectores", "Singing rock"], 
+    "description": "Eslinga para un juego de cintas exprés. Esta eslinga de 16 mm es ideal para todas las aplicaciones donde el bajo peso y la alta resistencia son lo primero",
+    "modal": "modalEslinga",
+    "image": "eslinga.jpg",
+    "carouselImages": ["eslinga.jpg", "eslinga.jpg", "eslinga.jpg"]
+}, {
+    "id": 3,
+    "name": "Momentum Men’s",
+    "price": 1628, 
+    "categories": ["Arneses", "Black Diamond", "Escalada", "Montañismo", "Parques de aventura y Vía Ferrata"], 
+    "description": "Una hebilla de rápido ajuste preenhebrada ahorra tiempo y elimina errores al atar, mientras que el Dual Core Construction pone énfasis en la comodidad.",
+    "modal": "modalMomentum",
+    "image": "momentum.jpeg",
+    "carouselImages": ["momentum.jpeg", "momentum.jpeg", "momentum.jpeg"]
+}, {
+    "id": 4,
+    "name": "COSMO 160 LM", 
+    "price": 914, 
+    "categories": ["Black Diamond", "Cañonismo y Espeleo", "Escalada", "Lámparas", "Montañismo", "Parques de aventura y Vía Ferrata", "Senderismo y Campismo"], 
+    "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
+    "modal": "modalCOSMO",
+    "image": "cosmo.jpg",
+    "carouselImages": ["cosmo.jpg", "cosmo.jpg", "cosmo.jpg"]
+}]
