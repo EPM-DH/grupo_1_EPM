@@ -236,7 +236,7 @@ footer {
         font-size: 40px;
     }
     
-    .slogan {
+    .slogan, .precio-producto, .carrito-producto {
         font-size: 20px;
     }
 
@@ -253,15 +253,20 @@ footer {
         --bs-gutter-x: 100px;
     }
 
-    .precio-producto {
-        font-size: 20px;
-    }
-
     .etiqueta-producto {
-        font-size: 12px;
+        font-size: 16px;
     }
 
-    .carrito-producto {
+    /* For modal */
+    .modal-dialog {
+        max-width: 700px;
+    }
+
+    .modal-dialog-centered {
+        min-height: fit-content;
+    }
+
+    .titulo-producto-modal {
         font-size: 20px;
     }
 
@@ -279,30 +284,21 @@ footer {
     }
     
     /* For footer */
-    .tagsFooter {
-        font-size: 20px;
-    }
-
-    .col-auto {
+    .tagsFooter, .col-auto {
         font-size: 20px;
     }
 
     /* For register */
 
-    form div div label {
+    form div div label, .form-estandar, .boton-estandar, .boton-secundario {
         font-size: 20px;
     }
+}
 
-    .form-estandar {
-        font-size: 20px;
-    }
-
-    .boton-estandar {
-        font-size: 20px;
-    }
-
-    .boton-secundario {
-        font-size: 20px;
+/* For compatibility purposes */
+@media (min-width: 991px) {
+    #navbarNav {
+        height: 80px;
     }
 }
 
@@ -313,7 +309,7 @@ footer {
         font-size: 48px;
     }
     
-    .slogan {
+    .slogan, .precio-producto, .carrito-producto {
         font-size: 24px;
     }
 
@@ -330,16 +326,8 @@ footer {
         --bs-gutter-x: 150px;
     }
 
-    .precio-producto {
-        font-size: 24px;
-    }
-
     .etiqueta-producto {
         font-size: 16px;
-    }
-
-    .carrito-producto {
-        font-size: 24px;
     }
 
     /* For header */
@@ -354,32 +342,26 @@ footer {
     .logo-navbar {
         font-size: 35px;
     }
-    
-    /* For footer */
-    .tagsFooter {
-        font-size: 20px;
+
+    /* For modal */
+
+    .titulo-producto-modal {
+        font-size: 24px;
     }
 
-    .col-auto {
+    .modal {
+        width: 100%;
+        height: 85%;
+    }
+    
+    /* For footer */
+    .tagsFooter, .col-auto {
         font-size: 20px;
     }
 
     /* For register */
 
-    form div div label {
+    form div div label, .form-estandar, .boton-estandar, .boton.boton-secundario {
         font-size: 24px;
     }
-
-    .form-estandar {
-        font-size: 24px;
-    }
-
-    .boton-estandar {
-        font-size: 24px;
-    }
-
-    .boton-secundario {
-        font-size: 24px;
-    }
-    
 }
