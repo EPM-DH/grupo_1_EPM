@@ -1,0 +1,44 @@
+<% for(producto of products) { %>
+<div
+  class="modal fade"
+  id="<%= producto.modal %>"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-producto">
+      <div class="modal-header border-0">
+        <h5 class="titulo-producto-modal" id="staticBackdropLabel">
+          <%= producto.name %>
+        </h5>
+      </div>
+
+      <%- include("carousel.ejs", {images: producto.carouselImages}) %>
+
+      <div class="modal-footer border-0">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-auto">
+              <div class="precio-producto">$<%= producto.price %></div>
+            </div>
+            <div class="col">
+              <% for (categoria of producto.categories) { %>
+              <button class="boton etiqueta-producto">
+                <div><%= categoria %></div>
+              </button>
+              <% } %>
+            </div>
+            <div class="col-auto">
+              <button class="boton boton-vacio">
+                <i class="carrito-producto fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
