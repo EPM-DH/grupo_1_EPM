@@ -1,4 +1,10 @@
-# grupo_1_EPM
+Se debe instalar express npm install express
+Se debe de ejecutar app.js desde la carpeta de app
+El proyecto integrador se encuentra dentro de larpeta app
+Dentro de la carpeta app se debe instalar express de forma local mediante npm install express
+Se puede ejecutar app.js usando node app.js
+
+grupo_1_EPM
 e-comerce, articulos para montaña
 E-commerce de articulos para actividades al aire libre
 
@@ -85,8 +91,79 @@ Sprint 2
 
 1. Realizar una breve retrospectiva
 
+Se dejan todas retrospectivas en el archivo retro.md
+
 2. Crear un tablero de trabajo
+
 Tablero de Trello
 https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
 Repositorio Github
+https://github.com/EPM-DH/Grupo1_EPM_S.git
+
+3. Crear la estructura de archivos utilizando Node.js+Express
+
+Hecho, Estructura en Raiz
+
+4. Página: inicio
+
+Hecho. Grupo1_EPM\views\home.html
+
+5. Página: detalle de producto
+
+Hecho. Grupo1_EPM\views\details.html
+
+6. Página: carrito de compras
+
+Hecho. Grupo1_EPM\views\shoppingcart.html 
+
+7. Página: registro
+
+Hecho. Grupo1_EPM\views\login.html 
+
+Sprint 3
+
+1. Archivo retro.md con el resultado de la retrospectiva.
+
+Se dejan todas retrospectivas en el archivo retro.md
+
+2. Archivo weakly.md con sus opiniones sobre las daylies/weeklies.
+
+Se crea archivo weekly.md
+
+3. Actualizar tablero de trabajo en Trello
+
+Tablero de Trello
+https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
+
+Repositorio Github
 https://github.com/EPM-DH/grupo_1_EPM.git
+
+4. Sitio actualizado con todas las vistas y rutas implementando EJS.
+
+Hecho, Estructura en carpeta app
+
+5. Separar las vistas en carpetas
+
+Hecho. Se crean dentro de la carpeta views , la carpeta products y la carpeta users
+
+grupo_1_EPM\app\views\products
+grupo_1_EPM\app\views\users
+
+6. Separar los componentes repetidos en archivos parciales
+
+Hecho. Archivos en la carpeta grupo_1_EPM\app\views\partials
+
+
+6. Página: carrito de compras
+
+Hecho. Grupo1_EPM\views\shoppingcart.html 
+
+footer.ejs
+header.ejs
+header2.ejs
+navbar.ejs
+offcanvas.ejs
+
+7. Página: creación y edición de productos
+
+Hecho. Grupo1_EPM\views\
