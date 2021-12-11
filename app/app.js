@@ -9,11 +9,14 @@ const searchRouter = require('./routes/search');
 const productRouter = require('./routes/product');
 
 app.use (express.static(publicPath));
+app.use((req, res, next) => {
+    res.status(404).render('not-found');
+})
 app.use('/', mainRouter);
 app.use('/register', registerRouter);
 app.use('/searchresult', searchRouter);
 app.use('/product', productRouter);
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
 
