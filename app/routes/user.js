@@ -2,15 +2,12 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser'); /* Bodyparser lo usaré para hacer el handling de los POST */
 const urlencodedParser = bodyParser.urlencoded ({ extended: false }); /* url encoder lo uso para hacer strings los datos de los post */
+const userController = require('../controllers/user');
 
-router.get('/', (req, res)=> {
-    res.render('register');
-});
+router.get('/', userController.retrieveRegister);
 
-router.post('/', urlencodedParser, function(req, res) {
-    console.log(req.body);
-    console.log("Funcionó el registro");
-    res.redirect('/');
-});
+router.post('/', urlencodedParser, userController.register);
+
+router.get('/login', userController.login);
 
 module.exports = router;
