@@ -230,6 +230,14 @@ footer {
     width: 100%;
 }
 
+.characteristicsModal {
+    font-weight: bold;
+}
+
+.descriptionModal, .characteristicsModal, .listModal {
+    color: white;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -257,6 +265,11 @@ footer {
         font-size: 16px;
     }
 
+    .description {
+        font-size: 16px;
+        margin-left: 60px;
+    }
+
     /* For modal */
     .modal-dialog {
         max-width: 700px;
@@ -268,6 +281,22 @@ footer {
 
     .titulo-producto-modal {
         font-size: 20px;
+    }
+
+    .characteristicsModal {
+        font-weight: bold;
+    }
+
+    .listModal {
+        font-size: 14px;
+    }
+
+    .descriptionModal {
+        font-size: 16px;
+    }
+
+    .descriptionModal, .characteristicsModal, .listModal {
+        color: white;
     }
 
     /* For header */
@@ -319,7 +348,7 @@ footer {
 
     .titulo-producto {
         font-size: 24px;
-        margin-left: 60px; /* Verificar para mejorar implementación*/
+        margin-left: 70px; /* Verificar para mejorar implementación*/
     }
 
     .row {
@@ -328,6 +357,11 @@ footer {
 
     .etiqueta-producto {
         font-size: 16px;
+    }
+
+    .description {
+        font-size: 16px;
+        margin-left: 70px;
     }
 
     /* For header */
@@ -352,6 +386,18 @@ footer {
     .modal {
         width: 100%;
         height: 85%;
+    }
+
+    .characteristicsModal {
+        font-weight: bold;
+    }
+
+    .listModal {
+        font-size: 18px;
+    }
+
+    .descriptionModal, .characteristicsModal, .listModal {
+        color: white;
     }
     
     /* For footer */
