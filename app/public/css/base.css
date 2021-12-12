@@ -113,6 +113,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 .carrito-producto{
     max-width: 100%;
+    font-size: 20px;
 }
 .titulo-producto{
     text-align: start;
@@ -124,9 +125,10 @@ input[type="search"]::-webkit-search-results-decoration {
     color: var(--neutro1);
 }
 .precio-producto{
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: var(--compuesto);
     margin-right: 0.3em;
+    font-weight: bold;
 }
 .etiqueta-producto{
     font-size: 0.7em;
@@ -238,13 +240,25 @@ footer {
     color: white;
 }
 
+.boton-estandar, .boton-secundario {
+    max-width: 200px;
+}
+
+.center-button {
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
         font-size: 40px;
     }
     
-    .slogan, .precio-producto, .carrito-producto {
+    .precio-producto {
+        font-size: 22px;
+    }
+
+    .slogan {
         font-size: 20px;
     }
 
@@ -322,6 +336,14 @@ footer {
     form div div label, .form-estandar, .boton-estandar, .boton-secundario {
         font-size: 20px;
     }
+
+    .boton-estandar, .boton-secundario {
+        max-width: 300px;
+    }
+
+    .center-button {
+        text-align: center;
+    }
 }
 
 /* For compatibility purposes */
@@ -337,8 +359,12 @@ footer {
     .tc {
         font-size: 48px;
     }
+
+    .precio-producto {
+        font-size: 26px;
+    }
     
-    .slogan, .precio-producto, .carrito-producto {
+    .slogan, .carrito-producto {
         font-size: 24px;
     }
 
@@ -410,4 +436,13 @@ footer {
     form div div label, .form-estandar, .boton-estandar, .boton.boton-secundario {
         font-size: 24px;
     }
+
+    .boton-estandar, .boton-secundario {
+        max-width: 500px;
+    }
+
+    .center-button {
+        text-align: center;
+    }
+
 }
