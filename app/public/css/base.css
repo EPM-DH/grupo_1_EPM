@@ -264,6 +264,11 @@ footer {
     padding-bottom: 0;
 }
 
+.carrito-producto-modal {
+    color: white;
+    font-size: 30px;
+}
+
 /* Check why this is not loading from Bootstrap */
 /* Also JS missing to be able to close it */
 .close {

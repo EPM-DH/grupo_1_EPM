@@ -19,11 +19,16 @@
           </button>
         </div>
         <div class="modal-body upper">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star unchecked"></span>
-            <span class="fa fa-star unchecked"></span>
+            <div class="col">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star unchecked"></span>
+              <span class="fa fa-star unchecked"></span>
+            </div>
+            <div class="col descriptionModal">
+              <p>Productos vendidos: <%= producto.vendidos %></p>
+            </div>
         </div>
 
       <%- include("carousel.ejs", {images: producto.carouselImages}) %>
@@ -43,7 +48,7 @@
             </div>
             <div class="col-auto">
               <button class="boton boton-vacio">
-                <i class="carrito-producto fas fa-shopping-cart"></i>
+                <i class="carrito-producto-modal fas fa-shopping-cart"></i>
               </button>
             </div>
           </div>
