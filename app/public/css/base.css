@@ -244,8 +244,55 @@ footer {
     max-width: 200px;
 }
 
-.center-button {
+.center {
     text-align: center;
+}
+
+.checked {
+    color: orange;
+}
+
+.unchecked {
+    color: white;
+}
+
+.upper {
+    padding: 0 16px;
+}
+
+.down {
+    padding-bottom: 0;
+}
+
+/* Check why this is not loading from Bootstrap */
+/* Also JS missing to be able to close it */
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.close:hover {
+    color: #F1F1F1;
+    text-decoration: none;
+}
+
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+    opacity: .75;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+a.close.disabled {
+    pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -260,6 +307,10 @@ footer {
 
     .slogan {
         font-size: 20px;
+    }
+
+    .carrito-producto {
+        font-size: 26px;
     }
 
     .catDes {
@@ -280,7 +331,7 @@ footer {
     }
 
     .description {
-        font-size: 16px;
+        font-size: 18px;
         margin-left: 60px;
     }
 
@@ -331,7 +382,7 @@ footer {
         font-size: 20px;
     }
 
-    /* For register */
+    /* For forms */
 
     form div div label, .form-estandar, .boton-estandar, .boton-secundario {
         font-size: 20px;
@@ -341,8 +392,12 @@ footer {
         max-width: 300px;
     }
 
-    .center-button {
+    .center {
         text-align: center;
+    }
+
+    .standarSize {
+        font-size: 18px;
     }
 }
 
@@ -364,8 +419,12 @@ footer {
         font-size: 26px;
     }
     
-    .slogan, .carrito-producto {
+    .slogan {
         font-size: 24px;
+    }
+
+    .carrito-producto {
+        font-size: 30px;
     }
 
     .catDes {
@@ -386,7 +445,7 @@ footer {
     }
 
     .description {
-        font-size: 16px;
+        font-size: 20px;
         margin-left: 70px;
     }
 
@@ -431,7 +490,7 @@ footer {
         font-size: 20px;
     }
 
-    /* For register */
+    /* For forms */
 
     form div div label, .form-estandar, .boton-estandar, .boton.boton-secundario {
         font-size: 24px;
@@ -441,8 +500,12 @@ footer {
         max-width: 500px;
     }
 
-    .center-button {
+    .center {
         text-align: center;
+    }
+
+    .standarSize {
+        font-size: 20px;
     }
 
 }
