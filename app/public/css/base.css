@@ -1,3 +1,7 @@
+* {
+    word-break: break-word; /* Check to see how this works */
+}
+
 :root{
     --primario: #36981E;
     --complementario: #4D003C;
@@ -269,6 +273,7 @@ footer {
     font-size: 30px;
 }
 
+/* For exiting the modal x */
 /* Check why this is not loading from Bootstrap */
 /* Also JS missing to be able to close it */
 .close {
@@ -298,6 +303,72 @@ button.close {
 
 a.close.disabled {
     pointer-events: none;
+}
+
+/* For making shopping cart Mobile First */
+.scHeader, .priceBreakdown {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* For highlighting total in shopping cart */
+.total {
+    color: #97A619;
+    font-size: 16px;
+}
+
+/* For increase/decrease buttons in shopping cart */
+/* Obtained from https://codepen.io/mtbroomell/pen/yNwwdv*/
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40%;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.value-button:hover {
+    cursor: pointer;
+}
+
+#decrease {
+    border-radius: 8px 0 0 8px;
+}
+
+#increase {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+}
+
+#input-wrap {
+    margin: 0px;
+    padding: 0px;
+}
+
+input#number {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40%;
+    height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 @media (min-width: 768px) {
@@ -403,6 +474,23 @@ a.close.disabled {
 
     .standarSize {
         font-size: 18px;
+    }
+
+    /* For shopping cart */
+    .scHeader, .priceBreakdown {
+        font-size: 18px;
+    }
+
+    .total div {
+        font-size: 22px;
+    }
+
+    input#number, .value-button {
+        max-width: 40px;
+    }
+
+    .justify-content-between.itemNumber {
+        justify-content: center!important;
     }
 }
 
@@ -511,6 +599,23 @@ a.close.disabled {
 
     .standarSize {
         font-size: 20px;
+    }
+
+    /* For shopping cart */
+    .scHeader, .priceBreakdown {
+        font-size: 22px;
+    }
+
+    .total div {
+        font-size: 26px;
+    }
+
+    input#number, .value-button {
+        max-width: 40px;
+    }
+
+    .justify-content-between.itemNumber {
+        justify-content:center!important;
     }
 
 }

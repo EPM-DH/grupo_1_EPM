@@ -1,0 +1,45 @@
+<% for (producto of products) { %>
+    <% if(producto.toBuy > 0) { %> 
+        <div class="d-flex flex-row justify-content-around mt-3">
+            <div class="col-11 producto-linea">
+                <div class="d-flex flex-row justify-content-around align-items-center">
+                    <div class="col-3 pt-2 pb-2">
+                        <button class="boton-flex boton-producto boton-vacio">
+                            <img src="img/<%= producto.image %>" alt="atc-escalada">
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button class="boton-flex boton-vacio p-0" type="button" data-bs-toggle="modal"
+                            data-bs-target="#<%= producto.modal %>">
+                            <div class="titulo-producto p-1">
+                                <%= producto.name %>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <div class="d-flex flex-row justify-content-between itemNumber">
+                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                            <input type="number" id="number" value="<%= producto.toBuy %>" />
+                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                            <!--<button class="p-0">-</button>
+                            <div class="priceBreakdown"></div>
+                            <button class="p-0">+</button>-->
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button class="boton-flex boton-vacio p-0"> <!-- Why the button? -->
+                            <div class="priceBreakdown">
+                                $<%= producto.price %>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <div class="col priceBreakdown">
+                            $<%= producto.price*producto.toBuy %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<% } %>
