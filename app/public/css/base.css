@@ -229,12 +229,12 @@ footer div div div a:hover{
     color: var(--complementario-dividido);
 }
 
-footer {
+/*footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-}
+}*/
 
 .characteristicsModal {
     font-weight: bold;
