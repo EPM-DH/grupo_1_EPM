@@ -269,6 +269,7 @@ footer {
     font-size: 30px;
 }
 
+/* For exiting the modal x */
 /* Check why this is not loading from Bootstrap */
 /* Also JS missing to be able to close it */
 .close {

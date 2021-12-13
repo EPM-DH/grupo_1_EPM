@@ -8,6 +8,7 @@
     "characteristics": ["Gestualidad común, basada en el acompañamiento de la cuerda en el aparato y la sujeción permanente con una mano en la cuerda lado frenado.", "Fluidez de la circulación de la cuerda en el aparato.", "Control de frenado, gracias a las zonas de frenado en V y acanaladuras.", "Esquemas de instalación grabados en el asegurador (para el aseguramiento y el modo Reverso).", "Permite asegurar a un escalador y realizar descensos en rápel con una o dos cuerdas.", "Modo Reverso que permite asegurar a uno o dos segundos con asistencia al frenado.", "Orificio de desbloqueo que permite dar cuerda al segundo con un simple mosquetón.", "Compacto y ultraligero: sólo 57 g.", "Mayor durabilidad, gracias al diseño redondeado del paso de cuerda, que limita el desgaste del aparato.", "Adecuado para la mayoría de diámetros de cuerda dinámica (simple de 8,5 a 10,5 mm, doble de 7,1 a 9,2 mm y gemela de 6,9 a 9,2 mm)."],
     "modal": "modalPetzl",
     "vendidos": 5,
+    "toBuy": 0,
     "image": "front.png",
     "carouselImages": ["front.png", "front.png", "front.png"]
 }, {
@@ -20,6 +21,7 @@
     "characteristics": ["Ideal para la personalización de su propia cinta rápida o el reemplazo de la eslinga incorrecta", "Ligero, delgado y aún muy fuerte", "Excelente relación peso-resistencia", "Longitud disponible: 13 cm", "Material: Dyneema", "Ancho: 16 mm", "Resistencia: 22 kN", "Certificación: CE 1019, EN 566, UIAA"],
     "modal": "modalEslinga",
     "vendidos": 8,
+    "toBuy": 2,
     "image": "eslinga.jpg",
     "carouselImages": ["eslinga.jpg", "eslinga.jpg", "eslinga.jpg"]
 }, {
@@ -32,6 +34,7 @@
     "characteristics": ["Hebilla de rápido ajuste pre enhebrado.", "Cinturón en forma de megáfono construido con Dual Core Construction.", "Ajuste trakFIT para una fácil personalización de las perneras.", "Ascensor trasero, elástico y ajustable.", "Cuatro ganchos moldeados a presión.", "Lazo de arrastre.", "Peso: 302 g"],
     "modal": "modalMomentum",
     "vendidos": 70,
+    "toBuy": 0,
     "image": "momentum.jpeg",
     "carouselImages": ["momentum.jpeg", "momentum.jpeg", "momentum.jpeg"]
 }, {
@@ -44,6 +47,7 @@
     "characteristics": ["1 TriplePower LED, LED y 1 DoublePower 1 DoublePower roja LED emiten 160 lúmenes (ajuste máximo)", "Modo de visión nocturna roja tiene valores de proximidad y luz estroboscópica, y activa sin recorrer el modo de blanco", "Diseño elegante y moderno con la cubierta inclinable utiliza 3 pilas AAA", "Los ajustes incluyen modos de proximidad y distancia, oscurecimiento, luz estroboscópica, la visión nocturna de color rojo y el modo de bloqueo", "IPX4: Tormenta de prueba probados para soportar la lluvia y aguanieve desde cualquier ángulo.", "Lúmenes: 160", "Peso con pilas: 87 g (3,0 oz)"],
     "modal": "modalCOSMO",
     "vendidos": 123,
+    "toBuy": 1,
     "image": "cosmo.jpg",
     "carouselImages": ["cosmo.jpg", "cosmo.jpg", "cosmo.jpg"]
 }]
