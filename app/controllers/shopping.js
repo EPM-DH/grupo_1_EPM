@@ -6,7 +6,10 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const shoppingController = {
 	getCart: (req, res) => {
-		res.render('./shoppingCart', {products});
+        let breadcrumbList = ["Página de inicio", "Carrito"];
+        let urlList = [""];
+        urlList.push(req.originalUrl);
+		res.render('./shoppingCart', {products, breadcrumbList, urlList});
 	},
 };
 

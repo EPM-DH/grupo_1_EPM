@@ -499,6 +499,11 @@ input[type=number]::-webkit-outer-spin-button {
     #navbarNav {
         height: 80px;
     }
+
+    /* For breadcrumb */
+    .personal {
+        margin-left: 43px;
+    }
 }
 
 /* For computers*/
@@ -616,6 +621,11 @@ input[type=number]::-webkit-outer-spin-button {
 
     .justify-content-between.itemNumber {
         justify-content:center!important;
+    }
+
+    /* For breadcrumb */
+    .personal {
+        margin-left: 55px;
     }
 
 }
