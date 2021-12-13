@@ -1,14 +1,14 @@
 <% for (producto of products) { %>
     <% if(producto.toBuy > 0) { %> 
-        <div class="row justify-content-center mt-3">
+        <div class="row mt-3">
             <div class="col-11 producto-linea">
-                <div class="row">
-                    <div class="col-3 pt-2 pb-2">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="pt-2 pb-2">
                         <button class="boton-flex boton-producto boton-vacio">
                             <img src="img/<%= producto.image %>" alt="atc-escalada">
                         </button>
                     </div>
-                    <div class="col-3 p-0">
+                    <div class="col-4">
                         <button class="boton-flex boton-vacio p-0" type="button" data-bs-toggle="modal"
                             data-bs-target="#<%= producto.modal %>">
                             <div class="titulo-producto p-1">
@@ -16,34 +16,23 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-3">
-                        <div class="row justify-content-center">
-                            <div class="col p-0">
-                                <button class="boton-flex boton-vacio p-0">
-                                    <div class="precio-producto">
-                                        $<%= producto.price %>
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <button class="p-0">-</button>
-                                <div><%= producto.toBuy %></div>
-                                <button class="p-0">+</button>
-                            </div>
+                    <div class="col-1">
+                        <div class="d-flex flex-row justify-content-between">
+                            <button class="p-0">-</button>
+                            <div><%= producto.toBuy %></div>
+                            <button class="p-0">+</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="row">
-                            <div class="col">
-                                Subtotal
+                    <div class="col-2">
+                        <button class="boton-flex boton-vacio p-0">
+                            <div class="precio-producto">
+                                $<%= producto.price %>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                $<%= producto.price*producto.toBuy %>
-                            </div>
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <div class="col">
+                            $<%= producto.price*producto.toBuy %>
                         </div>
                     </div>
                 </div>

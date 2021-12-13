@@ -4,13 +4,87 @@
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-auto">
-                <h1>Carrito</h1>
+                <h1>Carrito de compras <span class="">(2 elementos en tu carrito)</span></h1>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-11 producto-linea">
+                <div class="d-flex flex-row justify-content-around align-items-center ">
+                    <div class="d-flex justify-content-center col-2">
+                        <h3>Imagen</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-3">
+                        <h3>Nombre</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-2">
+                        <h3>Cantidad</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-1">
+                        <h3>Precio</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-1">
+                        <h3>Subtotal</h3>
+                    </div>
+                </div>
             </div>
         </div>
         <!--productos-->
         <%- include('partials/productoCarrito.ejs', {products}) %>
         <%- include('partials/detalleProducto.ejs', {products}) %>
         <!--fin de producto-->
+
+        <div class="row mt-5">
+            <div class="col-11 producto-linea">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-row justify-content-between">
+                                <div>
+                                    Subtotal
+                                </div>
+                                <div>
+                                    $4562
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div>
+                                    Descuentos
+                                </div>
+                                <div>
+                                    $150
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div>
+                                    Envío
+                                </div>
+                                <div>
+                                    $300
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div>
+                                    Total
+                                </div>
+                                <div>
+                                    $4562
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="d-flex flex-column justify-content-between align-items-center"> <!-- Agregar un botón si es necesario para añadir cupón -->
+                            <div class="col">
+                                <button type="submit" class="boton-estandar boton-flex">
+                                    Proceder al pago
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <br><br><br><br><br> <!-- Think of better implementation -->
     </div>
