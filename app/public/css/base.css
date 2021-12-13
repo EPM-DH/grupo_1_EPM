@@ -301,6 +301,12 @@ a.close.disabled {
     pointer-events: none;
 }
 
+/* For making shopping cart Mobile First */
+.scHeader, .priceBreakdown {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -403,6 +409,11 @@ a.close.disabled {
     }
 
     .standarSize {
+        font-size: 18px;
+    }
+
+    /* For shopping cart */
+    .scHeader, .priceBreakdown {
         font-size: 18px;
     }
 }
@@ -514,4 +525,8 @@ a.close.disabled {
         font-size: 20px;
     }
 
+    /* For shopping cart */
+    .scHeader, .priceBreakdown {
+        font-size: 22px;
+    }
 }

@@ -19,19 +19,19 @@
                     <div class="col-1">
                         <div class="d-flex flex-row justify-content-between">
                             <button class="p-0">-</button>
-                            <div><%= producto.toBuy %></div>
+                            <div class="priceBreakdown"><%= producto.toBuy %></div>
                             <button class="p-0">+</button>
                         </div>
                     </div>
                     <div class="col-2">
-                        <button class="boton-flex boton-vacio p-0">
-                            <div class="precio-producto">
+                        <button class="boton-flex boton-vacio p-0"> <!-- Why the button? -->
+                            <div class="priceBreakdown">
                                 $<%= producto.price %>
                             </div>
                         </button>
                     </div>
                     <div class="col-1">
-                        <div class="col">
+                        <div class="col priceBreakdown">
                             $<%= producto.price*producto.toBuy %>
                         </div>
                     </div>
