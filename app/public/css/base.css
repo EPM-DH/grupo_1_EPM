@@ -371,6 +371,17 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+/* For footer */
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6!important;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -456,6 +467,10 @@ input[type=number]::-webkit-outer-spin-button {
     /* For footer */
     .tagsFooter, .col-auto {
         font-size: 20px;
+    }
+
+    .ftco-footer-social li {
+        font-size: 26px;
     }
 
     /* For forms */
@@ -586,6 +601,10 @@ input[type=number]::-webkit-outer-spin-button {
     /* For footer */
     .tagsFooter, .col-auto {
         font-size: 20px;
+    }
+
+    .ftco-footer-social li {
+        font-size: 30px;
     }
 
     /* For forms */
