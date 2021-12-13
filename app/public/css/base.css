@@ -392,6 +392,11 @@ input[type=number]::-webkit-outer-spin-button {
     border-top: 1px solid #dee2e6!important;
 }
 
+/* For breadcrumb */
+.personal {
+    font-size: 12px;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -517,6 +522,12 @@ input[type=number]::-webkit-outer-spin-button {
     .justify-content-between.itemNumber {
         justify-content: center!important;
     }
+
+    /* For breadcrumb */
+    .personal {
+        font-size: 16px;
+    }
+    
 }
 
 /* For compatibility purposes */
@@ -655,6 +666,7 @@ input[type=number]::-webkit-outer-spin-button {
     /* For breadcrumb */
     .personal {
         margin-left: 55px;
+        font-size: 18px;
     }
 
 }

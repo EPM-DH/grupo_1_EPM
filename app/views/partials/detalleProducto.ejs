@@ -1,7 +1,7 @@
 <% for(producto of products) { %>
 <div
   class="modal fade"
-  id="<%= producto.modal %>"
+  id="modal<%= producto.identifier %>"
   data-bs-keyboard="false"
   tabindex="-1"
   role="dialog"
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-      <%- include("carousel.ejs", {images: producto.carouselImages}) %>
+      <%- include("carousel.ejs", {images: producto.carouselImages, identifier: producto.identifier}) %>
 
       <div class="modal-footer border-0">
         <div class="container-fluid">

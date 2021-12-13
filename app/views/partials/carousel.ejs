@@ -1,14 +1,14 @@
 <div class="modal-body border-0 upper">
     ...
     <div
-      id="carouselProducto"
+      id="carousel<%= identifier %>"
       class="carousel carousel-dark slide"
       data-bs-ride="carousel"
     >
       <div class="carousel-indicators">
         <button
           type="button"
-          data-bs-target="#carouselProducto"
+          data-bs-target="#carousel<%= identifier %>"
           data-bs-slide-to="0"
           class="active"
           aria-current="true"
@@ -16,13 +16,13 @@
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselProducto"
+          data-bs-target="#carousel<%= identifier %>"
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselProducto"
+          data-bs-target="#carousel<%= identifier %>"
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
@@ -56,7 +56,7 @@
       <button
         class="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselProducto"
+        data-bs-target="#carousel<%= identifier %>"
         data-bs-slide="prev"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -65,7 +65,7 @@
       <button
         class="carousel-control-next"
         type="button"
-        data-bs-target="#carouselProducto"
+        data-bs-target="#carousel<%= identifier %>"
         data-bs-slide="next"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
