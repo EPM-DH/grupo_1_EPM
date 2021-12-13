@@ -115,10 +115,16 @@ input[type="search"]::-webkit-search-results-decoration {
     border: 1px solid black;
     border-radius: 6px;
 }
+/* For animation */
 .carrito-producto{
     max-width: 100%;
     font-size: 20px;
+    transition: transform 0.5s;
 }
+.carrito-producto:hover{
+    transform: rotate(90deg);
+}
+
 .titulo-producto{
     text-align: start;
     font-size: 1em;
@@ -229,12 +235,12 @@ footer div div div a:hover{
     color: var(--complementario-dividido);
 }
 
-footer {
+/*footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-}
+}*/
 
 .characteristicsModal {
     font-weight: bold;
@@ -271,6 +277,10 @@ footer {
 .carrito-producto-modal {
     color: white;
     font-size: 30px;
+    transition: transform 0.5s;
+}
+.carrito-producto-modal:hover{
+    transform: rotate(90deg);
 }
 
 /* For exiting the modal x */
@@ -371,6 +381,17 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+/* For footer */
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6!important;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -458,6 +479,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 20px;
     }
 
+    .ftco-footer-social li {
+        font-size: 26px;
+    }
+
     /* For forms */
 
     form div div label, .form-estandar, .boton-estandar, .boton-secundario {
@@ -498,6 +523,11 @@ input[type=number]::-webkit-outer-spin-button {
 @media (min-width: 991px) {
     #navbarNav {
         height: 80px;
+    }
+
+    /* For breadcrumb */
+    .personal {
+        margin-left: 43px;
     }
 }
 
@@ -583,6 +613,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 20px;
     }
 
+    .ftco-footer-social li {
+        font-size: 30px;
+    }
+
     /* For forms */
 
     form div div label, .form-estandar, .boton-estandar, .boton.boton-secundario {
@@ -616,6 +650,11 @@ input[type=number]::-webkit-outer-spin-button {
 
     .justify-content-between.itemNumber {
         justify-content:center!important;
+    }
+
+    /* For breadcrumb */
+    .personal {
+        margin-left: 55px;
     }
 
 }

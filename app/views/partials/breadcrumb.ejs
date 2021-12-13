@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb personal">
+        <% for(let i = 0; i < breadcrumbList.length; i++) { %>
+            <% if(i == 0) { %>
+                <li class="breadcrumb-item"><a href="/"><%= breadcrumbList[i] %></a></li> 
+            <% } else if(i+2 == breadcrumbList.length) { %> 
+                <li class="breadcrumb-item"><a href="<%= urlList[i] %> "><%= breadcrumbList[i] %></a></li>
+            <% } else { %> 
+                <li class="breadcrumb-item active" aria-current="page"><%= breadcrumbList[i] %></li>
+            <% } %> 
+        <% } %>
+    </ol>
+</nav>
