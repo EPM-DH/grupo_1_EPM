@@ -4,9 +4,9 @@ const bodyParser = require('body-parser'); /* Bodyparser lo usaré para hacer el
 const urlencodedParser = bodyParser.urlencoded ({ extended: false }); /* url encoder lo uso para hacer strings los datos de los post */
 const userController = require('../controllers/user');
 
-router.get('/', userController.retrieveRegister);
+router.get('/register', userController.retrieveRegister);
 
-router.post('/', urlencodedParser, userController.register);
+router.post('/register', urlencodedParser, userController.register);
 
 router.get('/login', userController.login);
 

@@ -113,6 +113,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 .carrito-producto{
     max-width: 100%;
+    font-size: 20px;
 }
 .titulo-producto{
     text-align: start;
@@ -124,9 +125,10 @@ input[type="search"]::-webkit-search-results-decoration {
     color: var(--neutro1);
 }
 .precio-producto{
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: var(--compuesto);
     margin-right: 0.3em;
+    font-weight: bold;
 }
 .etiqueta-producto{
     font-size: 0.7em;
@@ -230,14 +232,90 @@ footer {
     width: 100%;
 }
 
+.characteristicsModal {
+    font-weight: bold;
+}
+
+.descriptionModal, .characteristicsModal, .listModal {
+    color: white;
+}
+
+.boton-estandar, .boton-secundario {
+    max-width: 200px;
+}
+
+.center {
+    text-align: center;
+}
+
+.checked {
+    color: orange;
+}
+
+.unchecked {
+    color: white;
+}
+
+.upper {
+    padding: 0 16px;
+}
+
+.down {
+    padding-bottom: 0;
+}
+
+.carrito-producto-modal {
+    color: white;
+    font-size: 30px;
+}
+
+/* Check why this is not loading from Bootstrap */
+/* Also JS missing to be able to close it */
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.close:hover {
+    color: #F1F1F1;
+    text-decoration: none;
+}
+
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+    opacity: .75;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+a.close.disabled {
+    pointer-events: none;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
         font-size: 40px;
     }
     
-    .slogan, .precio-producto, .carrito-producto {
+    .precio-producto {
+        font-size: 22px;
+    }
+
+    .slogan {
         font-size: 20px;
+    }
+
+    .carrito-producto {
+        font-size: 26px;
     }
 
     .catDes {
@@ -257,6 +335,11 @@ footer {
         font-size: 16px;
     }
 
+    .description {
+        font-size: 18px;
+        margin-left: 60px;
+    }
+
     /* For modal */
     .modal-dialog {
         max-width: 700px;
@@ -268,6 +351,22 @@ footer {
 
     .titulo-producto-modal {
         font-size: 20px;
+    }
+
+    .characteristicsModal {
+        font-weight: bold;
+    }
+
+    .listModal {
+        font-size: 14px;
+    }
+
+    .descriptionModal {
+        font-size: 16px;
+    }
+
+    .descriptionModal, .characteristicsModal, .listModal {
+        color: white;
     }
 
     /* For header */
@@ -288,10 +387,22 @@ footer {
         font-size: 20px;
     }
 
-    /* For register */
+    /* For forms */
 
     form div div label, .form-estandar, .boton-estandar, .boton-secundario {
         font-size: 20px;
+    }
+
+    .boton-estandar, .boton-secundario {
+        max-width: 300px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .standarSize {
+        font-size: 18px;
     }
 }
 
@@ -308,9 +419,17 @@ footer {
     .tc {
         font-size: 48px;
     }
+
+    .precio-producto {
+        font-size: 26px;
+    }
     
-    .slogan, .precio-producto, .carrito-producto {
+    .slogan {
         font-size: 24px;
+    }
+
+    .carrito-producto {
+        font-size: 30px;
     }
 
     .catDes {
@@ -319,7 +438,7 @@ footer {
 
     .titulo-producto {
         font-size: 24px;
-        margin-left: 60px; /* Verificar para mejorar implementación*/
+        margin-left: 70px; /* Verificar para mejorar implementación*/
     }
 
     .row {
@@ -328,6 +447,11 @@ footer {
 
     .etiqueta-producto {
         font-size: 16px;
+    }
+
+    .description {
+        font-size: 20px;
+        margin-left: 70px;
     }
 
     /* For header */
@@ -353,15 +477,40 @@ footer {
         width: 100%;
         height: 85%;
     }
+
+    .characteristicsModal {
+        font-weight: bold;
+    }
+
+    .listModal {
+        font-size: 18px;
+    }
+
+    .descriptionModal, .characteristicsModal, .listModal {
+        color: white;
+    }
     
     /* For footer */
     .tagsFooter, .col-auto {
         font-size: 20px;
     }
 
-    /* For register */
+    /* For forms */
 
     form div div label, .form-estandar, .boton-estandar, .boton.boton-secundario {
         font-size: 24px;
     }
+
+    .boton-estandar, .boton-secundario {
+        max-width: 500px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .standarSize {
+        font-size: 20px;
+    }
+
 }

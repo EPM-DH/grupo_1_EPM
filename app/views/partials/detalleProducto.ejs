@@ -4,16 +4,32 @@
   id="<%= producto.modal %>"
   data-bs-keyboard="false"
   tabindex="-1"
+  role="dialog"
   aria-labelledby="staticBackdropLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content modal-producto">
-      <div class="modal-header border-0">
-        <h5 class="titulo-producto-modal" id="staticBackdropLabel">
-          <%= producto.name %>
-        </h5>
-      </div>
+        <div class="modal-header border-0 down">
+          <h5 class="titulo-producto-modal" id="staticBackdropLabel">
+            <%= producto.name %>
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body upper">
+            <div class="col">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star unchecked"></span>
+              <span class="fa fa-star unchecked"></span>
+            </div>
+            <div class="col descriptionModal">
+              <p>Productos vendidos: <%= producto.vendidos %></p>
+            </div>
+        </div>
 
       <%- include("carousel.ejs", {images: producto.carouselImages}) %>
 
@@ -32,8 +48,24 @@
             </div>
             <div class="col-auto">
               <button class="boton boton-vacio">
-                <i class="carrito-producto fas fa-shopping-cart"></i>
+                <i class="carrito-producto-modal fas fa-shopping-cart"></i>
               </button>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-auto">
+              <p class="descriptionModal"> <%= producto.longDescription %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-auto">
+              <p class="characteristicsModal">Características: </p>
+              <ul class="listModal">
+                <% for(elemento of producto.characteristics) { %>
+                  <li> <%= elemento %> </li>
+                <% } %>
+              </ul>
             </div>
           </div>
         </div>

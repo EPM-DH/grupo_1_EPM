@@ -10,7 +10,7 @@ const productRouter = require('./routes/product');
 
 app.use (express.static(publicPath));
 app.use('/', mainRouter);
-app.use('/register', userRouter);
+app.use('/user', userRouter);
 app.use('/searchresult', searchRouter); //Consider changing into main router
 app.use('/product', productRouter);
 app.set("view engine", "ejs");

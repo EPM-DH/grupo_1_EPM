@@ -7,45 +7,45 @@
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-auto mt-3">
-                    <h1 class="tc">Crear producto</h1>
+                    <h1 class="tc">Editar producto</h1>
                 </div>
             </div>
             <form action="/product/create" method="post">
                 <div class="row justify-content-center mt-3">
-                    <div class="col-11">
+                    <div class="col-7">
                         <label for="nombre">
                             Nombre
                         </label>
                     </div>
-                    <div class="col-11">
+                    <div class="col-7">
                         <input type="text" class="form-estandar" name="nombre"  id="nombre" required>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-11">
+                    <div class="col-7">
                         <label for="precio">
                             Precio
                         </label>
                     </div>
-                    <div class="col-11">
+                    <div class="col-7">
                         <input type="number" class="form-estandar" name="precio" id="precio" required>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-11">
+                    <div class="col-7">
                         <h3>Categorías</h3>
                         <input class="form-check-input" type="checkbox" value="escalada" id="escaladaCheck">
                         <label class="form-check-label" for="escaladaCheck">
                             Escalada
                         </label>
                     </div>
-                    <div class="col-11">
+                    <div class="col-7">
                         <input class="form-check-input" type="checkbox" value="basicos" id="basicosCheck">
                         <label class="form-check-label" for="basicosCheck">
                             Básicos
                         </label>
                     </div>
-                    <div class="col-11">
+                    <div class="col-7">
                         <input class="form-check-input" type="checkbox" value="seguridad" id="seguridadCheck">
                         <label class="form-check-label" for="seguridadCheck">
                             Seguridad
@@ -53,19 +53,21 @@
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-11">
+                    <div class="col-7">
                         <label for="descripcion">Descripción</label>
                     </div>
-                    <div class="col-11">
+                    <div class="col-7">
                         <textarea class="form-control" id="descripcion" rows="3" required></textarea>
                     </div>
                 </div>
                 <br>
-                <div class="row justify-content-end">
-                    <div class="col-auto">
-                        <button type="submit" class="boton-estandar">
-                            Crear producto
-                        </button>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-11 center">
+                        <a href="/user/edit" >
+                            <button type="button" class="boton-estandar boton-flex">
+                                Editar producto
+                            </button>
+                        </a>
                     </div>
                 </div>
             </form>
