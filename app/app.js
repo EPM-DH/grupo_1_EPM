@@ -8,6 +8,7 @@ const userRouter = require('./routes/user');
 const searchRouter = require('./routes/search');
 const productRouter = require('./routes/product');
 const shoppingRouter = require('./routes/shopping');
+const methodOverride = require('method-override');
 
 app.use (express.static(publicPath));
 app.use('/', mainRouter);
@@ -15,6 +16,7 @@ app.use('/user', userRouter);
 app.use('/searchresult', searchRouter); //Consider changing into main router
 app.use('/product', productRouter);
 app.use('/shoppingCart', shoppingRouter);
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));

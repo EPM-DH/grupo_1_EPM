@@ -5,7 +5,13 @@ const urlencodedParser = bodyParser.urlencoded ({ extended: false }); /* url enc
 const productController = require('../controllers/product');
 
 router.get('/create', productController.retrieveCreate);
+router.post('/', productController.store); 
 
-router.get('/edit', productController.retrieveEdit);
+router.get('/edit/:id', productController.retrieveEdit);
+router.put('/edit/:id', productController.update);
+
+router.get('/detail/:id', productController.retrieveDetail); 
+
+router.delete('/delete/:id', productController.destroy);
 
 module.exports = router;

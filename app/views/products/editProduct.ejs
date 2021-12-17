@@ -10,7 +10,7 @@
                     <h1 class="tc">Editar producto</h1>
                 </div>
             </div>
-            <form action="/product/create" method="post">
+            <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST">
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
                         <label for="nombre">
@@ -62,12 +62,18 @@
                 </div>
                 <br>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-11 center">
+                    <div class="col-6 center">
                         <a href="/user/edit" >
                             <button type="button" class="boton-estandar boton-flex">
                                 Editar producto
                             </button>
                         </a>
+                    </div>
+                    <div class="col-6">
+                        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+							<button type="submit" class="btn btn-danger">ELIMINAR</button>
+						</form>
+                        </button>
                     </div>
                 </div>
             </form>
