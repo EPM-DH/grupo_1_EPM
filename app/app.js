@@ -3,13 +3,17 @@ const app = express();
 const path = require('path');
 const port = 3500;
 const publicPath = path.resolve(__dirname, './public');
+const methodOverride = require('method-override');
 const mainRouter = require('./routes/main');
 const userRouter = require('./routes/user');
 const searchRouter = require('./routes/search');
 const productRouter = require('./routes/product');
 const shoppingRouter = require('./routes/shopping');
 
-app.use (express.static(publicPath));
+app.use(express.static(publicPath));
+app.use(methodOverride('_method')); // For PUT and DELETE methods
+app.use(express.urlencoded({ extended: false })); //To be able to retrieve the forms data in the req element
+app.use(express.json()); //To be able to retrieve the forms data in the req element
 app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/searchresult', searchRouter); //Consider changing into main router

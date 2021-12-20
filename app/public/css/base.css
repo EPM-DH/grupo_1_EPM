@@ -397,6 +397,16 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 12px;
 }
 
+/* For not showing bullets in lists */
+.caracteristicas li {
+    list-style-type: none;
+}
+
+.caracteristicas {
+    margin-left: 0;
+    padding-left: 0;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {

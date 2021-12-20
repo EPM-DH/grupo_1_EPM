@@ -7,67 +7,94 @@
         <div class="col">
             <div class="row justify-content-center">
                 <div class="col-auto mt-3">
-                    <h1 class="tc">Editar producto</h1>
+                    <h1 class="tc">Editando producto <i><%= product.name %></i></h1>
                 </div>
             </div>
-            <form action="/product/create" method="post">
+            <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST">
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
-                        <label for="nombre">
+                        <label for="name">
                             Nombre
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="text" class="form-estandar" name="nombre"  id="nombre" required>
+                        <input type="text" class="form-estandar" name="name"  id="name" value="<%= product.name %>" required>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
-                        <label for="precio">
+                        <label for="price">
                             Precio
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="number" class="form-estandar" name="precio" id="precio" required>
+                        <input type="number" class="form-estandar" name="price" id="price" value="<%= product.price %>" required>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7"><h3>Categorías</h3></div>
+                    <% for(category of categories) { %>
+                        <div class="col-7">
+                            <input class="form-check-input" type="checkbox" value="<%= category %>" id="<%= category %>Check" name="categories" <% if(product.categories.find(categoria => categoria == category)) {%> checked <%} %>>
+                            <label class="form-check-label" for="<%= category %>Check">
+                                <%= category %>
+                            </label>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="shortDescription">Descripción corta</label>
+                    </div>
+                    <div class="col-7">
+                        <textarea class="form-control" id="shortDescription" rows="2" name="shortDescription" required><%= product.shortDescription %></textarea>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
-                        <h3>Categorías</h3>
-                        <input class="form-check-input" type="checkbox" value="escalada" id="escaladaCheck">
-                        <label class="form-check-label" for="escaladaCheck">
-                            Escalada
-                        </label>
+                        <label for="longDescription">Descripción larga</label>
                     </div>
                     <div class="col-7">
-                        <input class="form-check-input" type="checkbox" value="basicos" id="basicosCheck">
-                        <label class="form-check-label" for="basicosCheck">
-                            Básicos
-                        </label>
+                        <textarea class="form-control" id="longDescription" rows="4" name="longDescription" required><%= product.longDescription %></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3"> <!-- Consider adding JS for new characteristic or removing previous one -->
+                    <div class="col-7">
+                        <label for="characteristics">Características</label>
                     </div>
                     <div class="col-7">
-                        <input class="form-check-input" type="checkbox" value="seguridad" id="seguridadCheck">
-                        <label class="form-check-label" for="seguridadCheck">
-                            Seguridad
-                        </label>
+                        <ul class="caracteristicas">
+                            <% let i = 1; for(characteristic of product.characteristics) { %>
+                                <li><input type="text" class="form-estandar" name="characteristic<%= i %>"  id="characteristic<%= i %>" value="<%= characteristic %>"></li>
+                            <% i++; }%>
+                        </ul>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
-                        <label for="descripcion">Descripción</label>
+                        <label for="identifier">
+                            Identificador
+                        </label>
                     </div>
                     <div class="col-7">
-                        <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+                        <input type="text" class="form-estandar" name="identifier"  id="identifier" value="<%= product.identifier %>" required>
                     </div>
                 </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="imagenPrincipal" class="form-label">Sube la imagen principal:</label>
+                    </div>
+                    <div class="col-7">
+                        <input type="file" name="imagenPrincipal" id="file">
+                    </div>
+                </div>
+                <!-- Pending to add carousel images multi input form element -->
                 <br>
                 <div class="row justify-content-center mt-3">
                     <div class="col-11 center">
-                        <a href="/user/edit" >
-                            <button type="button" class="boton-estandar boton-flex">
-                                Editar producto
-                            </button>
-                        </a>
+                        <button type="submit" class="boton-estandar boton-flex">
+                            Editar producto
+                        </button>
                     </div>
                 </div>
             </form>
