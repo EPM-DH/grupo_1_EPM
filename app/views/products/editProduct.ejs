@@ -10,7 +10,7 @@
                     <h1 class="tc">Editando producto <i><%= product.name %></i></h1>
                 </div>
             </div>
-            <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST">
+            <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
                         <label for="name">
