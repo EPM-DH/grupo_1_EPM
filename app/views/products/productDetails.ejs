@@ -66,11 +66,11 @@
 
 					<div class="d-flex flex-row justify-content-between">
 						<div class="col-8">
-							<a href="/product/edit/<%= product.id %>" type="submit" class="boton-estandar boton-flex anchorFormat editButton">Editar producto</a>
+							<a href="/product/edit/<%= product.id %>" type="submit" class="boton-estandar anchorFormat editButton">Editar producto</a>
 						</div>
 						<div class="col-6">
 							<form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-								<button type="submit" class="boton-estandar boton-flex anchorFormat deleteButton">Eliminar</button>
+								<button type="submit" class="boton-estandar anchorFormat deleteButton">Eliminar</button>
 							</form>
 						</div>
 					</div>
