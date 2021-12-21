@@ -27,7 +27,7 @@ router.get('/', productController.retrieveProducts);
 router.get('/create', productController.retrieveCreate);
 
 // To retrieve product detail page
-// Non existing
+router.get('/:id', productController.retrieveProductDetails);
 
 // To process the product creation 
 router.post('/create', uploadFile.single('imagenPrincipal'), productController.create);

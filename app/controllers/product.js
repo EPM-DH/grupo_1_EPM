@@ -18,6 +18,12 @@ const productController = {
 	retrieveCreate: (req, res) => {
 		res.render('./products/createProduct', {categories});
 	},
+	retrieveProductDetails: (req, res) => {
+		let id = req.params.id;
+		let product = products.find(product => product.id == id);
+
+		res.render('./products/productDetails', {product});
+	},
 	create: (req, res) => {
 		let characteristics = [];
 		//To get the value of each characteristic
