@@ -167,7 +167,7 @@ input[type="search"]::-webkit-search-results-decoration {
     border-radius: 6px;
     border: none;
     width: 100%;
-    height: 50vw;
+    /*height: 50vw;*/
     background-color: white;
 }
 .carrusel-producto img{
@@ -395,6 +395,34 @@ input[type=number]::-webkit-outer-spin-button {
 /* For breadcrumb */
 .personal {
     font-size: 12px;
+}
+
+/* For not showing bullets in lists */
+.caracteristicas li {
+    list-style-type: none;
+}
+
+.caracteristicas {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* For product details page */
+.anchorFormat {
+    text-decoration: none;
+    text-align: center;
+    color: white!important;
+    font-weight: bold;
+}
+
+.editButton {
+    background-color: #0d6efd!important;
+    border-color: #0d6efd!important;
+}
+
+.deleteButton {
+    background-color: #dc3545!important;
+    border-color: #dc3545!important;
 }
 
 @media (min-width: 768px) {
@@ -669,4 +697,33 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 18px;
     }
 
+    .pushLeft nav ol {
+        margin-left: 0px;
+    }
+
+    /* For product details page */
+    .descripcion {
+        font-size: 20px;
+    }
+
+    .unchecked2 {
+        color: black;
+    }
+
+    .descSide {
+        font-size: 18px;
+    }
+
+    .up {
+        margin-top: -10px;
+    }
+
+    .centerCheck {
+        margin-top: 0.57em!important;
+    }
+
+    .adjust-check {
+        padding-left: 20.4em;
+        margin-top: 1.5em;
+    }
 }

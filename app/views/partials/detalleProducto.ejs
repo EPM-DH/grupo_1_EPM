@@ -12,7 +12,7 @@
     <div class="modal-content modal-producto">
         <div class="modal-header border-0 down">
           <h5 class="titulo-producto-modal" id="staticBackdropLabel">
-            <%= producto.name %>
+            <a href="/product/<%= producto.id %>"><%= producto.name %></a>
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -56,16 +56,6 @@
           <div class="row">
             <div class="col-auto">
               <p class="descriptionModal"> <%= producto.longDescription %></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-auto">
-              <p class="characteristicsModal">Características: </p>
-              <ul class="listModal">
-                <% for(elemento of producto.characteristics) { %>
-                  <li> <%= elemento %> </li>
-                <% } %>
-              </ul>
             </div>
           </div>
         </div>

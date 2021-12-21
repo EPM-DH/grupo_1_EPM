@@ -1,0 +1,29 @@
+[{
+    "id": 1,
+    "firstName": "Juan Manuel", 
+    "lastName": "Ledesma Rangel", 
+    "email": "jujuan27@hotmail.com", 
+    "password": "Hola1234",
+    "rol": "administrador"
+}, {
+    "id": 2,
+    "firstName": "Adolfo", 
+    "lastName": "Alcaráz", 
+    "email": "adolgdl@gmail.com", 
+    "password": "Hola1234",
+    "rol": "administrador"
+}, {
+    "id": 3,
+    "firstName": "Ricardo", 
+    "lastName": "Zúñiga", 
+    "email": "litosiderito@gmail.com", 
+    "password": "Hola1234",
+    "rol": "estandar"
+}, {
+    "id": 4,
+    "firstName": "Jonathan", 
+    "lastName": "Alvarez", 
+    "email": "abejotav1@gmail.com", 
+    "password": "Hola1234",
+    "rol": "estandar"
+}]
