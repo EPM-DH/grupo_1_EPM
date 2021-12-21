@@ -9,9 +9,12 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); //Valid
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
-//Consider adding rating field to products JSON 
+//Consider adding rating and featured field to products JSON 
 
 const productController = {
+	retrieveProducts: (req, res) => {
+		res.render('./products/products', {products});
+	},
 	retrieveCreate: (req, res) => {
 		res.render('./products/createProduct', {categories});
 	},

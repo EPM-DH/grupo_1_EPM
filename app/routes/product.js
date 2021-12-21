@@ -21,7 +21,7 @@ const uploadFile = multer({storage});
 /* CRUD Productos */
 
 // To retrieve the products page
-// Non existing 
+router.get('/', productController.retrieveProducts);
 
 // To retrieve the create products page
 router.get('/create', productController.retrieveCreate);
