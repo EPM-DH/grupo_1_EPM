@@ -697,6 +697,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 18px;
     }
 
+    .pushLeft nav ol {
+        margin-left: 0px;
+    }
+
     /* For product details page */
     .descripcion {
         font-size: 20px;

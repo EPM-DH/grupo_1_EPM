@@ -21,8 +21,11 @@ const productController = {
 	retrieveProductDetails: (req, res) => {
 		let id = req.params.id;
 		let product = products.find(product => product.id == id);
-
-		res.render('./products/productDetails', {product});
+		let breadcrumbList = ["Página de inicio", "Productos", product.name];
+        let urlList = [""];
+        urlList.push(req.baseUrl);
+		
+		res.render('./products/productDetails', {product, breadcrumbList, urlList});
 	},
 	create: (req, res) => {
 		let characteristics = [];
