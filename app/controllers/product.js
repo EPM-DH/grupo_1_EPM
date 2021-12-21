@@ -3,7 +3,7 @@ const path = require('path');
 
 // To import products
 const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); //Validate if products variable is empty before anything else
 
 //To import categories
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
@@ -87,6 +87,15 @@ const productController = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(products));
 		
 		res.redirect('/'); //Products don't update until the page is reloaded 
+	},
+	delete: (req, res) => {
+		let id = req.params.id;
+		let finalProducts = products.filter(product => product.id != id); //Get all the products that don't match with the given id
+
+		console.log(finalProducts);
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts));
+		res.redirect('/');
 	},
 };
 

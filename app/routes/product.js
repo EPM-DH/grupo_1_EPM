@@ -39,6 +39,6 @@ router.get('/edit/:id', productController.retrieveEdit);
 router.put('/edit/:id', uploadFile.single('imagenPrincipal'), productController.update);
 
 //To delete a product
-// Non exisiting 
+router.delete('/delete/:id', productController.delete);
 
 module.exports = router;
