@@ -66,12 +66,18 @@ const productController = {
 		let id = req.params.id;
 		let product = products.find(product => product.id == id);
 		let characteristics = [];
+		let imagen;
 		//To get the value of each characteristic
 		for (const [key, value] of Object.entries(req.body)) {
 			if(key.includes('characteristic')) {
 				characteristics.push(value);
 			}
 		};
+
+		if(req.file == undefined)
+			imagen = product.image;
+		else
+			imagen = req.file.filename;
 
 		//Create updated product from form data
 		let newProduct = {
@@ -85,7 +91,7 @@ const productController = {
 			identifier: req.body.identifier, //Validate if identifier is unique
 			vendidos: product.vendidos,
 			toBuy: product.toBuy,
-			image: product.image, //To be obtained from multer
+			image: imagen, //To be obtained from multer
 			carouselImages: product.carouselImages, //Update in following sprints
 		};
 		
@@ -101,7 +107,15 @@ const productController = {
 		let id = req.params.id;
 		let finalProducts = products.filter(product => product.id != id); //Get all the products that don't match with the given id
 
-		console.log(finalProducts);
+		//Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img', products[id - 1].image), (err) => {
+			if (err) {
+			  console.error(err)
+			  return
+			}
+		  
+			console.log('File removed successfully');
+		});
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts));
 		res.redirect('/');
