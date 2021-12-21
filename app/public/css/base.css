@@ -717,4 +717,13 @@ input[type=number]::-webkit-outer-spin-button {
     .up {
         margin-top: -10px;
     }
+
+    .centerCheck {
+        margin-top: 0.57em!important;
+    }
+
+    .adjust-check {
+        padding-left: 20.4em;
+        margin-top: 1.5em;
+    }
 }

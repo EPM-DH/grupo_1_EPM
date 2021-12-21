@@ -9,7 +9,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); //Valid
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
-//Consider adding rating and featured field to products JSON 
+//Consider adding rating field to products JSON 
 
 const productController = {
 	retrieveProducts: (req, res) => {
@@ -29,12 +29,16 @@ const productController = {
 	},
 	create: (req, res) => {
 		let characteristics = [];
+		let featured = 0;
 		//To get the value of each characteristic
 		for (const [key, value] of Object.entries(req.body)) {
 			if(key.includes('characteristic')) {
 				characteristics.push(value);
 			}
 		};
+		//To see if a product is featured
+		if(req.body.featured == 'on')
+			featured = 1;
 
 		//Create new product from form data
 		let newProduct = {
@@ -48,6 +52,7 @@ const productController = {
 			identifier: req.body.identifier, //Validate if identifier is unique
 			vendidos: 0,
 			toBuy: 0,
+			featured: featured,
 			image: req.file.filename, 
 			carouselImages: [req.file.filename, req.file.filename, req.file.filename], //Update in following sprints
 		};
@@ -70,12 +75,17 @@ const productController = {
 		let product = products.find(product => product.id == id);
 		let characteristics = [];
 		let imagen;
+		let featured = 0;
 		//To get the value of each characteristic
 		for (const [key, value] of Object.entries(req.body)) {
 			if(key.includes('characteristic')) {
 				characteristics.push(value);
 			}
 		};
+
+		//To see if a product is featured
+		if(req.body.featured == 'on')
+			featured = 1;
 
 		if(req.file == undefined)
 			imagen = product.image;
@@ -94,6 +104,7 @@ const productController = {
 			identifier: req.body.identifier, //Validate if identifier is unique
 			vendidos: product.vendidos,
 			toBuy: product.toBuy,
+			featured: featured,
 			image: imagen, //To be obtained from multer
 			carouselImages: product.carouselImages, //Update in following sprints
 		};

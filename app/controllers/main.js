@@ -6,7 +6,9 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const mainController = {
 	index: (req, res) => {
-		res.render('home', {products});
+		let productos = products.filter(producto => producto.featured != 0);
+		
+		res.render('home', {products: productos});
 	},
 };
 
