@@ -18,40 +18,48 @@ const productController = {
 	retrieveEdit: (req, res) => {
 		const id = req.params.id;
 		let product = products.find(product => product.id == id);
+		console.log(product);
 		res.render('./products/editProduct', {
 			product
 		})
 	},
 	update: (req, res) =>{
-		const id = req.params.id
-		let productToEdit = products.find(product => product.id == id);
-		
-		productToEdit ={
-			...req.body,
-			vendidos: productToEdit.vendidos,
-			toBuy: productToEdit.toBuy
-		}
+		let id = req.params.id;
+		let productToEdit = products.find(product => product.id == id)
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(productToEdit, null, ' '));
+		productToEdit = {
+			id: productToEdit.id,
+			...req.body,
+			image: productToEdit.image,
+			carouselImages: productToEdit.carouselImages
+		};
+		
+		let newProducts = products.map(product => {
+			if (product.id == productToEdit.id) {
+				return product = {...productToEdit};
+			}
+			return product;
+		})
+		console.log(newProducts);
+		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
 		res.redirect('/');
 	},
 	store: (req, res) => {
-		console.log(req.body);
 		let newProduct = {
 			id: products[products.length - 1].id + 1,
 			...req.body,
 			vendidos: 0,
 			toBuy: 0,
-			image: 'default-image.png'
+			image: 'default-image.png',
+			carouselImages : ['default.jpg', 'default.jpg', 'default.jpg']
 		};
-		console.log(newProduct);
 		products.push(newProduct);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 		res.redirect('/');
 	},
 	destroy: (req, res) =>{
-		const id = req.params.id
-		let newProductList = products.splice(id, 1);
+		let id = req.params.id;
+		let newProductList = products.filter(product => product.id != id);
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProductList, null, ' '));
 		res.redirect('/');
 	}

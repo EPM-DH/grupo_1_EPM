@@ -1,8 +1,8 @@
 [
  {
-  "id": 1,
+  "id": "1",
   "name": "PETZL ATC Escalada",
-  "price": 599,
+  "price": "599",
   "categories": [
    "Escalada",
    "Básicos",
@@ -25,6 +25,7 @@
   "identifier": "Petzl",
   "vendidos": 5,
   "toBuy": 0,
+  "featured": 1,
   "image": "front.png",
   "carouselImages": [
    "front.png",
@@ -56,6 +57,7 @@
   "identifier": "Eslinga",
   "vendidos": 8,
   "toBuy": 2,
+  "featured": 0,
   "image": "eslinga.jpg",
   "carouselImages": [
    "eslinga.jpg",
@@ -88,6 +90,7 @@
   "identifier": "Momentum",
   "vendidos": 70,
   "toBuy": 0,
+  "featured": 1,
   "image": "momentum.jpeg",
   "carouselImages": [
    "momentum.jpeg",
@@ -122,17 +125,12 @@
   "identifier": "COSMO",
   "vendidos": 123,
   "toBuy": 1,
+  "featured": 0,
   "image": "cosmo.jpg",
   "carouselImages": [
    "cosmo.jpg",
    "cosmo.jpg",
    "cosmo.jpg"
   ]
- },
- {
-  "id": 5,
-  "vendidos": 0,
-  "toBuy": 0,
-  "image": "default-image.png"
  }
 ]
