@@ -1,13 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser'); /* Bodyparser lo usaré para hacer el handling de los POST */
-const urlencodedParser = bodyParser.urlencoded ({ extended: false }); /* url encoder lo uso para hacer strings los datos de los post */
+
+//Controllers
 const userController = require('../controllers/user');
 
+//Middlewares
+const validationsRegister = require('../middlewares/validateRegisterUser'); //Does it have to be a function? 
+const uploadFile = require('../middlewares/multerUser'); //Does it have to be a function? 
+const validationsLogin = require('../middlewares/validateLoginUser'); //Does it have to be a function? 
+
+//Routes
 router.get('/register', userController.retrieveRegister);
 
-router.post('/register', urlencodedParser, userController.register);
+//Express-validator se usa después de multer para que también pueda validar la imagen
+router.post('/register', uploadFile.single('avatar'), validationsRegister, userController.register);
 
-router.get('/login', userController.login);
+router.get('/login', userController.retrieveLogin);
+
+router.post('/login', validationsLogin, userController.login);
 
 module.exports = router;
