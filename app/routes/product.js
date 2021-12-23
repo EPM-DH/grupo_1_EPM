@@ -8,7 +8,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '/../public/img'));
+        cb(null, path.join(__dirname, '/../public/img/products'));
     },
     filename: (req, file, cb) => {
         //Remove all whitespaces between words
