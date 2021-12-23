@@ -39,7 +39,7 @@ const userController = {
 			res.redirect('/');	
 		} else { //Hay errores
 			//Destroy image saved by multer
-			if(req.file.filename != ''){
+			if(req.file){
 				fs.unlinkSync(path.join(__dirname, '/../public/img/users', req.file.filename), (err) => {
 					if (err) {
 						console.error(err)
