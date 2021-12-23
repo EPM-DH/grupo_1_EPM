@@ -97,51 +97,98 @@ const productController = {
 		res.render('./products/editProduct', {product, categories});
 	},
 	update: (req, res) => {
-		let id = req.params.id;
-		let product = products.find(product => product.id == id);
-		let characteristics = [];
-		let imagen;
-		let featured = 0;
-		//To get the value of each characteristic
-		for (const [key, value] of Object.entries(req.body)) {
-			if(key.includes('characteristic')) {
-				characteristics.push(value);
+		const errors = validationResult(req);
+
+		if(errors.isEmpty()){ //No hay errores
+			let id = req.params.id;
+			let product = products.find(product => product.id == id);
+			let characteristics = [];
+			let imagen;
+			let featured = 0;
+			//To get the value of each characteristic
+			for (const [key, value] of Object.entries(req.body)) {
+				if(key.includes('characteristic')) {
+					characteristics.push(value);
+				}
+			};
+
+			//To see if a product is featured
+			if(req.body.featured == 'on')
+				featured = 1;
+
+			if(req.file == undefined)
+				imagen = product.image;
+			else
+				imagen = req.file.filename;
+
+			//Create updated product from form data
+			let newProduct = {
+				id: id,
+				name: req.body.name,
+				price: req.body.price,
+				categories: req.body.categories,
+				shortDescription: req.body.shortDescription,
+				longDescription: req.body.longDescription,
+				characteristics: characteristics,
+				identifier: req.body.identifier, //Validate if identifier is unique
+				vendidos: product.vendidos,
+				toBuy: product.toBuy,
+				featured: featured,
+				image: imagen, //To be obtained from multer
+				carouselImages: product.carouselImages, //Update in following sprints
+			};
+			
+			//Replace old product with updated one
+			products[id - 1] = newProduct;
+
+			//Write the new product to the JSON file
+			fs.writeFileSync(productsFilePath, JSON.stringify(products));
+			
+			res.redirect('/'); //Products don't update until the page is reloaded 
+
+		} else { //Hay errores
+			//Destroy image saved by multer
+			if(req.file){
+				fs.unlinkSync(path.join(__dirname, '/../public/img/products', req.file.filename), (err) => {
+					if (err) {
+						console.error(err)
+						return
+					}
+				
+					console.log('File removed successfully');
+				});
 			}
-		};
 
-		//To see if a product is featured
-		if(req.body.featured == 'on')
-			featured = 1;
+			let id = req.params.id;
 
-		if(req.file == undefined)
-			imagen = product.image;
-		else
-			imagen = req.file.filename;
+			req.body.id = id;
 
-		//Create updated product from form data
-		let newProduct = {
-			id: id,
-			name: req.body.name,
-			price: req.body.price,
-			categories: req.body.categories,
-			shortDescription: req.body.shortDescription,
-			longDescription: req.body.longDescription,
-			characteristics: characteristics,
-			identifier: req.body.identifier, //Validate if identifier is unique
-			vendidos: product.vendidos,
-			toBuy: product.toBuy,
-			featured: featured,
-			image: imagen, //To be obtained from multer
-			carouselImages: product.carouselImages, //Update in following sprints
-		};
-		
-		//Replace old product with updated one
-		products[id - 1] = newProduct;
+			if(!Array.isArray(req.body.categories))
+				req.body.categories = [req.body.categories];
 
-		//Write the new product to the JSON file
-		fs.writeFileSync(productsFilePath, JSON.stringify(products));
-		
-		res.redirect('/'); //Products don't update until the page is reloaded 
+			let characteristics = [];
+
+			//To get the value of each characteristic
+			for (const [key, value] of Object.entries(req.body)) {
+				if(key.includes('characteristic')) {
+					characteristics.push(value);
+				}
+			};
+			
+			req.body.characteristics = characteristics;
+
+			let featured = 0;
+
+			//To see if a product is featured
+			if(req.body.featured == 'on')
+				featured = 1;
+
+			req.body.featured = featured;
+
+			res.render('products/editProduct', { errors: errors.mapped() , product: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
+			//Donde en lugar de índices tiene los nombres de los inputs del formulario
+		}
+	
 	},
 	delete: (req, res) => {
 		let id = req.params.id;
