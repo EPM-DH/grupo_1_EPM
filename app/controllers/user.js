@@ -1,6 +1,8 @@
 const { validationResult } = require('express-validator');
 const fs = require('fs');
 const path = require('path');
+//For hashing the password
+const bcrypt = require('bcryptjs');
 
 // To import users
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
@@ -14,13 +16,16 @@ const userController = {
         const errors = validationResult(req);
 
 		if(errors.isEmpty()){ //No hay errores
+			//Encrypt password
+			let encryptedPassword = bcrypt.hashSync(req.body.contrasena, 10);
+
 			//Create new user from form data
 			let newUser = {
 				id: users[users.length - 1].id + 1,
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
 				email: req.body.email,
-				password: req.body.contrasena,
+				password: encryptedPassword,
 				avatar: req.file.filename,
 				rol: 'estandar',
 			};
