@@ -57,6 +57,35 @@ const userController = {
     retrieveLogin: (req, res) => {
 		res.render('users/login');
 	},
+	login: (req, res) => {
+		let errors = validationResult(req);
+
+		if(errors.isEmpty()){ //No hay errores
+			//Search for user & password
+			for(user of users) { 
+				if(user.email == req.body.email && bcrypt.compareSync(req.body.contrasena, user.password)) {
+					//Login - Crear cookie o session e indicar al usuario que está logeado, etc
+					res.redirect('/');
+				}
+			}
+
+			//Add error to arrray
+			let nuevoError = {
+				value: '',
+				msg: 'El usuario o la contraseña son incorrectos',
+				param: 'failedVerification',
+				location: '',
+			};
+
+			errors.errors.push(nuevoError);
+
+			res.render('users/login', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
+				
+		} else { //Hay errores
+			res.render('users/login', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
+			//Donde en lugar de índices tiene los nombres de los inputs del formulario
+		}
+	},
 };
 
 module.exports = userController;

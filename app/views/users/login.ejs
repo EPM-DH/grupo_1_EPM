@@ -10,6 +10,13 @@
                     </div>
                 </div>
                 <br>
+                <div class="row justify-content-center mt-3 text-danger">
+                    <div class="col-7">
+                        <% if(locals.errors && errors.failedVerification) { %> 
+                            <%= errors.failedVerification.msg %> 
+                        <% } %>
+                    </div>
+                </div>
                 <form action="/user/login" method="POST">
                     <div class="row justify-content-center mt-3">
                         <div class="col-7">
@@ -18,7 +25,12 @@
                             </label>
                         </div>
                         <div class="col-7">
-                            <input type="email" class="form-estandar" name="email" id="email" required>
+                            <input type="email" class="form-estandar form-control <%= locals.errors && errors.email ? 'is-invalid' : '' %>" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">
+                            <div class="text-danger">
+                                <% if(locals.errors && errors.email) { %> 
+                                    <%= errors.email.msg %> 
+                                <% } %>
+                            </div>
                         </div>
                     </div>
                     <div class="row justify-content-center mt-3">
@@ -28,7 +40,12 @@
                             </label>
                         </div>
                         <div class="col-7">
-                            <input type="password" class="form-estandar" name="contrasena" id="contrasena" required>
+                            <input type="password" class="form-estandar form-control <%= locals.errors && errors.contrasena ? 'is-invalid' : '' %>" name="contrasena" id="contrasena">
+                            <div class="text-danger">
+                                <% if(locals.errors && errors.contrasena) { %> 
+                                    <%= errors.contrasena.msg %> 
+                                <% } %>
+                            </div>
                         </div>
                     </div>               
                     <br><br>

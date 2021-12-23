@@ -1,22 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/product');
-//For the path
-const path = require('path');
-//For multer 
-const multer = require('multer');
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '/../public/img/products'));
-    },
-    filename: (req, file, cb) => {
-        //Remove all whitespaces between words
-        cb(null, `${path.parse(file.originalname).name.replace(/ +/g, "")}_${Date.now()}${path.extname(file.originalname)}`);
-    }
-});
-
-const uploadFile = multer({storage});
+const uploadFile = require('../middlewares/multerProduct'); //Does it have to be a function? 
 
 /* CRUD Productos */
 
