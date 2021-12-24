@@ -24,3 +24,14 @@ Revision de algunas librerias
 Debate sobre el diseño Modelo Vista Controlador
 Revision de avances en el Sprint
 Divison de tareas para terminar los entregables
+
+06/12/2021
+Se emepezo a trabajar en los campos que se usarian para los productos
+Se mostro avances de CRUD
+
+13/12/2021
+Se mostro avance de la creacion de usuarios
+Se mostro la creacion y eliminacion de productos
+
+20/12/2021
+Se reviso avance y vieron pendientes
