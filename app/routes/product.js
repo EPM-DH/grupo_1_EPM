@@ -7,6 +7,7 @@ const productController = require('../controllers/product');
 //Middlewares
 const uploadFile = require('../middlewares/multerProduct'); //Does it have to be a function? 
 const validationsRegister = require('../middlewares/validateRegisterProduct'); //Does it have to be a function? 
+const validationsEdit = require('../middlewares/validateEditProduct'); //Does it have to be a function?
 
 /* CRUD Productos */
 
@@ -20,13 +21,13 @@ router.get('/create', productController.retrieveCreate);
 router.get('/:id', productController.retrieveProductDetails);
 
 // To process the product creation 
-router.post('/create', uploadFile.single('imagenPrincipal'), validationsRegister , productController.create);
+router.post('/create', uploadFile.single('imagenPrincipal'), validationsRegister, productController.create);
 
 // To retrieve the edit product page 
 router.get('/edit/:id', productController.retrieveEdit);
 
 // To process the product editing
-router.put('/edit/:id', uploadFile.single('imagenPrincipal'), validationsRegister , productController.update);
+router.put('/edit/:id', uploadFile.single('imagenPrincipal'), validationsEdit, productController.update);
 
 //To delete a product
 router.delete('/delete/:id', productController.delete);

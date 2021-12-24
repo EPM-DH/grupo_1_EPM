@@ -31,7 +31,7 @@ const productController = {
 	},
 	create: (req, res) => {
 		const errors = validationResult(req);
-
+		//Product file is not working properly****** you can advance without it validating it is empty
 		if(errors.isEmpty()){ //No hay errores
 			let characteristics = [];
 			let featured = 0;
