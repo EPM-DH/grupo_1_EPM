@@ -65,6 +65,7 @@ const userController = {
 			for(user of users) { 
 				if(user.email == req.body.email && bcrypt.compareSync(req.body.contrasena, user.password)) {
 					//Login - Crear cookie o session e indicar al usuario que está logeado, etc
+					res.cookie('usuarioLogeado', req.body.email, { maxAge: 3600 * 1000 });
 					res.redirect('/');
 				}
 			}
