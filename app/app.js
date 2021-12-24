@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser');
 const path = require('path');
 const port = 3500;
 const publicPath = path.resolve(__dirname, './public');
@@ -13,6 +14,7 @@ const shoppingRouter = require('./routes/shopping');
 app.use(express.static(publicPath));
 app.use(methodOverride('_method')); // For PUT and DELETE methods
 app.use(express.urlencoded({ extended: false })); //To be able to retrieve the forms data in the req element
+app.use(cookieParser());
 app.use(express.json()); //To be able to retrieve the forms data in the req element
 app.use('/', mainRouter);
 app.use('/user', userRouter);
