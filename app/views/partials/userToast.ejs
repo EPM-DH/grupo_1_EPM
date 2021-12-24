@@ -1,0 +1,12 @@
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Confirmación de creación de <%= name %></strong>
+      <small>Hace unos segundos</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        <%= name.charAt(0).toUpperCase() + name.slice(1) %>  añadido correctamente
+    </div>
+  </div>
+</div>
