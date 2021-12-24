@@ -18,7 +18,12 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="text" class="form-estandar" name="name"  id="name" required>
+                        <input type="text" class="form-estandar form-control <%= locals.errors && errors.name ? 'is-invalid' : '' %>" name="name"  id="name" value="<%= locals.old && old.name ? old.name : '' %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.name) { %> 
+                                <%= errors.name.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -28,26 +33,43 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="number" class="form-estandar" name="price" id="price" required>
+                        <input type="number" class="form-estandar form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>" name="price" id="price" value="<%= locals.old && old.price ? old.price : '' %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.price) { %> 
+                                <%= errors.price.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7"><h3>Categorías</h3></div>
-                    <% for(category of categories) { %>
+                    <% let i = 0; for(category of categories) { %>
                         <div class="col-7">
-                            <input class="form-check-input" type="checkbox" value="<%= category %>" id="<%= category %>Check" name="categories">
+                            <input class="form-check-input" type="checkbox" value="<%= category %>" id="<%= category %>Check" name="categories" <%= (locals.old && old.categories && old.categories.find(categoria => categoria == category)) ? 'checked' : '' %>>
                             <label class="form-check-label" for="<%= category %>Check">
                                 <%= category %>
                             </label>
                         </div>
                     <% } %>
+                    <div class="col-7">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.categories) { %> 
+                                <%= errors.categories.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
                         <label for="shortDescription">Descripción corta</label>
                     </div>
                     <div class="col-7">
-                        <textarea class="form-control" id="shortDescription" rows="2" name="shortDescription" required></textarea>
+                        <textarea class="form-control <%= locals.errors && errors.shortDescription ? 'is-invalid' : '' %>" id="shortDescription" rows="2" name="shortDescription"><%= locals.old && old.shortDescription ? old.shortDescription : '' %></textarea>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.shortDescription) { %> 
+                                <%= errors.shortDescription.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -55,7 +77,12 @@
                         <label for="longDescription">Descripción larga</label>
                     </div>
                     <div class="col-7">
-                        <textarea class="form-control" id="longDescription" rows="4" name="longDescription" required></textarea>
+                        <textarea class="form-control <%= locals.errors && errors.longDescription ? 'is-invalid' : '' %>" id="longDescription" rows="4" name="longDescription"><%= locals.old && old.longDescription ? old.longDescription : '' %></textarea>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.longDescription) { %> 
+                                <%= errors.longDescription.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3"> <!-- Consider adding JS for new characteristic or removing previous one -->
@@ -77,12 +104,17 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="text" class="form-estandar" name="identifier"  id="identifier" required>
+                        <input type="text" class="form-estandar form-control <%= locals.errors && errors.identifier ? 'is-invalid' : '' %>" name="identifier"  id="identifier" value="<%= locals.old && old.identifier ? old.identifier : '' %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.identifier) { %> 
+                                <%= errors.identifier.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="form-check adjust-check">
                     <div class="align-center">
-                        <input class="form-check-input centerCheck" type="checkbox" id="featured" name="featured">
+                        <input class="form-check-input centerCheck" type="checkbox" id="featured" name="featured" <%= locals.old && old.featured ? 'checked' : '' %>>
                         <label class="form-check-label" for="featured">
                             Destacado
                         </label>
@@ -94,6 +126,11 @@
                     </div>
                     <div class="col-7">
                         <input type="file" name="imagenPrincipal" id="imagenPrincipal">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.imagenPrincipal) { %> 
+                                <%= errors.imagenPrincipal.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <!-- Pending to add carousel images multi input form element -->

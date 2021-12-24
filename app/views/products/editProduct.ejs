@@ -18,7 +18,12 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="text" class="form-estandar" name="name"  id="name" value="<%= product.name %>" required>
+                        <input type="text" class="form-estandar form-control <%= locals.errors && errors.name ? 'is-invalid' : '' %>" name="name"  id="name" value="<%= product.name %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.name) { %> 
+                                <%= errors.name.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -28,7 +33,12 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="number" class="form-estandar" name="price" id="price" value="<%= product.price %>" required>
+                        <input type="number" class="form-estandar form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>" name="price" id="price" value="<%= product.price %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.price) { %> 
+                                <%= errors.price.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -41,13 +51,25 @@
                             </label>
                         </div>
                     <% } %>
+                    <div class="col-7">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.categories) { %> 
+                                <%= errors.categories.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
                         <label for="shortDescription">Descripción corta</label>
                     </div>
                     <div class="col-7">
-                        <textarea class="form-control" id="shortDescription" rows="2" name="shortDescription" required><%= product.shortDescription %></textarea>
+                        <textarea class="form-control <%= locals.errors && errors.shortDescription ? 'is-invalid' : '' %>" id="shortDescription" rows="2" name="shortDescription"><%= product.shortDescription %></textarea>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.shortDescription) { %> 
+                                <%= errors.shortDescription.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -55,7 +77,12 @@
                         <label for="longDescription">Descripción larga</label>
                     </div>
                     <div class="col-7">
-                        <textarea class="form-control" id="longDescription" rows="4" name="longDescription" required><%= product.longDescription %></textarea>
+                        <textarea class="form-control <%= locals.errors && errors.longDescription ? 'is-invalid' : '' %>" id="longDescription" rows="4" name="longDescription"><%= product.longDescription %></textarea>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.longDescription) { %> 
+                                <%= errors.longDescription.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3"> <!-- Consider adding JS for new characteristic or removing previous one -->
@@ -77,7 +104,12 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="text" class="form-estandar" name="identifier"  id="identifier" value="<%= product.identifier %>" required>
+                        <input type="text" class="form-estandar form-control <%= locals.errors && errors.identifier ? 'is-invalid' : '' %>" name="identifier"  id="identifier" value="<%= product.identifier %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.identifier) { %> 
+                                <%= errors.identifier.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="form-check adjust-check">
@@ -94,6 +126,11 @@
                     </div>
                     <div class="col-7">
                         <input type="file" name="imagenPrincipal" id="file">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.imagenPrincipal) { %> 
+                                <%= errors.imagenPrincipal.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <!-- Pending to add carousel images multi input form element -->
