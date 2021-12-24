@@ -1,0 +1,156 @@
+<%- include('../partials/header.ejs', {title: 'Crear producto', home: 0}) %>
+<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/offcanvas.ejs') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-auto mt-3">
+                    <h1 class="tc">Editando producto <i><%= product.name %></i></h1>
+                </div>
+            </div>
+            <form action="/product/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="name">
+                            Nombre
+                        </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" class="form-estandar form-control <%= locals.errors && errors.name ? 'is-invalid' : '' %>" name="name"  id="name" value="<%= product.name %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.name) { %> 
+                                <%= errors.name.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="price">
+                            Precio
+                        </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="number" class="form-estandar form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>" name="price" id="price" value="<%= product.price %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.price) { %> 
+                                <%= errors.price.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7"><h3>Categorías</h3></div>
+                    <% for(category of categories) { %>
+                        <div class="col-7">
+                            <input class="form-check-input" type="checkbox" value="<%= category %>" id="<%= category %>Check" name="categories" <% if(product.categories.find(categoria => categoria == category)) {%> checked <%} %>>
+                            <label class="form-check-label" for="<%= category %>Check">
+                                <%= category %>
+                            </label>
+                        </div>
+                    <% } %>
+                    <div class="col-7">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.categories) { %> 
+                                <%= errors.categories.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="shortDescription">Descripción corta</label>
+                    </div>
+                    <div class="col-7">
+                        <textarea class="form-control <%= locals.errors && errors.shortDescription ? 'is-invalid' : '' %>" id="shortDescription" rows="2" name="shortDescription"><%= product.shortDescription %></textarea>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.shortDescription) { %> 
+                                <%= errors.shortDescription.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="longDescription">Descripción larga</label>
+                    </div>
+                    <div class="col-7">
+                        <textarea class="form-control <%= locals.errors && errors.longDescription ? 'is-invalid' : '' %>" id="longDescription" rows="4" name="longDescription"><%= product.longDescription %></textarea>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.longDescription) { %> 
+                                <%= errors.longDescription.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3"> <!-- Consider adding JS for new characteristic or removing previous one -->
+                    <div class="col-7">
+                        <label for="characteristics">Características</label>
+                    </div>
+                    <div class="col-7">
+                        <ul class="caracteristicas">
+                            <% let i = 1; for(characteristic of product.characteristics) { %>
+                                <li><input type="text" class="form-estandar" name="characteristic<%= i %>"  id="characteristic<%= i %>" value="<%= characteristic %>"></li>
+                            <% i++; }%>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="identifier">
+                            Identificador
+                        </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="text" class="form-estandar form-control <%= locals.errors && errors.identifier ? 'is-invalid' : '' %>" name="identifier"  id="identifier" value="<%= product.identifier %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.identifier) { %> 
+                                <%= errors.identifier.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check adjust-check">
+                    <div class="align-center">
+                        <input class="form-check-input centerCheck" type="checkbox" id="featured" name="featured" <% if(product.featured == 1) { %> checked <% } %>>
+                        <label class="form-check-label" for="featured">
+                            Destacado
+                        </label>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="imagenPrincipal" class="form-label">Sube la imagen principal:</label>
+                    </div>
+                    <div class="col-7">
+                        <input type="file" name="imagenPrincipal" id="file">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.imagenPrincipal) { %> 
+                                <%= errors.imagenPrincipal.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pending to add carousel images multi input form element -->
+                <br>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-11 center">
+                        <button type="submit" class="boton-estandar boton-flex">
+                            Editar producto
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous"
+></script>
+</body>
+<%- include('../partials/footer.ejs') %>

@@ -1,3 +1,7 @@
+* {
+    word-break: break-word; /* Check to see how this works */
+}
+
 :root{
     --primario: #36981E;
     --complementario: #4D003C;
@@ -111,9 +115,16 @@ input[type="search"]::-webkit-search-results-decoration {
     border: 1px solid black;
     border-radius: 6px;
 }
+/* For animation */
 .carrito-producto{
     max-width: 100%;
+    font-size: 20px;
+    transition: transform 0.5s;
 }
+.carrito-producto:hover{
+    transform: rotate(90deg);
+}
+
 .titulo-producto{
     text-align: start;
     font-size: 1em;
@@ -124,9 +135,10 @@ input[type="search"]::-webkit-search-results-decoration {
     color: var(--neutro1);
 }
 .precio-producto{
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: var(--compuesto);
     margin-right: 0.3em;
+    font-weight: bold;
 }
 .etiqueta-producto{
     font-size: 0.7em;
@@ -155,7 +167,7 @@ input[type="search"]::-webkit-search-results-decoration {
     border-radius: 6px;
     border: none;
     width: 100%;
-    height: 50vw;
+    /*height: 50vw;*/
     background-color: white;
 }
 .carrusel-producto img{
@@ -221,4 +233,497 @@ footer div div div a{
 }
 footer div div div a:hover{
     color: var(--complementario-dividido);
+}
+
+/*footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}*/
+
+.characteristicsModal {
+    font-weight: bold;
+}
+
+.descriptionModal, .characteristicsModal, .listModal {
+    color: white;
+}
+
+.boton-estandar, .boton-secundario {
+    max-width: 200px;
+}
+
+.center {
+    text-align: center;
+}
+
+.checked {
+    color: orange;
+}
+
+.unchecked {
+    color: white;
+}
+
+.upper {
+    padding: 0 16px;
+}
+
+.down {
+    padding-bottom: 0;
+}
+
+.carrito-producto-modal {
+    color: white;
+    font-size: 30px;
+    transition: transform 0.5s;
+}
+.carrito-producto-modal:hover{
+    transform: rotate(90deg);
+}
+
+/* For exiting the modal x */
+/* Check why this is not loading from Bootstrap */
+/* Also JS missing to be able to close it */
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.close:hover {
+    color: #F1F1F1;
+    text-decoration: none;
+}
+
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+    opacity: .75;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+}
+
+a.close.disabled {
+    pointer-events: none;
+}
+
+/* For making shopping cart Mobile First */
+.scHeader, .priceBreakdown {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* For highlighting total in shopping cart */
+.total {
+    color: #97A619;
+    font-size: 16px;
+}
+
+/* For increase/decrease buttons in shopping cart */
+/* Obtained from https://codepen.io/mtbroomell/pen/yNwwdv*/
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40%;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.value-button:hover {
+    cursor: pointer;
+}
+
+#decrease {
+    border-radius: 8px 0 0 8px;
+}
+
+#increase {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+}
+
+#input-wrap {
+    margin: 0px;
+    padding: 0px;
+}
+
+input#number {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40%;
+    height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For footer */
+.ftco-footer-social li {
+    list-style: none;
+    margin: 0 10px 0 0;
+    display: inline-block;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6!important;
+}
+
+/* For breadcrumb */
+.personal {
+    font-size: 12px;
+}
+
+/* For not showing bullets in lists */
+.caracteristicas li {
+    list-style-type: none;
+}
+
+.caracteristicas {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* For product details page */
+.anchorFormat {
+    text-decoration: none;
+    text-align: center;
+    color: white!important;
+    font-weight: bold;
+}
+
+.editButton {
+    background-color: #0d6efd!important;
+    border-color: #0d6efd!important;
+}
+
+.deleteButton {
+    background-color: #dc3545!important;
+    border-color: #dc3545!important;
+}
+
+@media (min-width: 768px) {
+    /* For home page */
+    .tc {
+        font-size: 40px;
+    }
+    
+    .precio-producto {
+        font-size: 22px;
+    }
+
+    .slogan {
+        font-size: 20px;
+    }
+
+    .carrito-producto {
+        font-size: 26px;
+    }
+
+    .catDes {
+        font-size: 28px;
+    }
+
+    .titulo-producto {
+        font-size: 20px;
+        margin-left: 60px; /* Verificar para mejorar implementación*/
+    }
+
+    .row {
+        --bs-gutter-x: 100px;
+    }
+
+    .etiqueta-producto {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 18px;
+        margin-left: 60px;
+    }
+
+    /* For modal */
+    .modal-dialog {
+        max-width: 700px;
+    }
+
+    .modal-dialog-centered {
+        min-height: fit-content;
+    }
+
+    .titulo-producto-modal {
+        font-size: 20px;
+    }
+
+    .characteristicsModal {
+        font-weight: bold;
+    }
+
+    .listModal {
+        font-size: 14px;
+    }
+
+    .descriptionModal {
+        font-size: 16px;
+    }
+
+    .descriptionModal, .characteristicsModal, .listModal {
+        color: white;
+    }
+
+    /* For header */
+    #navbarNav {
+        height: 224px;
+    }
+
+    .navbar-nav {
+        font-size: 20px;
+    }
+
+    .logo-navbar {
+        font-size: 25px;
+    }
+    
+    /* For footer */
+    .tagsFooter, .col-auto {
+        font-size: 20px;
+    }
+
+    .ftco-footer-social li {
+        font-size: 26px;
+    }
+
+    /* For forms */
+
+    form div div label, .form-estandar, .boton-estandar, .boton-secundario {
+        font-size: 20px;
+    }
+
+    .boton-estandar, .boton-secundario {
+        max-width: 300px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .standarSize {
+        font-size: 18px;
+    }
+
+    /* For shopping cart */
+    .scHeader, .priceBreakdown {
+        font-size: 18px;
+    }
+
+    .total div {
+        font-size: 22px;
+    }
+
+    input#number, .value-button {
+        max-width: 40px;
+    }
+
+    .justify-content-between.itemNumber {
+        justify-content: center!important;
+    }
+
+    /* For breadcrumb */
+    .personal {
+        font-size: 16px;
+    }
+    
+}
+
+/* For compatibility purposes */
+@media (min-width: 991px) {
+    #navbarNav {
+        height: 80px;
+    }
+
+    /* For breadcrumb */
+    .personal {
+        margin-left: 43px;
+    }
+}
+
+/* For computers*/
+@media (min-width: 1200px){
+    /* For home page */
+    .tc {
+        font-size: 48px;
+    }
+
+    .precio-producto {
+        font-size: 26px;
+    }
+    
+    .slogan {
+        font-size: 24px;
+    }
+
+    .carrito-producto {
+        font-size: 30px;
+    }
+
+    .catDes {
+        font-size: 32px;
+    }
+
+    .titulo-producto {
+        font-size: 24px;
+        margin-left: 70px; /* Verificar para mejorar implementación*/
+    }
+
+    .row {
+        --bs-gutter-x: 150px;
+    }
+
+    .etiqueta-producto {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 20px;
+        margin-left: 70px;
+    }
+
+    /* For header */
+    #navbarNav {
+        height: 80px;
+    }
+
+    .navbar-nav {
+        font-size: 24px;
+    }
+
+    .logo-navbar {
+        font-size: 35px;
+    }
+
+    /* For modal */
+
+    .titulo-producto-modal {
+        font-size: 24px;
+    }
+
+    .modal {
+        width: 100%;
+        height: 85%;
+    }
+
+    .characteristicsModal {
+        font-weight: bold;
+    }
+
+    .listModal {
+        font-size: 18px;
+    }
+
+    .descriptionModal, .characteristicsModal, .listModal {
+        color: white;
+    }
+    
+    /* For footer */
+    .tagsFooter, .col-auto {
+        font-size: 20px;
+    }
+
+    .ftco-footer-social li {
+        font-size: 30px;
+    }
+
+    /* For forms */
+
+    form div div label, .form-estandar, .boton-estandar, .boton.boton-secundario {
+        font-size: 24px;
+    }
+
+    .boton-estandar, .boton-secundario {
+        max-width: 500px;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .standarSize {
+        font-size: 20px;
+    }
+
+    /* For shopping cart */
+    .scHeader, .priceBreakdown {
+        font-size: 22px;
+    }
+
+    .total div {
+        font-size: 26px;
+    }
+
+    input#number, .value-button {
+        max-width: 40px;
+    }
+
+    .justify-content-between.itemNumber {
+        justify-content:center!important;
+    }
+
+    /* For breadcrumb */
+    .personal {
+        margin-left: 55px;
+        font-size: 18px;
+    }
+
+    .pushLeft nav ol {
+        margin-left: 0px;
+    }
+
+    /* For product details page */
+    .descripcion {
+        font-size: 20px;
+    }
+
+    .unchecked2 {
+        color: black;
+    }
+
+    .descSide {
+        font-size: 18px;
+    }
+
+    .up {
+        margin-top: -10px;
+    }
+
+    .centerCheck {
+        margin-top: 0.57em!important;
+    }
+
+    .adjust-check {
+        padding-left: 20.4em;
+        margin-top: 1.5em;
+    }
 }

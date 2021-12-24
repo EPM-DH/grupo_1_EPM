@@ -1,7 +1,4 @@
-<%- include('partials/header.ejs') %>
-<title>Equipo Para Montaña</title>
-<%- include('partials/header2.ejs') %>
-<link rel="stylesheet" href="css/home.css" />
+<%- include('partials/header.ejs', {title: 'Equipo Para Montaña', home: 1}) %>
 <%- include('partials/navbar.ejs') %>
 <%- include('partials/offcanvas.ejs') %>
     <!--Bloque presentacion-->
@@ -11,7 +8,7 @@
           <h1 class="tc">Equipo Para Montaña</h1>
         </div>
         <div class="col-10">
-          <h3 class="">
+          <h3 class="slogan">
             Encuentra las guías de productos para tu deporte favorito
           </h3>
         </div>
@@ -143,189 +140,13 @@
       <!--Fin del Carrusel-->
       <div class="row justify-content-center mt-3 mb-2">
         <div class="col-11 p-0">
-          <p>Destacados</p>
+          <p class="catDes">Destacados</p>
         </div>
       </div>
       <!--productos-->
-      <div class="row justify-content-center mt-3">
-        <div class="col-11 producto-linea">
-          <div class="row">
-            <div class="col-3 pt-2 pb-2">
-              <button class="boton-flex boton-producto boton-vacio">
-                <img
-                  src="assets\productos\escaladaPTZLatc\front.png"
-                  alt="atc-escalada"
-                />
-              </button>
-            </div>
-            <div class="col">
-              <div class="row">
-                <div class="col p-0">
-                  <button
-                    class="boton-flex boton-vacio p-0"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalProducto"
-                  >
-                    <div class="titulo-producto p-1">PETZL ATC Escalada</div>
-                  </button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-3 p-0">
-                  <button class="boton-flex boton-vacio p-0">
-                    <div class="precio-producto">$599.00</div>
-                  </button>
-                </div>
-                <div class="col-7 p-0">
-                  <button class="boton etiqueta-producto">
-                    <div>Escalada</div>
-                  </button>
-                  <button class="boton etiqueta-producto">
-                    <div>Básicos</div>
-                  </button>
-                  <button class="boton etiqueta-producto">
-                    <div>Seguridad</div>
-                  </button>
-                </div>
-                <div class="col-1 pt-2">
-                  <button class="boton boton-vacio">
-                    <i class="carrito-producto fas fa-shopping-cart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%- include('partials/producto.ejs', {products}) %>
       <!--Modal detalle del producto-->
-      <div
-        class="modal fade"
-        id="modalProducto"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content modal-producto">
-            <div class="modal-header border-0">
-              <h5 class="titulo-producto-modal" id="staticBackdropLabel">
-                PETZL ATC Escalada
-              </h5>
-            </div>
-            <div class="modal-body border-0">
-              ...
-              <div
-                id="carouselProducto"
-                class="carousel carousel-dark slide"
-                data-bs-ride="carousel"
-              >
-                <div class="carousel-indicators">
-                  <button
-                    type="button"
-                    data-bs-target="#carouselProducto"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselProducto"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselProducto"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                    <div class="carrusel-producto">
-                      <img
-                        src="assets\productos\escaladaPTZLatc\front.png"
-                        class="d-block"
-                        alt="..."
-                      />
-                    </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                    <div class="carrusel-producto">
-                      <img
-                        src="assets\productos\escaladaPTZLatc\front.png"
-                        class="d-block"
-                        alt="..."
-                      />
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="carrusel-producto">
-                      <img
-                        src="assets\productos\escaladaPTZLatc\front.png"
-                        class="d-block"
-                        alt="..."
-                      />
-                    </div>
-                  </div>
-                </div>
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#carouselProducto"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#carouselProducto"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
-            <div class="modal-footer border-0">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="precio-producto">$599.00</div>
-                  </div>
-                  <div class="col">
-                    <button class="boton etiqueta-producto">
-                      <div>Escalada</div>
-                    </button>
-                    <button class="boton etiqueta-producto">
-                      <div>Básicos</div>
-                    </button>
-                    <button class="boton etiqueta-producto">
-                      <div>Seguridad</div>
-                    </button>
-                  </div>
-                  <div class="col-auto">
-                    <button class="boton boton-vacio">
-                      <i class="carrito-producto fas fa-shopping-cart"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%- include('partials/detalleProducto.ejs', {products}) %>
       <!--fin del modal-->
       <!--fin de producto-->
     </div>

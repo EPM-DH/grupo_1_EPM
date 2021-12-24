@@ -1,153 +1,92 @@
-<%- include('partials/header.ejs') %>
-<title>Carrito de compras</title>
-<%- include('partials/header2.ejs') %>
+<%- include('partials/header.ejs',  {title: 'Carrito de compras', home: 0}) %>
 <%- include('partials/navbar.ejs') %>
 <%- include('partials/offcanvas.ejs') %>
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-auto">
-                <h1>Carrito</h1>
+                <h1>Carrito de compras <span class="">(2 elementos en tu carrito)</span></h1>
+            </div>
+        </div>
+        <%- include('partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
+
+        <div class="d-flex flex-row justify-content-around mt-3">
+            <div class="col-11 producto-linea">
+                <div class="d-flex flex-row justify-content-around align-items-center">
+                    <div class="d-flex justify-content-center col-2">
+                        <h3 class="scHeader">Imagen</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-3">
+                        <h3 class="scHeader">Nombre</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-2">
+                        <h3 class="scHeader">Cantidad</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-1">
+                        <h3 class="scHeader">Precio</h3>
+                    </div>
+                    <div class="d-flex justify-content-center col-1">
+                        <h3 class="scHeader">Subtotal</h3>
+                    </div>
+                </div>
             </div>
         </div>
         <!--productos-->
-        <div class="row justify-content-center mt-3">
+        <%- include('partials/productoCarrito.ejs', {products}) %>
+        <%- include('partials/detalleProducto.ejs', {products}) %>
+        <!--fin de producto-->
+
+        <div class="d-flex flex-row justify-content-around mt-5">
             <div class="col-11 producto-linea">
-                <div class="row">
-                    <div class="col-3 pt-2 pb-2">
-                        <button class="boton-flex boton-producto boton-vacio">
-                            <img src="assets\productos\escaladaPTZLatc\front.png" alt="atc-escalada">
-                        </button>
-                    </div>
-                    <div class="col p-0">
-                        <button class="boton-flex boton-vacio p-0" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modalProducto">
-                            <div class="titulo-producto p-1">
-                                PETZL ATC Escalada
+                <div class="d-flex flex-row justify-content-around align-items-center">
+                    <div class="col-6">
+                        <div class="d-flex flex-column justify-content-between">
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="scHeader">
+                                    Subtotal
+                                </div>
+                                <div class="priceBreakdown">
+                                    $4562
+                                </div>
                             </div>
-                        </button>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="scHeader">
+                                    Descuentos
+                                </div>
+                                <div class="priceBreakdown">
+                                    $150
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="scHeader">
+                                    Envío
+                                </div>
+                                <div class="priceBreakdown">
+                                    $300
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-flex flex-row justify-content-between total">
+                                <div class="scHeader">
+                                    Total
+                                </div>
+                                <div class="priceBreakdown">
+                                    $4562
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-3 p-0">
-                                <button class="boton-flex boton-vacio p-0">
-                                    <div class="precio-producto">
-                                        $599.00
-                                    </div>
+                    <div class="col-3">
+                        <div class="d-flex flex-column justify-content-between align-items-center"> <!-- Agregar un botón si es necesario para añadir cupón -->
+                            <div class="col">
+                                <button type="submit" class="boton-estandar boton-flex">
+                                    Proceder al pago
                                 </button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <button class="p-0">-</button>
-                                <div>1</div>
-                                <button class="p-0">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                Subtotal
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                $650
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Modal detalle del producto-->
-        <div class="modal fade" id="modalProducto" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-producto">
-                    <div class="modal-header border-0">
-                        <h5 class="titulo-producto-modal" id="staticBackdropLabel">PETZL ATC Escalada</h5>
-                    </div>
-                    <div class="modal-body border-0">
-                        ...
-                        <div id="carouselProducto" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselProducto" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselProducto" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselProducto" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="10000">
-                                    <div class="carrusel-producto">
-                                        <img src="assets\productos\escaladaPTZLatc\front.png" class="d-block" alt="...">
-                                    </div>
-                                </div>
-                                <div class="carousel-item" data-bs-interval="2000">
-                                    <div class="carrusel-producto">
-                                        <img src="assets\productos\escaladaPTZLatc\front.png" class="d-block" alt="...">
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="carrusel-producto">
-                                        <img src="assets\productos\escaladaPTZLatc\front.png" class="d-block" alt="...">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducto"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselProducto"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="modal-footer border-0">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <div class="precio-producto">
-                                        $599.00
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <button class="boton etiqueta-producto">
-                                        <div>
-                                            Escalada
-                                        </div>
-                                    </button>
-                                    <button class="boton etiqueta-producto">
-                                        <div>
-                                            Básicos
-                                        </div>
-                                    </button>
-                                    <button class="boton etiqueta-producto">
-                                        <div>
-                                            Seguridad
-                                        </div>
-                                    </button>
-                                </div>
-                                <div class="col-auto">
-                                    <button class="boton boton-vacio">
-                                        <i class="carrito-producto fas fa-shopping-cart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--fin del modal-->
-        <!--fin de producto-->
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
