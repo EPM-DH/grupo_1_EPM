@@ -13,8 +13,9 @@ const validations = [
         .isStrongPassword().withMessage('La contraseña debe contener al menos 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial'),
     body('confirmarcontrasena').notEmpty().withMessage('La confirmación de contraseña no puede estar vacía').bail()
         .custom((value, { req }) => {
-            if (value !== req.body.contrasena) 
+            if (value !== req.body.contrasena){
                 throw new Error('La confirmación de la contraseña no coincide con la contraseña');
+            }
 
             return true;
         }),
@@ -22,13 +23,14 @@ const validations = [
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
         
-        if(!file)
+        if(!file){
             throw new Error('Tienes que subir una imagen');
-        else {
+        } else {
             let fileExtension = path.extname(file.originalname);
 
-            if(!acceptedExtensions.includes(fileExtension.toLowerCase()))
+            if(!acceptedExtensions.includes(fileExtension.toLowerCase())){
                 throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            }
         }
 
         return true;

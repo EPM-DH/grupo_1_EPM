@@ -11,7 +11,7 @@ router.get('/', (req, res)=> {
 router.post('/', urlencodedParser, function(req, res) {
     console.log(req.body);
     console.log("Funcionó");
-    res.redirect('/searchresult');
+    res.redirect('/search');
 });
 
 module.exports = router;

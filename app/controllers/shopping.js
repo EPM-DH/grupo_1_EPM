@@ -9,7 +9,7 @@ const shoppingController = {
         let breadcrumbList = ["Página de inicio", "Carrito"];
         let urlList = [""];
         urlList.push(req.originalUrl);
-		res.render('./shoppingCart', {products, breadcrumbList, urlList});
+		res.render('./cart', {products, breadcrumbList, urlList});
 	},
 };
 
