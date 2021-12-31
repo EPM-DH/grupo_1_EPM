@@ -18,9 +18,9 @@ app.use(cookieParser());
 app.use(express.json()); //To be able to retrieve the forms data in the req element
 app.use('/', mainRouter);
 app.use('/user', userRouter);
-app.use('/searchresult', searchRouter); //Consider changing into main router
+app.use('/search', searchRouter); //Consider changing into main router
 app.use('/product', productRouter);
-app.use('/shoppingCart', shoppingRouter);
+app.use('/cart', shoppingRouter);
 app.set("view engine", "ejs");
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));

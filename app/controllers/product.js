@@ -42,8 +42,13 @@ const productController = {
 				}
 			};
 			//To see if a product is featured
-			if(req.body.featured == 'on')
+			if(req.body.featured == 'on'){
 				featured = 1;
+			}
+
+			if(!Array.isArray(req.body.categories)){
+				req.body.categories = [req.body.categories];
+			}
 
 			//Create new product from form data
 			let newProduct = {
@@ -68,7 +73,7 @@ const productController = {
 			//Write the new product to the JSON file
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
 			
-			res.redirect('/'); //Products don't update until the page is reloaded 
+			res.redirect('/product/' + newProduct.id); //Products don't update until the page is reloaded 
 
 		} else { //Hay errores
 			//Destroy image saved by multer
@@ -83,8 +88,9 @@ const productController = {
 				});
 			}
 
-			if(!Array.isArray(req.body.categories))
+			if(!Array.isArray(req.body.categories)){
 				req.body.categories = [req.body.categories];
+			}
 
 			res.render('products/createProduct', { errors: errors.mapped() , old: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
@@ -113,13 +119,19 @@ const productController = {
 			};
 
 			//To see if a product is featured
-			if(req.body.featured == 'on')
+			if(req.body.featured == 'on'){
 				featured = 1;
+			}
 
-			if(req.file == undefined)
+			if(req.file == undefined){
 				imagen = product.image;
-			else
+			} else {
 				imagen = req.file.filename;
+			}
+
+			if(!Array.isArray(req.body.categories)){
+				req.body.categories = [req.body.categories];
+			}
 
 			//Create updated product from form data
 			let newProduct = {
@@ -144,7 +156,7 @@ const productController = {
 			//Write the new product to the JSON file
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
 			
-			res.redirect('/'); //Products don't update until the page is reloaded 
+			res.redirect('/product/' + id); //Products don't update until the page is reloaded 
 
 		} else { //Hay errores
 			//Destroy image saved by multer
@@ -163,8 +175,9 @@ const productController = {
 
 			req.body.id = id;
 
-			if(!Array.isArray(req.body.categories))
+			if(!Array.isArray(req.body.categories)){
 				req.body.categories = [req.body.categories];
+			}
 
 			let characteristics = [];
 
@@ -180,8 +193,9 @@ const productController = {
 			let featured = 0;
 
 			//To see if a product is featured
-			if(req.body.featured == 'on')
+			if(req.body.featured == 'on'){
 				featured = 1;
+			}
 
 			req.body.featured = featured;
 
@@ -195,7 +209,7 @@ const productController = {
 		let finalProducts = products.filter(product => product.id != id); //Get all the products that don't match with the given id
 
 		//Destroy image saved by multer
-		fs.unlinkSync(path.join(__dirname, '/../public/img', products[id - 1].image), (err) => {
+		fs.unlinkSync(path.join(__dirname, '/../public/img/products', products[id - 1].image), (err) => {
 			if (err) {
 			  console.error(err)
 			  return
@@ -205,7 +219,7 @@ const productController = {
 		});
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts));
-		res.redirect('/');
+		res.redirect('/product');
 	},
 };
 
