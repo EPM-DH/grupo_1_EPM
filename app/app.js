@@ -12,6 +12,7 @@ const searchRouter = require('./routes/search');
 const productRouter = require('./routes/product');
 const shoppingRouter = require('./routes/shopping');
 const userLoggedMiddleware = require('./middlewares/userLogged');
+const userActivity = require('./middlewares/userActivity');
 
 app.use(express.static(publicPath));
 app.use(methodOverride('_method')); // For PUT and DELETE methods
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false })); //To be able to retrieve the f
 app.use(cookieParser());
 app.use(express.json()); //To be able to retrieve the forms data in the req element
 app.use(userLoggedMiddleware);
+app.use(userActivity);
 /*app.use(session({ secret: "Nuestro mensaje secreto",
                   name: "logeo",
                   resave: false,
