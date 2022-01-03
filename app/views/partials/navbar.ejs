@@ -52,16 +52,18 @@
                 >Productos</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/user/register"
-                >Registrate</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/user/login"
-                >Ingresa</a
-              >
-            </li>
+            <% if (!locals.logged) { %>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/user/register"
+                  >Registrate</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/user/login"
+                  >Ingresa</a
+                >
+              </li>
+            <% } %>
             <li class="nav-item">
               <a class="nav-link" href="/cart">
                 <i class="fas fa-shopping-cart"> </i>

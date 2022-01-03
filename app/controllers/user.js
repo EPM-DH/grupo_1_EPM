@@ -66,10 +66,10 @@ const userController = {
 				if(user.email == req.body.email && bcrypt.compareSync(req.body.contrasena, user.password)) {
 					//Login
 					//Crear cookie si el usuario marcó la casilla de recuérdame
-					if(req.body.recuerdame){
-						res.cookie('usuarioLogeado', req.body.email, { maxAge: 3600 * 1000 });
+					if(req.body.recuerdame){ //No se elimina la sesión cuando el usuario cierra el navegador
+						res.cookie('usuarioLogeado', req.body.email, { maxAge: (3600 * 24) * 1000 }); // 1 día
 					} else { //Crear sesión si el usuario no marcó la casilla de recuérdame 
-						res.cookie('usuarioLogeado', req.body.email);
+						res.cookie('usuarioLogeado', req.body.email, { maxAge: (60 * 20) * 1000 }); //20 min
 					}
 					
 					//Indicar al usuario que está logeado
@@ -101,6 +101,9 @@ const userController = {
 		}
 		res.redirect('/');
 	},
+	profile: (req, res) => {
+		res.render('users/profile');
+	}
 };
 
 module.exports = userController;
