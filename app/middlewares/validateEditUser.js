@@ -11,18 +11,6 @@ const validations = [
     body('contrasena').optional({checkFalsy: true})
         .isLength({ min: 8 }).withMessage('La contraseña debe ser de mínimo 8 caracteres').bail() //Check its composition
         .isStrongPassword().withMessage('La contraseña debe contener al menos 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial'),
-    body('confirmarcontrasena')
-        .custom((value, { req }) => {
-            if(req.body.contrasena && value){
-                if (value !== req.body.contrasena){
-                    throw new Error('La confirmación de la contraseña no coincide con la contraseña');
-                }
-            } else if (req.body.contrasena && !value) {
-                throw new Error('La confirmación de la contraseña no puede estar vacía');
-            }
-
-            return true;
-        }),
     body('avatar').custom((value, { req }) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
