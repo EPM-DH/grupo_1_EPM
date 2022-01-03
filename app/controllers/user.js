@@ -64,9 +64,16 @@ const userController = {
 			//Search for user & password
 			for(user of users) { 
 				if(user.email == req.body.email && bcrypt.compareSync(req.body.contrasena, user.password)) {
-					//Login - Crear cookie o session e indicar al usuario que está logeado, etc
-					res.cookie('usuarioLogeado', req.body.email, { maxAge: 3600 * 1000 });
-					res.redirect('/');
+					//Login
+					//Crear cookie si el usuario marcó la casilla de recuérdame
+					if(req.body.recuerdame){
+						res.cookie('usuarioLogeado', req.body.email, { maxAge: 3600 * 1000 });
+					} else { //Crear sesión si el usuario no marcó la casilla de recuérdame 
+						res.cookie('usuarioLogeado', req.body.email);
+					}
+					
+					//Indicar al usuario que está logeado
+					return res.redirect('/');
 				}
 			}
 
@@ -86,6 +93,13 @@ const userController = {
 			res.render('users/login', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}
+	},
+	logout: (req, res) => {
+		//First check if cookie exists
+		if(req.cookies.usuarioLogeado){
+			res.clearCookie('usuarioLogeado');
+		}
+		res.redirect('/');
 	},
 };
 

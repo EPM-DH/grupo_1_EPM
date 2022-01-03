@@ -19,4 +19,6 @@ router.get('/login', userController.retrieveLogin);
 
 router.post('/login', validationsLogin, userController.login);
 
+router.get('/logout', userController.logout);
+
 module.exports = router;

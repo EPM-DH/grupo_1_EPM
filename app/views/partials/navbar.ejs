@@ -67,34 +67,36 @@
                 <i class="fas fa-shopping-cart"> </i>
               </a>
             </li>
-            <li class="nav-item dropdown dropstart">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fab fa-jedi-order"></i>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark"
-                aria-labelledby="navbarDropdown"
-              >
-                <li><a class="dropdown-item" href="/profile">Perfil</a></li>
-                <li>
-                  <a class="dropdown-item" href="/purchases">Pedidos</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="/whishlist">Lista de Deseos</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-              </ul>
-            </li>
+            <% if (locals.logged) { %>
+              <li class="nav-item dropdown dropleft">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span><%= logged.nombre %> &nbsp; <img src="/img/users/<%= logged.imgPerfil %>" width="50" height="55" alt="Imagen de perfil del usuario" style="border-radius: 50%;"></span>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+                  <li>
+                    <a class="dropdown-item" href="/purchases">Pedidos</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/whishlist">Lista de Deseos</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li><a class="dropdown-item" href="/user/logout">Cerrar Sesión</a></li>
+                </ul>
+              </li>
+            <% } %>
           </ul>
         </div>
       </div>
