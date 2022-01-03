@@ -11,7 +11,7 @@ function userLogged (req, res, next) {
         for(user of users) { 
             if(user.email == correo) {
                 //Guardar datos del usuario en variable local
-                res.locals.logged = {nombre: user.firstName, imgPerfil: user.avatar, rol: user.rol};
+                res.locals.logged = {nombre: user.firstName, imgPerfil: user.avatar, rol: user.rol, apellidos: user.lastName, email: user.email, id: user.id };
             }
         }
     }

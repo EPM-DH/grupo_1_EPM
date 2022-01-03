@@ -7,11 +7,14 @@ const validations = [
     body('nombre').notEmpty().withMessage('El nombre no puede estar vacío'),
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacío'),
     body('email').notEmpty().withMessage('El email no puede estar vacío').bail()
-        .isEmail().withMessage('Debes escribir un formato de correo válido'), ///Check if email is in use
-    body('contrasena').notEmpty().withMessage('La contraseña no puede estar vacía').bail()
-        .isLength({ min: 8 }).withMessage('La contraseña debe ser de mínimo 8 caracteres').bail()
-        .isStrongPassword().withMessage('La contraseña debe contener al menos 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial'),
-    body('confirmarcontrasena').notEmpty().withMessage('La confirmación de contraseña no puede estar vacía').bail()
+        .isEmail().withMessage('Debes escribir un formato de correo válido'),
+    body('contrasena')// if the new password is provided...
+        .if((value, { req }) => req.body.contrasena)
+        // ...then the old password must be too...
+        .if(body('confirmarcontrasena').exists())
+        // ...and they should not be empty
+        .notEmpty().withMessage('Si deseas cambiar tu contraseña ingresa la nueva contraseña y su confirmación')
+        // ...and they must be equal
         .custom((value, { req }) => {
             if (value !== req.body.contrasena){
                 throw new Error('La confirmación de la contraseña no coincide con la contraseña');
@@ -23,9 +26,7 @@ const validations = [
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
         
-        if(!file){
-            throw new Error('Tienes que subir una imagen');
-        } else {
+        if(file) {
             let fileExtension = path.extname(file.originalname);
 
             if(!acceptedExtensions.includes(fileExtension.toLowerCase())){
@@ -35,7 +36,6 @@ const validations = [
 
         return true;
     }),
-    body('checkPrivacidad').notEmpty().withMessage('Debe aceptar la declaración de privacidad para poder avanzar'),
 ];
 
 module.exports = validations;

@@ -102,8 +102,67 @@ const userController = {
 		res.redirect('/');
 	},
 	profile: (req, res) => {
-		res.render('users/profile');
-	}
+		res.render('users/profile', { img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id });
+	},
+	update: (req, res) => {
+		const errors = validationResult(req);
+
+		if(errors.isEmpty()){ //No hay errores
+			let id = req.params.id;
+			let usuario = users.find(user => user.id == id);
+			let contrasena = usuario.password;
+			let imagen;
+
+			if(req.body.contrasena){
+				contrasena = bcrypt.hashSync(req.body.contrasena, 10);
+			} 
+
+			if(req.file == undefined){
+				imagen = usuario.avatar;
+			} else {
+				imagen = req.file.filename;
+			}
+
+			//Create updated user from form data
+			let newUser = {
+				id: id,
+				firstName: req.body.nombre,
+				lastName: req.body.apellido,
+				email: req.body.email,
+				password: contrasena,
+				avatar: imagen,
+				rol: usuario.rol, //For future implementations consider adding the option to change an user
+			};
+			
+			//Replace old product with updated one
+			users[id - 1] = newUser;
+
+			//Write the updated user to the JSON file
+			fs.writeFileSync(usersFilePath, JSON.stringify(users));
+			
+			res.redirect('/user/profile'); //User won't update until the page is reloaded 
+
+		} else { //Hay errores
+			//Destroy image saved by multer
+			if(req.file){
+				fs.unlinkSync(path.join(__dirname, '/../public/img/users', req.file.filename), (err) => {
+					if (err) {
+						console.error(err)
+						return
+					}
+				
+					console.log('File removed successfully');
+				});
+			}
+
+			let id = req.params.id;
+
+			req.body.id = id;
+			
+			res.render('users/profile', { errors: errors.mapped() , img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id }); //Mapped convierte el arreglo en un objeto literal
+			//Donde en lugar de índices tiene los nombres de los inputs del formulario
+		}
+	},
 };
 
 module.exports = userController;
