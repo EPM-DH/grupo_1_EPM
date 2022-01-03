@@ -42,8 +42,8 @@ const userController = {
 			if(req.file){
 				fs.unlinkSync(path.join(__dirname, '/../public/img/users', req.file.filename), (err) => {
 					if (err) {
-						console.error(err)
-						return
+						console.error(err);
+						return;
 					}
 				
 					console.log('File removed successfully');
@@ -209,7 +209,8 @@ const userController = {
 			};
 
 			//Replace old product with updated one
-			users[id - 1] = newUser;
+			let index = users.findIndex(element => element.id == id);
+			users[index] = newUser;
 
 			//Write the updated user to the JSON file
 			fs.writeFileSync(usersFilePath, JSON.stringify(users));

@@ -151,7 +151,8 @@ const productController = {
 			};
 			
 			//Replace old product with updated one
-			products[id - 1] = newProduct;
+			let index = products.findIndex(element => element.id == id);
+			products[index] = newProduct;
 
 			//Write the new product to the JSON file
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
