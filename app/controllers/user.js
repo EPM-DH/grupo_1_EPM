@@ -125,7 +125,7 @@ const userController = {
 
 			//Create updated user from form data
 			let newUser = {
-				id: id,
+				id: parseInt(id),
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
 				email: req.body.email,
@@ -133,7 +133,7 @@ const userController = {
 				avatar: imagen,
 				rol: usuario.rol, //For future implementations consider adding the option to change an user
 			};
-			
+
 			//Replace old product with updated one
 			users[id - 1] = newUser;
 

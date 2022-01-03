@@ -8,16 +8,17 @@ const validations = [
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacío'),
     body('email').notEmpty().withMessage('El email no puede estar vacío').bail()
         .isEmail().withMessage('Debes escribir un formato de correo válido'),
-    body('contrasena')// if the new password is provided...
-        .if((value, { req }) => req.body.contrasena)
-        // ...then the old password must be too...
-        .if(body('confirmarcontrasena').exists())
-        // ...and they should not be empty
-        .notEmpty().withMessage('Si deseas cambiar tu contraseña ingresa la nueva contraseña y su confirmación')
-        // ...and they must be equal
+    body('contrasena').optional({checkFalsy: true})
+        .isLength({ min: 8 }).withMessage('La contraseña debe ser de mínimo 8 caracteres').bail() //Check its composition
+        .isStrongPassword().withMessage('La contraseña debe contener al menos 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial'),
+    body('confirmarcontrasena')
         .custom((value, { req }) => {
-            if (value !== req.body.contrasena){
-                throw new Error('La confirmación de la contraseña no coincide con la contraseña');
+            if(req.body.contrasena && value){
+                if (value !== req.body.contrasena){
+                    throw new Error('La confirmación de la contraseña no coincide con la contraseña');
+                }
+            } else if (req.body.contrasena && !value) {
+                throw new Error('La confirmación de la contraseña no puede estar vacía');
             }
 
             return true;

@@ -135,7 +135,7 @@ const productController = {
 
 			//Create updated product from form data
 			let newProduct = {
-				id: id,
+				id: parseInt(id),
 				name: req.body.name,
 				price: req.body.price,
 				categories: req.body.categories,
