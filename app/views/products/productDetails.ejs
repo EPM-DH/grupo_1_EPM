@@ -62,17 +62,18 @@
 						Añadir al carrito
 					</a>
 
-					<hr>
-
-					<div class="d-flex flex-row justify-content-between">
-						<div class="col-8">
-							<a href="/product/edit/<%= product.id %>" type="submit" class="boton-estandar anchorFormat editButton">Editar producto</a>
+					<% if (locals.logged && logged.rol == 'administrador') { %>
+						<hr>
+						<div class="d-flex flex-row justify-content-between">
+							<div class="col-8">
+								<a href="/product/edit/<%= product.id %>" type="submit" class="boton-estandar anchorFormat editButton">Editar producto</a>
+							</div>
+							<div class="col-6">
+								<!-- Button trigger modal -->
+								<button type="button" class="boton-estandar anchorFormat deleteButton" data-toggle="modal" data-target="#confirmationModal">Eliminar</button>
+							</div>
 						</div>
-						<div class="col-6">
-							<!-- Button trigger modal -->
-							<button type="button" class="boton-estandar anchorFormat deleteButton" data-toggle="modal" data-target="#confirmationModal">Eliminar</button>
-						</div>
-					</div>
+					<% } %>
 				</article>
 			</div>
 		</div>

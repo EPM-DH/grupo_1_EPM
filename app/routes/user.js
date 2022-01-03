@@ -8,15 +8,21 @@ const userController = require('../controllers/user');
 const validationsRegister = require('../middlewares/validateRegisterUser'); //Does it have to be a function? 
 const uploadFile = require('../middlewares/multerUser'); //Does it have to be a function? 
 const validationsLogin = require('../middlewares/validateLoginUser'); //Does it have to be a function? 
+const nonAuthRoutes = require('../middlewares/nonAuthRoutes'); 
+const authRoutes = require('../middlewares/authRoutes'); 
 
 //Routes
-router.get('/register', userController.retrieveRegister);
+router.get('/register', nonAuthRoutes, userController.retrieveRegister);
 
 //Express-validator se usa después de multer para que también pueda validar la imagen
-router.post('/register', uploadFile.single('avatar'), validationsRegister, userController.register);
+router.post('/register', nonAuthRoutes, uploadFile.single('avatar'), validationsRegister, userController.register);
 
-router.get('/login', userController.retrieveLogin);
+router.get('/login', nonAuthRoutes, userController.retrieveLogin);
 
-router.post('/login', validationsLogin, userController.login);
+router.post('/login', nonAuthRoutes, validationsLogin, userController.login);
+
+router.get('/logout', authRoutes, userController.logout);
+
+router.get('/profile', authRoutes, userController.profile);
 
 module.exports = router;
