@@ -68,8 +68,10 @@ const userController = {
 					//Crear cookie si el usuario marcó la casilla de recuérdame
 					if(req.body.recuerdame){ //No se elimina la sesión cuando el usuario cierra el navegador
 						res.cookie('usuarioLogeado', req.body.email, { maxAge: (3600 * 24) * 1000 }); // 1 día
+						res.cookie('duracion', 3600, { maxAge: (3600 * 24) * 1000 }); // 1 día
 					} else { //Crear sesión si el usuario no marcó la casilla de recuérdame 
 						res.cookie('usuarioLogeado', req.body.email, { maxAge: (60 * 20) * 1000 }); //20 min
+						res.cookie('duracion', 20, { maxAge: (3600 * 24) * 1000 }); // 1 día
 					}
 					
 					//Indicar al usuario que está logeado
@@ -98,6 +100,7 @@ const userController = {
 		//First check if cookie exists
 		if(req.cookies.usuarioLogeado){
 			res.clearCookie('usuarioLogeado');
+			res.clearCookie('duracion');
 		}
 		res.redirect('/');
 	},
@@ -218,8 +221,8 @@ const userController = {
 			if(req.file){
 				fs.unlinkSync(path.join(__dirname, '/../public/img/users', req.file.filename), (err) => {
 					if (err) {
-						console.error(err)
-						return
+						console.error(err);
+						return;
 					}
 				
 					console.log('File removed successfully');
