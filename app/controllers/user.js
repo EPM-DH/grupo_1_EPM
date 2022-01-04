@@ -34,7 +34,7 @@ const userController = {
 			users.push(newUser);
 
 			//Write the new product to the JSON file
-			fs.writeFileSync(usersFilePath, JSON.stringify(users));
+			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
 			res.redirect('/');	
 		} else { //Hay errores
@@ -213,7 +213,7 @@ const userController = {
 			users[index] = newUser;
 
 			//Write the updated user to the JSON file
-			fs.writeFileSync(usersFilePath, JSON.stringify(users));
+			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
 			res.redirect('/user/profile'); //User won't update until the page is reloaded 
 

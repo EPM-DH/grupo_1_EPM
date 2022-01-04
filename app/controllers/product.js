@@ -71,7 +71,7 @@ const productController = {
 			products.push(newProduct);
 
 			//Write the new product to the JSON file
-			fs.writeFileSync(productsFilePath, JSON.stringify(products));
+			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 			
 			res.redirect('/product/' + newProduct.id); //Products don't update until the page is reloaded 
 
@@ -155,7 +155,7 @@ const productController = {
 			products[index] = newProduct;
 
 			//Write the new product to the JSON file
-			fs.writeFileSync(productsFilePath, JSON.stringify(products));
+			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 			
 			res.redirect('/product/' + id); //Products don't update until the page is reloaded 
 
@@ -219,7 +219,7 @@ const productController = {
 			console.log('File removed successfully');
 		});
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts));
+		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
 		res.redirect('/product');
 	},
 };
