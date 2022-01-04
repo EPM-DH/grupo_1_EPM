@@ -35,8 +35,13 @@ const userController = {
 
 			//Write the new product to the JSON file
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-			
-			res.redirect('/');	
+
+			//Notify user about new user creation
+			let notification = {activo: 1, accion: "creación", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-success"};
+
+			req.app.notification = notification;
+
+			res.redirect('/');
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
