@@ -135,7 +135,7 @@ const productController = {
 
 			//Create updated product from form data
 			let newProduct = {
-				id: id,
+				id: parseInt(id),
 				name: req.body.name,
 				price: req.body.price,
 				categories: req.body.categories,
@@ -151,7 +151,8 @@ const productController = {
 			};
 			
 			//Replace old product with updated one
-			products[id - 1] = newProduct;
+			let index = products.findIndex(element => element.id == id);
+			products[index] = newProduct;
 
 			//Write the new product to the JSON file
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
