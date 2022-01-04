@@ -34,9 +34,14 @@ const userController = {
 			users.push(newUser);
 
 			//Write the new product to the JSON file
-			fs.writeFileSync(usersFilePath, JSON.stringify(users));
-			
-			res.redirect('/');	
+			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+
+			//Notify user about new user creation
+			let notification = {activo: 1, accion: "creación", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-success"};
+
+			req.app.notification = notification;
+
+			res.redirect('/');
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
@@ -213,7 +218,7 @@ const userController = {
 			users[index] = newUser;
 
 			//Write the updated user to the JSON file
-			fs.writeFileSync(usersFilePath, JSON.stringify(users));
+			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
 			res.redirect('/user/profile'); //User won't update until the page is reloaded 
 

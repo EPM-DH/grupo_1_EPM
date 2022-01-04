@@ -8,7 +8,13 @@ const mainController = {
 	index: (req, res) => {
 		let productos = products.filter(producto => producto.featured != 0);
 		
-		res.render('home', {products: productos});
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification
+		}
+
+		res.render('home', {products: productos, notification});
 	},
 };
 
