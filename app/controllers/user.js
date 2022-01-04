@@ -113,7 +113,7 @@ const userController = {
 		let notification = '';
 
 		if(req.app.notification){
-			notification = req.app.notification
+			notification = req.app.notification;
 		}
 
 		res.render('users/profile', { img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id, notification });
@@ -226,7 +226,7 @@ const userController = {
 			//Write the updated user to the JSON file
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
-			//Notify user about new user creation
+			//Notify user about user edition
 			let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-warning"};
 
 			req.app.notification = notification;
@@ -250,6 +250,7 @@ const userController = {
 
 			req.body.id = id;
 			
+			//Cambiar implementación y utilizar algo más en lugar de res.locals
 			res.render('users/profile', { errors: errors.mapped() , img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id }); //Mapped convierte el arreglo en un objeto literal
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}

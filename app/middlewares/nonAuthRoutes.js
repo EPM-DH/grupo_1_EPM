@@ -4,7 +4,7 @@ const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); //Validate if users variable is empty before anything else
 
-function authRoutes(req, res, next) {
+function nonAuthRoutes(req, res, next) {
     if(req.cookies.usuarioLogeado){
 
         let correo = req.cookies.usuarioLogeado;
@@ -21,4 +21,4 @@ function authRoutes(req, res, next) {
     }
 }
 
-module.exports = authRoutes;
+module.exports = nonAuthRoutes;
