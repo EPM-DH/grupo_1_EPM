@@ -34,14 +34,5 @@
   "password": "Hola1234",
   "avatar": "",
   "rol": "estandar"
- },
- {
-  "id": 5,
-  "firstName": "Test",
-  "lastName": "Test",
-  "email": "test@email.com",
-  "password": "$2a$10$RcWzi63bru6.d2oA4PLsXuA0JXbuqZdheHKuTVe/3FPLrWTGPBVS6",
-  "avatar": "cosmo_1641323887253.jpg",
-  "rol": "estandar"
  }
 ]

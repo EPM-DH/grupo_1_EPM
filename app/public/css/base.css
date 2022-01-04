@@ -430,6 +430,11 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 20px;
 }
 
+/* For toast */
+.topCorner {
+    top: 100px;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
