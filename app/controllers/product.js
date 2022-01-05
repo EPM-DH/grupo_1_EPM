@@ -11,6 +11,9 @@ const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 const { validationResult } = require('express-validator');
 
+//Models
+const Product = require('../models/Product');
+
 //Consider adding rating field to products JSON 
 
 const productController = {
@@ -73,6 +76,23 @@ const productController = {
 				image: req.file.filename, 
 				carouselImages: [req.file.filename, req.file.filename, req.file.filename], //Update in following sprints
 			};
+
+			//Check that there isn't a product registered with the same email already
+			let productInDB = Product.findByField('identifier', req.body.identifier);
+
+			if(productInDB){ //Return an error to the register form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este identificador ya está siendo utilizado',
+					param: 'identifier',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('products/createProduct', { errors: errors.mapped() , old: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
+			}
 
 			//Add new product
 			products.push(newProduct);
@@ -155,6 +175,23 @@ const productController = {
 				image: imagen, //To be obtained from multer
 				carouselImages: product.carouselImages, //Update in following sprints
 			};
+
+			//Check that there isn't a product registered with the same identifier already
+			let productInDB = Product.findByField('identifier', req.body.identifier);
+
+			if(productInDB && productInDB.id != id){ //Return an error to the register form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este identificador ya está siendo utilizado por otro product',
+					param: 'identifier',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('products/editProduct', { errors: errors.mapped() , old: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
+			}
 			
 			//Replace old product with updated one
 			let index = products.findIndex(element => element.id == id);

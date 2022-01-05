@@ -133,34 +133,5 @@
    "cosmo.jpg",
    "cosmo.jpg"
   ]
- },
- {
-  "name": "Test",
-  "price": "345",
-  "categories": [
-   "Básicos",
-   "Singing rock"
-  ],
-  "shortDescription": "fhfgfhdfghf",
-  "longDescription": "ghfhghsgvdfgsgvvbdfadfg",
-  "characteristic1": "gdfgdfg",
-  "characteristic2": "",
-  "characteristic3": "",
-  "identifier": "gfd4",
-  "id": 5,
-  "characteristics": [
-   "gdfgdfg",
-   "",
-   ""
-  ],
-  "vendidos": 0,
-  "toBuy": 0,
-  "featured": 0,
-  "image": "cosmo_1641395697298.jpg",
-  "carouselImages": [
-   "cosmo_1641395697298.jpg",
-   "cosmo_1641395697298.jpg",
-   "cosmo_1641395697298.jpg"
-  ]
  }
 ]

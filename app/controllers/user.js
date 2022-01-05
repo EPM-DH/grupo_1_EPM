@@ -64,7 +64,7 @@ const userController = {
 
 			req.app.notification = notification;
 
-			return res.redirect('/');
+			return res.redirect('/user/login');
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
@@ -83,7 +83,13 @@ const userController = {
 		}
 	},
     retrieveLogin: (req, res) => {
-		res.render('users/login');
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification;
+		}
+
+		res.render('users/login', { notification });
 	},
 	login: (req, res) => {
 		let errors = validationResult(req);
