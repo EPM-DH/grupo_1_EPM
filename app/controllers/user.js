@@ -33,7 +33,7 @@ const userController = {
 				rol: 'estandar',
 			};
 
-			/*//Check that there isn't a user registered with the same email already
+			//Check that there isn't a user registered with the same email already
 			let userInDB = User.findByField('email', req.body.email);
 
 			if(userInDB){ //Return an error to the register form
@@ -51,7 +51,7 @@ const userController = {
 			}
 
 			//Add new user to DB
-			User.create(newUser);*/
+			/*User.create(newUser);*/
 
 			//Add new product
 			users.push(newUser);
@@ -129,6 +129,7 @@ const userController = {
 		if(req.cookies.usuarioLogeado){
 			res.clearCookie('usuarioLogeado');
 			res.clearCookie('duracion');
+			req.app.locals.logged = undefined;
 		}
 		return res.redirect('/');
 	},
@@ -139,7 +140,7 @@ const userController = {
 			notification = req.app.notification;
 		}
 
-		res.render('users/profile');
+		res.render('users/profile', { notification });
 	},
 	update: (req, res) => {
 		let errors = validationResult(req);
@@ -221,6 +222,23 @@ const userController = {
 				return res.render('users/profile', { errors: errors.mapped() }); //Mapped convierte el arreglo en un objeto literal
 			}
 
+			//Check that there isn't a user registered with the same email already
+			let userInDB = User.findByField('email', req.body.email);
+
+			if(userInDB && userInDB.id != id){ //Return an error to the editing form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este email ya está registrado con otro usuario',
+					param: 'email',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('users/profile', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
+			}
+
 			if(req.body.contrasena){
 				contrasena = bcrypt.hashSync(req.body.contrasena, 10);
 			} 
@@ -245,7 +263,7 @@ const userController = {
 			//Replace old product with updated one
 			let index = users.findIndex(element => element.id == id);
 			users[index] = newUser;
-
+			
 			//Write the updated user to the JSON file
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
