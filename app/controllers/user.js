@@ -259,8 +259,10 @@ const userController = {
 		let id = req.params.id;
 		let finalUsers = users.filter(user => user.id != id); //Get all the users that don't match with the given id
 
+		let index = users.findIndex(element => element.id == id);
+
 		//Destroy image saved by multer
-		fs.unlinkSync(path.join(__dirname, '/../public/img/users', users[id - 1].image), (err) => {
+		fs.unlinkSync(path.join(__dirname, '/../public/img/users', users[index].image), (err) => {
 			if (err) {
 			  console.error(err);
 			  return;

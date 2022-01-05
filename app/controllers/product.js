@@ -231,8 +231,10 @@ const productController = {
 		let id = req.params.id;
 		let finalProducts = products.filter(product => product.id != id); //Get all the products that don't match with the given id
 
+		let index = products.findIndex(element => element.id == id);
+
 		//Destroy image saved by multer
-		fs.unlinkSync(path.join(__dirname, '/../public/img/products', products[id - 1].image), (err) => {
+		fs.unlinkSync(path.join(__dirname, '/../public/img/products', products[index].image), (err) => {
 			if (err) {
 			  console.error(err);
 			  return;
