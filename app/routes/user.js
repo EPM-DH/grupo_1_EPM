@@ -15,28 +15,28 @@ const authRoutes = require('../middlewares/authRoutes');
 /* CRUD Usuarios */
 
 // To retrieve the register page
-router.get('/register', nonAuthRoutes, userController.retrieveRegister);
+router.get('/register', nonAuthRoutes, userController.retrieveRegister); //Solamente un usuario que no este logeado puede ver la página de registro de un usuario
 
 // To process the user creation
 //Express-validator se usa después de multer para que también pueda validar la imagen
-router.post('/register', nonAuthRoutes, uploadFile.single('avatar'), validationsRegister, userController.register);
+router.post('/register', nonAuthRoutes, uploadFile.single('avatar'), validationsRegister, userController.register); //Solamente un usuario que no este logeado puede registrar a un usuario
 
 // To retrieve the login page
-router.get('/login', nonAuthRoutes, userController.retrieveLogin);
+router.get('/login', nonAuthRoutes, userController.retrieveLogin); //Solamente un usuario que no este logeado puede ver la página de login
 
 // To process the user login
-router.post('/login', nonAuthRoutes, validationsLogin, userController.login);
+router.post('/login', nonAuthRoutes, validationsLogin, userController.login); //Solamente un usuario que no este logeado puede logearse
 
 // To process the user logout
-router.get('/logout', authRoutes, userController.logout);
+router.get('/logout', authRoutes, userController.logout); //Solamente un usuario que este logeado puede deslogearse
 
 // To retrieve the user profile page
-router.get('/profile', authRoutes, userController.profile);
+router.get('/profile', authRoutes, userController.profile); //Solamente un usuario que este logeado puede ver su perfil
 
 // To process the user editing
-router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit, userController.update);
+router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit, userController.update); //Solamente un usuario que este logeado puede editar su perfil
 
 //To delete a user
-router.delete('/delete/:id', authRoutes, userController.delete);
+router.delete('/delete/:id', authRoutes, userController.delete); //Solamente un usuario que este logeado puede eliminar su cuenta
 
 module.exports = router;
