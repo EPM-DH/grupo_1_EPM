@@ -435,6 +435,18 @@ input[type=number]::-webkit-outer-spin-button {
     top: 100px;
 }
 
+.text-white {
+    font-weight: bold;
+}
+
+.text-danger {
+    font-weight: bold;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -504,6 +516,14 @@ input[type=number]::-webkit-outer-spin-button {
         color: white;
     }
 
+    .modal-body {
+        font-size: 16px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
     /* For header */
     #navbarNav {
         height: 300px;
@@ -544,6 +564,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 18px;
     }
 
+    .text-danger {
+        font-size: 16px;
+    }
+
     /* For shopping cart */
     .scHeader, .priceBreakdown {
         font-size: 18px;
@@ -571,6 +595,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 18px;
     }
     
+    /* For toast */
+    .toast {
+        font-size: 1rem;
+    }
 }
 
 /* For compatibility purposes */
@@ -667,6 +695,14 @@ input[type=number]::-webkit-outer-spin-button {
     .descriptionModal, .characteristicsModal, .listModal {
         color: white;
     }
+
+    .modal-body {
+        font-size: 18px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+    }
     
     /* For footer */
     .tagsFooter, .col-auto {
@@ -692,6 +728,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .standarSize {
+        font-size: 20px;
+    }
+
+    .text-danger {
         font-size: 20px;
     }
 
@@ -751,5 +791,10 @@ input[type=number]::-webkit-outer-spin-button {
     /* For profile page */
     .profile-details {
         font-size: 22px;
+    }
+
+    /* For toast */
+    .toast {
+        font-size: 1.25rem;
     }
 }

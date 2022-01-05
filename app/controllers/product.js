@@ -11,6 +11,9 @@ const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
 
 const { validationResult } = require('express-validator');
 
+//Models
+const Product = require('../models/Product');
+
 //Consider adding rating field to products JSON 
 
 const productController = {
@@ -63,21 +66,33 @@ const productController = {
 			}
 
 			//Create new product from form data
-			let newProduct = {
+			let newProduct = { //Validate if identifier is unique
+				...req.body, //For name: req.body.name, // price: req.body.price, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier, 
 				id: products[products.length - 1].id + 1,
-				name: req.body.name,
-				price: req.body.price,
-				categories: req.body.categories,
-				shortDescription: req.body.shortDescription,
-				longDescription: req.body.longDescription,
-				characteristics: characteristics,
-				identifier: req.body.identifier, //Validate if identifier is unique
+				characteristics: characteristics, 
 				vendidos: 0,
 				toBuy: 0,
 				featured: featured,
 				image: req.file.filename, 
 				carouselImages: [req.file.filename, req.file.filename, req.file.filename], //Update in following sprints
 			};
+
+			//Check that there isn't a product registered with the same email already
+			let productInDB = Product.findByField('identifier', req.body.identifier);
+
+			if(productInDB){ //Return an error to the register form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este identificador ya está siendo utilizado',
+					param: 'identifier',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('products/createProduct', { errors: errors.mapped() , old: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
+			}
 
 			//Add new product
 			products.push(newProduct);
@@ -150,21 +165,33 @@ const productController = {
 			}
 
 			//Create updated product from form data
-			let newProduct = {
+			let newProduct = { //Validate if identifier is unique
+				...req.body, //name: req.body.name, // price: req.body.price, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier,
 				id: parseInt(id),
-				name: req.body.name,
-				price: req.body.price,
-				categories: req.body.categories,
-				shortDescription: req.body.shortDescription,
-				longDescription: req.body.longDescription,
 				characteristics: characteristics,
-				identifier: req.body.identifier, //Validate if identifier is unique
 				vendidos: product.vendidos,
 				toBuy: product.toBuy,
 				featured: featured,
 				image: imagen, //To be obtained from multer
 				carouselImages: product.carouselImages, //Update in following sprints
 			};
+
+			//Check that there isn't a product registered with the same identifier already
+			let productInDB = Product.findByField('identifier', req.body.identifier);
+
+			if(productInDB && productInDB.id != id){ //Return an error to the register form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este identificador ya está siendo utilizado por otro product',
+					param: 'identifier',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('products/editProduct', { errors: errors.mapped() , old: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
+			}
 			
 			//Replace old product with updated one
 			let index = products.findIndex(element => element.id == id);

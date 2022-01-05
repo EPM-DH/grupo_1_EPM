@@ -8,6 +8,9 @@ const bcrypt = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); //Validate if users variable is empty before anything else
 
+//Models
+const User = require('../models/User');
+
 const userController = {
 	retrieveRegister: (req, res) => {
 		res.render('users/register');
@@ -20,7 +23,7 @@ const userController = {
 			let encryptedPassword = bcrypt.hashSync(req.body.contrasena, 10);
 
 			//Create new user from form data
-			let newUser = {
+			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
 				id: users[users.length - 1].id + 1,
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
@@ -29,6 +32,26 @@ const userController = {
 				avatar: req.file.filename,
 				rol: 'estandar',
 			};
+
+			//Check that there isn't a user registered with the same email already
+			let userInDB = User.findByField('email', req.body.email);
+
+			if(userInDB){ //Return an error to the register form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este email ya está registrado',
+					param: 'email',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('users/register', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
+			}
+
+			//Add new user to DB
+			/*User.create(newUser);*/
 
 			//Add new product
 			users.push(newUser);
@@ -41,7 +64,7 @@ const userController = {
 
 			req.app.notification = notification;
 
-			return res.redirect('/');
+			return res.redirect('/user/login');
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
@@ -60,7 +83,13 @@ const userController = {
 		}
 	},
     retrieveLogin: (req, res) => {
-		res.render('users/login');
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification;
+		}
+
+		res.render('users/login', { notification });
 	},
 	login: (req, res) => {
 		let errors = validationResult(req);
@@ -106,6 +135,7 @@ const userController = {
 		if(req.cookies.usuarioLogeado){
 			res.clearCookie('usuarioLogeado');
 			res.clearCookie('duracion');
+			req.app.locals.logged = undefined;
 		}
 		return res.redirect('/');
 	},
@@ -116,7 +146,7 @@ const userController = {
 			notification = req.app.notification;
 		}
 
-		res.render('users/profile');
+		res.render('users/profile', { notification });
 	},
 	update: (req, res) => {
 		let errors = validationResult(req);
@@ -198,6 +228,23 @@ const userController = {
 				return res.render('users/profile', { errors: errors.mapped() }); //Mapped convierte el arreglo en un objeto literal
 			}
 
+			//Check that there isn't a user registered with the same email already
+			let userInDB = User.findByField('email', req.body.email);
+
+			if(userInDB && userInDB.id != id){ //Return an error to the editing form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este email ya está registrado con otro usuario',
+					param: 'email',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('users/profile', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
+			}
+
 			if(req.body.contrasena){
 				contrasena = bcrypt.hashSync(req.body.contrasena, 10);
 			} 
@@ -209,7 +256,7 @@ const userController = {
 			}
 
 			//Create updated user from form data
-			let newUser = {
+			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
 				id: parseInt(id),
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
@@ -222,7 +269,7 @@ const userController = {
 			//Replace old product with updated one
 			let index = users.findIndex(element => element.id == id);
 			users[index] = newUser;
-
+			
 			//Write the updated user to the JSON file
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
