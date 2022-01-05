@@ -9,11 +9,9 @@ function authRoutes(req, res, next) {
         res.redirect('/user/login');
     } else {
         let correo = req.cookies.usuarioLogeado;
-        console.log("Hola");
         //Buscar datos del usuario
         for(user of users) { 
             if(user.email == correo) {
-                console.log("adios");
                 next();        
             }
         }

@@ -255,6 +255,31 @@ const userController = {
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}
 	},
+	delete: (req, res) => {
+		let id = req.params.id;
+		let finalUsers = users.filter(user => user.id != id); //Get all the users that don't match with the given id
+
+		//Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img/users', users[id - 1].image), (err) => {
+			if (err) {
+			  console.error(err);
+			  return;
+			}
+		  
+			console.log('File removed successfully');
+		});
+
+		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
+
+		let usuario = users.find(user => user.id == id);
+
+		//Notify user about user deletion
+		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "usuario", nombre: usuario.firstName, tipo: "bg-danger"};
+
+		req.app.notification = notification;
+
+		res.redirect('/user/logout'); //Cerrar sesión
+	},
 };
 
 module.exports = userController;

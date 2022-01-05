@@ -234,8 +234,8 @@ const productController = {
 		//Destroy image saved by multer
 		fs.unlinkSync(path.join(__dirname, '/../public/img/products', products[id - 1].image), (err) => {
 			if (err) {
-			  console.error(err)
-			  return
+			  console.error(err);
+			  return;
 			}
 		  
 			console.log('File removed successfully');

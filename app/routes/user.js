@@ -36,4 +36,7 @@ router.get('/profile', authRoutes, userController.profile);
 // To process the user editing
 router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit, userController.update);
 
+//To delete a user
+router.delete('/delete/:id', authRoutes, userController.delete);
+
 module.exports = router;
