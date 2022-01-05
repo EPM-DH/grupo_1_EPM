@@ -27,6 +27,7 @@ const productController = {
 		res.render('products/createProduct', {categories});
 	},
 	retrieveProductDetails: (req, res) => {
+
 		let id = req.params.id;
 		let product = products.find(product => product.id == id);
 		let breadcrumbList = ["Página de inicio", "Productos", product.name];
@@ -38,7 +39,6 @@ const productController = {
 		if(req.app.notification){
 			notification = req.app.notification;
 		}
-
 		res.render('products/productDetails', {product, breadcrumbList, urlList, notification});
 	},
 	create: (req, res) => {
@@ -52,7 +52,7 @@ const productController = {
 				if(key.includes('characteristic')) {
 					characteristics.push(value);
 				}
-			};
+			}
 			//To see if a product is featured
 			if(req.body.featured == 'on'){
 				featured = 1;
@@ -89,7 +89,6 @@ const productController = {
 			let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "producto", nombre: req.body.name, tipo: "bg-success"};
 
 			req.app.notification = notification;
-
 			res.redirect('/product/' + newProduct.id); //Products don't update until the page is reloaded 
 
 		} else { //Hay errores
@@ -133,7 +132,7 @@ const productController = {
 				if(key.includes('characteristic')) {
 					characteristics.push(value);
 				}
-			};
+			}
 
 			//To see if a product is featured
 			if(req.body.featured == 'on'){
@@ -209,7 +208,7 @@ const productController = {
 				if(key.includes('characteristic')) {
 					characteristics.push(value);
 				}
-			};
+			}
 			
 			req.body.characteristics = characteristics;
 

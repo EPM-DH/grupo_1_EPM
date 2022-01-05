@@ -1,5 +1,5 @@
 function isAdmin(req, res, next) {
-    if(res.locals.logged.rol && res.locals.logged.rol == "administrador"){
+    if(req.app.locals.logged.rol && req.app.locals.logged.rol == "administrador"){
         console.log("Admin authenticated");
         next();
     } else {

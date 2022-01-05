@@ -41,7 +41,7 @@ const userController = {
 
 			req.app.notification = notification;
 
-			res.redirect('/');
+			return res.redirect('/');
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
@@ -76,9 +76,9 @@ const userController = {
 						res.cookie('duracion', 3600, { maxAge: (3600 * 24) * 1000 }); // 1 día
 					} else { //Crear sesión si el usuario no marcó la casilla de recuérdame 
 						res.cookie('usuarioLogeado', req.body.email, { maxAge: (60 * 20) * 1000 }); //20 min
-						res.cookie('duracion', 20, { maxAge: (3600 * 24) * 1000 }); // 1 día
+						res.cookie('duracion', 20, { maxAge: (60 * 20) * 1000 }); // 20 min
 					}
-					
+
 					//Indicar al usuario que está logeado
 					return res.redirect('/');
 				}
@@ -107,7 +107,7 @@ const userController = {
 			res.clearCookie('usuarioLogeado');
 			res.clearCookie('duracion');
 		}
-		res.redirect('/');
+		return res.redirect('/');
 	},
 	profile: (req, res) => {
 		let notification = '';
@@ -116,7 +116,7 @@ const userController = {
 			notification = req.app.notification;
 		}
 
-		res.render('users/profile', { img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id, notification });
+		res.render('users/profile');
 	},
 	update: (req, res) => {
 		let errors = validationResult(req);
@@ -195,7 +195,7 @@ const userController = {
 			}
 
 			if(!errors.isEmpty()){
-				return res.render('users/profile', { errors: errors.mapped() , img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id }); //Mapped convierte el arreglo en un objeto literal
+				return res.render('users/profile', { errors: errors.mapped() }); //Mapped convierte el arreglo en un objeto literal
 			}
 
 			if(req.body.contrasena){
@@ -231,7 +231,7 @@ const userController = {
 
 			req.app.notification = notification;
 
-			res.redirect('/user/profile'); //User won't update until the page is reloaded 
+			return res.redirect('/user/profile'); //User won't update until the page is reloaded 
 
 		} else { //Hay errores
 			//Destroy image saved by multer
@@ -251,7 +251,7 @@ const userController = {
 			req.body.id = id;
 			
 			//Cambiar implementación y utilizar algo más en lugar de res.locals
-			res.render('users/profile', { errors: errors.mapped() , img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id }); //Mapped convierte el arreglo en un objeto literal
+			res.render('users/profile', { errors: errors.mapped() }); //Mapped convierte el arreglo en un objeto literal
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}
 	},
@@ -280,7 +280,7 @@ const userController = {
 
 		req.app.notification = notification;
 
-		res.redirect('/user/logout'); //Cerrar sesión
+		return res.redirect('/user/logout'); //Cerrar sesión
 	},
 };
 
