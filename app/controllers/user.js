@@ -37,7 +37,7 @@ const userController = {
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 
 			//Notify user about new user creation
-			let notification = {activo: 1, accion: "creación", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-success"};
+			let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-success"};
 
 			req.app.notification = notification;
 
@@ -110,7 +110,13 @@ const userController = {
 		res.redirect('/');
 	},
 	profile: (req, res) => {
-		res.render('users/profile', { img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id });
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification;
+		}
+
+		res.render('users/profile', { img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id, notification });
 	},
 	update: (req, res) => {
 		let errors = validationResult(req);
@@ -220,6 +226,11 @@ const userController = {
 			//Write the updated user to the JSON file
 			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
 			
+			//Notify user about user edition
+			let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-warning"};
+
+			req.app.notification = notification;
+
 			res.redirect('/user/profile'); //User won't update until the page is reloaded 
 
 		} else { //Hay errores
@@ -239,9 +250,37 @@ const userController = {
 
 			req.body.id = id;
 			
+			//Cambiar implementación y utilizar algo más en lugar de res.locals
 			res.render('users/profile', { errors: errors.mapped() , img: res.locals.logged.imgPerfil, firstName: res.locals.logged.nombre, lastName: res.locals.logged.apellidos, email: res.locals.logged.email, id: res.locals.logged.id }); //Mapped convierte el arreglo en un objeto literal
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}
+	},
+	delete: (req, res) => {
+		let id = req.params.id;
+		let finalUsers = users.filter(user => user.id != id); //Get all the users that don't match with the given id
+
+		let index = users.findIndex(element => element.id == id);
+
+		//Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img/users', users[index].image), (err) => {
+			if (err) {
+			  console.error(err);
+			  return;
+			}
+		  
+			console.log('File removed successfully');
+		});
+
+		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
+
+		let usuario = users.find(user => user.id == id);
+
+		//Notify user about user deletion
+		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "usuario", nombre: usuario.firstName, tipo: "bg-danger"};
+
+		req.app.notification = notification;
+
+		res.redirect('/user/logout'); //Cerrar sesión
 	},
 };
 

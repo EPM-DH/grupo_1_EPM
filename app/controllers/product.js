@@ -15,10 +15,16 @@ const { validationResult } = require('express-validator');
 
 const productController = {
 	retrieveProducts: (req, res) => {
-		res.render('./products/products', {products});
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification;
+		}
+
+		res.render('products/products', {products, notification});
 	},
 	retrieveCreate: (req, res) => {
-		res.render('./products/createProduct', {categories});
+		res.render('products/createProduct', {categories});
 	},
 	retrieveProductDetails: (req, res) => {
 		let id = req.params.id;
@@ -27,7 +33,13 @@ const productController = {
         let urlList = [""];
         urlList.push(req.baseUrl);
 		
-		res.render('./products/productDetails', {product, breadcrumbList, urlList});
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification;
+		}
+
+		res.render('products/productDetails', {product, breadcrumbList, urlList, notification});
 	},
 	create: (req, res) => {
 		const errors = validationResult(req);
@@ -73,6 +85,11 @@ const productController = {
 			//Write the new product to the JSON file
 			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 			
+			//Notify user about new product creation
+			let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "producto", nombre: req.body.name, tipo: "bg-success"};
+
+			req.app.notification = notification;
+
 			res.redirect('/product/' + newProduct.id); //Products don't update until the page is reloaded 
 
 		} else { //Hay errores
@@ -100,7 +117,7 @@ const productController = {
     retrieveEdit: (req, res) => {
 		let id = req.params.id;
 		let product = products.find(product => product.id == id);
-		res.render('./products/editProduct', {product, categories});
+		res.render('products/editProduct', {product, categories});
 	},
 	update: (req, res) => {
 		const errors = validationResult(req);
@@ -157,6 +174,11 @@ const productController = {
 			//Write the new product to the JSON file
 			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 			
+			//Notify user about product edition
+			let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "producto", nombre: req.body.name, tipo: "bg-warning"};
+
+			req.app.notification = notification;
+
 			res.redirect('/product/' + id); //Products don't update until the page is reloaded 
 
 		} else { //Hay errores
@@ -209,17 +231,27 @@ const productController = {
 		let id = req.params.id;
 		let finalProducts = products.filter(product => product.id != id); //Get all the products that don't match with the given id
 
+		let index = products.findIndex(element => element.id == id);
+
 		//Destroy image saved by multer
-		fs.unlinkSync(path.join(__dirname, '/../public/img/products', products[id - 1].image), (err) => {
+		fs.unlinkSync(path.join(__dirname, '/../public/img/products', products[index].image), (err) => {
 			if (err) {
-			  console.error(err)
-			  return
+			  console.error(err);
+			  return;
 			}
 		  
 			console.log('File removed successfully');
 		});
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
+
+		let producto = products.find(product => product.id == id);
+
+		//Notify user about product deletion
+		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "producto", nombre: producto.name, tipo: "bg-danger"};
+
+		req.app.notification = notification;
+
 		res.redirect('/product');
 	},
 };
