@@ -43,9 +43,14 @@ const User = {
         allUsers.push(newUser);
         fs.writeFileSync(this.usersFilePath, JSON.stringify(allUsers, null, ' '));
         return true;
-    }
-};
+    },
 
-console.log(User.create({test: 'Hola', test1: 'Hola1'}));
+    delete: function(id) {
+        let allUsers = this.findAll();
+        let finalUsers = allUsers.filter(usuario => usuario.id !== id);
+        fs.writeFileSync(this.usersFilePath, JSON.stringify(finalUsers, null, ' '));
+        return true;
+    },
+};
 
 module.exports = User;

@@ -63,15 +63,10 @@ const productController = {
 			}
 
 			//Create new product from form data
-			let newProduct = {
+			let newProduct = { //Validate if identifier is unique
+				...req.body, //For name: req.body.name, // price: req.body.price, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier, 
 				id: products[products.length - 1].id + 1,
-				name: req.body.name,
-				price: req.body.price,
-				categories: req.body.categories,
-				shortDescription: req.body.shortDescription,
-				longDescription: req.body.longDescription,
-				characteristics: characteristics,
-				identifier: req.body.identifier, //Validate if identifier is unique
+				characteristics: characteristics, 
 				vendidos: 0,
 				toBuy: 0,
 				featured: featured,
@@ -150,15 +145,10 @@ const productController = {
 			}
 
 			//Create updated product from form data
-			let newProduct = {
+			let newProduct = { //Validate if identifier is unique
+				...req.body, //name: req.body.name, // price: req.body.price, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier,
 				id: parseInt(id),
-				name: req.body.name,
-				price: req.body.price,
-				categories: req.body.categories,
-				shortDescription: req.body.shortDescription,
-				longDescription: req.body.longDescription,
 				characteristics: characteristics,
-				identifier: req.body.identifier, //Validate if identifier is unique
 				vendidos: product.vendidos,
 				toBuy: product.toBuy,
 				featured: featured,

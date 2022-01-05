@@ -5,10 +5,10 @@ const router = express.Router();
 const userController = require('../controllers/user');
 
 //Middlewares
-const validationsRegister = require('../middlewares/validateRegisterUser'); //Does it have to be a function? 
-const validationsEdit = require('../middlewares/validateEditUser'); //Does it have to be a function? 
-const uploadFile = require('../middlewares/multerUser'); //Does it have to be a function? 
-const validationsLogin = require('../middlewares/validateLoginUser'); //Does it have to be a function? 
+const validationsRegister = require('../middlewares/validateRegisterUser'); 
+const validationsEdit = require('../middlewares/validateEditUser'); 
+const uploadFile = require('../middlewares/multerUser'); 
+const validationsLogin = require('../middlewares/validateLoginUser'); 
 const nonAuthRoutes = require('../middlewares/nonAuthRoutes'); 
 const authRoutes = require('../middlewares/authRoutes'); 
 

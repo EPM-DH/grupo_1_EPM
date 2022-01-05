@@ -8,6 +8,9 @@ const bcrypt = require('bcryptjs');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); //Validate if users variable is empty before anything else
 
+//Models
+const User = require('../models/User');
+
 const userController = {
 	retrieveRegister: (req, res) => {
 		res.render('users/register');
@@ -20,7 +23,7 @@ const userController = {
 			let encryptedPassword = bcrypt.hashSync(req.body.contrasena, 10);
 
 			//Create new user from form data
-			let newUser = {
+			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
 				id: users[users.length - 1].id + 1,
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
@@ -29,6 +32,26 @@ const userController = {
 				avatar: req.file.filename,
 				rol: 'estandar',
 			};
+
+			/*//Check that there isn't a user registered with the same email already
+			let userInDB = User.findByField('email', req.body.email);
+
+			if(userInDB){ //Return an error to the register form
+				//Add error to arrray
+				let nuevoError = {
+					value: '',
+					msg: 'Este email ya está registrado',
+					param: 'email',
+					location: '',
+				};
+
+				errors.errors.push(nuevoError);
+
+				return res.render('users/register', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
+			}
+
+			//Add new user to DB
+			User.create(newUser);*/
 
 			//Add new product
 			users.push(newUser);
@@ -209,7 +232,7 @@ const userController = {
 			}
 
 			//Create updated user from form data
-			let newUser = {
+			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
 				id: parseInt(id),
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,

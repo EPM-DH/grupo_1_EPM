@@ -435,6 +435,10 @@ input[type=number]::-webkit-outer-spin-button {
     top: 100px;
 }
 
+.text-white {
+    font-weight: bold;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -571,6 +575,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 18px;
     }
     
+    /* For toast */
+    .toast {
+        font-size: 1rem;
+    }
 }
 
 /* For compatibility purposes */
@@ -751,5 +759,10 @@ input[type=number]::-webkit-outer-spin-button {
     /* For profile page */
     .profile-details {
         font-size: 22px;
+    }
+
+    /* For toast */
+    .toast {
+        font-size: 1.25rem;
     }
 }
