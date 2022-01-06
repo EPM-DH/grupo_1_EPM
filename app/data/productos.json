@@ -133,5 +133,33 @@
    "cosmo.jpg",
    "cosmo.jpg"
   ]
+ },
+ {
+  "name": "Test",
+  "price": "333",
+  "categories": [
+   "Seguridad"
+  ],
+  "shortDescription": "sdfdf",
+  "longDescription": "fsdfsfsdfsdf",
+  "characteristic1": "dfd",
+  "characteristic2": "",
+  "characteristic3": "",
+  "identifier": "dfsd",
+  "id": 5,
+  "characteristics": [
+   "dfd",
+   "",
+   ""
+  ],
+  "vendidos": 0,
+  "toBuy": 0,
+  "featured": 0,
+  "image": "cosmo_1641494387104.jpg",
+  "carouselImages": [
+   "cosmo_1641494387104.jpg",
+   "cosmo_1641494387104.jpg",
+   "cosmo_1641494387104.jpg"
+  ]
  }
 ]
