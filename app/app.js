@@ -13,7 +13,7 @@ const searchRouter = require('./routes/search');
 const productRouter = require('./routes/product');
 const shoppingRouter = require('./routes/shopping');
 const userLogged = require('./middlewares/userLogged');
-//const userActivity = require('./middlewares/userActivity'); No longer needed
+const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
 
 app.use(express.static(publicPath));
 app.use(methodOverride('_method')); // For PUT and DELETE methods
@@ -24,8 +24,8 @@ app.use(session({ secret: "Nuestro mensaje secreto", //Debe ir antes de que se e
                   resave: false,
                   saveUninitialized: false }));
 app.use(cookieParser()); 
+app.use(userActivity); //Only needed when working with JSON files
 app.use(userLogged);
-//app.use(userActivity); No longer needed
 app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/search', searchRouter); //Consider changing into main router

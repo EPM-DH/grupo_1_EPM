@@ -20,6 +20,12 @@ function userLogged (req, res, next) {
     }
 
     if(req.session.userLogged) {
+        //Update user data in case a change in the profile is detected
+        let usuario = User.findByField('email', req.session.userLogged.email);
+		delete usuario.password;
+		req.session.userLogged = usuario;
+
+        //Indicate user is logged and save user data in local variable
         res.locals.isLogged = true; 
         res.locals.userLogged = req.session.userLogged;
     }

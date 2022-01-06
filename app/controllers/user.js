@@ -103,6 +103,8 @@ const userController = {
 					let usuario = user;
 					delete usuario.password;
 					req.session.userLogged = usuario;
+					//Only needed when working with JSON files
+					res.cookie('active', user.email);
 
 					//Crear cookie si el usuario marcó la casilla de recuérdame
 					if(req.body.recuerdame){ //No se elimina la sesión cuando el usuario cierra el navegador
@@ -141,6 +143,7 @@ const userController = {
 		//First check if session exists
 		if(req.session.userLogged){
 			res.clearCookie('usuarioLogeado');
+			res.clearCookie('active');
 			req.session.destroy();
 		}
 		
@@ -168,7 +171,8 @@ const userController = {
 
 		if(errors.isEmpty()){ //No hay errores
 			let id = req.params.id;
-			let usuario = users.find(user => user.id == id);
+			let usuario = User.findByField('email', req.body.email);
+			//let usuario = users.find(user => user.id == id); //This query deletes the password field. Why??
 			let contrasena = usuario.password;
 			let imagen;
 			let nuevoError;
