@@ -9,7 +9,7 @@
           <h1 class="tc">Página de productos</h1>
         </div>
         <div class="col-3">
-          <% if (locals.logged && logged.rol == 'administrador') { %>
+          <% if (locals.isLogged && locals.userLogged.rol == 'administrador') { %>
             <a href="/product/create" type="submit" class="boton-estandar anchorFormat editButton">Crear producto</a>
           <% } %>
         </div>

@@ -99,14 +99,20 @@ const userController = {
 			for(user of users) { 
 				if(user.email == req.body.email && bcrypt.compareSync(req.body.contrasena, user.password)) {
 					//Login
+					//For session
+					let usuario = user;
+					delete usuario.password;
+					req.session.userLogged = usuario;
+
 					//Crear cookie si el usuario marcó la casilla de recuérdame
 					if(req.body.recuerdame){ //No se elimina la sesión cuando el usuario cierra el navegador
-						res.cookie('usuarioLogeado', req.body.email, { maxAge: (3600 * 24) * 1000 }); // 1 día
-						res.cookie('duracion', 3600, { maxAge: (3600 * 24) * 1000 }); // 1 día
-					} else { //Crear sesión si el usuario no marcó la casilla de recuérdame 
+						res.cookie('usuarioLogeado', req.body.email, { maxAge: (3600 * 24) * 1000 }); // 1 día - Esto es opcional y podría ser cualquier valor
+						//res.cookie('duracion', 3600, { maxAge: (3600 * 24) * 1000 }); // 1 día
+					} /*else { //Crear sesión si el usuario no marcó la casilla de recuérdame 
 						res.cookie('usuarioLogeado', req.body.email, { maxAge: (60 * 20) * 1000 }); //20 min
 						res.cookie('duracion', 20, { maxAge: (60 * 20) * 1000 }); // 20 min
-					}
+						
+					}*/
 
 					//Indicar al usuario que está logeado
 					return res.redirect('/');
@@ -131,12 +137,19 @@ const userController = {
 		}
 	},
 	logout: (req, res) => {
-		//First check if cookie exists
-		if(req.cookies.usuarioLogeado){
+		//For session
+		//First check if session exists
+		if(req.session.userLogged){
 			res.clearCookie('usuarioLogeado');
-			res.clearCookie('duracion');
-			req.app.locals.logged = undefined;
+			req.session.destroy();
 		}
+		
+		//First check if cookie exists
+		/*if(req.cookies.user){
+			//res.clearCookie('usuarioLogeado');
+			//res.clearCookie('duracion');
+			//req.app.locals.logged = undefined;
+		}*/
 		return res.redirect('/');
 	},
 	profile: (req, res) => {
@@ -146,7 +159,9 @@ const userController = {
 			notification = req.app.notification;
 		}
 
-		res.render('users/profile', { notification });
+		//For session
+		res.render('users/profile', { notification, logged: req.session.userLogged });
+		//res.render('users/profile', { notification });
 	},
 	update: (req, res) => {
 		let errors = validationResult(req);
