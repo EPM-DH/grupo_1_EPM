@@ -30,14 +30,15 @@
 			<div class="col-12 col-lg-4 col-md-5">
 				<article class="product-detail-info">
 					<h2 class="product-detail-title"><%= product.name %></h2>
-					
 					<div class="col">
-						<span class="fa fa-star checked"></span>
-						<span class="fa fa-star checked"></span>
-						<span class="fa fa-star checked"></span>
-						<span class="fa fa-star unchecked2"></span>
-						<span class="fa fa-star unchecked2"></span>
-					</div>
+						<% for( let index = 0; index < 5; index++ ) { %>
+						  <% if (index < product.rating) { %>
+							<span class="fa fa-star checked"></span>    
+						  <% } else { %>  
+							<span class="fa fa-star unchecked2"></span>
+						  <% } %> 
+						<% } %>
+					  </div>
 					<div class="col descSide">
 						<p>Productos vendidos: <%= product.vendidos %></p>
 					</div>

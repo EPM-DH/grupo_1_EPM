@@ -20,11 +20,13 @@
         </div>
         <div class="modal-body upper">
             <div class="col">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star unchecked"></span>
-              <span class="fa fa-star unchecked"></span>
+              <% for( let index = 0; index < 5; index++ ) { %>
+                <% if (index < producto.rating) { %>
+                  <span class="fa fa-star checked"></span>    
+                <% } else { %>  
+                  <span class="fa fa-star unchecked"></span>
+                <% } %> 
+              <% } %>
             </div>
             <div class="col descriptionModal">
               <p>Productos vendidos: <%= producto.vendidos %></p>

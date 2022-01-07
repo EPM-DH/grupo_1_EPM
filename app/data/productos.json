@@ -1,6 +1,5 @@
 [
  {
-  "id": 1,
   "name": "PETZL ATC Escalada",
   "price": "599",
   "categories": [
@@ -11,6 +10,20 @@
   ],
   "shortDescription": "Dispositivo de aseguramiento / rappel versátil y liviano, para usar con uno o dos hilos de cuerda y capacidad para asegurar a un seguidor del ancla",
   "longDescription": "Conocido por ser versátil y ligero, REVERSO es un dispositivo de seguridad para escalada y montañismo de uno o varios largos. Te permite asegurar a tu compañero de escalada, hacer rappel y usar el modo Reverso para asegurar a uno o dos seguidores. El diseño específico permite que la cuerda se deslice suavemente a través del dispositivo y reduce el desgaste. Es compatible con la mayoría de los diámetros de cuerda: simple de 8,5 a 10,5 mm, mitad de 7,1 a 9,2 mm y gemela de 6,9 ​​a 9,2 mm.",
+  "characteristic1": "Gestualidad común, basada en el acompañamiento de la cuerda en el aparato y la sujeción permanente con una mano en la cuerda lado frenado.",
+  "characteristic2": "Fluidez de la circulación de la cuerda en el aparato.",
+  "characteristic3": "Control de frenado, gracias a las zonas de frenado en V y acanaladuras.",
+  "characteristic4": "Esquemas de instalación grabados en el asegurador (para el aseguramiento y el modo Reverso).",
+  "characteristic5": "Permite asegurar a un escalador y realizar descensos en rápel con una o dos cuerdas.",
+  "characteristic6": "Modo Reverso que permite asegurar a uno o dos segundos con asistencia al frenado.",
+  "characteristic7": "Orificio de desbloqueo que permite dar cuerda al segundo con un simple mosquetón.",
+  "characteristic8": "Compacto y ultraligero: sólo 57 g.",
+  "characteristic9": "Mayor durabilidad, gracias al diseño redondeado del paso de cuerda, que limita el desgaste del aparato.",
+  "characteristic10": "Adecuado para la mayoría de diámetros de cuerda dinámica (simple de 8,5 a 10,5 mm, doble de 7,1 a 9,2 mm y gemela de 6,9 a 9,2 mm).",
+  "rating": 5,
+  "identifier": "Petzl",
+  "featured": 1,
+  "id": 1,
   "characteristics": [
    "Gestualidad común, basada en el acompañamiento de la cuerda en el aparato y la sujeción permanente con una mano en la cuerda lado frenado.",
    "Fluidez de la circulación de la cuerda en el aparato.",
@@ -23,10 +36,8 @@
    "Mayor durabilidad, gracias al diseño redondeado del paso de cuerda, que limita el desgaste del aparato.",
    "Adecuado para la mayoría de diámetros de cuerda dinámica (simple de 8,5 a 10,5 mm, doble de 7,1 a 9,2 mm y gemela de 6,9 a 9,2 mm)."
   ],
-  "identifier": "Petzl",
   "vendidos": 5,
   "toBuy": 0,
-  "featured": 1,
   "image": "front.png",
   "carouselImages": [
    "front.png",
@@ -57,6 +68,7 @@
   ],
   "identifier": "Eslinga",
   "vendidos": 8,
+  "rating": 4,
   "toBuy": 2,
   "featured": 0,
   "image": "eslinga.jpg",
@@ -90,6 +102,7 @@
   ],
   "identifier": "Momentum",
   "vendidos": 70,
+  "rating": 3,
   "toBuy": 0,
   "featured": 1,
   "image": "momentum.jpeg",
@@ -125,6 +138,7 @@
   ],
   "identifier": "COSMO",
   "vendidos": 123,
+  "rating": 2,
   "toBuy": 1,
   "featured": 0,
   "image": "cosmo.jpg",
@@ -136,30 +150,31 @@
  },
  {
   "name": "Test",
-  "price": "333",
+  "price": "234.56",
   "categories": [
-   "Seguridad"
+   "Singing rock"
   ],
-  "shortDescription": "sdfdf",
-  "longDescription": "fsdfsfsdfsdf",
-  "characteristic1": "dfd",
+  "shortDescription": "dfgfdg",
+  "longDescription": "dgfdgdf",
+  "characteristic1": "dgf",
   "characteristic2": "",
   "characteristic3": "",
-  "identifier": "dfsd",
+  "rating": 1,
+  "identifier": "dfsdf",
   "id": 5,
   "characteristics": [
-   "dfd",
+   "dgf",
    "",
    ""
   ],
   "vendidos": 0,
   "toBuy": 0,
   "featured": 0,
-  "image": "cosmo_1641494387104.jpg",
+  "image": "cosmo_1641598868526.jpg",
   "carouselImages": [
-   "cosmo_1641494387104.jpg",
-   "cosmo_1641494387104.jpg",
-   "cosmo_1641494387104.jpg"
+   "cosmo_1641598868526.jpg",
+   "cosmo_1641598868526.jpg",
+   "cosmo_1641598868526.jpg"
   ]
  }
 ]
