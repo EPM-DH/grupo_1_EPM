@@ -43,7 +43,7 @@ const shoppingController = {
 
         if(currentItem) {
             currentItem.quantity = currentItem.quantity + 1;
-            //Update data
+            Cart.update(currentItem);
         } else {
             let newItem = {
                 product_id: productId,

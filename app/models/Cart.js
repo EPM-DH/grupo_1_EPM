@@ -45,6 +45,14 @@ const Cart = {
         return true;
     },
 
+    update: function(itemData) {
+        let allItems = this.findAll();
+        let index = allItems.findIndex(element => element.id == itemData.id);
+		allItems[index] = itemData;
+        fs.writeFileSync(this.cartFilePath, JSON.stringify(allItems, null, ' '));
+        return true;
+    },
+
     delete: function(id) {
         let allItems = this.findAll();
         let finalItems = allItems.filter(usuario => usuario.id !== id);
