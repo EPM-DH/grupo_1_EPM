@@ -6,4 +6,7 @@ router.get('/', shoppingController.getCart);
 
 router.get('/add', shoppingController.addItem);
 
+//To delete a cart element
+router.delete('/delete/:id', shoppingController.delete); //Solamente un usuario logeado y que sea administrador puede eliminar un producto
+
 module.exports = router;

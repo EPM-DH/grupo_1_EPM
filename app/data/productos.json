@@ -37,7 +37,6 @@
    "Adecuado para la mayoría de diámetros de cuerda dinámica (simple de 8,5 a 10,5 mm, doble de 7,1 a 9,2 mm y gemela de 6,9 a 9,2 mm)."
   ],
   "vendidos": 5,
-  "toBuy": 0,
   "image": "front.png",
   "carouselImages": [
    "front.png",
@@ -69,7 +68,6 @@
   "identifier": "Eslinga",
   "vendidos": 8,
   "rating": 4,
-  "toBuy": 2,
   "featured": 0,
   "image": "eslinga.jpg",
   "carouselImages": [
@@ -103,7 +101,6 @@
   "identifier": "Momentum",
   "vendidos": 70,
   "rating": 3,
-  "toBuy": 0,
   "featured": 1,
   "image": "momentum.jpeg",
   "carouselImages": [
@@ -139,42 +136,12 @@
   "identifier": "COSMO",
   "vendidos": 123,
   "rating": 2,
-  "toBuy": 1,
   "featured": 0,
   "image": "cosmo.jpg",
   "carouselImages": [
    "cosmo.jpg",
    "cosmo.jpg",
    "cosmo.jpg"
-  ]
- },
- {
-  "name": "Test",
-  "price": "234.56",
-  "categories": [
-   "Singing rock"
-  ],
-  "shortDescription": "dfgfdg",
-  "longDescription": "dgfdgdf",
-  "characteristic1": "dgf",
-  "characteristic2": "",
-  "characteristic3": "",
-  "rating": 1,
-  "identifier": "dfsdf",
-  "id": 5,
-  "characteristics": [
-   "dgf",
-   "",
-   ""
-  ],
-  "vendidos": 0,
-  "toBuy": 0,
-  "featured": 0,
-  "image": "cosmo_1641598868526.jpg",
-  "carouselImages": [
-   "cosmo_1641598868526.jpg",
-   "cosmo_1641598868526.jpg",
-   "cosmo_1641598868526.jpg"
   ]
  }
 ]

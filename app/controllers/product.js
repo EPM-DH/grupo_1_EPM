@@ -73,7 +73,6 @@ const productController = {
 				characteristics: characteristics, 
 				rating: parseInt(req.body.rating),
 				vendidos: 0,
-				toBuy: 0,
 				featured: featured,
 				image: req.file.filename, 
 				carouselImages: [req.file.filename, req.file.filename, req.file.filename], //Update in following sprints
@@ -174,7 +173,6 @@ const productController = {
 				characteristics: characteristics,
 				rating: parseInt(req.body.rating),
 				vendidos: product.vendidos,
-				toBuy: product.toBuy,
 				featured: featured,
 				image: imagen, //To be obtained from multer
 				carouselImages: product.carouselImages, //Update in following sprints
@@ -273,9 +271,9 @@ const productController = {
 			console.log('File removed successfully');
 		});
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-
 		let producto = products.find(product => product.id == id);
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
 
 		//Notify user about product deletion
 		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "producto", nombre: producto.name, tipo: "bg-danger"};
