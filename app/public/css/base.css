@@ -120,6 +120,7 @@ input[type="search"]::-webkit-search-results-decoration {
     max-width: 100%;
     font-size: 20px;
     transition: transform 0.5s;
+    color: black;
 }
 .carrito-producto:hover{
     transform: rotate(90deg);
@@ -638,7 +639,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .titulo-producto {
         font-size: 24px;
-        margin-left: 70px; /* Verificar para mejorar implementación*/
+        margin-left: 0px;  /*Verificar para mejorar implementación*/
     }
 
     .row {
@@ -796,5 +797,12 @@ input[type=number]::-webkit-outer-spin-button {
     /* For toast */
     .toast {
         font-size: 1.25rem;
+    }
+}
+
+/* For compatibility purposes */
+@media (min-width: 1650px){
+    .titulo-producto {
+        margin-left: 70px; /* Verificar para mejorar implementación*/
     }
 }

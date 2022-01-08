@@ -67,11 +67,12 @@ const productController = {
 
 			//Create new product from form data
 			let newProduct = { //Validate if identifier is unique
-				...req.body, //For name: req.body.name, // price: req.body.price, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier, 
+				...req.body, //For name: req.body.name, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier, 
 				id: products[products.length - 1].id + 1,
+				price: parseFloat(req.body.price),
 				characteristics: characteristics, 
+				rating: parseInt(req.body.rating),
 				vendidos: 0,
-				toBuy: 0,
 				featured: featured,
 				image: req.file.filename, 
 				carouselImages: [req.file.filename, req.file.filename, req.file.filename], //Update in following sprints
@@ -166,11 +167,12 @@ const productController = {
 
 			//Create updated product from form data
 			let newProduct = { //Validate if identifier is unique
-				...req.body, //name: req.body.name, // price: req.body.price, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier,
+				...req.body, //name: req.body.name, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier,
 				id: parseInt(id),
+				price: parseFloat(req.body.price),
 				characteristics: characteristics,
+				rating: parseInt(req.body.rating),
 				vendidos: product.vendidos,
-				toBuy: product.toBuy,
 				featured: featured,
 				image: imagen, //To be obtained from multer
 				carouselImages: product.carouselImages, //Update in following sprints
@@ -269,9 +271,9 @@ const productController = {
 			console.log('File removed successfully');
 		});
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-
 		let producto = products.find(product => product.id == id);
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
 
 		//Notify user about product deletion
 		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "producto", nombre: producto.name, tipo: "bg-danger"};
