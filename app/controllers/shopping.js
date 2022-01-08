@@ -3,9 +3,7 @@ const path = require('path');
 
 //Models
 const Product = require('../models/Product');
-
-const cartFilePath = path.join(__dirname, '../data/carrito.json');
-const cart = JSON.parse(fs.readFileSync(cartFilePath, 'utf-8'));
+const Cart = require('../models/Cart');
 
 const shoppingController = {
 	getCart: (req, res) => {
@@ -15,6 +13,7 @@ const shoppingController = {
 
         let products = [];
         let index = 0;
+        let cart = Cart.findAll();
 
         //To get the product information
         for(item of cart) {
@@ -34,16 +33,43 @@ const shoppingController = {
 		res.render('cart', {notification, products, breadcrumbList, urlList});
 	},
     addItem: (req, res) => {
+        let productId = parseInt(req.params.id);
 
+        let currentItem = Cart.findByField('product_id', productId);
+        let productName = Product.findByPk(productId).name;
+        let referer = req.headers.referer;
+        let parts = referer.split('/');
+        let location = parts.pop();
+
+        if(currentItem) {
+            currentItem.quantity = currentItem.quantity + 1;
+            //Update data
+        } else {
+            let newItem = {
+                product_id: productId,
+                quantity: 1,
+            };
+            Cart.create(newItem);
+        }
+
+        //Notify user about new product creation
+        let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName, tipo: "bg-success"};
+
+        req.app.notification = notification;
+
+        if(location == '') {
+            res.redirect('/');
+        } else {
+            res.redirect('/' + location);
+        }
     },
     delete: (req, res) => {
-		let id = req.params.id;
-		let finalCart = cart.filter(item => item.id != id); //Get all the cart that doesn't match with the given id
+		let id = parseInt(req.params.id);
 
-		let elemento = cart.find(item => item.id == id);
+        let elemento = Cart.findByPk(id);
         let producto = Product.findByPk(elemento.product_id);
-        
-        fs.writeFileSync(cartFilePath, JSON.stringify(finalCart, null, ' '));
+
+		Cart.delete(id);
 
 		//Notify user about cart item deletion
 		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};

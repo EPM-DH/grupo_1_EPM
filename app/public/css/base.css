@@ -120,6 +120,7 @@ input[type="search"]::-webkit-search-results-decoration {
     max-width: 100%;
     font-size: 20px;
     transition: transform 0.5s;
+    color: black;
 }
 .carrito-producto:hover{
     transform: rotate(90deg);

@@ -11,7 +11,7 @@ const mainController = {
 		let notification = '';
 
 		if(req.app.notification){
-			notification = req.app.notification
+			notification = req.app.notification;
 		}
 
 		res.render('home', {products: productos, notification});
