@@ -5,15 +5,31 @@ const path = require('path');
 const Product = require('../models/Product');
 const Cart = require('../models/Cart');
 
+//For using JQuery in Node (express)
+/*var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('home')).window;
+global.document = document;
+
+var $ = jQuery = require('jquery')(window);*/
+
 const shoppingController = {
 	getCart: (req, res) => {
+
         let breadcrumbList = ["Página de inicio", "Carrito"];
         let urlList = [""];
         urlList.push(req.originalUrl);
 
         let products = [];
         let index = 0;
-        let cart = Cart.findAll();
+        let cart;
+
+        if(req.session.userLogged) { //Si hay una sesión activa
+            cart = Cart.findAllByField('user_id', req.session.userLogged.id);
+        } else {
+            cart = Cart.findAllByField('user_id', 0);
+        }
 
         //To get the product information
         for(item of cart) {
@@ -34,6 +50,12 @@ const shoppingController = {
 	},
     addItem: (req, res) => {
         let productId = parseInt(req.params.id);
+        let userId;
+        if(req.session.userLogged) {
+            userId = req.session.userLogged.id;
+        } else {
+            userId = 0;
+        }
 
         let currentItem = Cart.findByField('product_id', productId);
         let productName = Product.findByPk(productId).name;
@@ -41,12 +63,14 @@ const shoppingController = {
         let parts = referer.split('/');
         let location = parts.pop();
 
-        if(currentItem) {
+        if(currentItem && userId == currentItem.user_id) { //Si hay un producto idéntico ya añadido 
+            //y el id del usuario logeado es igual al del producto que está en la BD
             currentItem.quantity = currentItem.quantity + 1;
             Cart.update(currentItem);
         } else {
             let newItem = {
                 product_id: productId,
+                user_id: userId,
                 quantity: 1,
             };
             Cart.create(newItem);
@@ -63,13 +87,82 @@ const shoppingController = {
             res.redirect('/' + location);
         }
     },
-    delete: (req, res) => {
-		let id = parseInt(req.params.id);
+    dismiss: (req, res) => {
+        //Modal is closed in the JS file
+        req.app.cartFlag = 1;
 
+        res.redirect('/');
+	},
+    include: (req, res) => {
+        //Modal is closed in the JS file
+		req.app.cartFlag = 1;
+        let allCart = Cart.findAll();
+
+        //Think of better implementation
+
+        //For getting the index inside a for...of
+        //const [index, item] of allCart.entries()
+        for(item of allCart){
+            //Determine if item in user cart exists in guest cart too
+            let exists = allCart.find(element => element.user_id == 0 && item.product_id == element.product_id && item.user_id == req.session.userLogged.id);
+            let index = allCart.findIndex(element => element.user_id == 0 && item.product_id == element.product_id && item.user_id == req.session.userLogged.id);
+            if(exists) {
+                item.quantity = item.quantity + exists.quantity;
+                allCart.splice(index, 1);
+            }
+        }
+
+        //Assign missing guest elements (new) to current user
+        for(item of allCart){
+            if(item.user_id == 0){
+                item.user_id = req.session.userLogged.id;
+            }
+        }
+
+        /*for(item of allCart) {
+            console.log("Item: ");
+            console.log(item);
+            for(guest of guestItems){
+                console.log("Guest: ");
+                console.log(guest);
+                if(item.user_id == 1 && item.product_id == guest.product_id && item.id != guest.id){ 
+                    console.log("Item que cumple con la condición: ");
+                    console.log(item);
+                    item.quantity = item.quantity + guest.quantity;
+                    console.log("Item modificado: ");
+                    console.log(item);
+                    let index = allCart.findIndex(item => item.id == guest.id);
+                    console.log("Index del elemento a eliminar (en arreglo completo) " + index);
+                    allCart.splice(index, 1);
+                } else if (guest.user_id == 0) {
+                    console.log("Elemento remplazado en su id: ");
+                    console.log(item);
+                    let index = allCart.findIndex(item => item.id == guest.id);
+                    allCart[index].user_id = 1;
+                }
+            }
+        }*/
+
+        Cart.updateAll(allCart);
+
+        //Notify user about cart item deletion
+		let notification = {activo: 1, accion: "integración", accionDos: "integrado", elemento: "elementos del carrito de invitado", nombre: 'Carrito de invitado', tipo: "bg-success"};
+
+		req.app.notification = notification;
+
+        res.redirect('/');
+	},
+    delete: (req, res) => {
+		let id = parseInt(req.params.id); //Id del elemento del carrito de compras, no del producto
+
+        //No need to validate the user profile, because we are using DB id's and they're unique
+
+        //let userId = req.body.session.userLogged.id;
         let elemento = Cart.findByPk(id);
         let producto = Product.findByPk(elemento.product_id);
 
-		Cart.delete(id);
+		//Cart.deleteByItemAndUser(id, userId);
+        Cart.delete(id);
 
 		//Notify user about cart item deletion
 		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};

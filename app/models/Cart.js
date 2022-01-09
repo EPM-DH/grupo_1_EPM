@@ -34,6 +34,12 @@ const Cart = {
         return itemFound;
     },
 
+    findAllByField: function(field, text) {
+        let allItems = this.findAll();
+        let itemsFound = allItems.filter(cart => cart[field] === text);
+        return itemsFound;
+    },
+    
     create: function(itemData) {
         let allItems = this.findAll();
         let newItem = {
@@ -53,12 +59,25 @@ const Cart = {
         return true;
     },
 
+    updateAll: function(itemData) {
+        fs.writeFileSync(this.cartFilePath, JSON.stringify(itemData, null, ' '));
+        return true;
+    },
+
     delete: function(id) {
         let allItems = this.findAll();
-        let finalItems = allItems.filter(usuario => usuario.id !== id);
+        let finalItems = allItems.filter(cart => cart.id !== id);
         fs.writeFileSync(this.cartFilePath, JSON.stringify(finalItems, null, ' '));
         return true;
     },
+
+    //Could be implemented, but it has unnecessary logic
+    /*deleteByItemAndUser: function(itemId, userId) {
+        let allItems = this.findAll();
+        let finalItems = cart.filter(cart => cart.id !== 4 || cart.user_id !== 0);
+        fs.writeFileSync(this.cartFilePath, JSON.stringify(finalItems, null, ' '));
+        return true;
+    },*/
 };
 
 module.exports = Cart;

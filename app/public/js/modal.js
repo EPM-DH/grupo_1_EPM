@@ -1,13 +1,5 @@
-/*$(document).ready(function(){
-  $('#liveToast').toast('show');
-});
-$('.toast').on("load",function(){
-    console.log("Entré");
-    $('.toast').toast('show');
-});*/
-
 window.onload = (event) => {
-  console.log("Holaaaa");
+    $('#cartModal').modal('show');
     let myAlert = document.querySelectorAll('.toast')[0];
     if (myAlert) {
       let bsAlert = new bootstrap.Toast(myAlert);
@@ -15,3 +7,11 @@ window.onload = (event) => {
       bsAlert.show();
     }
 };
+
+$('.dimiss-button').on('click', () => {
+  $('#cartModal').modal('hide');
+});
+
+$('.add-button').on('click', () => {
+  $('#cartModal').modal('hide');
+});
