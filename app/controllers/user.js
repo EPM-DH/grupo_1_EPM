@@ -147,6 +147,8 @@ const userController = {
 			req.session.destroy();
 		}
 		
+		req.app.cartFlag = undefined;
+
 		//First check if cookie exists
 		/*if(req.cookies.user){
 			//res.clearCookie('usuarioLogeado');
