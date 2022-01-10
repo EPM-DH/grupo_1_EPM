@@ -28,14 +28,14 @@ function calculateSubtotals(id, element, type) {
     $('#subtotalI' + finalId).text("$" + subtotal.toLocaleString());
 }
 
-function decreaseValue(element) {
+function decreaseValue(element, cartId) {
     let inputElement = $('#' + element).next();
     if(parseInt(inputElement.val()) == 2){
         //Add disabled attribute to div
         let trigger = $('#' + element);
         trigger.css({"pointer-events":"none","opacity":"0.4"});
     }
-    inputElement.val(parseInt(inputElement.val()) - 1);
+    //inputElement.val(parseInt(inputElement.val()) - 1);
     //AJAX call for DB update
     //Update product subtotals
     calculateSubtotals(element, inputElement, 'decrease');
@@ -45,16 +45,19 @@ function decreaseValue(element) {
 
     //Update final totals
     calculateTotals();
+
+    //Trigger backend routing
+    window.location='/cart/decrease/' + cartId;
 }
 
-function increaseValue(element) {
+function increaseValue(element, cartId) {
     let inputElement = $('#' + element).prev();
     if(parseInt(inputElement.val()) == 1){
         //Remove disabled attribute from div
         let trigger = $('#' + element).prev().prev();
         trigger.css({"pointer-events":"auto","opacity":"1"});
     }
-    inputElement.val(parseInt(inputElement.val()) + 1);
+    //inputElement.val(parseInt(inputElement.val()) + 1);
     //AJAX call for DB update
     //Update product subtotals
     calculateSubtotals(element, inputElement, 'increase');
@@ -64,6 +67,9 @@ function increaseValue(element) {
 
     //Update final totals
     calculateTotals();
+
+    //Trigger backend routing
+    window.location='/cart/increase/' + cartId;
 }
 
 window.onload = (event) => {
