@@ -352,11 +352,11 @@ a.close.disabled {
     cursor: pointer;
 }
 
-#decrease {
+.decrease {
     border-radius: 8px 0 0 8px;
 }
 
-#increase {
+.increase {
     margin-left: -4px;
     border-radius: 0 8px 8px 0;
 }
@@ -366,7 +366,7 @@ a.close.disabled {
     padding: 0px;
 }
 
-input#number {
+input.number {
     text-align: center;
     border: none;
     border-top: 1px solid #ddd;
@@ -578,7 +578,7 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 22px;
     }
 
-    input#number, .value-button {
+    input.number, .value-button {
         max-width: 40px;
     }
 
@@ -745,7 +745,7 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 26px;
     }
 
-    input#number, .value-button {
+    input.number, .value-button {
         max-width: 40px;
     }
 
