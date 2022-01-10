@@ -34,6 +34,12 @@ const Cart = {
         return itemFound;
     },
 
+    findByFields: function(field, text, field2, text2) {
+        let allItems = this.findAll();
+        let itemFound = allItems.find(cart => cart[field] === text && cart[field2] === text2);
+        return itemFound;
+    },
+
     findAllByField: function(field, text) {
         let allItems = this.findAll();
         let itemsFound = allItems.filter(cart => cart[field] === text);

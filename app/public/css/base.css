@@ -448,6 +448,11 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: bold;
 }
 
+/* For shopping cart */
+.noUnderline {
+    text-decoration: none;
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {

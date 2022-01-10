@@ -57,11 +57,15 @@ const shoppingController = {
             userId = 0;
         }
 
-        let currentItem = Cart.findByField('product_id', productId);
+        let currentItem = Cart.findByFields('product_id', productId, 'user_id', req.session.userLogged.id); 
         let productName = Product.findByPk(productId).name;
         let referer = req.headers.referer;
         let parts = referer.split('/');
-        let location = parts.pop();
+        //To remove http://localhost:3500
+        parts.shift()
+        parts.shift()
+        parts.shift();
+        let location = parts;
 
         if(currentItem && userId == currentItem.user_id) { //Si hay un producto idéntico ya añadido 
             //y el id del usuario logeado es igual al del producto que está en la BD
@@ -83,8 +87,50 @@ const shoppingController = {
 
         if(location == '') {
             res.redirect('/');
-        } else {
+        } else if (location.length == 1){
             res.redirect('/' + location);
+        } else {
+            let output = '';
+            for(it of location) { 
+                output += '/' + it; 
+            }
+            res.redirect(output);
+        }
+    },
+    increaseItem: (req, res) => {
+        let cartId = parseInt(req.params.id);
+
+        let currentItem = Cart.findByPk(cartId); 
+        let productName = Product.findByPk(currentItem.product_id).name;
+
+        currentItem.quantity = currentItem.quantity + 1;
+        Cart.update(currentItem);
+
+        //Notify user about new product creation
+        let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "un producto al carrito", nombre: productName, tipo: "bg-success"};
+
+        req.app.notification = notification;
+
+        res.redirect('/cart');
+    },
+    decreaseItem: (req, res) => {
+        let cartId = parseInt(req.params.id);
+
+        let currentItem = Cart.findByPk(cartId); 
+        let productName = Product.findByPk(currentItem.product_id).name;
+
+        currentItem.quantity = currentItem.quantity - 1;
+        if(currentItem.quantity == 0){
+            //Trigger modal for deleting the element
+        } else {
+            Cart.update(currentItem);
+
+            //Notify user about new product creation
+            let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "un producto del carrito", nombre: productName, tipo: "bg-danger"};
+
+            req.app.notification = notification;
+
+            res.redirect('/cart');
         }
     },
     dismiss: (req, res) => {
