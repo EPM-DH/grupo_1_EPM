@@ -7,7 +7,6 @@ $('.toast').on("load",function(){
 });*/
 
 window.onload = (event) => {
-  console.log("Holaaaa");
     let myAlert = document.querySelectorAll('.toast')[0];
     if (myAlert) {
       let bsAlert = new bootstrap.Toast(myAlert);
