@@ -14,6 +14,7 @@ const productRouter = require('./routes/product');
 const cartRouter = require('./routes/cart');
 const userLogged = require('./middlewares/userLogged');
 const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
+const logger = require('./middlewares/logger'); //Only needed when working with JSON files
 
 app.use(express.static(publicPath));
 app.use(methodOverride('_method')); // For PUT and DELETE methods
@@ -26,6 +27,7 @@ app.use(session({ secret: "Nuestro mensaje secreto", //Debe ir antes de que se e
 app.use(cookieParser()); 
 app.use(userActivity); //Only needed when working with JSON files
 app.use(userLogged);
+app.use(logger);
 app.use('/', mainRouter);
 app.use('/user', userRouter);
 app.use('/search', searchRouter); //Consider changing into main router
