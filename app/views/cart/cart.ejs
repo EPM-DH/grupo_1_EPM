@@ -1,13 +1,13 @@
-<%- include('partials/header.ejs',  {title: 'Carrito de compras', home: 0}) %>
-<%- include('partials/navbar.ejs') %>
-<%- include('partials/offcanvas.ejs') %>
+<%- include('../partials/header.ejs',  {title: 'Carrito de compras', home: 0}) %>
+<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/offcanvas.ejs') %>
     <div class="container">
         <div class="row justify-content-center mt-3">
             <div class="col-auto">
                 <h1>Carrito de compras <span class="">(<%= products.length %> elementos diferentes en tu carrito, <span id="totalItems">  </span> en total)</span></h1>
             </div>
         </div>
-        <%- include('partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
+        <%- include('../partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
 
         <div class="d-flex flex-row justify-content-around mt-3">
             <div class="col-11 producto-linea">
@@ -31,8 +31,8 @@
             </div>
         </div>
         <!--productos-->
-        <%- include('partials/productoCarrito.ejs', {products}) %>
-        <%- include('partials/detalleProducto.ejs', {products}) %>
+        <%- include('productoCarrito.ejs', {products}) %>
+        <%- include('../partials/detalleProducto.ejs', {products}) %>
         <!--fin de producto-->
 
         <div class="d-flex flex-row justify-content-around mt-5">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <%- include('partials/userToast.ejs') %>
+        <%- include('../partials/userToast.ejs') %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -97,4 +97,4 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="/js/cart.js"></script>
 </body>
-<%- include('partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

@@ -52,10 +52,11 @@ const productController = {
 			let featured = 0;
 			//To get the value of each characteristic
 			for (const [key, value] of Object.entries(req.body)) {
-				if(key.includes('characteristic')) {
+				if(key.includes('characteristic') && value != '') {
 					characteristics.push(value);
 				}
 			}
+			req.body.characteristics = characteristics;
 			//To see if a product is featured
 			if(req.body.featured == 'on'){
 				featured = 1;
@@ -124,6 +125,15 @@ const productController = {
 				req.body.categories = [req.body.categories];
 			}
 
+			let characteristics = [];
+			//To get the value of each characteristic
+			for (const [key, value] of Object.entries(req.body)) {
+				if(key.includes('characteristic') && value != '') {
+					characteristics.push(value);
+				}
+			}
+			req.body.characteristics = characteristics;
+
 			res.render('products/createProduct', { errors: errors.mapped() , old: req.body, categories }); //Mapped convierte el arreglo en un objeto literal
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}
@@ -145,7 +155,7 @@ const productController = {
 			let featured = 0;
 			//To get the value of each characteristic
 			for (const [key, value] of Object.entries(req.body)) {
-				if(key.includes('characteristic')) {
+				if(key.includes('characteristic') && value != '') {
 					characteristics.push(value);
 				}
 			}

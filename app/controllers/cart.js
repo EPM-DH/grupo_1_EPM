@@ -46,7 +46,7 @@ const shoppingController = {
 			notification = req.app.notification;
 		}
 
-		res.render('cart', {notification, products, breadcrumbList, urlList});
+		res.render('cart/cart', {notification, products, breadcrumbList, urlList});
 	},
     addItem: (req, res) => {
         let productId = parseInt(req.params.id);
