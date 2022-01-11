@@ -33,3 +33,11 @@ function removeCharacteristic() {
     //Delete element
     $('#' + lastIdString).parent().remove();
 }
+
+window.onload = (event) => {
+    let elements = $('.caracteristicas').children();
+    if(elements.length > 1) {
+        let trigger = $('#decrease');
+        trigger.css({"pointer-events":"auto","opacity":"1"});
+    }
+};

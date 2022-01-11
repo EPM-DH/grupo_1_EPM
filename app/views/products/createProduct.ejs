@@ -95,14 +95,25 @@
                     </div>
                     <div class="col-7">
                         <ul class="caracteristicas">
-                            <li><input type="text" class="form-estandar" name="characteristic1"  id="characteristic1"></li>
+                        <% if (locals.old && old.characteristics) { %>
+                            <% let i = 1; for(characteristic of old.characteristics) { %>
+                                <li><input type="text" class="form-estandar form-control <%= locals.errors && errors.characteristic1 ? 'is-invalid' : '' %>" name="characteristic<%= i %>"  id="characteristic<%= i %>" value="<%= characteristic %>"></li>
+                            <% i++; } %> 
+                        <% } else { %>
+                            <li><input type="text" class="form-estandar form-control <%= locals.errors && errors.characteristic1 ? 'is-invalid' : '' %>" name="characteristic1"  id="characteristic1"></li>
+                        <%}%>
                         </ul>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.characteristic1) { %> 
+                                <%= errors.characteristic1.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7">
                         <label for="rating">
-                            Calificación
+                            Calificación (0-5)
                         </label>
                     </div>
                     <div class="col-7">
