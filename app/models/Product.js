@@ -65,6 +65,34 @@ const Product = {
         return newProduct;
     },
 
+    update: function(productData, id) {
+        let allProducts = this.findAll();
+        let newProduct = {
+            id: id,
+            ...productData
+        };
+
+        let index = this.findIndexById(id);
+		allProducts[index] = newProduct;
+
+        fs.writeFileSync(this.productsFilePath, JSON.stringify(allProducts, null, ' '));
+        return newProduct;
+    },
+
+    deleteImageByName: function(name) {
+        //Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img/products', name), (err) => {
+            if (err) {
+                console.error(err)
+                return
+            }
+        
+            console.log('File removed successfully');
+        });
+
+        return true;
+    },
+
     delete: function(id) {
         let allProducts = this.findAll();
         let finalProducts = allProducts.filter(usuario => usuario.id !== id);

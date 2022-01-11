@@ -143,5 +143,30 @@
    "cosmo.jpg",
    "cosmo.jpg"
   ]
+ },
+ {
+  "id": 5,
+  "name": "Test159",
+  "price": 453,
+  "categories": [
+   "Singing rock"
+  ],
+  "shortDescription": "sdfsd",
+  "longDescription": "sdfsdf",
+  "rating": 5,
+  "identifier": "sdfsfsdf",
+  "characteristics": [
+   "sdfsfds",
+   "sdffsdf",
+   "sdfsfsdf"
+  ],
+  "vendidos": 0,
+  "featured": 0,
+  "image": "cosmo_1641944711849.jpg",
+  "carouselImages": [
+   "cosmo_1641944711849.jpg",
+   "cosmo_1641944711849.jpg",
+   "cosmo_1641944711849.jpg"
+  ]
  }
 ]

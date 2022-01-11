@@ -148,8 +148,8 @@ const productController = {
 		const errors = validationResult(req);
 
 		if(errors.isEmpty()){ //No hay errores
-			let id = req.params.id;
-			let product = products.find(product => product.id == id);
+			let id = parseInt(req.params.id);
+			let product = Product.findByPk(id);
 			let characteristics = [];
 			let imagen;
 			let featured = 0;
@@ -166,10 +166,15 @@ const productController = {
 				featured = 1;
 			}
 
-			if(req.file == undefined){
+			if(req.file == undefined){ //No hay nueva imagen
 				imagen = product.image;
-			} else {
-				imagen = req.file.filename;
+			} else { //Hay nueva imagen
+				Product.deleteImageByName(product.image); //Borrar imagen anterior
+				imagen = req.file.filename; //Asignar nueva imagen
+				//Modificar carousel
+				for(let i = 0; i < product.carouselImages.length; i++){ 
+					product.carouselImages[i] = imagen;
+				}
 			}
 
 			if(!Array.isArray(req.body.categories)){
@@ -179,14 +184,13 @@ const productController = {
 			//Create updated product from form data
 			let newProduct = { //Validate if identifier is unique
 				...req.body, //name: req.body.name, // categories: req.body.categories, // shortDescription: req.body.shortDescription, // longDescription: req.body.longDescription, // identifier: req.body.identifier,
-				id: parseInt(id),
 				price: parseFloat(req.body.price),
 				characteristics: characteristics,
 				rating: parseInt(req.body.rating),
 				vendidos: product.vendidos,
 				featured: featured,
 				image: imagen, //To be obtained from multer
-				carouselImages: product.carouselImages, //Update in following sprints
+				carouselImages: product.carouselImages,
 			};
 
 			//Check that there isn't a product registered with the same identifier already
@@ -207,11 +211,7 @@ const productController = {
 			}
 			
 			//Replace old product with updated one
-			let index = products.findIndex(element => element.id == id);
-			products[index] = newProduct;
-
-			//Write the new product to the JSON file
-			fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+			Product.update(newProduct, id);
 			
 			//Notify user about product edition
 			let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "producto", nombre: req.body.name, tipo: "bg-warning"};
@@ -223,14 +223,7 @@ const productController = {
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
-				fs.unlinkSync(path.join(__dirname, '/../public/img/products', req.file.filename), (err) => {
-					if (err) {
-						console.error(err)
-						return
-					}
-				
-					console.log('File removed successfully');
-				});
+				Product.deleteImageByName(req.file.filename);
 			}
 
 			let id = req.params.id;
