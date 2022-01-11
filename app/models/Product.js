@@ -34,6 +34,12 @@ const Product = {
         return productFound;
     },
 
+    findIndexById: function(id) {
+        let allProducts = this.findAll();
+        let indexFound = allProducts.findIndex(element => element.id === id);
+        return indexFound;
+    },
+
     findFeatured: function() {
         let products = this.findAll();
         let featuredProducts = products.filter(producto => producto.featured != 0);
@@ -56,12 +62,25 @@ const Product = {
         };
         allProducts.push(newProduct);
         fs.writeFileSync(this.productsFilePath, JSON.stringify(allProducts, null, ' '));
-        return true;
+        return newProduct;
     },
 
     delete: function(id) {
         let allProducts = this.findAll();
         let finalProducts = allProducts.filter(usuario => usuario.id !== id);
+
+        let index = this.findIndexById(id);
+
+        //Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img/products', allProducts[index].image), (err) => {
+			if (err) {
+			  console.error(err);
+			  return;
+			}
+		  
+			console.log('File removed successfully');
+		});
+
         fs.writeFileSync(this.productsFilePath, JSON.stringify(finalProducts, null, ' '));
         return true;
     },
