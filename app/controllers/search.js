@@ -1,8 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//Models
+const Product = require('../models/Product');
 
 const searchController = {
 	/*retrieveSearch: (req, res) => {
@@ -10,7 +7,7 @@ const searchController = {
 	},*/
     search: (req, res) => {
         let toSearch = req.body.userQuery;
-        let product = products.filter(item => item.name.toLowerCase().includes(toSearch.toLowerCase()));
+        let product = Product.search(toSearch);
 
         res.render('search/search', { products: product });
     },

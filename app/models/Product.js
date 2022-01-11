@@ -34,6 +34,20 @@ const Product = {
         return productFound;
     },
 
+    findFeatured: function() {
+        let products = this.findAll();
+        let featuredProducts = products.filter(producto => producto.featured != 0);
+
+        return featuredProducts;
+    },
+
+    search: function(toSearch) {
+        let products = this.findAll();
+        let foundProducts = products.filter(item => item.name.toLowerCase().includes(toSearch.toLowerCase()));
+
+        return foundProducts;
+    },
+
     create: function(productData) {
         let allProducts = this.findAll();
         let newProduct = {

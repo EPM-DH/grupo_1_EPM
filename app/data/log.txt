@@ -1,3 +1,10 @@
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/create
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /cart
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /cart/dismiss?
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /cart/dismiss?
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /search
