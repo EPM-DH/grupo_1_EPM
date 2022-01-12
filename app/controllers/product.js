@@ -1,10 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// To import products
-const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); //Validate if products variable is empty before anything else
-
 //To import categories
 const categoriesFilePath = path.join(__dirname, '../data/categories.json');
 const categories = JSON.parse(fs.readFileSync(categoriesFilePath, 'utf-8'));
@@ -13,8 +9,6 @@ const { validationResult } = require('express-validator');
 
 //Models
 const Product = require('../models/Product');
-
-//Consider adding rating field to products JSON 
 
 const productController = {
 	retrieveProducts: (req, res) => {
@@ -111,14 +105,7 @@ const productController = {
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
-				fs.unlinkSync(path.join(__dirname, '/../public/img/products', req.file.filename), (err) => {
-					if (err) {
-						console.error(err)
-						return
-					}
-				
-					console.log('File removed successfully');
-				});
+				Product.deleteImageByName(req.file.filename);
 			}
 
 			if(!Array.isArray(req.body.categories)){

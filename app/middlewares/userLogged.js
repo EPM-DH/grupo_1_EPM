@@ -16,18 +16,21 @@ function userLogged (req, res, next) {
     let userFromCookie = User.findByField('email', emailInCookie);
 
     if(userFromCookie) { //Si hay un usuario en la DB que coincida con la cookie del navegador
+        delete userFromCookie.password;
         req.session.userLogged = userFromCookie;
     }
 
     if(req.session.userLogged) {
         //Update user data in case a change in the profile is detected
         let usuario = User.findByField('email', req.session.userLogged.email);
-		delete usuario.password;
-		req.session.userLogged = usuario;
-
-        //Indicate user is logged and save user data in local variable
-        res.locals.isLogged = true; 
-        res.locals.userLogged = req.session.userLogged;
+        if(usuario) {
+            delete usuario.password;
+		    req.session.userLogged = usuario;
+            
+            //Indicate user is logged and save user data in local variable
+            res.locals.isLogged = true; 
+            res.locals.userLogged = req.session.userLogged;
+        }
     }
 
     next();

@@ -1,12 +1,6 @@
 const { validationResult } = require('express-validator');
-const fs = require('fs');
-const path = require('path');
 //For hashing the password
 const bcrypt = require('bcryptjs');
-
-// To import users
-const usersFilePath = path.join(__dirname, '../data/usuarios.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); //Validate if users variable is empty before anything else
 
 //Models
 const User = require('../models/User');
@@ -24,7 +18,6 @@ const userController = {
 
 			//Create new user from form data
 			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
-				id: users[users.length - 1].id + 1,
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
 				email: req.body.email,
@@ -51,13 +44,7 @@ const userController = {
 			}
 
 			//Add new user to DB
-			/*User.create(newUser);*/
-
-			//Add new product
-			users.push(newUser);
-
-			//Write the new product to the JSON file
-			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+			User.create(newUser);
 
 			//Notify user about new user creation
 			let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-success"};
@@ -68,14 +55,7 @@ const userController = {
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
-				fs.unlinkSync(path.join(__dirname, '/../public/img/users', req.file.filename), (err) => {
-					if (err) {
-						console.error(err);
-						return;
-					}
-				
-					console.log('File removed successfully');
-				});
+				User.deleteImageByName(req.file.filename);
 			}
 
 			res.render('users/register', { errors: errors.mapped() , old: req.body }); //Mapped convierte el arreglo en un objeto literal
@@ -96,6 +76,7 @@ const userController = {
 
 		if(errors.isEmpty()){ //No hay errores
 			//Search for user & password
+			let users = User.findAll();
 			for(user of users) { 
 				if(user.email == req.body.email && bcrypt.compareSync(req.body.contrasena, user.password)) {
 					//Login
@@ -165,14 +146,15 @@ const userController = {
 		}
 
 		//For session
-		res.render('users/profile', { notification, logged: req.session.userLogged });
+		//logged: req.session.userLogged
+		res.render('users/profile', { notification });
 		//res.render('users/profile', { notification });
 	},
 	update: (req, res) => {
 		let errors = validationResult(req);
 
 		if(errors.isEmpty()){ //No hay errores
-			let id = req.params.id;
+			let id = parseInt(req.params.id);
 			let usuario = User.findByField('email', req.body.email);
 			//let usuario = users.find(user => user.id == id); //This query deletes the password field. Why??
 			let contrasena = usuario.password;
@@ -232,7 +214,7 @@ const userController = {
 					};
 
 					errors.errors.push(nuevoError);
-				} else if (bcrypt.compareSync(req.body.contrasena, contrasena)) { //Verificar si la contraseña no está repetida
+				} else if (bcrypt.compareSync(req.body.contrasena, contrasena)) { //Verificar si la contraseña no está repetida (quiere que la nueva sea la misma que la vieja)
 					//Create new error
 					nuevoError = {
 						value: '',
@@ -278,7 +260,6 @@ const userController = {
 
 			//Create updated user from form data
 			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
-				id: parseInt(id),
 				firstName: req.body.nombre,
 				lastName: req.body.apellido,
 				email: req.body.email,
@@ -288,11 +269,7 @@ const userController = {
 			};
 
 			//Replace old product with updated one
-			let index = users.findIndex(element => element.id == id);
-			users[index] = newUser;
-			
-			//Write the updated user to the JSON file
-			fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+			User.update(newUser, id);
 			
 			//Notify user about user edition
 			let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "usuario", nombre: req.body.nombre, tipo: "bg-warning"};
@@ -304,14 +281,7 @@ const userController = {
 		} else { //Hay errores
 			//Destroy image saved by multer
 			if(req.file){
-				fs.unlinkSync(path.join(__dirname, '/../public/img/users', req.file.filename), (err) => {
-					if (err) {
-						console.error(err);
-						return;
-					}
-				
-					console.log('File removed successfully');
-				});
+				User.deleteImageByName(req.file.filename);
 			}
 
 			let id = req.params.id;
@@ -324,24 +294,11 @@ const userController = {
 		}
 	},
 	delete: (req, res) => {
-		let id = req.params.id;
-		let finalUsers = users.filter(user => user.id != id); //Get all the users that don't match with the given id
+		let id = parseInt(req.params.id);
 
-		let index = users.findIndex(element => element.id == id);
+		let usuario = User.findByPk(id);
 
-		//Destroy image saved by multer
-		fs.unlinkSync(path.join(__dirname, '/../public/img/users', users[index].image), (err) => {
-			if (err) {
-			  console.error(err);
-			  return;
-			}
-		  
-			console.log('File removed successfully');
-		});
-
-		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
-
-		let usuario = users.find(user => user.id == id);
+		User.delete(id);
 
 		//Notify user about user deletion
 		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "usuario", nombre: usuario.firstName, tipo: "bg-danger"};

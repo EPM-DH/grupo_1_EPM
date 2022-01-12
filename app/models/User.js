@@ -34,6 +34,12 @@ const User = {
         return userFound;
     },
 
+    findIndexById: function(id) {
+        let allUsers = this.findAll();
+        let indexFound = allUsers.findIndex(element => element.id === id);
+        return indexFound;
+    },
+
     create: function(userData) {
         let allUsers = this.findAll();
         let newUser = {
@@ -45,9 +51,50 @@ const User = {
         return true;
     },
 
+    update: function(userData, id) {
+        let allUsers = this.findAll();
+        let newUser = {
+            id: id,
+            ...userData
+        };
+
+        let index = this.findIndexById(id);
+		allUsers[index] = newUser;
+
+        fs.writeFileSync(this.usersFilePath, JSON.stringify(allUsers, null, ' '));
+        return newUser;
+    },
+
+    deleteImageByName: function(name) {
+        //Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img/users', name), (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+        
+            console.log('File removed successfully');
+        });
+
+        return true;
+    },
+
     delete: function(id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter(usuario => usuario.id !== id);
+
+        let index = this.findIndexById(id);
+
+        //Destroy image saved by multer
+		fs.unlinkSync(path.join(__dirname, '/../public/img/users', allUsers[index].avatar), (err) => {
+			if (err) {
+			  console.error(err);
+			  return;
+			}
+		  
+			console.log('File removed successfully');
+		});
+
         fs.writeFileSync(this.usersFilePath, JSON.stringify(finalUsers, null, ' '));
         return true;
     },
