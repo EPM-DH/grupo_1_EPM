@@ -59,6 +59,13 @@ const mainController = {
 
 		res.render('privacy', { breadcrumbList, urlList });
 	},
+	retrieveFaq: (req, res) => {
+		let breadcrumbList = ["Página de inicio", "Preguntas más frecuentes"];
+        let urlList = [""];
+        urlList.push(req.originalUrl);
+
+		res.render('faq', { breadcrumbList, urlList });
+	},
 };
 
 module.exports = mainController;

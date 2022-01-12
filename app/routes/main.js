@@ -19,4 +19,7 @@ router.get('/about', mainController.retrieveAbout); //Cualquiera puede ver/entra
 // For privacy declaration page
 router.get('/privacy', mainController.retrievePrivacy); //Cualquiera puede ver/entrar a la página de contáctanos 
 
+// For faq page
+router.get('/faq', mainController.retrieveFaq); //Cualquiera puede ver/entrar a la página de contáctanos 
+
 module.exports = router;
