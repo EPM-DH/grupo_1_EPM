@@ -1,82 +1,127 @@
+El usuario Guest ingresó en la ruta /cart/add/1
+El usuario Guest ingresó en la ruta /cart/add/1
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /cart/dismiss?
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/profile
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/delete/5?_method=DELETE
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /cart/dismiss?
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/profile
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/delete/5?_method=DELETE
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/profile
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/delete/5?_method=DELETE
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/profile
-El usuario Ma Guadalupe A Rangel Lopez ingresó en la ruta /user/delete/5?_method=DELETE
+El usuario Guest ingresó en la ruta /cart/add/3
 El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product/1
 El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /cart/add/3
+El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /cart/add/2
+El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/decrease/1
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/increase/5
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/increase/5
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/decrease/4
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/delete/5?_method=DELETE
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/increase/4
 El usuario Guest ingresó en la ruta /cart
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /cart/dismiss?
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /cart/dismiss?
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/delete/5?_method=DELETE
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /cart/dismiss?
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/delete/5?_method=DELETE
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /user/login
+El usuario Manuel Ledesma ingresó en la ruta /
+El usuario Manuel Ledesma ingresó en la ruta /cart/include
+El usuario Manuel Ledesma ingresó en la ruta /
+El usuario Manuel Ledesma ingresó en la ruta /cart
+El usuario Manuel Ledesma ingresó en la ruta /user/profile
+El usuario Manuel Ledesma ingresó en la ruta /user/edit/6?_method=PUT
+El usuario Manuel Ledesma Lopez ingresó en la ruta /user/profile
+El usuario Manuel Ledesma Lopez ingresó en la ruta /user/delete/6?_method=DELETE
+El usuario Manuel Ledesma Lopez ingresó en la ruta /user/logout
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/create
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/4
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/4
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/4?_method=PUT
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/4
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/4
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/4?_method=PUT
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/4
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /search
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /search
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /cart
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /purchases
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart/add/1
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart/add/3
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /product
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart/add/2
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /product
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/profile
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/delete/5?_method=DELETE
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/profile
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/profile
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/delete/5?_method=DELETE
+El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /cart/dismiss?
 El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
 El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/profile
 El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lopez ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel Lopez ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lopez ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/edit/5?_method=PUT
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /cart/dismiss?
-El usuario Ma Guadalupe Adriana Rangel Lop ingresó en la ruta /
+El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/profile
+El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /product
+El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /

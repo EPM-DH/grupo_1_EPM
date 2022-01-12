@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 
 //Models
 const User = require('../models/User');
+const Cart = require('../models/Cart');
 
 const userController = {
 	retrieveRegister: (req, res) => {
@@ -15,6 +16,11 @@ const userController = {
 		if(errors.isEmpty()){ //No hay errores
 			//Encrypt password
 			let encryptedPassword = bcrypt.hashSync(req.body.contrasena, 10);
+			let image = 'default.png';
+
+			if(req.file) {
+				image = req.file.filename;
+			}
 
 			//Create new user from form data
 			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
@@ -22,7 +28,7 @@ const userController = {
 				lastName: req.body.apellido,
 				email: req.body.email,
 				password: encryptedPassword,
-				avatar: req.file.filename,
+				avatar: image,
 				rol: 'estandar',
 			};
 
@@ -297,6 +303,9 @@ const userController = {
 		let id = parseInt(req.params.id);
 
 		let usuario = User.findByPk(id);
+
+		//Delete the user cart as well
+		Cart.deleteCartByUserId(id);
 
 		User.delete(id);
 
