@@ -453,6 +453,14 @@ input[type=number]::-webkit-outer-spin-button {
     text-decoration: none;
 }
 
+/* For contact form */
+/* Set the size of the div element that contains the map */
+#map {
+    height: 300px;
+    width: 100%;
+    /* The width is the width of the web page */
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -605,6 +613,14 @@ input[type=number]::-webkit-outer-spin-button {
     .toast {
         font-size: 1rem;
     }
+
+    /* For contact form */
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px;
+        width: 100%;
+        /* The width is the width of the web page */
+    }
 }
 
 /* For compatibility purposes */
@@ -616,6 +632,14 @@ input[type=number]::-webkit-outer-spin-button {
     /* For breadcrumb */
     .personal {
         margin-left: 43px;
+    }
+
+    /* For contact form */
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 500px;
+        width: 100%;
+        /* The width is the width of the web page */
     }
 }
 
@@ -802,6 +826,14 @@ input[type=number]::-webkit-outer-spin-button {
     /* For toast */
     .toast {
         font-size: 1.25rem;
+    }
+
+    /* For contact form */
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 550px;
+        width: 100%;
+        /* The width is the width of the web page */
     }
 }
 
