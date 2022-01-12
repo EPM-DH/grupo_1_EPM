@@ -41,6 +41,9 @@ const mainController = {
 			//Donde en lugar de índices tiene los nombres de los inputs del formulario
 		}
 	},
+	retrieveAbout: (req, res) => {
+		res.render('aboutUs');
+	},
 };
 
 module.exports = mainController;

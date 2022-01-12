@@ -461,6 +461,107 @@ input[type=number]::-webkit-outer-spin-button {
     /* The width is the width of the web page */
 }
 
+/* For about us section */
+.aboutus-section {
+    padding: 20px 0;
+}
+
+.aboutus-title {
+    letter-spacing: 0;
+    margin: 0 0 39px;
+    padding: 0 0 11px;
+    position: relative;
+}
+
+.aboutus-title::after {
+    background: #36981E none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 54px;
+}
+
+.imgPad {
+    padding: 0;
+}
+
+.left-text-pad {
+    padding-left: 0;
+    padding-right: 50px;
+}
+
+.right-text-pad {
+    padding-right: 0;
+    padding-left: 50px;
+}
+
+.aboutus-text {
+    margin: 0 0 35px;
+    text-align: justify;
+}
+
+.feature .feature-box .iconset {
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    position: relative;
+    width: 18%;
+}
+
+.feature .feature-box .iconset::after {
+    background: #36981E none repeat scroll 0 0;
+    content: "";
+    height: 235%;
+    left: 47.5%;
+    position: absolute;
+    top: 100%;
+    width: 1px;
+}
+
+.feature {
+    padding-top: 20px;
+}
+
+.feature .feature-box .feature-content {
+    float: left;
+    padding-left: 28px;
+    padding-top: 20px;
+    width: 78%;
+}
+
+.feature .feature-box .feature-content h4 {
+    letter-spacing: 0;
+    margin: 0 0 5px;
+}
+
+.feature .feature-box .feature-content p {
+    text-align: justify;
+}
+
+.icon {
+    color : #36981E;
+    padding:0px;
+    font-size:40px;
+    border: 1px solid #36981E;
+    border-radius: 100px;
+    color: #36981E;
+    font-size: 28px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    width: 70px;
+}
+
+/* For compatibility purposes */
+@media (min-width: 576px) {
+    /* For about us section */
+    .feature .feature-box .iconset::after {
+        left: 36%;
+        height: 150%;
+    }
+}
+
 @media (min-width: 768px) {
     /* For home page */
     .tc {
@@ -621,6 +722,39 @@ input[type=number]::-webkit-outer-spin-button {
         width: 100%;
         /* The width is the width of the web page */
     }
+
+    /* For about us section */
+    .aboutus-title {
+        font-size: 40px;
+    }
+
+    .aboutus-title::after {
+        height: 3px;
+    }
+
+    .aboutus-text {
+        font-size: 18px;
+    }
+
+    .feature .feature-box .iconset::after {
+        left: 27.5%;
+    }
+
+    .feature .feature-box .feature-content h4 {
+        font-size: 22px;
+    }
+
+    .feature .feature-box .feature-content p {
+        font-size: 18px;
+    }
+
+    .icon {
+        font-size: 32px;
+    }
+
+    .aboutus-banner img {
+        height: 550px;
+    }
 }
 
 /* For compatibility purposes */
@@ -640,6 +774,12 @@ input[type=number]::-webkit-outer-spin-button {
         height: 500px;
         width: 100%;
         /* The width is the width of the web page */
+    }
+
+    /* For about us section */
+    .feature .feature-box .iconset::after {
+        left: 60%;
+        height: 266%;
     }
 }
 
@@ -834,6 +974,36 @@ input[type=number]::-webkit-outer-spin-button {
         height: 550px;
         width: 100%;
         /* The width is the width of the web page */
+    }
+
+    /* For about us section */
+    .aboutus-title {
+        font-size: 48px;
+    }
+
+    .aboutus-title::after {
+        height: 4px;
+    }
+
+    .aboutus-text {
+        font-size: 20px;
+    }
+
+    .feature .feature-box .iconset::after {
+        left: 37%;
+        height: 258%;
+    }
+
+    .feature .feature-box .feature-content h4 {
+        font-size: 24px;
+    }
+
+    .feature .feature-box .feature-content p {
+        font-size: 20px;
+    }
+
+    .icon {
+        font-size:40px;
     }
 }
 
