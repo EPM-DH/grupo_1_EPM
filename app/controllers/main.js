@@ -16,13 +16,17 @@ const mainController = {
 		res.render('home', {products: productos, notification});
 	},
 	retrieveContact: (req, res) => {
+		let breadcrumbList = ["Página de inicio", "Contáctanos"];
+        let urlList = [""];
+        urlList.push(req.originalUrl);
+
 		let notification = '';
 
 		if(req.app.notification){
 			notification = req.app.notification;
 		}
 
-		res.render('contact', { notification });
+		res.render('contact', { notification, breadcrumbList, urlList });
 	},
 	contact: (req, res) => {
 		const errors = validationResult(req);
@@ -42,7 +46,18 @@ const mainController = {
 		}
 	},
 	retrieveAbout: (req, res) => {
-		res.render('aboutUs');
+		let breadcrumbList = ["Página de inicio", "¿Quienes somos?"];
+        let urlList = [""];
+        urlList.push(req.originalUrl);
+
+		res.render('aboutUs', { breadcrumbList, urlList });
+	},
+	retrievePrivacy: (req, res) => {
+		let breadcrumbList = ["Página de inicio", "Aviso de privacidad"];
+        let urlList = [""];
+        urlList.push(req.originalUrl);
+
+		res.render('privacy', { breadcrumbList, urlList });
 	},
 };
 

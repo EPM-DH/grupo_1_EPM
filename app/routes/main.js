@@ -16,4 +16,7 @@ router.post('/contact', validationsContact, mainController.contact); //Cualquier
 // For about us page
 router.get('/about', mainController.retrieveAbout); //Cualquiera puede ver/entrar a la página de contáctanos 
 
+// For privacy declaration page
+router.get('/privacy', mainController.retrievePrivacy); //Cualquiera puede ver/entrar a la página de contáctanos 
+
 module.exports = router;
