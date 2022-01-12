@@ -16,6 +16,11 @@ const userController = {
 		if(errors.isEmpty()){ //No hay errores
 			//Encrypt password
 			let encryptedPassword = bcrypt.hashSync(req.body.contrasena, 10);
+			let image = 'default.png';
+
+			if(req.file) {
+				image = req.file.filename;
+			}
 
 			//Create new user from form data
 			let newUser = { //Fields used in the JSON and used in the form don't match, so deconstruction can't be implemented
@@ -23,7 +28,7 @@ const userController = {
 				lastName: req.body.apellido,
 				email: req.body.email,
 				password: encryptedPassword,
-				avatar: req.file.filename,
+				avatar: image,
 				rol: 'estandar',
 			};
 
