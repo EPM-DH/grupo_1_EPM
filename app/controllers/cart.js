@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
 //Models
 const Product = require('../models/Product');
 const Cart = require('../models/Cart');

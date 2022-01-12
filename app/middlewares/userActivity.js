@@ -18,8 +18,10 @@ function userActivity (req, res, next) { //Refresco la sesión para que se mante
     //For keeping the session when server is restarted due to nodemon and JSON files
     if(req.cookies.active){
         let usuario = User.findByField('email', req.cookies.active);
-		delete usuario.password;
-		req.session.userLogged = usuario;
+        if(usuario) {
+            delete usuario.password;
+		    req.session.userLogged = usuario;
+        }
     }
     next();
 }
