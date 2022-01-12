@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 
 //Models
 const User = require('../models/User');
+const Cart = require('../models/Cart');
 
 const userController = {
 	retrieveRegister: (req, res) => {
@@ -297,6 +298,9 @@ const userController = {
 		let id = parseInt(req.params.id);
 
 		let usuario = User.findByPk(id);
+
+		//Delete the user cart as well
+		Cart.deleteCartByUserId(id);
 
 		User.delete(id);
 

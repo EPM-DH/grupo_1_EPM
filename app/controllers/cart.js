@@ -54,7 +54,7 @@ const shoppingController = {
             userId = 0;
         }
 
-        let currentItem = Cart.findByFields('product_id', productId, 'user_id', req.session.userLogged.id); 
+        let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
         let productName = Product.findByPk(productId).name;
         let referer = req.headers.referer;
         let parts = referer.split('/');

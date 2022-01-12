@@ -34,14 +34,5 @@
   "password": "Hola1234",
   "avatar": "",
   "rol": "estandar"
- },
- {
-  "id": 5,
-  "firstName": "Ma Guadalupe",
-  "lastName": "Adriana Rangel Lop",
-  "email": "lupita.rangel1@hotmail.com",
-  "password": "$2a$10$P7T2W3dctggQCCuEt5Mkp.t3kOV.ULlqfhDrxzH.Pnw6EQ8/5zQKm",
-  "avatar": "cosmo_1641948330860.jpg",
-  "rol": "estandar"
  }
 ]
