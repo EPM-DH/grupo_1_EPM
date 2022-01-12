@@ -7,7 +7,9 @@
                 <h1>Carrito de compras <span class="">(<%= products.length %> elementos diferentes en tu carrito, <span id="totalItems">  </span> en total)</span></h1>
             </div>
         </div>
-        <%- include('../partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
+        <div class="personal">
+            <%- include('../partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
+        </div>
 
         <div class="d-flex flex-row justify-content-around mt-3">
             <div class="col-11 producto-linea">

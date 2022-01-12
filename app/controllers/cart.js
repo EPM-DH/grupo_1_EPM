@@ -13,7 +13,6 @@ var $ = jQuery = require('jquery')(window);*/
 
 const shoppingController = {
 	getCart: (req, res) => {
-
         let breadcrumbList = ["Página de inicio", "Carrito"];
         let urlList = [""];
         urlList.push(req.originalUrl);

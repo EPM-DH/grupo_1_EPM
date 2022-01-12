@@ -12,6 +12,7 @@ const userRouter = require('./routes/user');
 const searchRouter = require('./routes/search');
 const productRouter = require('./routes/product');
 const cartRouter = require('./routes/cart');
+const orderRouter = require('./routes/order');
 const userLogged = require('./middlewares/userLogged');
 const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
 const logger = require('./middlewares/logger'); //Only needed when working with JSON files
@@ -33,6 +34,7 @@ app.use('/user', userRouter);
 app.use('/search', searchRouter); //Consider changing into main router
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
+app.use('/order', orderRouter);
 app.set("view engine", "ejs");
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
