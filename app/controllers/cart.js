@@ -1,6 +1,7 @@
 //Models
 const Product = require('../models/Product');
 const Cart = require('../models/Cart');
+const Wishlist = require('../models/Wishlist');
 
 //For using JQuery in Node (express)
 /*var jsdom = require('jsdom');
@@ -84,6 +85,12 @@ const shoppingController = {
         if(location == '') {
             res.redirect('/');
         } else if (location.length == 1){
+            if(location == 'wishlist'){
+                //Delete item from wishlist if user had it there 
+                notification = {activo: 1, accion: "agregación", accionDos: "añadido y eliminado", elemento: "producto al carrito y eliminación de la lista de deseos", nombre: productName, tipo: "bg-success"};
+                let wlId = parseInt(req.query.wishlist);
+                Wishlist.deleteProductFromWishlist(wlId, productId);
+            }
             res.redirect('/' + location);
         } else {
             let output = '';

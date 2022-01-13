@@ -77,11 +77,11 @@ const Wishlist = {
         return true;
     },
 
-    deleteCartByUserId: function(userId) {
-        let allItems = this.findAll();
-        let finalItems = allItems.filter(list => list.user_id !== userId);
-        fs.writeFileSync(this.wishlistFilePath, JSON.stringify(finalItems, null, ' '));
-        return true;
+    deleteProductFromWishlist: function(id, productId) {
+        let itemToEdit = this.findByPk(id);
+        let finalItems = itemToEdit.products.filter(list => list !== productId);
+        itemToEdit.products = finalItems;
+        this.update(itemToEdit);
     },
     
 };
