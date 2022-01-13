@@ -83,3 +83,5 @@ El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order/1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order/1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order/1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order/1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
