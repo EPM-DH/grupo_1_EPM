@@ -1,0 +1,36 @@
+<% for (item of lists) { %>
+<div class="row justify-content-center mt-3">
+    
+        <div class="col-sm-11 producto-linea">
+            <div class="row">
+                <button style="background: none; padding: 0px; border: none;" class="d-flex flex-row">
+                <div class="d-flex flex-column justify-content-center col-3 col-sm-3 pt-2 pb-2">
+                <img
+                    src="/img/wishlist/<%= item.image %>"
+                    alt="<%= item.identifier %>"
+                />
+                </div>
+                <div class="col-sm-9">
+                    <div class="col-sm-6 p-2">
+                        <div class="titulo-producto m-0" style="font-weight: bold">
+                            <%= item.name %>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-2 col-sm-3 p-2">
+                    <p class="description" style="margin-left: 0px; text-align: initial;">
+                        <em><%= item.status %></em>
+                    </p>
+                    </div>
+                </div>
+            </button>
+            </div>
+        </div>
+    
+</div>
+<% } %> <% if (lists.length == 0) { %>
+<div class="row justify-content-center mt-3">
+  <h2 style="text-align: center">
+    No tienes ninguna lista de deseos creada hasta el momento
+  </h2>
+</div>
+<% } %>

@@ -1,0 +1,28 @@
+[{
+    "id": 1,
+    "products": [{
+        "product_id": 1,
+        "quantity": 2
+    }, {
+        "product_id": 2,
+        "quantity": 1
+    }],
+    "user_id": 1,
+    "image": "tecno_date.jpg",
+    "identifier": "tec1_1",
+    "name": "Tecnología",
+    "status": "Privada"
+},
+{
+    "id": 2,
+    "products": [{
+        "product_id": 3,
+        "quantity": 3
+    }],
+    "user_id": 1,
+    "image": "casa_date.jpeg",
+    "identifier": "cas1_2",
+    "name": "Casa",
+    "status": "Pública"
+}
+]

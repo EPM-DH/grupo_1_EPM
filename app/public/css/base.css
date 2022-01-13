@@ -552,6 +552,21 @@ input[type=number]::-webkit-outer-spin-button {
     width: 70px;
 }
 
+/* For shopping cart number */
+.cart-basket {
+    font-size: 0.8rem;
+    position: absolute;
+    top: 119px;
+    left: 22px;
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    background-color: #4D003C;
+    border-radius: 50%;
+    font-weight: bold;
+    padding-bottom: 1px;
+}
+
 /* For compatibility purposes */
 @media (min-width: 576px) {
     /* For about us section */
@@ -639,10 +654,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     /* For header */
-    #navbarNav {
-        height: 300px;
-    }
-
     .navbar-nav {
         font-size: 20px;
     }
@@ -754,10 +765,20 @@ input[type=number]::-webkit-outer-spin-button {
     .aboutus-banner img {
         height: 550px;
     }
+
+    /* For shopping cart number */
+    .cart-basket {
+        position: absolute;
+        top: 150px;
+        left: 24px;
+        width: 18px;
+        height: 18px;
+        padding-bottom: 2px;
+    }
 }
 
 /* For compatibility purposes */
-@media (min-width: 991px) {
+@media (min-width: 992px) {
     #navbarNav {
         height: 80px;
     }
@@ -779,6 +800,18 @@ input[type=number]::-webkit-outer-spin-button {
     .feature .feature-box .iconset::after {
         left: 60%;
         height: 266%;
+    }
+
+    /* For shopping cart number */
+    .cart-basket {
+        font-size: 0.9rem;
+        position: absolute;
+        top: 26px;
+        left: auto;
+        right: 230px;
+        width: 18px;
+        height: 18px;
+        padding-bottom: 2px;
     }
 }
 
@@ -1004,6 +1037,16 @@ input[type=number]::-webkit-outer-spin-button {
 
     .icon {
         font-size:40px;
+    }
+
+    /* For shopping cart number */
+    .cart-basket {
+        font-size: 1.1rem;
+        position: absolute;
+        top: 22px;
+        right: 345px;
+        width: 20px;
+        height: 20px;
     }
 }
 

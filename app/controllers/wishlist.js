@@ -1,15 +1,16 @@
-
 //Models
-const Order = require('../models/Order');
+const Wishlist = require('../models/Wishlist');
 const Product = require('../models/Product');
 
-const orderController = {
-    retrieveOrders: (req, res) => {
-        let breadcrumbList = ["Página de inicio", "Pedidos"];
+const wishlistController = {
+    retrieveWishlist: (req, res) => {
+        let breadcrumbList = ["Página de inicio", "Lista de deseos"];
         let urlList = [""];
         urlList.push(req.originalUrl);
 
-        let userId = parseInt(req.session.userLogged.id);
+        let lists = Wishlist.findAll();
+
+        /*let userId = parseInt(req.session.userLogged.id);
 
         let orders = Order.findAllByField('user_id', userId);
 
@@ -22,8 +23,10 @@ const orderController = {
             order.total = product.price;
         }
 
-        res.render('users/orders', { orders, breadcrumbList, urlList });
+        console.log(orders);*/
+
+        res.render('users/wishlist', { lists, breadcrumbList, urlList });
     },
 };
 
-module.exports = orderController;
+module.exports = wishlistController;
