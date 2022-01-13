@@ -8,13 +8,11 @@ const wishlistController = {
         let urlList = [""];
         urlList.push(req.originalUrl);
 
-        let lists = Wishlist.findAll();
+        let userId = parseInt(req.session.userLogged.id);
 
-        /*let userId = parseInt(req.session.userLogged.id);
+        let lists = Wishlist.findAllByField('user_id', userId);
 
-        let orders = Order.findAllByField('user_id', userId);
-
-        for(order of orders) {
+        /*for(order of orders) {
             let product = Product.findByPk(order.product_id);
             order.image = product.image;
             order.name = product.name;

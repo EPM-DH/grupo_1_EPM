@@ -6,6 +6,6 @@ const wishlistController = require('../controllers/wishlist');
 const authRoutes = require('../middlewares/authRoutes'); 
 
 //To view the orders page
-router.get('/:id', authRoutes, wishlistController.retrieveWishlist); //Solamente un usuario que este logeado puede ver sus órdenes
+router.get('/', authRoutes, wishlistController.retrieveWishlist); //Solamente un usuario que este logeado puede ver sus órdenes
 
 module.exports = router;
