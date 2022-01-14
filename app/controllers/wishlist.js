@@ -2,6 +2,8 @@
 const Wishlist = require('../models/Wishlist');
 const Product = require('../models/Product');
 
+const { validationResult } = require('express-validator');
+
 const wishlistController = {
     retrieveWishlist: (req, res) => {
         let breadcrumbList = ["Página de inicio", "Listas de deseos"];
@@ -31,6 +33,39 @@ const wishlistController = {
 
         res.render('users/wishlist', { lists, breadcrumbList, urlList, notification });
     },
+    create: (req, res) => {
+		const errors = validationResult(req);
+        let productId = req.params.id;
+
+		if(errors.isEmpty()){ //No hay errores
+            let identifier = req.body.name.substring(0, 3);
+            let userId = req.session.userLogged.id;
+
+			//Create new wishlist from form data
+			let newWishlist = { //Validate if identifier is unique
+				products: [],
+                user_id: parseInt(userId),
+                image: 'default.png',
+                identifier: identifier + userId + '_',
+                ...req.body,
+			};
+
+			//Add new list
+			Wishlist.create(newWishlist);
+			
+			//Notify user about new list creation
+			let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "lista", nombre: req.body.name, tipo: "bg-success"};
+
+			req.app.notification = notification;
+			res.redirect('/product/' + productId); 
+
+		} else { //Hay errores
+            req.app.renErr = errors.mapped();
+            req.app.renOld = req.body;
+
+            res.redirect('/product/' + productId); 
+		}
+	},
     addToWishlist: (req, res) => {
         let id = parseInt(req.params.id); //Id del producto a agregar a la Wishlist
         let listIdentifier = req.query.wishlist; //Identificador de la wishlist

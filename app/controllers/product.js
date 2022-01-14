@@ -41,7 +41,17 @@ const productController = {
 
 		let wishLists = Wishlist.findAllByField('user_id', req.session.userLogged.id);
 
-		res.render('products/productDetails', {product, breadcrumbList, urlList, notification, wishLists});
+		let errors = undefined;
+		let old = undefined;
+
+		if(req.app.renErr){
+			errors = req.app.renErr;
+			req.app.renErr = undefined
+			old = req.app.renOld;
+			req.app.renOld = undefined;
+		}
+
+		res.render('products/productDetails', {product, breadcrumbList, urlList, notification, wishLists, errors, old});
 	},
 	create: (req, res) => {
 		const errors = validationResult(req);

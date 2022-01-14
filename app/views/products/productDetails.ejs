@@ -64,9 +64,22 @@
 							<a type="button" class="boton-estandar boton-flex anchorFormat" href="/cart/add/<%= product.id %>">Añadir al carrito</a>
 						</div>
 						<div class="col-5">
-							<button type="button" class="boton-estandar anchorFormat" style="background-color: #0dcaf0; border-color: #0dcaf0;" title="Listas disponibles &nbsp;&nbsp;<a href='#'>Crear nueva</a>" data-container="body" data-toggle="popover" data-placement="right" data-content="<ul><% for(item of wishLists) { %>
-								<li><a href='/wishlist/add/<%= product.id %>?wishlist=<%= item.identifier %>'><%= item.name %></a></li>
-							<% } %></ul>">Agregar a una lista</button>
+							<!-- Default dropright button -->
+							<div class="btn-group dropright">
+								<button type="button" class="boton-estandar anchorFormat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #0dcaf0; border-color: #0dcaf0;">
+									Agregar a una lista
+								</button>
+								<div class="dropdown-menu">
+									<h6 class="dropdown-header">Listas disponibles</h6>
+									<ul>
+										<% for(item of wishLists) { %>
+											<li><a href='/wishlist/add/<%= product.id %>?wishlist=<%= item.identifier %>'><%= item.name %></a></li>
+										<% } %>
+									</ul>
+									<div class="dropdown-divider"></div>
+									<a style="padding-left: 10%;" href="#" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</a>
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -87,6 +100,7 @@
 		</div>
 		<%- include('../partials/userToast.ejs') %>
 	</div>
+	<%- include('../partials/wishlistModal.ejs') %> 
 	<%- include('../partials/confirmationModal.ejs', {elemento: 'product', id: product.id}) %> 
 	<!-- /product detail -->
 	<script
