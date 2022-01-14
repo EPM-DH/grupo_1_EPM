@@ -22,8 +22,6 @@ const orderController = {
             order.total = product.price;
         }
 
-        console.log(orders);
-
         res.render('users/orders', { orders, breadcrumbList, urlList });
     },
 };

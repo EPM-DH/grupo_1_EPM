@@ -47,26 +47,26 @@
             </form>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
+            <li class="d-flex flex-column justify-content-center nav-item">
               <a class="nav-link active" aria-current="page" href="/product"
                 >Productos</a
               >
             </li>
             <% if (!locals.isLogged) { %>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/user/register"
+                <a class="d-flex flex-column justify-content-center nav-link active" aria-current="page" href="/user/register"
                   >Registrate</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/user/login"
+                <a class="d-flex flex-column justify-content-center nav-link active" aria-current="page" href="/user/login"
                   >Ingresa</a
                 >
               </li>
             <% } %>
-            <li class="nav-item">
+            <li class="d-flex flex-column justify-content-center nav-item">
               <a class="nav-link" href="/cart">
-                <i class="fas fa-shopping-cart"> </i>
+                <i class="fas fa-shopping-cart"></i><span class="cart-basket d-flex align-items-center justify-content-center"><%= locals.countItems %></span>
               </a>
             </li>
             <% if (locals.isLogged) { %>
@@ -87,10 +87,10 @@
                 >
                   <li><a class="dropdown-item" href="/user/profile">Perfil</a></li>
                   <li>
-                    <a class="dropdown-item" href="/order/1">Pedidos</a>
+                    <a class="dropdown-item" href="/order">Pedidos</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/whishlist">Lista de Deseos</a>
+                    <a class="dropdown-item" href="/wishlist">Listas de Deseos</a>
                   </li>
                   <li>
                     <hr class="dropdown-divider" />

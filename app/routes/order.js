@@ -6,6 +6,6 @@ const orderController = require('../controllers/order');
 const authRoutes = require('../middlewares/authRoutes'); 
 
 //To view the orders page
-router.get('/:id', authRoutes, orderController.retrieveOrders); //Solamente un usuario que este logeado puede ver sus órdenes
+router.get('/', authRoutes, orderController.retrieveOrders); //Solamente un usuario que este logeado puede ver sus órdenes
 
 module.exports = router;
