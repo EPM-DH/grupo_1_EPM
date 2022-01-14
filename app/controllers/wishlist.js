@@ -31,6 +31,33 @@ const wishlistController = {
 
         res.render('users/wishlist', { lists, breadcrumbList, urlList, notification });
     },
+    addToWishlist: (req, res) => {
+        let id = parseInt(req.params.id); //Id del producto a agregar a la Wishlist
+        let listIdentifier = req.query.wishlist; //Identificador de la wishlist
+        let list = Wishlist.findByField('identifier', listIdentifier);
+
+        let producto = Product.findByPk(id);
+        
+        //Notify user about wishlist action
+		let notification = {activo: 1, accion: "agregación", accionDos: "agregado", elemento: "elemento de la wishlist", nombre: producto.name, tipo: "bg-success"};
+
+		//Si ya existe en la wishlist
+        if(list.products.includes(id)){
+            notification = {activo: 1, accion: "error", accionDos: "ya existe en la wishlist", elemento: "inclusión de elemento a la wishlist", nombre: producto.name, tipo: "bg-warning"};
+
+            req.app.notification = notification;
+
+            return res.redirect('/product/' + id);
+        }
+
+        req.app.notification = notification;
+
+        list.products.push(id);
+
+        Wishlist.update(list);
+
+        res.redirect('/product/' + id);
+    },
     deleteItem: (req, res) => {
         let productId = parseInt(req.params.id); //Id del elemento (producto) de la wishlist
 

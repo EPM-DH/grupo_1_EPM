@@ -9,6 +9,7 @@ const { validationResult } = require('express-validator');
 
 //Models
 const Product = require('../models/Product');
+const Wishlist = require('../models/Wishlist');
 
 const productController = {
 	retrieveProducts: (req, res) => {
@@ -37,7 +38,10 @@ const productController = {
 		if(req.app.notification){
 			notification = req.app.notification;
 		}
-		res.render('products/productDetails', {product, breadcrumbList, urlList, notification});
+
+		let wishLists = Wishlist.findAllByField('user_id', req.session.userLogged.id);
+
+		res.render('products/productDetails', {product, breadcrumbList, urlList, notification, wishLists});
 	},
 	create: (req, res) => {
 		const errors = validationResult(req);
