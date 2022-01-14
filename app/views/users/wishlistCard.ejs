@@ -2,7 +2,7 @@
     <div class="row justify-content-center mt-3">
         <div class="col-sm-11 producto-linea">
             <div class="row">
-                <div class="d-flex flex-column justify-content-center col-3 col-sm-3 pt-2 pb-2 px-2">
+                <div class="d-flex flex-column justify-content-center col-12 col-sm-3 pt-2 pb-2 px-2">
                 <img
                     src="/img/products/<%= item.image %>"
                     alt="<%= item.identifier %>"
@@ -26,7 +26,7 @@
                     <div class="col-auto p-2">
                         <div class="precio-producto">$<%= item.price %></div>
                     </div>
-                    <div class="col-12 col-md-12 col-sm-6 p-2">
+                    <div class="col-12 col-md-12 p-2">
                         <p class="description" style="margin-left: 0px; text-align: justify;">
                             <%= item.shortDescription %>
                         </p>
@@ -36,11 +36,13 @@
                     <button type="button" class="boton-estandar boton-flex" style="width: 80%;">
                         <a href="/cart/add/<%= item.id %>?wishlist=<%= list.id %>" class="noUnderline">Añadir al carrito</a>
                     </button>
-                    <button type="button" class="boton-estandar boton-flex deleteButton" style="width: 80%;">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal_<%= item.identifier %>" style="width: 80%;">
                         Eliminar de la lista
                     </button>
                 </div>
             </div>
+            <%- include('../partials/confirmationModal.ejs', {elemento: 'wishlist2', id: item.id, identifier: item.identifier }) %> 
         </div>
     </div>
 <% } %>

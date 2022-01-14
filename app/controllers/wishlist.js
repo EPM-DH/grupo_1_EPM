@@ -31,24 +31,34 @@ const wishlistController = {
 
         res.render('users/wishlist', { lists, breadcrumbList, urlList, notification });
     },
-    delete: (req, res) => {
-		let id = parseInt(req.params.id); //Id del elemento del carrito de compras, no del producto
+    deleteItem: (req, res) => {
+        let productId = parseInt(req.params.id); //Id del elemento (producto) de la wishlist
 
-        //No need to validate the user profile, because we are using DB id's and they're unique
+        let producto = Product.findByPk(productId);
 
-        //let userId = req.body.session.userLogged.id;
-        let elemento = Cart.findByPk(id);
-        let producto = Product.findByPk(elemento.product_id);
+        let wlId = parseInt(req.query.wishlist);
+        Wishlist.deleteProductFromWishlist(wlId, productId);
 
-		//Cart.deleteByItemAndUser(id, userId);
-        Cart.delete(id);
-
-		//Notify user about cart item deletion
-		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};
+		//Notify user about wishlist item deletion
+		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento de la wishlist", nombre: producto.name, tipo: "bg-danger"};
 
 		req.app.notification = notification;
 
-		res.redirect('/cart');
+		res.redirect('/wishlist');
+	},
+    delete: (req, res) => {
+        let listId = parseInt(req.params.id); //Id de la lista a eliminar de la wishlist
+
+        let list = Wishlist.findByPk(listId);
+
+        Wishlist.delete(listId);
+
+		//Notify user about wishlist item deletion
+		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "lista de la wishlist", nombre: list.name, tipo: "bg-danger"};
+
+		req.app.notification = notification;
+
+		res.redirect('/wishlist');
 	},
 };
 

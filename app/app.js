@@ -38,7 +38,7 @@ app.use('/search', searchRouter); //Consider changing into main router
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
-app.use('/wishlist', wishlistRouter);
+app.use('/wishlist', wishlistRouter); 
 app.set("view engine", "ejs");
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));

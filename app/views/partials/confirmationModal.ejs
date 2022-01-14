@@ -14,7 +14,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <form action="/<%= elemento %>/delete/<%= id %>?_method=DELETE" method="POST" style="display: inline-flex">
+          <form action="/<%= elemento == 'wishlist2' ? 'wishlist' : elemento %>/delete/<%= id %>?_method=DELETE<%= elemento == 'wishlist2' ? '&wishlist='+list.id : '' %>" method="POST" style="display: inline-flex">
             <button type="submit" class="btn btn-danger">Eliminar</button>
           </form>
         </div>

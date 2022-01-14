@@ -17,11 +17,11 @@
     "status": "Pública"
 },
 {
-    "id": 2,
+    "id": 3,
     "products": [1, 3, 4],
     "user_id": 2,
     "image": "casa_date.jpeg",
-    "identifier": "cas1_2",
+    "identifier": "cas2_3",
     "name": "Casa",
     "status": "Pública"
 }

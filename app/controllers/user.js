@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 //Models
 const User = require('../models/User');
 const Cart = require('../models/Cart');
+const Wishlist = require('../models/Wishlist');
 
 const userController = {
 	retrieveRegister: (req, res) => {
@@ -306,6 +307,9 @@ const userController = {
 
 		//Delete the user cart as well
 		Cart.deleteCartByUserId(id);
+
+		//Delete the user wishlists as well
+		Wishlist.deleteWishlistByUserId(id);
 
 		User.delete(id);
 
