@@ -6,8 +6,8 @@ const Cart = require('../models/Cart');
 function cartItems(req, res, next) {
     let user = 0;
 
-    if(req.session.userLogged.id){
-        user = req.session.userLogged.id
+    if(req.session.userLogged){
+        user = req.session.userLogged.id;
     }
 
     let currentCart = Cart.findAllByField('user_id', user);

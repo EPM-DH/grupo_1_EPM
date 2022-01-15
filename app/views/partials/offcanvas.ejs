@@ -6,7 +6,7 @@ id="offcanvasExample"
 aria-labelledby="offcanvasExampleLabel"
 >
 <div class="offcanvas-header">
-  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+  <h5 class="offcanvas-title" id="offcanvasExampleLabel">¡Bienvenido <%= locals.isLogged ? locals.userLogged.firstName : 'Invitado' %>!</h5>
   <button
     type="button"
     class="btn-close text-reset"
@@ -15,9 +15,14 @@ aria-labelledby="offcanvasExampleLabel"
   ></button>
 </div>
 <div class="offcanvas-body">
-  <div>
-    Some text as placeholder. In real life you can have the elements you
-    have chosen. Like, text, images, lists, etc.
+  <div class="list-group list-group-flush">
+    <button type="button" class="list-group-item list-group-item-action active">
+      Cras justo odio
+    </button>
+    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+    <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
   </div>
 </div>
 </div>
