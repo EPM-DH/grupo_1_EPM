@@ -6,7 +6,7 @@
           <h5 class="modal-title" id="addWishlistModalTitle">Creación de nueva lista</h5>
         </div>
         <div class="modal-body">
-            <form action="/wishlist/create/<%= product.id %>" method="POST" style="display: inline-flex">
+            <form action="/wishlist/create/<%= locals.product && product.id ? product.id : '0' %>" method="POST" style="display: inline-flex">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <label for="name">

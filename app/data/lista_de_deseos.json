@@ -39,9 +39,7 @@
  },
  {
   "id": 4,
-  "products": [
-   1
-  ],
+  "products": [],
   "user_id": 1,
   "image": "default.png",
   "identifier": "Tes1_4",

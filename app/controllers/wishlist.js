@@ -35,7 +35,7 @@ const wishlistController = {
     },
     create: (req, res) => {
 		const errors = validationResult(req);
-        let productId = req.params.id;
+        let productId = parseInt(req.params.id);
 
 		if(errors.isEmpty()){ //No hay errores
             let identifier = req.body.name.substring(0, 3);
@@ -57,13 +57,22 @@ const wishlistController = {
 			let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "lista", nombre: req.body.name, tipo: "bg-success"};
 
 			req.app.notification = notification;
-			res.redirect('/product/' + productId); 
+
+            if(productId == 0) {
+                res.redirect('/wishlist');
+            } else {
+                res.redirect('/product/' + productId); 
+            }
 
 		} else { //Hay errores
             req.app.renErr = errors.mapped();
             req.app.renOld = req.body;
 
-            res.redirect('/product/' + productId); 
+            if(productId == 0) {
+                res.redirect('/wishlist');
+            } else {
+                res.redirect('/product/' + productId); 
+            }
 		}
 	},
     addToWishlist: (req, res) => {

@@ -5,12 +5,19 @@
     <div class="rounded bg-white mt-5 mb-5 mx-5 px-5">
         <div class="row">
             <div class="col-11">
-                <div class="d-flex flew-row justify-content-between">
-                    <h1 class="tc">Listas de deseos</h1>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal" id="confirmationModal" style="width: 80%;">
-                        Eliminar lista
-                    </button>
+                <div class="d-flex flew-row justify-content-between align-items-center flexChange">
+                    <div class="d-flex flex-row justify-content-center col-md-4 col-12 flexNoCenter">
+                        <h1 class="tc">Listas de deseos</h1>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center col-md-3 col-12 flexNoCenter">
+                        <button class="boton-estandar boton-flex" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</button>    
+                    </div>
+                    <div class="d-flex flex-row justify-content-center col-md-3 col-12 flexNoCenter">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal" id="confirmationModal" style="width: 80%;">
+                            Eliminar lista
+                        </button>
+                    </div>
                 </div>
                 <div class="pushLeft">
                     <%- include('../partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
@@ -28,7 +35,7 @@
                         <div class="col-12 col-md-4">
                         <div class="list-group" id="list-tab" role="tablist">
                             <% let i = 0; for(list of lists) { %>
-                                <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center <%= i === 0 ? 'active' : '' %>" id="list-<%= list.identifier %>-list" data-toggle="list" href="#list-<%= list.identifier %>" role="tab" aria-controls="<%= list.identifier %>"><%= list.name %> (<%= list.status %>)<span class="badge badge-primary badge-pill" style="background-color: #4D003C; border-radius: .75rem;"><%= list.products.length %></span></a>    
+                                <a onclick="updateActive(this)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center <%= i === 0 ? 'active' : '' %>" id="list-<%= list.identifier %>-list" data-toggle="list" href="#list-<%= list.identifier %>" role="tab" aria-controls="<%= list.identifier %>"><%= list.name %> (<%= list.status %>)<span class="badge badge-primary badge-pill" style="background-color: #4D003C; border-radius: .75rem;"><%= list.products.length %></span></a>    
                             <% i++; } %>
                         </div>
                         </div>
@@ -46,6 +53,7 @@
         </div>
     </div>    
     <%- include('../partials/userToast.ejs') %>
+    <%- include('../partials/wishlistModal.ejs') %> 
 
 <script
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

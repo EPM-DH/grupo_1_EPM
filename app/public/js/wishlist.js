@@ -12,11 +12,35 @@ $('#confirmationModal').on('click', () => {
     modal.find('form').attr('action', originalUrl);
 });
 
+function extract(identifier) {
+  let text = identifier.substring(0,identifier.indexOf(' '));
+  let delButTex = 'Eliminar lista';
+  $('#confirmationModal').text(delButTex + ' ' + text);
+}
+
+function updateActive(element) {
+  extract($(element).text());
+}
+
 window.onload = (event) => {
     let myAlert = document.querySelectorAll('.toast')[0];
     if (myAlert) {
       let bsAlert = new bootstrap.Toast(myAlert);
       bsAlert._config.delay = 4000;
       bsAlert.show();
+    }
+
+    //To add the name of the list to the button
+    let identifier = $('.list-group .active').text();
+    extract(identifier);
+
+    if($('#addWishlistModal').css('display') == 'block'){
+      $('#addWishlistModal').modal('show');
+
+      $('.closing').on('click', () => {
+        let url = $('.modal-body').find('form').attr('action');
+        let productId = url.charAt(url.length - 1);
+        window.location='/product/' + productId;
+      });
     }
 };
