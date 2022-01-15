@@ -9,6 +9,7 @@ const { validationResult } = require('express-validator');
 
 //Models
 const Product = require('../models/Product');
+const Wishlist = require('../models/Wishlist');
 
 const productController = {
 	retrieveProducts: (req, res) => {
@@ -28,6 +29,11 @@ const productController = {
 	retrieveProductDetails: (req, res) => {
 		let id = parseInt(req.params.id);
 		let product = Product.findByPk(id);
+
+		if(product == undefined){
+			return res.redirect('/product');
+		}
+
 		let breadcrumbList = ["Página de inicio", "Productos", product.name];
         let urlList = [""];
         urlList.push(req.baseUrl);
@@ -37,7 +43,20 @@ const productController = {
 		if(req.app.notification){
 			notification = req.app.notification;
 		}
-		res.render('products/productDetails', {product, breadcrumbList, urlList, notification});
+
+		let wishLists = Wishlist.findAllByField('user_id', req.session.userLogged.id);
+
+		let errors = undefined;
+		let old = undefined;
+
+		if(req.app.renErr){
+			errors = req.app.renErr;
+			req.app.renErr = undefined
+			old = req.app.renOld;
+			req.app.renOld = undefined;
+		}
+
+		res.render('products/productDetails', {product, breadcrumbList, urlList, notification, wishLists, errors, old});
 	},
 	create: (req, res) => {
 		const errors = validationResult(req);
@@ -129,6 +148,11 @@ const productController = {
     retrieveEdit: (req, res) => {
 		let id = parseInt(req.params.id);
 		let product = Product.findByPk(id);
+
+		if(product == undefined){
+			return res.redirect('/product');
+		}
+
 		res.render('products/editProduct', {product, categories});
 	},
 	update: (req, res) => {
@@ -137,6 +161,11 @@ const productController = {
 		if(errors.isEmpty()){ //No hay errores
 			let id = parseInt(req.params.id);
 			let product = Product.findByPk(id);
+
+			if(product == undefined){
+				return res.redirect('/product');
+			}
+
 			let characteristics = [];
 			let imagen;
 			let featured = 0;
@@ -250,6 +279,10 @@ const productController = {
 		let id = parseInt(req.params.id);
 		
 		let producto = Product.findByPk(id);
+
+		if(producto == undefined){
+			return res.redirect('/product');
+		}
 
 		Product.delete(id);
 

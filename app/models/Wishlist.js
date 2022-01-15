@@ -48,10 +48,13 @@ const Wishlist = {
     
     create: function(itemData) {
         let allItems = this.findAll();
+        let id = this.generateId();
         let newItem = {
-            id: this.generateId(),
-            ...itemData
+            id: id,
+            ...itemData,
+            identifier: itemData.identifier + id
         };
+        
         allItems.push(newItem);
         fs.writeFileSync(this.wishlistFilePath, JSON.stringify(allItems, null, ' '));
         return true;
