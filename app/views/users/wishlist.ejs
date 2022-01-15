@@ -6,13 +6,16 @@
         <div class="row">
             <div class="col-11">
                 <div class="d-flex flew-row justify-content-between align-items-center flexChange">
-                    <div class="d-flex flex-row justify-content-center col-md-4 col-12 flexNoCenter">
+                    <div class="d-flex flex-row justify-content-center col-md-3 col-12 flexNoCenter">
                         <h1 class="tc">Listas de deseos</h1>
                     </div>
-                    <div class="d-flex flex-row justify-content-center col-md-3 col-12 flexNoCenter">
+                    <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
                         <button class="boton-estandar boton-flex" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</button>    
                     </div>
-                    <div class="d-flex flex-row justify-content-center col-md-3 col-12 flexNoCenter">
+                    <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
+                        <button type="button" class="boton-estandar boton-flex editButton" data-toggle="modal" data-target="#editWishlistModal_<%= lists[0].identifier %>" id="editModal">Editar lista</button>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
                         <!-- Button trigger modal -->
                         <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal" id="confirmationModal" style="width: 80%;">
                             Eliminar lista
@@ -44,6 +47,7 @@
                             <% i = 0; for(list of lists) { %>
                                 <div class="tab-pane fade <%= i === 0 ? 'show active' : '' %>" id="list-<%= list.identifier %>" role="tabpanel" aria-labelledby="list-<%= list.identifier %>-list"><%- include('wishlistCard.ejs', {list}) %> </div>
                                 <%- include('../partials/confirmationModal.ejs', {elemento: 'wishlist', id: list.id, identifier: list.identifier }) %> 
+                                <%- include('../partials/wishlistEditModal.ejs') %> 
                             <% i++; } %>
                         </div>
                         </div>

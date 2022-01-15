@@ -12,15 +12,47 @@ $('#confirmationModal').on('click', () => {
     modal.find('form').attr('action', originalUrl);
 });
 
-function extract(identifier) {
-  let text = identifier.substring(0,identifier.indexOf(' '));
+function deleteButton(text) {
   let delButTex = 'Eliminar lista';
   $('#confirmationModal').text(delButTex + ' ' + text);
 }
 
-function updateActive(element) {
-  extract($(element).text());
+function editButton(text) {
+  let editButTex = 'Editar lista';
+  $('#confirmationModal').parent().prev().children().text(editButTex + ' ' + text);
 }
+
+function extract(identifier) {
+  let text = identifier.substring(0,identifier.indexOf(' '));
+  deleteButton(text);
+  editButton(text);
+}
+
+function updateActive(element) {
+  //Change the buttons name
+  extract($(element).text());
+
+  //Change the modal identifier for the button
+  //Get the new value
+  let newVal = $(element).attr('href').replace('#list-', ''); 
+
+  //let value = $('#editModal').attr('data-target');
+  //value = value.replace('#editWishlistModal_', '');
+  $('#editModal').attr('data-target', '#editWishlistModal_' + newVal);
+}
+
+$('#editModal').on('click', () => {
+  //Cambiar título
+  let identifier = $('.list-group .active').text();
+  let text = identifier.substring(0,identifier.indexOf(' '));
+  let editButTex = 'Edición de lista';
+  $('#editWishlistModalTitle').text(editButTex + ' ' + text);
+
+  //Cambiar input data 
+  //$('#name').val(text);
+
+  //Cambiar selector
+});
 
 window.onload = (event) => {
     let myAlert = document.querySelectorAll('.toast')[0];
