@@ -72,6 +72,10 @@ const wishlistController = {
         let list = Wishlist.findByField('identifier', listIdentifier);
 
         let producto = Product.findByPk(id);
+
+        if(producto == undefined){
+            return res.redirect('/product');
+        }
         
         //Notify user about wishlist action
 		let notification = {activo: 1, accion: "agregación", accionDos: "agregado", elemento: "elemento de la wishlist", nombre: producto.name, tipo: "bg-success"};
@@ -98,6 +102,10 @@ const wishlistController = {
 
         let producto = Product.findByPk(productId);
 
+        if(producto == undefined){
+            return res.redirect('/wishlist');
+        }
+
         let wlId = parseInt(req.query.wishlist);
         Wishlist.deleteProductFromWishlist(wlId, productId);
 
@@ -112,6 +120,10 @@ const wishlistController = {
         let listId = parseInt(req.params.id); //Id de la lista a eliminar de la wishlist
 
         let list = Wishlist.findByPk(listId);
+
+        if(list == undefined){
+            res.redirect('/wishlist');
+        }
 
         Wishlist.delete(listId);
 

@@ -163,6 +163,7 @@ const userController = {
 		if(errors.isEmpty()){ //No hay errores
 			let id = parseInt(req.params.id);
 			let usuario = User.findByField('email', req.body.email);
+
 			//let usuario = users.find(user => user.id == id); //This query deletes the password field. Why??
 			let contrasena = usuario.password;
 			let imagen;
@@ -304,6 +305,10 @@ const userController = {
 		let id = parseInt(req.params.id);
 
 		let usuario = User.findByPk(id);
+
+		if(usuario == undefined){
+			return res.redirect('/user/profile');
+		}
 
 		//Delete the user cart as well
 		Cart.deleteCartByUserId(id);

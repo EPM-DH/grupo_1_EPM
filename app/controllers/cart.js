@@ -55,6 +55,11 @@ const shoppingController = {
         }
 
         let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
+
+        if(currentItem == undefined){
+            return res.redirect('/product');
+        }
+
         let productName = Product.findByPk(productId).name;
         let referer = req.headers.referer;
         let parts = referer.split('/');
@@ -102,8 +107,13 @@ const shoppingController = {
     },
     increaseItem: (req, res) => {
         let cartId = parseInt(req.params.id);
-
+        
         let currentItem = Cart.findByPk(cartId); 
+
+        if(currentItem == undefined){
+            return res.redirect('/cart');
+        }
+
         let productName = Product.findByPk(currentItem.product_id).name;
 
         currentItem.quantity = currentItem.quantity + 1;
@@ -120,6 +130,11 @@ const shoppingController = {
         let cartId = parseInt(req.params.id);
 
         let currentItem = Cart.findByPk(cartId); 
+
+        if(currentItem == undefined){
+            return res.redirect('/cart');
+        }
+
         let productName = Product.findByPk(currentItem.product_id).name;
 
         currentItem.quantity = currentItem.quantity - 1;
@@ -208,6 +223,11 @@ const shoppingController = {
 
         //let userId = req.body.session.userLogged.id;
         let elemento = Cart.findByPk(id);
+
+        if(elemento == undefined){
+            return res.redirect('/cart');
+        }
+
         let producto = Product.findByPk(elemento.product_id);
 
 		//Cart.deleteByItemAndUser(id, userId);

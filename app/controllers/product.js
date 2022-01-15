@@ -29,6 +29,11 @@ const productController = {
 	retrieveProductDetails: (req, res) => {
 		let id = parseInt(req.params.id);
 		let product = Product.findByPk(id);
+
+		if(product == undefined){
+			return res.redirect('/product');
+		}
+
 		let breadcrumbList = ["Página de inicio", "Productos", product.name];
         let urlList = [""];
         urlList.push(req.baseUrl);
@@ -143,6 +148,11 @@ const productController = {
     retrieveEdit: (req, res) => {
 		let id = parseInt(req.params.id);
 		let product = Product.findByPk(id);
+
+		if(product == undefined){
+			return res.redirect('/product');
+		}
+
 		res.render('products/editProduct', {product, categories});
 	},
 	update: (req, res) => {
@@ -151,6 +161,11 @@ const productController = {
 		if(errors.isEmpty()){ //No hay errores
 			let id = parseInt(req.params.id);
 			let product = Product.findByPk(id);
+
+			if(product == undefined){
+				return res.redirect('/product');
+			}
+
 			let characteristics = [];
 			let imagen;
 			let featured = 0;
@@ -264,6 +279,10 @@ const productController = {
 		let id = parseInt(req.params.id);
 		
 		let producto = Product.findByPk(id);
+
+		if(producto == undefined){
+			return res.redirect('/product');
+		}
 
 		Product.delete(id);
 
