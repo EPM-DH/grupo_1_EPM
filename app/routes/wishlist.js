@@ -15,6 +15,9 @@ router.post('/create/:id', authRoutes, validationsWishlist, wishlistController.c
 //To add a product to a wishlist
 router.get('/add/:id', authRoutes, wishlistController.addToWishlist); //Solamente un usuario que este logeado puede añadir elementos a su wishlist
 
+// To process the list editing
+router.put('/edit/:id', authRoutes, validationsWishlist, wishlistController.update); //Solamente un usuario logeado puede editar una lista
+
 //To delete an item from a wishlist
 router.delete('/delete/:id', authRoutes, wishlistController.deleteItem); //Solamente un usuario logeado puede eliminar un producto de una wishlist
 

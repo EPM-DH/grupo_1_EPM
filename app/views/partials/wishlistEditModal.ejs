@@ -1,5 +1,5 @@
   <!-- Modal -->
-  <div class="modal fade" id="editWishlistModal_<%= list.identifier %>" tabindex="-1" role="dialog" aria-labelledby="editWishlistModalTitle" aria-hidden="true" <% if(locals.errors) { %> style="display: block;" <% } %>>
+  <div class="modal fade" id="editWishlistModal_<%= list.identifier %>" tabindex="-1" role="dialog" aria-labelledby="editWishlistModalTitle" aria-hidden="true" <% if(locals.errors && locals.ident == list.identifier) { %> style="display: block;" <% } %>>
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">

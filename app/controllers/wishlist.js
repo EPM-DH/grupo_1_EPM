@@ -31,7 +31,21 @@ const wishlistController = {
             productos = [];
         }
 
-        res.render('users/wishlist', { lists, breadcrumbList, urlList, notification });
+        //To pop the modal in case an error happened
+        let errors = undefined;
+		let old = undefined;
+        let ident = undefined;
+
+		if(req.app.renErr){
+			errors = req.app.renErr;
+			req.app.renErr = undefined
+			old = req.app.renOld;
+			req.app.renOld = undefined;
+            ident = req.app.ident;
+            req.app.ident = undefined;
+		}
+
+        res.render('users/wishlist', { lists, breadcrumbList, urlList, notification, errors, old, ident });
     },
     create: (req, res) => {
 		const errors = validationResult(req);
@@ -105,6 +119,43 @@ const wishlistController = {
         Wishlist.update(list);
 
         res.redirect('/product/' + id);
+    },
+    update: (req, res) => {
+        const errors = validationResult(req);
+        let id = parseInt(req.params.id); //Id de la lista a editar 
+
+        let list = Wishlist.findByPk(id);
+
+        //If id was modified using inspect elements in the form
+        if(list == undefined){
+            return res.redirect('/wishlist');
+        }
+
+		if(errors.isEmpty()){ //No hay errores
+            let nuevaLista = {
+                ...list,
+                ...req.body
+            }
+
+            console.log(nuevaLista);
+
+            //If wishlist exists, update 
+            Wishlist.update(nuevaLista);
+            
+            //Notify user about wishlist action
+            let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "wishist", nombre: list.name, tipo: "bg-success"};
+
+            req.app.notification = notification;
+
+            res.redirect('/wishlist');
+
+		} else { //Hay errores
+            req.app.renErr = errors.mapped();
+            req.app.renOld = req.body;
+            req.app.ident = list.identifier;
+
+            res.redirect('/wishlist');
+		}
     },
     deleteItem: (req, res) => {
         let productId = parseInt(req.params.id); //Id del elemento (producto) de la wishlist
