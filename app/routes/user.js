@@ -40,7 +40,10 @@ router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit
 //To delete a user
 router.delete('/delete/:id', authRoutes, userController.delete); //Solamente un usuario que este logeado puede eliminar su cuenta
 
-// To process the product editing
-router.get('/manage', authRoutes, isAdmin, userController.mange); //Solamente un usuario logeado y que sea administrador puede manejar a los usuarios
+// To retrieve the users rol editing dashboard
+router.get('/manage', authRoutes, isAdmin, userController.retrieveMange); //Solamente un usuario logeado y que sea administrador puede manejar a los usuarios
+
+// To process the rol editing
+router.post('/updateRol/:id', authRoutes, isAdmin, userController.mange); //Solamente un usuario logeado y que sea administrador puede promover a administrador a un usuario
 
 module.exports = router;

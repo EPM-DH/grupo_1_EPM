@@ -325,7 +325,7 @@ const userController = {
 
 		return res.redirect('/user/logout'); //Cerrar sesión
 	},
-	mange: (req, res) => {
+	retrieveMange: (req, res) => {
 		let breadcrumbList = ["Página de inicio", "Tablero de administración de usuarios"];
         let urlList = [""];
         urlList.push(req.originalUrl);
@@ -336,7 +336,37 @@ const userController = {
 			delete usuario.password;
 		}
 
-		res.render('users/manage', { breadcrumbList, urlList, usuarios });
+		let notification = '';
+
+		if(req.app.notification){
+			notification = req.app.notification;
+		}
+
+		res.render('users/manage', { breadcrumbList, urlList, usuarios, notification });
+	},
+	mange: (req, res) => {
+		let id = parseInt(req.params.id); //Id from user
+		let notification;
+		//Get user to promote
+		let usuario = User.findByPk(id);
+
+		//Check to see instruction
+		if(req.body.rol == 'on'){ //If user is to be promoted
+			//Set new role
+			usuario.rol = 'administrador';
+			//Update
+			User.update(usuario, id);
+
+			//Notify user about promotion
+			notification = {activo: 1, accion: "promoción", accionDos: "promovido", elemento: "usuario", nombre: usuario.firstName, tipo: "bg-success"};
+		} else { //If user is not to be promoted
+			//Notify user about promotion
+			notification = {activo: 1, accion: "no promoción", accionDos: "no promovido", elemento: "usuario", nombre: usuario.firstName, tipo: "bg-warning"};
+		}
+
+		req.app.notification = notification;
+
+		res.redirect('/user/manage');
 	},
 };
 
