@@ -325,6 +325,19 @@ const userController = {
 
 		return res.redirect('/user/logout'); //Cerrar sesión
 	},
+	mange: (req, res) => {
+		let breadcrumbList = ["Página de inicio", "Tablero de administración de usuarios"];
+        let urlList = [""];
+        urlList.push(req.originalUrl);
+
+		let usuarios = User.findAllNonAdmins();
+
+		for(usuario of usuarios){
+			delete usuario.password;
+		}
+
+		res.render('users/manage', { breadcrumbList, urlList, usuarios });
+	},
 };
 
 module.exports = userController;

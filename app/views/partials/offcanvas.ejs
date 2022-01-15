@@ -16,13 +16,15 @@ aria-labelledby="offcanvasExampleLabel"
 </div>
 <div class="offcanvas-body">
   <div class="list-group list-group-flush">
-    <button type="button" class="list-group-item list-group-item-action active">
-      Cras justo odio
-    </button>
-    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-    <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+    <% if (locals.isLogged && locals.userLogged.rol == "administrador") { %>
+      <a href="/user/manage" class="list-group-item list-group-item-action">Administrar usuarios</a>
+      <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+      <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+      <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+    <% } else { %>
+      <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+      <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+    <% } %>
   </div>
 </div>
 </div>

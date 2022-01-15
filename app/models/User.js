@@ -22,6 +22,12 @@ const User = {
         return this.getData();
     },
 
+    findAllNonAdmins: function () {
+        let allUsers = this.findAll();
+        let usersFound = allUsers.filter(user => user.rol !== 'administrador');
+        return usersFound;
+    },
+
     findByPk: function(id) {
         let allUsers = this.findAll();
         let userFound = allUsers.find(user => user.id === id);
