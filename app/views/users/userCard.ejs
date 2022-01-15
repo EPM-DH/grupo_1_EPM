@@ -1,0 +1,29 @@
+<% for(usuario of usuarios) { %>
+    <div class="d-flex flex-row justify-content-center align-items-center producto-linea p-3">
+        <div class="d-flex flex-column justify-content-center align-items-center col-12 col-md-4">
+            <img src="/img/users/<%= usuario.avatar %>" alt="User profile picture" width="100px" height="100px" style="border-radius: 50%;">
+        </div>
+        <div class="d-flex flex-column justify-content-center col-12 col-md-8">
+            <form action="/user/updateRol/<%= usuario.id %>" method="POST">
+                <div class="d-flex flex-row justify-content-around">
+                    <div class="d-flex flex-column justify-content-center col-12 col-md-5">
+                        <h3><%= usuario.firstName %> <%= usuario.lastName %></h3>
+                        <h6><%= usuario.email %></h6>
+                        <div class="form-check">
+                            <input class="form-check-input centerCheck" type="checkbox" id="rol" name="rol" <%= usuario.rol == 'administrador' ? 'checked' : '' %>>
+                            <label class="form-check-label" for="rol">
+                                Hacer administrador
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center col-12 col-md-3">
+                        <button type="submit" class="boton-estandar boton-flex">
+                            Actualizar rol
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+<% } %>

@@ -11,6 +11,7 @@ const uploadFile = require('../middlewares/multerUser');
 const validationsLogin = require('../middlewares/validateLoginUser'); 
 const nonAuthRoutes = require('../middlewares/nonAuthRoutes'); 
 const authRoutes = require('../middlewares/authRoutes'); 
+const isAdmin = require('../middlewares/isAdmin'); 
 
 /* CRUD Usuarios */
 
@@ -38,5 +39,11 @@ router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit
 
 //To delete a user
 router.delete('/delete/:id', authRoutes, userController.delete); //Solamente un usuario que este logeado puede eliminar su cuenta
+
+// To retrieve the users rol editing dashboard
+router.get('/manage', authRoutes, isAdmin, userController.retrieveMange); //Solamente un usuario logeado y que sea administrador puede manejar a los usuarios
+
+// To process the rol editing
+router.post('/updateRol/:id', authRoutes, isAdmin, userController.mange); //Solamente un usuario logeado y que sea administrador puede promover a administrador a un usuario
 
 module.exports = router;

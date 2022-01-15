@@ -54,7 +54,7 @@
             </li>
             <% if (!locals.isLogged) { %>
               <li class="nav-item">
-                <a class="d-flex flex-column justify-content-center nav-link active" aria-current="page" href="/user/register"
+                <a class="d-flex flex-column justify-content-center nav-link active" id="register" aria-current="page" href="/user/register"
                   >Registrate</a
                 >
               </li>
@@ -68,6 +68,30 @@
               <a class="nav-link" href="/cart">
                 <i class="fas fa-shopping-cart"></i><span class="cart-basket d-flex align-items-center justify-content-center"><%= locals.countItems %></span>
               </a>
+              <script>
+                function adjustCartPosition () {
+                  if($('#register').length != 0){
+                    let size = $(window).width();
+                    if(size >= 1200){
+                      $('.cart-basket').css('right', '48px');
+                      $('.cart-basket').css('top', '22px');
+                    } else if(size < 1200 && size >= 992) {
+                      $('.cart-basket').css('top', '26px');
+                      $('.cart-basket').css('right', '12px');
+                    } else if(size < 992 && size >= 768) {
+                      $('.cart-basket').css('top', '242px');
+                    } else if(size < 768) {
+                      $('.cart-basket').css('top', '198px');
+                    }
+                  }
+                }
+
+                adjustCartPosition();
+
+                $( window ).resize(function() {
+                  adjustCartPosition();
+                });
+              </script>
             </li>
             <% if (locals.isLogged) { %>
               <li class="nav-item dropdown dropleft">
