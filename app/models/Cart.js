@@ -84,6 +84,14 @@ const Cart = {
         return true;
     },
 
+    deleteAllProductsFromCartByProductId: function(productId) {
+        let allItems = this.findAll();
+        let finalItems = allItems.filter(cart => cart.product_id !== productId);
+
+        fs.writeFileSync(this.wishlistFilePath, JSON.stringify(finalItems, null, ' '));
+        return true;
+    },
+
     //Could be implemented, but it has unnecessary logic
     /*deleteByItemAndUser: function(itemId, userId) {
         let allItems = this.findAll();
