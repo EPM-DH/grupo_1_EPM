@@ -10,6 +10,7 @@ const { validationResult } = require('express-validator');
 //Models
 const Product = require('../models/Product');
 const Wishlist = require('../models/Wishlist');
+const Cart = require('../models/Cart');
 
 const productController = {
 	retrieveProducts: (req, res) => {
@@ -283,6 +284,12 @@ const productController = {
 		if(producto == undefined){
 			return res.redirect('/product');
 		}
+
+		//Remover producto eliminado del carrito 
+		Cart.deleteAllProductsFromCartByProductId(id);
+
+		//Remover producto eliminado de la wishlist
+		Wishlist.deleteAllProductsFromWishlistByProductId(id);
 
 		Product.delete(id);
 

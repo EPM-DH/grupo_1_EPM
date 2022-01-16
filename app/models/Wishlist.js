@@ -93,6 +93,22 @@ const Wishlist = {
         itemToEdit.products = finalItems;
         this.update(itemToEdit);
     },
+
+    deleteAllProductsFromWishlistByProductId: function(productId) {
+        let allItems = this.findAll();
+        for(item of allItems){
+            for(product of item.products){
+                if(product == productId){ //Si coinciden los id's
+                    let index = item.products.findIndex(item => item === productId);
+                    if(index != undefined){
+                        item.products.splice(index, 1);
+                    }
+                }
+            }
+        }
+        fs.writeFileSync(this.wishlistFilePath, JSON.stringify(allItems, null, ' '));
+        return true;
+    },
     
 };
 
