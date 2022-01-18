@@ -52,7 +52,7 @@ const wishlistController = {
         let productId = parseInt(req.params.id);
 
 		if(errors.isEmpty()){ //No hay errores
-            let identifier = req.body.name.substring(0, 3);
+            let identifier = req.body.name.toLowerCase().substring(0, 3);
             let userId = req.session.userLogged.id;
 
 			//Create new wishlist from form data
