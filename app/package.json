@@ -29,6 +29,7 @@
     "jsdom": "^19.0.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.4",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.13.0"
   }
 }

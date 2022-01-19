@@ -7,8 +7,18 @@ const User = require('../models/User');
 const Cart = require('../models/Cart');
 const Wishlist = require('../models/Wishlist');
 
+//Test
+/*const db = require('../database/models');*/
+
 const userController = {
 	retrieveRegister: (req, res) => {
+		/*db.Usuario.findByPk(1, {include: [
+			'carrito'
+		]}).then((usuario) => {
+			console.log(usuario.carrito);
+		}).catch((err) => {
+			console.log(err);
+		});*/
 		res.render('users/register');
 	},
     register: (req, res) => {
