@@ -12,7 +12,7 @@ const Wishlist = require('../models/Wishlist');
 
 const userController = {
 	retrieveRegister: (req, res) => {
-		/*db.Usuarios.findByPk(1, {include: [
+		/*db.Usuario.findByPk(1, {include: [
 			'carrito'
 		]}).then((usuario) => {
 			console.log(usuario.carrito);

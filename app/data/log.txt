@@ -146,3 +146,4 @@ El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /

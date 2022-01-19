@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Estatus = sequelize.define('Estatus', {
+    const Visibilidad = sequelize.define('Visibilidad', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -11,16 +11,16 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
     }, {
-        tableName: 'Estatus', 
+        tableName: 'Visibilidades', 
         timestamps: false
     });
 
-    Estatus.associate = function(modelos) {
-        Estatus.hasMany(modelos.Pedido, {
-            as: 'estatus',
-            foreignKey: 'status_id'
+    Visibilidad.associate = function(modelos) {
+        Visibilidad.hasMany(modelos.Lista_de_deseo, {
+            as: 'listas_de_deseos',
+            foreignKey: 'visibility_id'
         });
-    }
+    };
 
-    return Estatus;
+    return Visibilidad;
 }

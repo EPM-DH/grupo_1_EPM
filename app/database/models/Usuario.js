@@ -1,49 +1,59 @@
 module.exports = (sequelize, dataTypes) => {
-    const Usuarios = sequelize.define('Usuarios', {
+    const Usuario = sequelize.define('Usuario', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
         },
         firstName: {
             type: dataTypes.STRING(100),
+            allowNull: false
         },
         lastName: {
             type: dataTypes.STRING(100),
+            allowNull: false
         },
         email: {
             type: dataTypes.STRING(100),
+            allowNull: false
         },
         password: {
             type: dataTypes.STRING(100),
+            allowNull: false
         },
         avatar: {
             type: dataTypes.STRING(100),
+            allowNull: false
+        },
+        rol_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         },
     }, {timestamps: false});
 
     //Definir realaciones
-    Usuarios.associate = function(modelos) {
-        Usuarios.hasMany(modelos.Carritos, {
-            as: 'carrito',
+    Usuario.associate = function(modelos) {
+        Usuario.hasMany(modelos.Carrito, {
+            as: 'carritos',
             foreignKey: 'usuario_id'
         });
 
-        Usuarios.hasMany(modelos.Lista_de_deseos, {
-            as: 'lista_de_deseo',
+        Usuario.hasMany(modelos.Lista_de_deseo, {
+            as: 'listas_de_deseos',
             foreignKey: 'usuario_id'
         });
 
-        Usuarios.hasMany(modelos.Pedidos, {
-            as: 'pedido',
+        Usuario.hasMany(modelos.Pedido, {
+            as: 'pedidos',
             foreignKey: 'usuario_id'
         });
 
-        Usuarios.belongsTo(modelos.Roles, {
+        Usuario.belongsTo(modelos.Rol, {
             as: 'rol',
             foreignKey: 'rol_id'
         });
     };
 
-    return Usuarios;
+    return Usuario;
 }

@@ -1,18 +1,20 @@
 module.exports = (sequelize, dataTypes) => {
-    const Categorias = sequelize.define('Categorias', {
+    const Categoria = sequelize.define('Categoria', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
         },
         name: {
             type: dataTypes.STRING(50),
+            allowNull: false
         },
     }, {timestamps: false});
 
-    Categorias.associate = function(modelos) {
-        Categorias.belongsToMany(modelos.Productos, {
-            as: 'producto',
+    Categoria.associate = function(modelos) {
+        Categoria.belongsToMany(modelos.Producto, {
+            as: 'productos',
             through: 'Productos_Categorias',
             foreignKey: 'categoria_id',
             otherKey: 'producto_id',
@@ -20,5 +22,5 @@ module.exports = (sequelize, dataTypes) => {
         });
     };
 
-    return Categorias;
+    return Categoria;
 }

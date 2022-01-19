@@ -4,29 +4,35 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
+            allowNull: false
         },
         producto_id: {
             type: dataTypes.INTEGER,
             references: {
                 model: 'Productos',
                 key: 'id'
-            }
+            },
+            allowNull: false
         },
         carousel_id: {
             type: dataTypes.INTEGER,
             references: {
                 model: 'Carousels',
                 key: 'id'
-            }
+            },
+            allowNull: false
         },
-    }, {timestamps: false});
+    }, {
+        tableName: 'Productos_Carousel', 
+        timestamps: false
+    });
 
     Productos_Carousel.associate = function(modelos) {
-        Productos_Carousel.belongsTo(modelos.Productos, {
+        Productos_Carousel.belongsTo(modelos.Producto, {
             foreignKey: 'producto_id'
         });
     
-        Productos_Carousel.belongsTo(modelos.Carousels, {
+        Productos_Carousel.belongsTo(modelos.Carousel, {
             foreignKey: 'carousel_id'
         });
     };

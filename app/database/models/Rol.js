@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Estatus = sequelize.define('Estatus', {
+    const Rol = sequelize.define('Rol', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -11,16 +11,16 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
     }, {
-        tableName: 'Estatus', 
+        tableName: 'Roles', 
         timestamps: false
     });
 
-    Estatus.associate = function(modelos) {
-        Estatus.hasMany(modelos.Pedido, {
-            as: 'estatus',
-            foreignKey: 'status_id'
+    Rol.associate = function(modelos) {
+        Rol.hasMany(modelos.Usuario, {
+            as: 'usuarios',
+            foreignKey: 'rol_id'
         });
-    }
+    };
 
-    return Estatus;
+    return Rol;
 }
