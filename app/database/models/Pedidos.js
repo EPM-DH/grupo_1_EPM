@@ -5,19 +5,27 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        usuario_id: {
-            type: dataTypes.INT,
-        },
-        producto_id: {
-            type: dataTypes.INT,
-        },
-        status_id: {
-            type: dataTypes.INT,
-        },
         trackId: {
             type: dataTypes.STRING(50),
         },
     }, {timestamps: false});
+
+    Pedidos.associate = function(modelos) {
+        Pedidos.belongsTo(modelos.Usuarios, {
+            as: 'usuario',
+            foreignKey: 'usuario_id'
+        });
+
+        Pedidos.belongsTo(modelos.Productos, {
+            as: 'producto',
+            foreignKey: 'producto_id'
+        });
+
+        Pedidos.belongsTo(modelos.Estatus, {
+            as: 'estatus',
+            foreignKey: 'status_id'
+        });
+    };
 
     return Pedidos;
 }

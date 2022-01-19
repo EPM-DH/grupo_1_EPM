@@ -5,16 +5,22 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        usuario_id: {
-            type: dataTypes.INT,
-        },
-        producto_id: {
-            type: dataTypes.INT,
-        },
         quantity: {
-            type: dataTypes.INT,
+            type: dataTypes.INTEGER,
         },
     }, {timestamps: false});
+
+    //Definir realaciones
+    Carritos.associate = function(modelos) {
+        Carritos.belongsTo(modelos.Usuarios, {
+            as: 'usuario',
+            foreignKey: 'usuario_id'
+        });
+        Carritos.belongsTo(modelos.Productos, {
+            as: 'producto',
+            foreignKey: 'producto_id'
+        });
+    };
 
     return Carritos;
 }

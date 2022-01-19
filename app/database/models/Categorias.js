@@ -10,5 +10,15 @@ module.exports = (sequelize, dataTypes) => {
         },
     }, {timestamps: false});
 
+    Categorias.associate = function(modelos) {
+        Categorias.belongsToMany(modelos.Productos, {
+            as: 'producto',
+            through: 'Productos_Categorias',
+            foreignKey: 'categoria_id',
+            otherKey: 'producto_id',
+            timestamps: false
+        });
+    };
+
     return Categorias;
 }

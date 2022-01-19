@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Estatus = sequelize.define('Estatus', {
+    const Usuarios = sequelize.define('Usuarios', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -20,10 +20,30 @@ module.exports = (sequelize, dataTypes) => {
         avatar: {
             type: dataTypes.STRING(100),
         },
-        rol_id: {
-            type: dataTypes.INT,
-        },
     }, {timestamps: false});
 
-    return Estatus;
+    //Definir realaciones
+    Usuarios.associate = function(modelos) {
+        Usuarios.hasMany(modelos.Carritos, {
+            as: 'carrito',
+            foreignKey: 'usuario_id'
+        });
+
+        Usuarios.hasMany(modelos.Lista_de_deseos, {
+            as: 'lista_de_deseo',
+            foreignKey: 'usuario_id'
+        });
+
+        Usuarios.hasMany(modelos.Pedidos, {
+            as: 'pedido',
+            foreignKey: 'usuario_id'
+        });
+
+        Usuarios.belongsTo(modelos.Roles, {
+            as: 'rol',
+            foreignKey: 'rol_id'
+        });
+    };
+
+    return Usuarios;
 }

@@ -10,5 +10,12 @@ module.exports = (sequelize, dataTypes) => {
         },
     }, {timestamps: false});
 
+    Visibilidades.associate = function(modelos) {
+        Visibilidades.hasMany(modelos.Lista_de_deseos, {
+            as: 'lista_de_deseo',
+            foreignKey: 'visibility_id'
+        });
+    };
+
     return Visibilidades;
 }

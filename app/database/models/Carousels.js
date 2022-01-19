@@ -10,5 +10,15 @@ module.exports = (sequelize, dataTypes) => {
         },
     }, {timestamps: false});
 
+    Carousel.associate = function(modelos) {
+        Carousel.belongsToMany(modelos.Productos, {
+            as: 'producto',
+            through: 'Productos_Carousel',
+            foreignKey: 'carousel_id',
+            otherKey: 'producto_id',
+            timestamps: false
+        });
+    };
+    
     return Carousel;
 }

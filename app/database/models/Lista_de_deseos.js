@@ -5,9 +5,6 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        usuario_id: {
-            type: dataTypes.INT,
-        },
         image: {
             type: dataTypes.STRING(100),
         },
@@ -17,10 +14,27 @@ module.exports = (sequelize, dataTypes) => {
         name: {
             type: dataTypes.STRING(50),
         },
-        visibility_id: {
-            type: dataTypes.INT,
-        },
     }, {timestamps: false});
+
+    Lista_de_deseos.associate = function(modelos) {
+        Lista_de_deseos.belongsTo(modelos.Usuarios, {
+            as: 'usuario',
+            foreignKey: 'usuario_id'
+        });
+
+        Lista_de_deseos.belongsTo(modelos.Visibilidades, {
+            as: 'visibilidad',
+            foreignKey: 'visibility_id'
+        });
+
+        Lista_de_deseos.belongsToMany(modelos.Productos, {
+            as: 'producto',
+            through: 'Productos_Lista_de_deseos',
+            foreignKey: 'lista_de_deseo_id',
+            otherKey: 'producto_id',
+            timestamps: false
+        });
+    };
 
     return Lista_de_deseos;
 }
