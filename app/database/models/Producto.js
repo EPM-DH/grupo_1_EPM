@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         Producto.belongsToMany(modelos.Carousel, {
-            as: 'carouseles',
+            as: 'carouselImages',
             through: 'Productos_Carousel',
             foreignKey: 'producto_id',
             otherKey: 'carousel_id',
@@ -67,7 +67,7 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         Producto.belongsToMany(modelos.Categoria, {
-            as: 'categorias',
+            as: 'categories',
             through: 'Productos_Categorias',
             foreignKey: 'producto_id',
             otherKey: 'categoria_id',

@@ -10,7 +10,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(50),
             allowNull: false
         },
-    }, {timestamps: false});
+    }, {
+        tableName: 'Categorias', 
+        timestamps: false
+    });
 
     Categoria.associate = function(modelos) {
         Categoria.belongsToMany(modelos.Producto, {

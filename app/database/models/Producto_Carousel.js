@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         carousel_id: {
             type: dataTypes.INTEGER,
             references: {
-                model: 'Carousels',
+                model: 'Carousel',
                 key: 'id'
             },
             allowNull: false
