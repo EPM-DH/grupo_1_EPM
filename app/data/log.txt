@@ -277,3 +277,15 @@ El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/manage
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/updateRol/2
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/manage
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/manage
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/products/
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order

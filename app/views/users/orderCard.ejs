@@ -4,27 +4,27 @@
     <div class="row">
       <div class="d-flex flex-column justify-content-center col-sm-3 pt-2 pb-2">
         <img
-          src="/img/products/<%= order.image %>"
-          alt="<%= order.identifier %>"
+          src="/img/products/<%= order.producto.image %>"
+          alt="<%= order.producto.identifier %>"
         />
       </div>
       <div class="col-sm-9">
         <div class="row">
           <div class="col-sm-6 p-2">
-            <div class="titulo-producto m-0" style="font-weight: bold;"><%= order.name %></div>
+            <div class="titulo-producto m-0" style="font-weight: bold;"><%= order.producto.name %></div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-3 p-2">
-            <p class="description" style="margin-left: 0px;"><em><%= order.status %></em></p>
+            <p class="description" style="margin-left: 0px;"><em><%= order.estatus.name %></em></p>
           </div>
           <div class="offset-md-5 col-sm-4">
-            <div class="precio-producto">$<%= order.total %></div>
+            <div class="precio-producto">$<%= order.producto.price %></div>
           </div>
         </div>
         <div class="row">
             <div class="col-sm-8 p-2">
-              <p class="description" style="margin-left: 0px; text-align: justify;"><%= order.shortDescription %></p>
+              <p class="description" style="margin-left: 0px; text-align: justify;"><%= order.producto.shortDescription %></p>
             </div>
             <% if (order.trackId) { %>
                 <div class="col-sm-3 p-2">
