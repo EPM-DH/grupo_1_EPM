@@ -1,6 +1,6 @@
 //Models for JSON
-const Order = require('../models/Order');
-const Product = require('../models/Product');
+//const Order = require('../models/Order');
+//const Product = require('../models/Product');
 
 //Model for MySQL
 const db = require('../database/models');

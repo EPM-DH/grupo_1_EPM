@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs');
 
 //Models for JSON
 const User = require('../models/User');
-const Cart = require('../models/Cart');
-const Wishlist = require('../models/Wishlist');
+//const Cart = require('../models/Cart');
+//const Wishlist = require('../models/Wishlist');
 
 //Model for MySQL
 const db = require('../database/models');
