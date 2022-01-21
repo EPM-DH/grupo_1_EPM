@@ -45,9 +45,9 @@
                     <div class="col-7"><h3>Categorías</h3></div>
                     <% for(category of categories) { %>
                         <div class="col-7">
-                            <input class="form-check-input" type="checkbox" value="<%= category %>" id="<%= category %>Check" name="categories" <% if(product.categories.find(categoria => categoria == category)) {%> checked <%} %>>
-                            <label class="form-check-label" for="<%= category %>Check">
-                                <%= category %>
+                            <input class="form-check-input" type="checkbox" value="<%= category.name %>" id="<%= category.name %>Check" name="categories" <% if(product.categories.find(categoria => categoria.name == category.name)) {%> checked <%} %>>
+                            <label class="form-check-label" for="<%= category.name %>Check">
+                                <%= category.name %>
                             </label>
                         </div>
                     <% } %>
@@ -96,7 +96,7 @@
                     <div class="col-7">
                         <ul class="caracteristicas">
                             <% let i = 1; for(characteristic of product.characteristics) { %>
-                                <li><input type="text" class="form-estandar form-control <%= locals.errors && errors.characteristic1 ? 'is-invalid' : '' %>" name="characteristic<%= i %>"  id="characteristic<%= i %>" value="<%= characteristic %>"></li>
+                                <li><input type="text" class="form-estandar form-control <%= locals.errors && errors.characteristic1 ? 'is-invalid' : '' %>" name="characteristic<%= i %>"  id="characteristic<%= i %>" value="<%= characteristic.description %>"></li>
                             <% i++; }%>
                         </ul>
                         <div class="text-danger">

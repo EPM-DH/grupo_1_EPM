@@ -40,7 +40,7 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         Lista_de_deseo.belongsToMany(modelos.Producto, {
-            as: 'productos',
+            as: 'productosL',
             through: 'Productos_Lista_de_deseos',
             foreignKey: 'lista_de_deseo_id',
             otherKey: 'producto_id',

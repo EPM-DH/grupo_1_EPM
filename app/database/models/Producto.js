@@ -51,7 +51,7 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         Producto.belongsToMany(modelos.Caracteristica, {
-            as: 'caracteristicas',
+            as: 'characteristics',
             through: 'Productos_Caracteristicas',
             foreignKey: 'producto_id',
             otherKey: 'caracteristica_id',

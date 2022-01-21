@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Carousel.associate = function(modelos) {
         Carousel.belongsToMany(modelos.Producto, {
-            as: 'productos',
+            as: 'productosC',
             through: 'Productos_Carousel',
             foreignKey: 'carousel_id',
             otherKey: 'producto_id',

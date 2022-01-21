@@ -23,7 +23,7 @@
 				<h2>Características</h2>
 				<ul class="descripcion">
 					<% for(elemento of product.characteristics) { %>
-					  <li> <%= elemento %> </li>
+					  <li> <%= elemento.description %> </li>
 					<% } %>
 				  </ul>
 			</div>
@@ -46,7 +46,7 @@
 					<div class="col up">
 						<% for (categoria of product.categories) { %>
 						<button class="boton etiqueta-producto">
-						  <div><%= categoria %></div>
+						  <div><%= categoria.name %></div>
 						</button>
 						<% } %>
 					</div>
