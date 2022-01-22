@@ -22,6 +22,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.TEXT,
             allowNull: false
         },
+        characteristics: {
+            type: dataTypes.JSON,
+            allowNull: false
+        },
         identifier: {
             type: dataTypes.STRING(50),
             allowNull: false
@@ -42,28 +46,16 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100),
             allowNull: false
         },
+        carouselImages: {
+            type: dataTypes.JSON,
+            allowNull: false
+        },
     }, {timestamps: false});
 
     Producto.associate = function(modelos) {
         Producto.hasMany(modelos.Pedido, {
             as: 'pedidos',
             foreignKey: 'producto_id'
-        });
-
-        Producto.belongsToMany(modelos.Caracteristica, {
-            as: 'characteristics',
-            through: 'Productos_Caracteristicas',
-            foreignKey: 'producto_id',
-            otherKey: 'caracteristica_id',
-            timestamps: false,
-        });
-
-        Producto.belongsToMany(modelos.Carousel, {
-            as: 'carouselImages',
-            through: 'Productos_Carousel',
-            foreignKey: 'producto_id',
-            otherKey: 'carousel_id',
-            timestamps: false
         });
 
         Producto.belongsToMany(modelos.Categoria, {

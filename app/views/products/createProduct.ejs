@@ -45,7 +45,7 @@
                     <div class="col-7"><h3>Categorías</h3></div>
                     <% let i = 1; for(category of categories) { %>
                         <div class="col-7">
-                            <input class="form-check-input" type="checkbox" value="<%= category.name %>" id="<%= category.name %>Check" name="categories" <%= (locals.old && old.categories && old.categories.find(categoria => categoria == category.name)) ? 'checked' : '' %>>
+                            <input class="form-check-input" type="checkbox" value="<%= category.id %>" id="<%= category.name %>Check" name="categories" <%= (locals.old && old.categories && old.categories.find(categoria => categoria == category.name)) ? 'checked' : '' %>>
                             <label class="form-check-label" for="<%= category.name %>Check">
                                 <%= category.name %>
                             </label>
