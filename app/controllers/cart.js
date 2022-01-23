@@ -1,7 +1,10 @@
-//Models
-const Product = require('../models/Product');
-const Cart = require('../models/Cart');
-const Wishlist = require('../models/Wishlist');
+//Models for JSON
+//const Product = require('../models/Product');
+//const Cart = require('../models/Cart');
+//const Wishlist = require('../models/Wishlist');
+
+//Model for MySQL
+const db = require('../database/models');
 
 //For using JQuery in Node (express)
 /*var jsdom = require('jsdom');
@@ -18,138 +21,263 @@ const shoppingController = {
         let urlList = [""];
         urlList.push(req.originalUrl);
 
-        let products = [];
-        let index = 0;
-        let cart;
+        //let products = [];
+        let user_id = 0;
+        //let cart;
 
         if(req.session.userLogged) { //Si hay una sesión activa
-            cart = Cart.findAllByField('user_id', req.session.userLogged.id);
-        } else {
-            cart = Cart.findAllByField('user_id', 0);
-        }
+            user_id = req.session.userLogged.id;
+        } 
 
-        //To get the product information
-        for(item of cart) {
-            let productId = item.product_id;
-            products.push(Product.findByPk(productId));
-            products[index].quantity = cart[index].quantity;
-            products[index].cartId = cart[index].id;
-            index++;
-        }
+        //JSON
+        //cart = Cart.findAllByField('user_id', user_id);
+        //MySQL
+        let carrito = db.Carrito.findAll({where: { usuario_id: user_id }});
+        let producto = db.Producto.findAll({include: ['categories']});
 
-        let notification = '';
+        Promise.all([carrito, producto])
+        .then(([carrito, producto]) => {
+            for(let i = 0; i < carrito.length; i++){ //Think of more efficient approach
+                for(let j = 0; j < producto.length; j++){
+                    if(carrito[i].producto_id == producto[j].id) {
+                        products.push(producto[j].dataValues);
+                        products[i].quantity = carrito[i].quantity;
+                        products[i].cartId = carrito[i].id;
+                    }
+                }
+            }
+            
+            let notification = '';
 
-		if(req.app.notification){
-			notification = req.app.notification;
-		}
+            if(req.app.notification){
+                notification = req.app.notification;
+            }
 
-		res.render('cart/cart', {notification, products, breadcrumbList, urlList});
+            res.render('cart/cart', {notification, products, breadcrumbList, urlList});
+
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
 	},
     addItem: (req, res) => {
         let productId = parseInt(req.params.id);
-        let userId;
+        let userId = 0;
         if(req.session.userLogged) {
             userId = req.session.userLogged.id;
-        } else {
-            userId = 0;
-        }
+        } 
 
-        let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
+        //JSON
+        //let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
+        //MySQL
+        db.Carrito.findOne({ where: { [Op.and]: [
+            {producto_id : productId},
+            {usuario_id: userId}
+        ] }})
+        .then((currentItem) => {
+            if(currentItem != undefined){
+                return Promise.resolve(currentItem);
+            }
+            return Promise.reject();
+        })
+        .then((currentItem) => { //If true -> Continue
+            //JSON
+            //let productName = Product.findByPk(productId).name;
+            //MySQL
+            db.Producto.findByPk(productId)
+            .then((producto) => {
+                let referer = req.headers.referer;
+                let parts = referer.split('/');
+                //To remove http://localhost:3500
+                parts.shift()
+                parts.shift()
+                parts.shift();
+                let location = parts;
 
-        if(currentItem == undefined){
+                if(currentItem && userId == currentItem.user_id) { //Si hay un producto idéntico ya añadido 
+                    //y el id del usuario logeado es igual al del producto que está en la BD
+                    currentItem.quantity = currentItem.quantity + 1;
+                    return Promise.resolve(currentItem, producto, location);
+                } else {
+                    let newItem = {
+                        product_id: productId,
+                        user_id: userId,
+                        quantity: 1,
+                    };
+                    return Promise.reject(newItem, producto, location);
+                }
+            })
+            .then((currentItem, producto, location) => { //If true -> Update the cart
+                //JSON
+                //Cart.update(currentItem);
+                //MySQL
+                db.Carrito.update(currentItem, { where: { id : currentItem.id }})
+                .then(() => {
+                    console.log("Elemento del carrito actualizado");
+                    return (producto, location);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }, (newItem, producto, location) => { //If false -> Create new cart entry
+                //JSON
+                //Cart.create(newItem);
+                db.Carrito.create(newItem)
+                .then(() => {
+                    console.log("Nuevo elemento añadido al carrito");
+                    return (producto, location);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            })
+            .then((producto, location) => { //Avanzar
+                let productName = producto.name;
+                //Notify user about new product creation
+                let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName, tipo: "bg-success"};
+
+                req.app.notification = notification;
+
+                if(location == '') {
+                    res.redirect('/');
+                } else if (location.length == 1){
+                    if(location == 'wishlist'){
+                        //Delete item from wishlist if user had it there 
+                        notification = {activo: 1, accion: "agregación", accionDos: "añadido y eliminado", elemento: "producto al carrito y eliminación de la lista de deseos", nombre: productName, tipo: "bg-success"};
+                        let wlId = parseInt(req.query.wishlist);
+                        //JSON
+                        //Wishlist.deleteProductFromWishlist(wlId, productId);
+                        //MySQL
+                        db.Productos_Lista_de_deseos.destroy({ where: { [Op.and]: [
+                            {producto_id : productId},
+                            {lista_de_deseo_id: wlId}
+                        ] }})
+                        .then(() => {
+                            res.redirect('/' + location);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                    } else {
+                        res.redirect('/' + location);
+                    }
+                } else {
+                    let output = '';
+                    for(it of location) { 
+                        output += '/' + it; 
+                    }
+                    res.redirect(output);
+                }
+            }) 
+            .catch((err) => {
+                console.log(err);
+            });
+
+        }, () => { //If false -> Redirect to product view
             return res.redirect('/product');
-        }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
-        let productName = Product.findByPk(productId).name;
-        let referer = req.headers.referer;
-        let parts = referer.split('/');
-        //To remove http://localhost:3500
-        parts.shift()
-        parts.shift()
-        parts.shift();
-        let location = parts;
-
-        if(currentItem && userId == currentItem.user_id) { //Si hay un producto idéntico ya añadido 
-            //y el id del usuario logeado es igual al del producto que está en la BD
-            currentItem.quantity = currentItem.quantity + 1;
-            Cart.update(currentItem);
-        } else {
-            let newItem = {
-                product_id: productId,
-                user_id: userId,
-                quantity: 1,
-            };
-            Cart.create(newItem);
-        }
-
-        //Notify user about new product creation
-        let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName, tipo: "bg-success"};
-
-        req.app.notification = notification;
-
-        if(location == '') {
-            res.redirect('/');
-        } else if (location.length == 1){
-            if(location == 'wishlist'){
-                //Delete item from wishlist if user had it there 
-                notification = {activo: 1, accion: "agregación", accionDos: "añadido y eliminado", elemento: "producto al carrito y eliminación de la lista de deseos", nombre: productName, tipo: "bg-success"};
-                let wlId = parseInt(req.query.wishlist);
-                Wishlist.deleteProductFromWishlist(wlId, productId);
-            }
-            res.redirect('/' + location);
-        } else {
-            let output = '';
-            for(it of location) { 
-                output += '/' + it; 
-            }
-            res.redirect(output);
-        }
     },
     increaseItem: (req, res) => {
         let cartId = parseInt(req.params.id);
         
-        let currentItem = Cart.findByPk(cartId); 
+        //JSON
+        //let currentItem = Cart.findByPk(cartId); 
+        //MySQL
+        db.Carrito.findByPk(cartId)
+        .then((currentItem) => {
+            if(currentItem != undefined){
+                return Promise.resolve(currentItem);
+            }
+            return Promise.reject();
+        })
+        .then((currentItem) => { //If true -> Continue
+            //JSON
+            //let productName = Product.findByPk(currentItem.product_id).name;
+            //MySQL
+            let productName = db.Producto.findByPk(currentItem.producto_id);
+            currentItem.quantity = currentItem.quantity + 1;
+            //JSON
+            //Cart.update(currentItem);
+            //MySQL
+            let carrito = db.Carrito.update(currentItem, { where: { id: currentItem.id }});
 
-        if(currentItem == undefined){
+            Promise.all([productName, carrito])
+            .then(([productName, carrito]) => {
+                //Notify user about new product creation
+                let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "un producto al carrito", nombre: productName, tipo: "bg-success"};
+
+                req.app.notification = notification;
+
+                res.redirect('/cart');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        }, () => { //If false -> Redirect to cart page
             return res.redirect('/cart');
-        }
-
-        let productName = Product.findByPk(currentItem.product_id).name;
-
-        currentItem.quantity = currentItem.quantity + 1;
-        Cart.update(currentItem);
-
-        //Notify user about new product creation
-        let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "un producto al carrito", nombre: productName, tipo: "bg-success"};
-
-        req.app.notification = notification;
-
-        res.redirect('/cart');
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+        
     },
     decreaseItem: (req, res) => {
         let cartId = parseInt(req.params.id);
 
-        let currentItem = Cart.findByPk(cartId); 
+        //JSON
+        //let currentItem = Cart.findByPk(cartId); 
+        //MySQL
+        db.Carrito.findByPk(cartId)
+        .then((currentItem) => {
+            if(currentItem != undefined){
+                return Promise.resolve(currentItem);
+            }
+            return Promise.reject();
+        })
+        .then((currentItem) => { //If true -> Continue
+            //JSON
+            //let productName = Product.findByPk(currentItem.product_id).name;
+            //MySQL
+            db.Producto.findByPk(currentItem.producto_id)
+            .then((productName) => {
+                currentItem.quantity = currentItem.quantity - 1;
+                if(currentItem.quantity == 0){
+                    //Trigger modal for deleting the element
+                } else {
+                    //JSON
+                    //Cart.update(currentItem);
+                    //MySQL
+                    db.Carrito.update(currentItem, { where: { id: currentItem.id }})
+                    .then(() => {
+                        //Notify user about new product creation
+                        let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "un producto del carrito", nombre: productName, tipo: "bg-danger"};
 
-        if(currentItem == undefined){
+                        req.app.notification = notification;
+
+                        res.redirect('/cart');                        
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        }, () => { //If false -> Redirect to cart
             return res.redirect('/cart');
-        }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
-        let productName = Product.findByPk(currentItem.product_id).name;
-
-        currentItem.quantity = currentItem.quantity - 1;
-        if(currentItem.quantity == 0){
-            //Trigger modal for deleting the element
-        } else {
-            Cart.update(currentItem);
-
-            //Notify user about new product creation
-            let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "un producto del carrito", nombre: productName, tipo: "bg-danger"};
-
-            req.app.notification = notification;
-
-            res.redirect('/cart');
-        }
     },
     dismiss: (req, res) => {
         //Modal is closed in the JS file
@@ -160,28 +288,51 @@ const shoppingController = {
     include: (req, res) => {
         //Modal is closed in the JS file
 		req.app.cartFlag = 1;
-        let allCart = Cart.findAll();
+        //JSON
+        //let allCart = Cart.findAll();
+        //MySQL
+        db.Carrito.findAll()
+        .then((allCart) => {
+            //Think of better implementation
 
-        //Think of better implementation
-
-        //For getting the index inside a for...of
-        //const [index, item] of allCart.entries()
-        for(item of allCart){
-            //Determine if item in user cart exists in guest cart too
-            let exists = allCart.find(element => element.user_id == 0 && item.product_id == element.product_id && item.user_id == req.session.userLogged.id);
-            let index = allCart.findIndex(element => element.user_id == 0 && item.product_id == element.product_id && item.user_id == req.session.userLogged.id);
-            if(exists) {
-                item.quantity = item.quantity + exists.quantity;
-                allCart.splice(index, 1);
+            //For getting the index inside a for...of
+            //const [index, item] of allCart.entries()
+            for(item of allCart){
+                //Determine if item in user cart exists in guest cart too
+                let exists = allCart.find(element => element.usuario_id == 0 && item.producto_id == element.producto_id && item.usuario_id == req.session.userLogged.id);
+                let index = allCart.findIndex(element => element.usuario_id == 0 && item.producto_id == element.producto_id && item.usuario_id == req.session.userLogged.id);
+                if(exists) {
+                    item.quantity = item.quantity + exists.quantity;
+                    allCart.splice(index, 1);
+                }
             }
-        }
 
-        //Assign missing guest elements (new) to current user
-        for(item of allCart){
-            if(item.user_id == 0){
-                item.user_id = req.session.userLogged.id;
+            //Assign missing guest elements (new) to current user
+            for(item of allCart){
+                if(item.usuario_id == 0){
+                    item.usuario_id = req.session.userLogged.id;
+                }
             }
-        }
+
+            //JSON
+            //Cart.updateAll(allCart);
+            //MySQL
+            db.Carrito.update(allCart)
+            .then(() => {
+                //Notify user about cart item deletion
+                let notification = {activo: 1, accion: "integración", accionDos: "integrado", elemento: "elementos del carrito de invitado", nombre: 'Carrito de invitado', tipo: "bg-success"};
+
+                req.app.notification = notification;
+
+                res.redirect('/');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
         /*for(item of allCart) {
             console.log("Item: ");
@@ -207,14 +358,6 @@ const shoppingController = {
             }
         }*/
 
-        Cart.updateAll(allCart);
-
-        //Notify user about cart item deletion
-		let notification = {activo: 1, accion: "integración", accionDos: "integrado", elemento: "elementos del carrito de invitado", nombre: 'Carrito de invitado', tipo: "bg-success"};
-
-		req.app.notification = notification;
-
-        res.redirect('/');
 	},
     delete: (req, res) => {
 		let id = parseInt(req.params.id); //Id del elemento del carrito de compras, no del producto
@@ -222,23 +365,48 @@ const shoppingController = {
         //No need to validate the user profile, because we are using DB id's and they're unique
 
         //let userId = req.body.session.userLogged.id;
-        let elemento = Cart.findByPk(id);
+        //JSON
+        //let elemento = Cart.findByPk(id);
+        //MySQL
+        db.Carrito.findByPk(id)
+        .then((elemento) => {
+            if(elemento != undefined){
+                return Promise.resolve(elemento);
+            }
+            return Promise.reject();
+        })
+        .then((elemento) => { //If true -> Continue
+            //JSON
+            //let producto = Product.findByPk(elemento.product_id);
+            //MySQL
+            let producto = db.Producto.findByPk(elemento.producto_id);
 
-        if(elemento == undefined){
+            //Cart.deleteByItemAndUser(id, userId);
+            //JSON
+            //Cart.delete(id);
+            //MySQL
+            let carDel = db.Carrito.delete({ where: { id: id }});
+
+            Promise.all([producto, carDel])
+            .then(([producto, carDel]) => {
+                //Notify user about cart item deletion
+                let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};
+
+                req.app.notification = notification;
+
+                res.redirect('/cart');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        }, () => { //If false -> Redirect to cart
             return res.redirect('/cart');
-        }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
-        let producto = Product.findByPk(elemento.product_id);
-
-		//Cart.deleteByItemAndUser(id, userId);
-        Cart.delete(id);
-
-		//Notify user about cart item deletion
-		let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};
-
-		req.app.notification = notification;
-
-		res.redirect('/cart');
 	},
 };
 
