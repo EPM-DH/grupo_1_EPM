@@ -116,3 +116,31 @@ Dejar de hacer
 
 Conclusiones
 Se lograron los objetivos del Sprint en tiempo y se logra avanzar un poco con los abjetivos del siguiente Sprint, hay que seguir trabjando en la comunicacion, aun se puede mejorar.
+
+Sprint 5
+
+Comenzar a hacer 
+    
+    ....
+
+Hacer más 
+
+    Ir más allá de los requisitos del proyecto
+    Tomar mas iniciativa en el proyecto
+    Colaboracion mas equitativa en el proyecto
+    Mejorar la comunicacion
+
+Continuar haciendo 
+    Tomar iniciativa en el proyecto
+    Cumplir con los objetivos del sprint
+    Probar la ejecución del código en busca de fallas
+    Dar opiniones constructivas sobre lo que se esta realizando
+
+Hacer menos 
+    Ignorar los sprints
+
+Dejar de hacer 
+    Ser apáticos en el proyecto
+
+Conclusiones
+El proyecto va avanzando bastante bien. Se estan realizando las actividades de manera individual y validano de manera colectiva.

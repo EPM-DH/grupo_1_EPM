@@ -1,1 +1,57 @@
-[{"id":1,"firstName":"Juan Manuel","lastName":"Ledesma Rangel","email":"jujuan27@hotmail.com","password":"Hola1234","avatar":"","rol":"administrador"},{"id":2,"firstName":"Adolfo","lastName":"Alcaráz","email":"adolgdl@gmail.com","password":"Hola1234","avatar":"","rol":"administrador"},{"id":3,"firstName":"Ricardo","lastName":"Zúñiga","email":"litosiderito@gmail.com","password":"Hola1234","avatar":"","rol":"estandar"},{"id":4,"firstName":"Jonathan","lastName":"Alvarez","email":"abejotav1@gmail.com","password":"Hola1234","avatar":"","rol":"estandar"}]
+[
+ {
+  "id": 1,
+  "firstName": "Juan Manuel",
+  "lastName": "Ledesma Rangel",
+  "email": "jujuan27@hotmail.com",
+  "password": "$2a$10$Uy7e64kOdqzZzKkDMepwjeu9l8OMp5uQIjPODaWuTuOdGmjxcOYX6",
+  "avatar": "FotoBanderas_1641175730211.JPG",
+  "rol": "administrador"
+ },
+ {
+  "id": 2,
+  "firstName": "Adolfo",
+  "lastName": "Alcaráz",
+  "email": "adolgdl@gmail.com",
+  "password": "Hola1234",
+  "avatar": "",
+  "rol": "administrador"
+ },
+ {
+  "id": 3,
+  "firstName": "Ricardo",
+  "lastName": "Zúñiga",
+  "email": "litosiderito@gmail.com",
+  "password": "Hola1234",
+  "avatar": "",
+  "rol": "estandar"
+ },
+ {
+  "id": 4,
+  "firstName": "Jonathan",
+  "lastName": "Alvarez",
+  "email": "abejotav1@gmail.com",
+  "password": "$2a$10$B9nfqJOLhKB8KCxLDsDMG.6Xsr0Df016ATHRoNQOXdVYuanEKBM7G",
+  "avatar": "P1100237_1643077222777.JPG",
+  "rol": "estandar"
+ },
+ {
+  "id": 5,
+  "firstName": "Ma Guadalupe",
+  "lastName": "Adriana Rangel",
+  "email": "lupita.rangel1@hotmail.com",
+  "password": "$2a$10$B9nfqJOLhKB8KCxLDsDMG.6Xsr0Df016ATHRoNQOXdVYuanEKBM7G",
+  "avatar": "cosmo_1641962472531.jpg",
+  "rol": "estandar"
+ },
+ {
+  "id": 6,
+  "firstName": "Administrador",
+  "lastName": "General",
+  "email": "correo@dominio.com",
+  "password": "$2a$10$B9nfqJOLhKB8KCxLDsDMG.6Xsr0Df016ATHRoNQOXdVYuanEKBM7G",
+  "avatar": "default.png",
+  "rol": "administrador"
+ }
+]
+

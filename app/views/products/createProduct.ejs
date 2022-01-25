@@ -33,7 +33,7 @@
                         </label>
                     </div>
                     <div class="col-7">
-                        <input type="number" class="form-estandar form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>" name="price" id="price" value="<%= locals.old && old.price ? old.price : '' %>">
+                        <input type="number" step="0.01" class="form-estandar form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>" name="price" id="price" value="<%= locals.old && old.price ? old.price : '' %>">
                         <div class="text-danger">
                             <% if(locals.errors && errors.price) { %> 
                                 <%= errors.price.msg %> 
@@ -86,15 +86,43 @@
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3"> <!-- Consider adding JS for new characteristic or removing previous one -->
-                    <div class="col-7">
+                    <div class="d-flex flex-row justify-content-between col-7">
                         <label for="characteristics">Características</label>
+                        <div class="col-2">
+                            <div class="value-button decrease" id="decrease" style="pointer-events: none;opacity: 0.4;" onclick="removeCharacteristic()" value="Decrease Value">-</div>
+                            <div class="value-button increase" id="increase" onclick="addCharacteristic()" value="Increase Value">+</div>
+                        </div>
                     </div>
                     <div class="col-7">
                         <ul class="caracteristicas">
-                            <li><input type="text" class="form-estandar" name="characteristic1"  id="characteristic1"></li>
-                            <li><input type="text" class="form-estandar" name="characteristic2"  id="characteristic2"></li>
-                            <li><input type="text" class="form-estandar" name="characteristic3"  id="characteristic3"></li>
+                        <% if (locals.old && old.characteristics) { %>
+                            <% let i = 1; for(characteristic of old.characteristics) { %>
+                                <li><input type="text" class="form-estandar form-control <%= locals.errors && errors.characteristic1 ? 'is-invalid' : '' %>" name="characteristic<%= i %>"  id="characteristic<%= i %>" value="<%= characteristic %>"></li>
+                            <% i++; } %> 
+                        <% } else { %>
+                            <li><input type="text" class="form-estandar form-control <%= locals.errors && errors.characteristic1 ? 'is-invalid' : '' %>" name="characteristic1"  id="characteristic1"></li>
+                        <%}%>
                         </ul>
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.characteristic1) { %> 
+                                <%= errors.characteristic1.msg %> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <label for="rating">
+                            Calificación (0-5)
+                        </label>
+                    </div>
+                    <div class="col-7">
+                        <input type="number" class="form-estandar form-control <%= locals.errors && errors.rating ? 'is-invalid' : '' %>" name="rating"  id="rating" value="<%= locals.old && old.rating ? old.rating : '' %>">
+                        <div class="text-danger">
+                            <% if(locals.errors && errors.rating) { %> 
+                                <%= errors.rating.msg %> 
+                            <% } %>
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -112,12 +140,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-check adjust-check">
-                    <div class="align-center">
-                        <input class="form-check-input centerCheck" type="checkbox" id="featured" name="featured" <%= locals.old && old.featured ? 'checked' : '' %>>
-                        <label class="form-check-label" for="featured">
-                            Destacado
-                        </label>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                        <div class="form-check">
+                            <input class="form-check-input centerCheck" type="checkbox" id="featured" name="featured" <%= locals.old && old.featured ? 'checked' : '' %>>
+                            <label class="form-check-label" for="featured">
+                                Destacado
+                            </label>
+                          </div>
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
@@ -152,5 +182,6 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.j
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 crossorigin="anonymous"
 ></script>
+<script src="/js/product.js"></script>
 </body>
 <%- include('../partials/footer.ejs') %>

@@ -14,17 +14,19 @@
           <h5 class="titulo-producto-modal" id="staticBackdropLabel">
             <a href="/product/<%= producto.id %>"><%= producto.name %></a>
           </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body upper">
             <div class="col">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star unchecked"></span>
-              <span class="fa fa-star unchecked"></span>
+              <% for( let index = 0; index < 5; index++ ) { %>
+                <% if (index < producto.rating) { %>
+                  <span class="fa fa-star checked"></span>    
+                <% } else { %>  
+                  <span class="fa fa-star unchecked"></span>
+                <% } %> 
+              <% } %>
             </div>
             <div class="col descriptionModal">
               <p>Productos vendidos: <%= producto.vendidos %></p>
@@ -47,9 +49,9 @@
               <% } %>
             </div>
             <div class="col-auto">
-              <button class="boton boton-vacio">
+              <a href="/cart/add/<%= producto.id %>">
                 <i class="carrito-producto-modal fas fa-shopping-cart"></i>
-              </button>
+              </a>
             </div>
           </div>
           <br>

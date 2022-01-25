@@ -32,7 +32,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
-            <form class="d-flex" method="post" action="/searchresult">
+            <form class="d-flex" method="POST" action="/search">
               <!--Form Busqueda Navbar-->
               <input
                 name="userQuery"
@@ -47,54 +47,82 @@
             </form>
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
+            <li class="d-flex flex-column justify-content-center nav-item">
               <a class="nav-link active" aria-current="page" href="/product"
                 >Productos</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/user/register"
-                >Registrate</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/user/login"
-                >Ingresa</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/shoppingCart">
-                <i class="fas fa-shopping-cart"> </i>
+            <% if (!locals.isLogged) { %>
+              <li class="nav-item">
+                <a class="d-flex flex-column justify-content-center nav-link active" id="register" aria-current="page" href="/user/register"
+                  >Registrate</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="d-flex flex-column justify-content-center nav-link active" aria-current="page" href="/user/login"
+                  >Ingresa</a
+                >
+              </li>
+            <% } %>
+            <li class="d-flex flex-column justify-content-center nav-item">
+              <a class="nav-link" href="/cart">
+                <i class="fas fa-shopping-cart"></i><span class="cart-basket d-flex align-items-center justify-content-center"><%= locals.countItems %></span>
               </a>
+              <script>
+                function adjustCartPosition () {
+                  if($('#register').length != 0){
+                    let size = $(window).width();
+                    if(size >= 1200){
+                      $('.cart-basket').css('right', '48px');
+                      $('.cart-basket').css('top', '22px');
+                    } else if(size < 1200 && size >= 992) {
+                      $('.cart-basket').css('top', '26px');
+                      $('.cart-basket').css('right', '12px');
+                    } else if(size < 992 && size >= 768) {
+                      $('.cart-basket').css('top', '242px');
+                    } else if(size < 768) {
+                      $('.cart-basket').css('top', '198px');
+                    }
+                  }
+                }
+
+                adjustCartPosition();
+
+                $( window ).resize(function() {
+                  adjustCartPosition();
+                });
+              </script>
             </li>
-            <li class="nav-item dropdown dropstart">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fab fa-jedi-order"></i>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark"
-                aria-labelledby="navbarDropdown"
-              >
-                <li><a class="dropdown-item" href="/profile">Perfil</a></li>
-                <li>
-                  <a class="dropdown-item" href="/purchases">Pedidos</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="/whishlist">Lista de Deseos</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-              </ul>
-            </li>
+            <% if (locals.isLogged) { %>
+              <li class="nav-item dropdown dropleft">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <span><%= locals.userLogged.firstName %> &nbsp; <img src="/img/users/<%= locals.userLogged.avatar %>" width="50" height="55" alt="Imagen de perfil del usuario" style="border-radius: 50%;"></span>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li><a class="dropdown-item" href="/user/profile">Perfil</a></li>
+                  <li>
+                    <a class="dropdown-item" href="/order">Pedidos</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/wishlist">Listas de Deseos</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li><a class="dropdown-item" href="/user/logout">Cerrar Sesión</a></li>
+                </ul>
+              </li>
+            <% } %>
           </ul>
         </div>
       </div>

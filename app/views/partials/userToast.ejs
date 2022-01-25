@@ -1,0 +1,14 @@
+<% if (locals.notification && notification.activo == 1) { %>
+  <div class="position-fixed topCorner end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast fade hide <%= notification.tipo %> text-white" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Confirmación de <%= notification.accion %> de <%= notification.elemento %></strong>
+        <small>Hace unos segundos</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+          <%= notification.nombre %>  <%= notification.accionDos %> correctamente
+      </div>
+    </div>
+  </div>
+<% } %>

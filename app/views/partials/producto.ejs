@@ -3,8 +3,10 @@
   <div class="col-11 producto-linea">
     <div class="row">
       <div class="col-3 pt-2 pb-2">
-        <button class="boton-flex boton-producto boton-vacio">
-          <img src="img/products/<%= producto.image %>" alt="atc-escalada" />
+        <button class="boton-flex boton-producto boton-vacio" type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#modal<%= producto.identifier %>">
+          <img src="img/products/<%= producto.image %>" alt="<%= producto.identifier %>" />
         </button>
       </div>
       <div class="col">
@@ -34,9 +36,9 @@
             <% } %>
           </div>
           <div class="col-1 pt-2">
-            <button class="boton boton-vacio">
+            <a href="/cart/add/<%= producto.id %>">
               <i class="carrito-producto fas fa-shopping-cart"></i>
-            </button>
+            </a>
           </div>
         </div>
         <div class="row">
@@ -48,4 +50,9 @@
     </div>
   </div>
 </div>
+<% } %>
+<% if (products.length == 0) { %>
+  <div class="row justify-content-center mt-3">
+    <h2 style="text-align: center;">Actualmente no hay productos en existencia</h2>
+  </div>
 <% } %>

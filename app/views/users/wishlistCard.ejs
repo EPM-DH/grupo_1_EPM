@@ -1,0 +1,48 @@
+<% for (item of list.products) { %>
+    <div class="row justify-content-center mt-3">
+        <div class="col-sm-11 producto-linea">
+            <div class="row">
+                <div class="d-flex flex-column justify-content-center col-12 col-sm-3 pt-2 pb-2 px-2">
+                <img
+                    src="/img/products/<%= item.image %>"
+                    alt="<%= item.identifier %>"
+                />
+                </div>
+                <div class="col-sm-6 px-5">
+                    <div class="col-sm-12 p-2">
+                        <div class="titulo-producto m-0" style="font-weight: bold">
+                            <a href="/product/<%= item.id %>"><%= item.name %></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 px-2">
+                        <% for( let index = 0; index < 5; index++ ) { %>
+                          <% if (index < item.rating) { %>
+                            <span class="fa fa-star checked"></span>    
+                          <% } else { %>  
+                            <span class="fa fa-star unchecked2"></span>
+                          <% } %> 
+                        <% } %>
+                    </div>
+                    <div class="col-auto p-2">
+                        <div class="precio-producto">$<%= item.price %></div>
+                    </div>
+                    <div class="col-12 col-md-12 p-2">
+                        <p class="description" style="margin-left: 0px; text-align: justify;">
+                            <%= item.shortDescription %>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-3 p-0 d-flex flex-column justify-content-around align-items-center">
+                    <button type="button" class="boton-estandar boton-flex" style="width: 80%;">
+                        <a href="/cart/add/<%= item.id %>?wishlist=<%= list.id %>" class="noUnderline">Añadir al carrito</a>
+                    </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal_<%= item.identifier %>" style="width: 80%;">
+                        Eliminar de la lista
+                    </button>
+                </div>
+            </div>
+            <%- include('../partials/confirmationModal.ejs', {elemento: 'wishlist2', id: item.id, identifier: item.identifier }) %> 
+        </div>
+    </div>
+<% } %>

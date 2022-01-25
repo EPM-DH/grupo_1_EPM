@@ -1,0 +1,23 @@
+  <!-- Modal -->
+  <div class="modal fade show" <% if(locals.identifier) { %> id="confirmationModal_<%= identifier %>" <% } else { %> id="confirmationModal" <% } %>  tabindex="-1" role="dialog" aria-labelledby="confirmationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalTitle">Confirmación de borrado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          La acción que estás a punto de tomar no puede ser desecha. 
+          ¿Estas seguro que deseas eliminar el elemento? 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <form action="/<%= elemento == 'wishlist2' ? 'wishlist' : elemento %>/delete/<%= id %>?_method=DELETE<%= elemento == 'wishlist2' ? '&wishlist='+list.id : '' %>" method="POST" style="display: inline-flex">
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
