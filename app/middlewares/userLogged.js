@@ -4,8 +4,11 @@ const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/usuarios.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); //Validate if users variable is empty before anything else*/
 
-//Models
-const User = require('../models/User');
+//Models for JSON
+//const User = require('../models/User');
+
+//MySQL
+const db = require('../database/models');
 
 function userLogged (req, res, next) {
     //For session
@@ -13,27 +16,38 @@ function userLogged (req, res, next) {
 
     //For cookie part: persisting the session even if the browser is closed
     let emailInCookie = req.cookies.usuarioLogeado;
-    let userFromCookie = User.findByField('email', emailInCookie);
+    //JSON
+    //let userFromCookie = User.findByField('email', emailInCookie);
+    //MySQL
+    db.Usuario.findOne({ where: { email: emailInCookie }})
+    .then((userFromCookie) => {
+        if(userFromCookie) { //Si hay un usuario en la DB que coincida con la cookie del navegador
+            delete userFromCookie.password;
+            req.session.userLogged = userFromCookie;
 
-    if(userFromCookie) { //Si hay un usuario en la DB que coincida con la cookie del navegador
-        delete userFromCookie.password;
-        req.session.userLogged = userFromCookie;
-    }
-
-    if(req.session.userLogged) {
-        //Update user data in case a change in the profile is detected
-        let usuario = User.findByField('email', req.session.userLogged.email);
-        if(usuario) {
-            delete usuario.password;
-		    req.session.userLogged = usuario;
-            
             //Indicate user is logged and save user data in local variable
             res.locals.isLogged = true; 
             res.locals.userLogged = req.session.userLogged;
         }
-    }
-
-    next();
+    
+        /*if(req.session.userLogged) {
+            //Update user data in case a change in the profile is detected
+            //let usuario = User.findByField('email', req.session.userLogged.email);
+            if(userFromCookie) {
+                delete usuario.password;
+                req.session.userLogged = usuario;
+                
+                //Indicate user is logged and save user data in local variable
+                res.locals.isLogged = true; 
+                res.locals.userLogged = req.session.userLogged;
+            }
+        }*/
+    
+        next();
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
     /*if(req.cookies.usuarioLogeado && !req.app.locals.logged) {
         let correo = req.cookies.usuarioLogeado;

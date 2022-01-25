@@ -1,7 +1,10 @@
 //To count the number of items in the users shopping cart
 
-//Models
-const Cart = require('../models/Cart');
+//Models for JSON
+//const Cart = require('../models/Cart');
+
+//Model for MySQL
+const db = require('../database/models');
 
 function cartItems(req, res, next) {
     let user = 0;
@@ -10,17 +13,25 @@ function cartItems(req, res, next) {
         user = req.session.userLogged.id;
     }
 
-    let currentCart = Cart.findAllByField('user_id', user);
+    //JSON
+    //let currentCart = Cart.findAllByField('user_id', user);
+    //MySQL
+    db.Carrito.findAll({ where: { usuario_id: user }})
+    .then((currentCart) => {
+        let countItems = 0;
 
-    let countItems = 0;
+        for(item of currentCart) {
+            countItems += item.quantity;
+        }
+    
+        res.locals.countItems = countItems;
+    
+        next();        
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
-    for(item of currentCart) {
-        countItems += item.quantity;
-    }
-
-    res.locals.countItems = countItems;
-
-    next();
 }
 
 module.exports = cartItems;

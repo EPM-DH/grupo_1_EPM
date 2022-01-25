@@ -2,9 +2,9 @@
 //causing it to restart (because we are using nodemon). Hence, loosing the session
 
 //Models
-const User = require('../models/User');
+//const User = require('../models/User');
 
-function userActivity (req, res, next) { //Refresco la sesión para que se mantenga activa
+//function userActivity (req, res, next) { //Refresco la sesión para que se mantenga activa
     //For cookies
     /*if(req.session.userLogged){
         let userCookie = req.cookies.usuarioLogeado;
@@ -16,7 +16,7 @@ function userActivity (req, res, next) { //Refresco la sesión para que se mante
     next();*/
 
     //For keeping the session when server is restarted due to nodemon and JSON files
-    if(req.cookies.active){
+    /*if(req.cookies.active){
         let usuario = User.findByField('email', req.cookies.active);
         if(usuario) {
             delete usuario.password;
@@ -26,4 +26,4 @@ function userActivity (req, res, next) { //Refresco la sesión para que se mante
     next();
 }
 
-module.exports = userActivity;
+module.exports = userActivity;*/

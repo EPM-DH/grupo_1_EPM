@@ -15,7 +15,7 @@ const cartRouter = require('./routes/cart');
 const orderRouter = require('./routes/order');
 const wishlistRouter = require('./routes/wishlist');
 const userLogged = require('./middlewares/userLogged');
-const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
+//const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
 const logger = require('./middlewares/logger'); //Only needed when working with JSON files
 const cartItems = require('./middlewares/countCartItems'); //Only needed when working with JSON files
 
@@ -28,7 +28,7 @@ app.use(session({ secret: "Nuestro mensaje secreto", //Debe ir antes de que se e
                   resave: false,
                   saveUninitialized: false }));
 app.use(cookieParser()); 
-app.use(userActivity); //Only needed when working with JSON files
+//app.use(userActivity); //Only needed when working with JSON files
 app.use(userLogged);
 app.use(logger);
 app.use(cartItems);
