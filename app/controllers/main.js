@@ -9,7 +9,7 @@ const db = require('../database/models');
 const mainController = {
 	index: (req, res) => {
 		//MySQL
-		db.Producto.findAll({ where: { featured: 1 }, include: ['categories', 'carouselImages']})
+		db.Producto.findAll({ where: { featured: 1 }, include: ['categories']})
 		.then((products) => {
 
 			let notification = '';

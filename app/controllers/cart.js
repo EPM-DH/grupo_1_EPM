@@ -5,6 +5,7 @@
 
 //Model for MySQL
 const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 //For using JQuery in Node (express)
 /*var jsdom = require('jsdom');
@@ -21,7 +22,7 @@ const shoppingController = {
         let urlList = [""];
         urlList.push(req.originalUrl);
 
-        //let products = [];
+        let products = [];
         let user_id = 0;
         //let cart;
 
@@ -32,10 +33,41 @@ const shoppingController = {
         //JSON
         //cart = Cart.findAllByField('user_id', user_id);
         //MySQL
-        let carrito = db.Carrito.findAll({where: { usuario_id: user_id }});
-        let producto = db.Producto.findAll({include: ['categories']});
+        /*let carrito = db.Carrito.findAll({where: { usuario_id: user_id }});
+        let producto = db.Producto.findAll({include: ['categories']});*/
 
-        Promise.all([carrito, producto])
+        //{model: 'Producto', as: 'producto', include: ['categories']}
+        db.Producto.findAll({include: [{model: db.Carrito, as: 'carritos', where: { usuario_id: user_id }}, 'categories']})
+        .then((products) => {
+            //If we don't want to use the carrito[0] in the view we could map all the data here, but that might be unefficient
+
+            let notification = '';
+
+            if(req.app.notification){
+                notification = req.app.notification;
+            }
+
+            res.render('cart/cart', {notification, products, breadcrumbList, urlList});
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+
+        /*db.Carrito.findAll({ where: {usuario_id: user_id}, include: {model: db.Producto, as: 'producto', include: [{model: db.Categoria, as: 'categories'}] }})
+        .then((products) => {
+            let notification = '';
+
+            if(req.app.notification){
+                notification = req.app.notification;
+            }
+
+            res.render('cart/cart', {notification, products, breadcrumbList, urlList});
+        })
+        .catch((err) => {
+            console.log(err);
+        });*/
+
+        /*Promise.all([carrito, producto])
         .then(([carrito, producto]) => {
             for(let i = 0; i < carrito.length; i++){ //Think of more efficient approach
                 for(let j = 0; j < producto.length; j++){
@@ -58,7 +90,7 @@ const shoppingController = {
         })
         .catch((err) => {
             console.log(err);
-        });
+        });*/
 
 	},
     addItem: (req, res) => {

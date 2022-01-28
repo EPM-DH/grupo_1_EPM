@@ -16,24 +16,29 @@ function userLogged (req, res, next) {
 
     //For cookie part: persisting the session even if the browser is closed
     let emailInCookie = req.cookies.usuarioLogeado;
-    //JSON
-    //let userFromCookie = User.findByField('email', emailInCookie);
-    //MySQL
-    db.Usuario.findOne({ where: { email: emailInCookie }})
-    .then((userFromCookie) => {
-        if(userFromCookie) { //Si hay un usuario en la DB que coincida con la cookie del navegador
+    if(emailInCookie) { //Si hay un usuario en la DB que coincida con la cookie del navegador
+        //JSON
+        //let userFromCookie = User.findByField('email', emailInCookie);
+        //MySQL
+        db.Usuario.findOne({ where: { email: emailInCookie }})
+        .then((userFromCookie) => {
             delete userFromCookie.password;
             req.session.userLogged = userFromCookie;
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+        
+    }
 
-            //Indicate user is logged and save user data in local variable
-            res.locals.isLogged = true; 
-            res.locals.userLogged = req.session.userLogged;
-        }
-    
-        /*if(req.session.userLogged) {
-            //Update user data in case a change in the profile is detected
-            //let usuario = User.findByField('email', req.session.userLogged.email);
-            if(userFromCookie) {
+    if(req.session.userLogged) {
+        //Update user data in case a change in the profile is detected
+        //JSON
+        //let usuario = User.findByField('email', req.session.userLogged.email);
+        //MySQL
+        db.Usuario.findOne({ where: { email: req.session.userLogged.email }})
+        .then((usuario) => {
+            if(usuario) {
                 delete usuario.password;
                 req.session.userLogged = usuario;
                 
@@ -41,13 +46,14 @@ function userLogged (req, res, next) {
                 res.locals.isLogged = true; 
                 res.locals.userLogged = req.session.userLogged;
             }
-        }*/
-    
-        next();
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+        
+    }
+
+    next();
 
     /*if(req.cookies.usuarioLogeado && !req.app.locals.logged) {
         let correo = req.cookies.usuarioLogeado;

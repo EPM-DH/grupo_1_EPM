@@ -14,7 +14,7 @@ const searchController = {
         //JSON 
         //let product = Product.search(toSearch); let foundProducts = products.filter(item => item.name.toLowerCase().includes(toSearch.toLowerCase()));
         //MySQL 
-        db.Producto.findAll({ where: { name: {[Op.like]: '%' + toSearch + '%'} }, include: ['categories', 'carouselImages']})
+        db.Producto.findAll({ where: { name: {[Op.like]: '%' + toSearch + '%'} }, include: ['categories']})
         .then((products) => {
             res.render('search/search', { products });
         })
