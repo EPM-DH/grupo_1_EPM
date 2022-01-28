@@ -125,7 +125,7 @@ const userController = {
 						delete usuario.password;
 						req.session.userLogged = usuario;
 						//Only needed when working with JSON files
-						res.cookie('active', user.email);
+						//res.cookie('active', user.email);
 	
 						//Crear cookie si el usuario marcó la casilla de recuérdame
 						if(req.body.recuerdame){ //No se elimina la sesión cuando el usuario cierra el navegador
@@ -172,7 +172,7 @@ const userController = {
 		//First check if session exists
 		if(req.session.userLogged){
 			res.clearCookie('usuarioLogeado');
-			res.clearCookie('active');
+			//res.clearCookie('active');
 			req.session.destroy();
 		}
 		

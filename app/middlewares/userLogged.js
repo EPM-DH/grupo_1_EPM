@@ -15,42 +15,46 @@ function userLogged (req, res, next) {
     res.locals.isLogged = false; //res.locals puedo compartirlas a través de todas las vistas
 
     //For cookie part: persisting the session even if the browser is closed
-    let emailInCookie = req.cookies.usuarioLogeado;
-    if(emailInCookie) { //Si hay un usuario en la DB que coincida con la cookie del navegador
+    let emailInCookie = req.cookies.usuarioLogeado; 
+    //For session part
+    let sessionData = req.session.userLogged;
+
+    if(emailInCookie){ //Si hay un usuario en la DB que coincida con la cookie del navegador
+        console.log("Adios");
         //JSON
         //let userFromCookie = User.findByField('email', emailInCookie);
         //MySQL
-        db.Usuario.findOne({ where: { email: emailInCookie }})
+        db.Usuario.findOne({ where: { email: emailInCookie }, include: ['rol']})
         .then((userFromCookie) => {
-            delete userFromCookie.password;
-            req.session.userLogged = userFromCookie;
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-        
-    }
-
-    if(req.session.userLogged) {
-        //Update user data in case a change in the profile is detected
-        //JSON
-        //let usuario = User.findByField('email', req.session.userLogged.email);
-        //MySQL
-        db.Usuario.findOne({ where: { email: req.session.userLogged.email }})
-        .then((usuario) => {
-            if(usuario) {
-                delete usuario.password;
-                req.session.userLogged = usuario;
-                
-                //Indicate user is logged and save user data in local variable
-                res.locals.isLogged = true; 
-                res.locals.userLogged = req.session.userLogged;
+            if(userFromCookie != null){
+                delete userFromCookie.dataValues.password;
+                userFromCookie.dataValues.rol = userFromCookie.rol.name;
+                req.session.userLogged = userFromCookie.dataValues;
             }
         })
         .catch((err) => {
             console.log(err);
         });
-        
+    } else if(sessionData){
+        //Update user data in case a change in the profile is detected
+        //JSON
+        //let usuario = User.findByField('email', req.session.userLogged.email);
+        //MySQL
+        db.Usuario.findOne({ where: { email: sessionData.email }, include: ['rol']})
+        .then((usuario) => {
+            if(usuario) {
+                delete usuario.dataValues.password;
+                usuario.dataValues.rol = usuario.rol.name;
+                req.session.userLogged = usuario.dataValues;
+
+                //Indicate user is logged and save user data in local variable
+                res.locals.isLogged = true; 
+                res.locals.userLogged = usuario.dataValues;
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
 
     next();
