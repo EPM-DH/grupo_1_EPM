@@ -574,12 +574,30 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: center!important;
 }
 
+/* For product form */
+.verticalSeparateDown {
+    margin-bottom: 5px;
+}
+
+.verticalSeparateTop {
+    margin-top: 5px;
+}
+
 /* For compatibility purposes */
 @media (min-width: 576px) {
     /* For about us section */
     .feature .feature-box .iconset::after {
         left: 36%;
         height: 150%;
+    }
+
+    /* For product form */
+    .verticalSeparateDown {
+        margin-bottom: 0;
+    }
+
+    .verticalSeparateTop {
+        margin-top: 0;
     }
 }
 

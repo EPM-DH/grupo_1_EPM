@@ -104,14 +104,25 @@ const shoppingController = {
         //let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
         //MySQL
         db.Carrito.findOne({ where: { [Op.and]: [
-            {producto_id : productId},
+            {producto_id: productId},
             {usuario_id: userId}
         ] }})
         .then((currentItem) => {
             if(currentItem != undefined){
                 return Promise.resolve(currentItem);
+            } else {
+                db.Producto.findOne({where: { id: productId }})
+                .then((producto) => {
+                    if(producto){
+                        return Promise.resolve(currentItem);
+                    } else {
+                        return Promise.reject();
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
             }
-            return Promise.reject();
         })
         .then((currentItem) => { //If true -> Continue
             //JSON
@@ -127,50 +138,62 @@ const shoppingController = {
                 parts.shift();
                 let location = parts;
 
-                if(currentItem && userId == currentItem.user_id) { //Si hay un producto idéntico ya añadido 
+                if(currentItem && userId == currentItem.usuario_id) { //Si hay un producto idéntico ya añadido 
                     //y el id del usuario logeado es igual al del producto que está en la BD
                     currentItem.quantity = currentItem.quantity + 1;
-                    return Promise.resolve(currentItem, producto, location);
+                    return Promise.resolve([currentItem, producto, location]);
                 } else {
                     let newItem = {
-                        product_id: productId,
-                        user_id: userId,
+                        producto_id: productId,
+                        usuario_id: userId,
                         quantity: 1,
                     };
-                    return Promise.reject(newItem, producto, location);
+                    return Promise.reject([newItem, producto, location]);
                 }
             })
-            .then((currentItem, producto, location) => { //If true -> Update the cart
+            .then(([currentItem, producto, location]) => { //If true -> Update the cart
                 //JSON
                 //Cart.update(currentItem);
                 //MySQL
-                db.Carrito.update(currentItem, { where: { id : currentItem.id }})
+                db.Carrito.update(currentItem.dataValues, { where: { id : currentItem.id }})
                 .then(() => {
                     console.log("Elemento del carrito actualizado");
-                    return (producto, location);
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-            }, (newItem, producto, location) => { //If false -> Create new cart entry
+
+                //How to make the promise execute only after the DB has finished the update function
+                //or how to resolve an outer promise from an inside promise
+                //??????????????????????????????????????????????????????
+                return Promise.resolve([producto, location]);
+            }, ([newItem, producto, location]) => { //If false -> Create new cart entry
                 //JSON
                 //Cart.create(newItem);
+                //Cuando el usuario es invitado el sistema trata de añadir el nuevo registro en la tabla de carrito, pero por el constraint de la 
+                //foreign key de usuario (es decir, que no hay un usuario con el id 0) no lo permite. También, por diseño se debe modificar 
+                //algo del sistema para que permita que haya varios usuarios invitados y cada uno tenga su carrito independiente
+                //??????????????????????????????????????????????????????
                 db.Carrito.create(newItem)
                 .then(() => {
                     console.log("Nuevo elemento añadido al carrito");
-                    return (producto, location);
                 })
                 .catch((err) => {
                     console.log(err);
                 });
+                //How to make the promise execute only after the DB has finished the update function
+                //or how to resolve an outer promise from an inside promise
+                //??????????????????????????????????????????????????????
+                return Promise.resolve([producto, location]);
             })
-            .then((producto, location) => { //Avanzar
+            .then(([producto, location]) => { //Avanzar
                 let productName = producto.name;
                 //Notify user about new product creation
                 let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName, tipo: "bg-success"};
 
                 req.app.notification = notification;
 
+                console.log("Llegué hasta aquí");
                 if(location == '') {
                     res.redirect('/');
                 } else if (location.length == 1){

@@ -15,32 +15,21 @@ function userLogged (req, res, next) {
     res.locals.isLogged = false; //res.locals puedo compartirlas a través de todas las vistas
 
     //For cookie part: persisting the session even if the browser is closed
-    let emailInCookie = req.cookies.usuarioLogeado; 
-    //For session part
-    let sessionData = req.session.userLogged;
+    let emailInCookie = req.cookies.usuarioLogeado;
+    let email = undefined;
 
-    if(emailInCookie){ //Si hay un usuario en la DB que coincida con la cookie del navegador
-        console.log("Adios");
-        //JSON
-        //let userFromCookie = User.findByField('email', emailInCookie);
-        //MySQL
-        db.Usuario.findOne({ where: { email: emailInCookie }, include: ['rol']})
-        .then((userFromCookie) => {
-            if(userFromCookie != null){
-                delete userFromCookie.dataValues.password;
-                userFromCookie.dataValues.rol = userFromCookie.rol.name;
-                req.session.userLogged = userFromCookie.dataValues;
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-    } else if(sessionData){
+    if(req.session.userLogged){
+        email = req.session.userLogged.email;
+    } else if(emailInCookie) {
+        email = emailInCookie;
+    }
+
+    if(email) {
         //Update user data in case a change in the profile is detected
         //JSON
         //let usuario = User.findByField('email', req.session.userLogged.email);
         //MySQL
-        db.Usuario.findOne({ where: { email: sessionData.email }, include: ['rol']})
+        db.Usuario.findOne({ where: { email: email }, include: ['rol']})
         .then((usuario) => {
             if(usuario) {
                 delete usuario.dataValues.password;
@@ -51,27 +40,16 @@ function userLogged (req, res, next) {
                 res.locals.isLogged = true; 
                 res.locals.userLogged = usuario.dataValues;
             }
+            
         })
         .catch((err) => {
             console.log(err);
         });
+        
     }
 
     next();
-
-    /*if(req.cookies.usuarioLogeado && !req.app.locals.logged) {
-        let correo = req.cookies.usuarioLogeado;
-        //Buscar datos del usuario
-        for(user of users) { 
-            if(user.email == correo) {
-                //Guardar datos del usuario en variable local
-                //req.app.logged = {nombre: user.firstName, imgPerfil: user.avatar, rol: user.rol, apellidos: user.lastName, email: user.email, id: user.id };
-                //Reseteado cuando el servidor de express detecta un cambio
-                req.app.locals.logged = {nombre: user.firstName, imgPerfil: user.avatar, rol: user.rol, apellidos: user.lastName, email: user.email, id: user.id }
-            }
-        }
-    }
-    next();*/
+    
 }
 
 module.exports = userLogged;

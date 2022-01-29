@@ -68,10 +68,15 @@ const productController = {
 				notification = req.app.notification;
 			}
 
+			let id = 0;
+			if(req.session.userLogged){
+				id = req.session.userLogged.id;
+			}
+
 			//JSON
 			//let wishLists = Wishlist.findAllByField('user_id', req.session.userLogged.id);
 			//MySQL
-			db.Lista_de_deseo.findAll({ where: { usuario_id: req.session.userLogged.id }})
+			db.Lista_de_deseo.findAll({ where: { usuario_id: id }})
 			.then((wishLists) => {
 				let errors = undefined;
 				let old = undefined;
@@ -249,6 +254,16 @@ const productController = {
 
 		}
 		
+	},
+	cancel: (req, res) => {
+		let referer = req.headers.referer;
+		let parts = referer.split('/');
+		let last = parts.pop();
+		if(last != 'create'){
+			res.redirect('/product/' + last);
+		} else {
+			res.redirect('/product');
+		}
 	},
     retrieveEdit: (req, res) => {
 		let id = parseInt(req.params.id);

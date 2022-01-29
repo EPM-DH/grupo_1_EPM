@@ -16,6 +16,11 @@ const isAdmin = require('../middlewares/isAdmin');
 // To retrieve the products page
 router.get('/', productController.retrieveProducts); //Cualquiera puede ver todos los productos
 
+//Si bajo este y lo pongo debajo de create con post entra a /:id y me manda a retrieve product details por alguna razón
+//??????????????????????????????????????????????????????
+// To return to the previous page (cancel product create or edit)
+router.get('/cancel', authRoutes, isAdmin, productController.cancel); //Solamente un usuario logeado y que sea administrador puede cancelar una creación de producto
+
 // To retrieve the create products page
 router.get('/create', authRoutes, isAdmin, productController.retrieveCreate); //Solamente un usuario logeado y que sea administrador puede ver la página de creación de productos
 
