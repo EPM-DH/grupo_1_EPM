@@ -65,11 +65,11 @@
               </li>
             <% } %>
             <li class="d-flex flex-column justify-content-center nav-item">
-              <a class="nav-link" href="/cart">
+              <a class="nav-link makeRelative" href="/cart">
                 <i class="fas fa-shopping-cart"></i><span class="cart-basket d-flex align-items-center justify-content-center"><%= locals.countItems %></span>
               </a>
               <script>
-                function adjustCartPosition () {
+                /*function adjustCartPosition () {
                   if($('#register').length != 0){
                     let size = $(window).width();
                     if(size >= 1200){
@@ -90,7 +90,7 @@
 
                 $( window ).resize(function() {
                   adjustCartPosition();
-                });
+                });*/
               </script>
             </li>
             <% if (locals.isLogged) { %>
