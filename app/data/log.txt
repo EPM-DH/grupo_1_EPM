@@ -126,3 +126,13 @@ El usuario Guest ingresó en la ruta /cart
 El usuario Guest ingresó en la ruta /cart/decrease/1
 El usuario Guest ingresó en la ruta /cart
 El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/delete/3?_method=DELETE
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /cart/delete/3?_method=DELETE
+El usuario Guest ingresó en la ruta /cart
+El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /

@@ -564,53 +564,79 @@ const shoppingController = {
         }*/
 
 	},
-    delete: (req, res) => {
+    delete: async (req, res) => {
 		let id = parseInt(req.params.id); //Id del elemento del carrito de compras, no del producto
 
         //No need to validate the user profile, because we are using DB id's and they're unique
 
-        //let userId = req.body.session.userLogged.id;
-        //JSON
-        //let elemento = Cart.findByPk(id);
-        //MySQL
-        db.Carrito.findByPk(id)
-        .then((elemento) => {
-            if(elemento != undefined){
-                return Promise.resolve(elemento);
-            }
-            return Promise.reject();
-        })
-        .then((elemento) => { //If true -> Continue
+        if(req.session.userLogged){
+            //let userId = req.body.session.userLogged.id;
             //JSON
-            //let producto = Product.findByPk(elemento.product_id);
+            //let elemento = Cart.findByPk(id);
             //MySQL
-            let producto = db.Producto.findByPk(elemento.producto_id);
+            db.Carrito.findByPk(id)
+            .then((elemento) => {
+                if(elemento != undefined){
+                    return Promise.resolve(elemento);
+                }
+                return Promise.reject();
+            })
+            .then((elemento) => { //If true -> Continue
+                //JSON
+                //let producto = Product.findByPk(elemento.product_id);
+                //MySQL
+                let producto = db.Producto.findByPk(elemento.producto_id);
 
-            //Cart.deleteByItemAndUser(id, userId);
-            //JSON
-            //Cart.delete(id);
-            //MySQL
-            let carDel = db.Carrito.delete({ where: { id: id }});
+                //Cart.deleteByItemAndUser(id, userId);
+                //JSON
+                //Cart.delete(id);
+                //MySQL
+                let carDel = db.Carrito.delete({ where: { id: id }});
 
-            Promise.all([producto, carDel])
-            .then(([producto, carDel]) => {
-                //Notify user about cart item deletion
-                let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};
+                Promise.all([producto, carDel])
+                .then(([producto, carDel]) => {
+                    //Notify user about cart item deletion
+                    let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};
 
-                req.app.notification = notification;
+                    req.app.notification = notification;
 
-                res.redirect('/cart');
+                    res.redirect('/cart');
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            }, () => { //If false -> Redirect to cart
+                return res.redirect('/cart');
             })
             .catch((err) => {
                 console.log(err);
             });
+        } else {
+            let items = req.cookies.cart;
+            let itemFound = items.find(cart => cart.id === id);
 
-        }, () => { //If false -> Redirect to cart
-            return res.redirect('/cart');
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            if(itemFound == undefined){
+                return res.redirect('/cart');
+            }
+
+            try {
+                producto = await db.Producto.findByPk(itemFound.producto_id);    
+            } catch (error) {
+                console.log(error);
+            }
+
+            let finalItems = items.filter(cart => cart.id !== id);
+
+            res.cookie('cart', finalItems, { maxAge: (3600 * 24) * 1000 });
+
+            //Notify user about cart item deletion
+            let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "elemento del carrito", nombre: producto.name, tipo: "bg-danger"};
+
+            req.app.notification = notification;
+
+            res.redirect('/cart');
+        }
 
 	},
 };
