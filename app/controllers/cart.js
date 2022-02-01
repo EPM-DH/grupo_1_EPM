@@ -17,18 +17,55 @@ global.document = document;
 var $ = jQuery = require('jquery')(window);*/
 
 const shoppingController = {
-	getCart: (req, res) => {
+	getCart: async (req, res) => {
         let breadcrumbList = ["Página de inicio", "Carrito"];
         let urlList = [""];
         urlList.push(req.originalUrl);
 
         let products = [];
-        let user_id = 0;
+        //let user_id = 0;
         //let cart;
 
         if(req.session.userLogged) { //Si hay una sesión activa
-            user_id = req.session.userLogged.id;
-        } 
+            await db.Producto.findAll({include: [{model: db.Carrito, as: 'carritos', where: { usuario_id: req.session.userLogged.id }}, 'categories']})
+            .then((productos) => {
+                productos.forEach(producto => products.push(producto));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        } else { //Si no hay sesión activa (sesión de invitado)
+            if(req.cookies.cart){
+                let cart = req.cookies.cart;
+                const prods = await Promise.all(cart.map(item => db.Producto.findByPk(item.producto_id, {include: ['categories']})));
+                products = prods.map((p, index) => ({...p.dataValues, carritos: [cart[index]]}));
+            }            
+
+            /*if(cart){
+                for(item of cart){
+                    db.Producto.findByPk(item.producto_id, {include: ['categories']})
+                    .then((product) => {
+                        products.push({...product.dataValues, carritos: [...cart]});
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+                }
+            }*/
+        }
+
+        //If we don't want to use the carrito[0] in the view we could map all the data here, but that might be unefficient
+        let notification = '';
+
+        if(req.app.notification){
+            notification = req.app.notification;
+        }
+
+        res.render('cart/cart', {notification, products, breadcrumbList, urlList});
+
+        /*res.cookie('cart', [{usuario_id: 1, producto_id: 2, quantity: 5}], { maxAge: (3600 * 24) * 1000 });
+		console.log(req.cookies.cart);*/
 
         //JSON
         //cart = Cart.findAllByField('user_id', user_id);
@@ -37,21 +74,6 @@ const shoppingController = {
         let producto = db.Producto.findAll({include: ['categories']});*/
 
         //{model: 'Producto', as: 'producto', include: ['categories']}
-        db.Producto.findAll({include: [{model: db.Carrito, as: 'carritos', where: { usuario_id: user_id }}, 'categories']})
-        .then((products) => {
-            //If we don't want to use the carrito[0] in the view we could map all the data here, but that might be unefficient
-
-            let notification = '';
-
-            if(req.app.notification){
-                notification = req.app.notification;
-            }
-
-            res.render('cart/cart', {notification, products, breadcrumbList, urlList});
-        })
-        .catch((err) => {
-            console.log(err);
-        })
 
         /*db.Carrito.findAll({ where: {usuario_id: user_id}, include: {model: db.Producto, as: 'producto', include: [{model: db.Categoria, as: 'categories'}] }})
         .then((products) => {
@@ -93,43 +115,155 @@ const shoppingController = {
         });*/
 
 	},
-    addItem: (req, res) => {
+    addItem: async (req, res) => {
         let productId = parseInt(req.params.id);
-        let userId = 0;
-        if(req.session.userLogged) {
-            userId = req.session.userLogged.id;
-        } 
+        let productName;
+        let notification;
 
-        //JSON
-        //let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
-        //MySQL
-        db.Carrito.findOne({ where: { [Op.and]: [
-            {producto_id: productId},
-            {usuario_id: userId}
-        ] }})
-        .then((currentItem) => {
-            if(currentItem != undefined){
-                return Promise.resolve(currentItem);
-            } else {
-                db.Producto.findOne({where: { id: productId }})
+        if(req.session.userLogged) {
+            //JSON
+            //let currentItem = Cart.findByFields('product_id', productId, 'user_id', userId); 
+            //MySQL
+            db.Carrito.findOne({ where: { [Op.and]: [
+                {producto_id: productId},
+                {usuario_id: req.session.userLogged}
+            ] }})
+            .then((currentItem) => {
+                if(currentItem != undefined){
+                    return Promise.resolve(currentItem);
+                } else {
+                    db.Producto.findOne({where: { id: productId }})
+                    .then((producto) => {
+                        if(producto){
+                            return Promise.resolve(currentItem);
+                        } else {
+                            return Promise.reject();
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+                }
+            })
+            .then((currentItem) => { //If true -> Continue
+                //JSON
+                //let productName = Product.findByPk(productId).name;
+                //MySQL
+                db.Producto.findByPk(productId)
                 .then((producto) => {
-                    if(producto){
-                        return Promise.resolve(currentItem);
+                    let referer = req.headers.referer;
+                    let parts = referer.split('/');
+                    //To remove http://localhost:3500
+                    parts.shift()
+                    parts.shift()
+                    parts.shift();
+                    let location = parts;
+
+                    if(currentItem && req.session.userLogged == currentItem.usuario_id) { //Si hay un producto idéntico ya añadido 
+                        //y el id del usuario logeado es igual al del producto que está en la BD
+                        currentItem.quantity = currentItem.quantity + 1;
+                        return Promise.resolve([currentItem, producto, location]);
                     } else {
-                        return Promise.reject();
+                        let newItem = {
+                            producto_id: productId,
+                            usuario_id: req.session.userLogged,
+                            quantity: 1,
+                        };
+                        return Promise.reject([newItem, producto, location]);
                     }
                 })
+                .then(([currentItem, producto, location]) => { //If true -> Update the cart
+                    //JSON
+                    //Cart.update(currentItem);
+                    //MySQL
+                    db.Carrito.update(currentItem.dataValues, { where: { id : currentItem.id }})
+                    .then(() => {
+                        console.log("Elemento del carrito actualizado");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+
+                    //How to make the promise execute only after the DB has finished the update function
+                    //or how to resolve an outer promise from an inside promise
+                    //??????????????????????????????????????????????????????
+                    return Promise.resolve([producto, location]);
+                }, ([newItem, producto, location]) => { //If false -> Create new cart entry
+                    //JSON
+                    //Cart.create(newItem);
+                    //Cuando el usuario es invitado el sistema trata de añadir el nuevo registro en la tabla de carrito, pero por el constraint de la 
+                    //foreign key de usuario (es decir, que no hay un usuario con el id 0) no lo permite. También, por diseño se debe modificar 
+                    //algo del sistema para que permita que haya varios usuarios invitados y cada uno tenga su carrito independiente
+                    //??????????????????????????????????????????????????????
+                    db.Carrito.create(newItem)
+                    .then(() => {
+                        console.log("Nuevo elemento añadido al carrito");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+                    //How to make the promise execute only after the DB has finished the update function
+                    //or how to resolve an outer promise from an inside promise
+                    //??????????????????????????????????????????????????????
+                    return Promise.resolve([producto, location]);
+                })
+                .then(([producto, location]) => { //Avanzar
+                    productName = producto.name;
+                    //Notify user about new product creation
+                    notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName, tipo: "bg-success"};
+
+                    req.app.notification = notification;
+
+                    console.log("Llegué hasta aquí");
+                    if(location == '') {
+                        res.redirect('/');
+                    } else if (location.length == 1){
+                        if(location == 'wishlist'){
+                            //Delete item from wishlist if user had it there 
+                            notification = {activo: 1, accion: "agregación", accionDos: "añadido y eliminado", elemento: "producto al carrito y eliminación de la lista de deseos", nombre: productName, tipo: "bg-success"};
+                            let wlId = parseInt(req.query.wishlist);
+                            //JSON
+                            //Wishlist.deleteProductFromWishlist(wlId, productId);
+                            //MySQL
+                            db.Productos_Lista_de_deseos.destroy({ where: { [Op.and]: [
+                                {producto_id : productId},
+                                {lista_de_deseo_id: wlId}
+                            ] }})
+                            .then(() => {
+                                res.redirect('/' + location);
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            });
+                        } else {
+                            res.redirect('/' + location);
+                        }
+                    } else {
+                        let output = '';
+                        for(it of location) { 
+                            output += '/' + it; 
+                        }
+                        res.redirect(output);
+                    }
+                }) 
                 .catch((err) => {
                     console.log(err);
                 });
+
+            }, () => { //If false -> Redirect to product view
+                return res.redirect('/product');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        } else {
+            try {
+                productName = await db.Producto.findByPk(productId);    
+            } catch (error) {
+                console.log(error);
             }
-        })
-        .then((currentItem) => { //If true -> Continue
-            //JSON
-            //let productName = Product.findByPk(productId).name;
-            //MySQL
-            db.Producto.findByPk(productId)
-            .then((producto) => {
+
+            if(productName){
                 let referer = req.headers.referer;
                 let parts = referer.split('/');
                 //To remove http://localhost:3500
@@ -138,85 +272,43 @@ const shoppingController = {
                 parts.shift();
                 let location = parts;
 
-                if(currentItem && userId == currentItem.usuario_id) { //Si hay un producto idéntico ya añadido 
+                let items = req.cookies.cart;
+                console.log(items);
+                let currentItem = items.find(item => item.producto_id == productId);
+                
+                let newItem;
+
+                if(currentItem) { //Si hay un producto idéntico ya añadido 
                     //y el id del usuario logeado es igual al del producto que está en la BD
                     currentItem.quantity = currentItem.quantity + 1;
-                    return Promise.resolve([currentItem, producto, location]);
+                    let index = items.findIndex(element => element.id == currentItem.id);
+                    items[index] = currentItem;
+                    
                 } else {
-                    let newItem = {
+                    let all = [...items];
+                    let last = all.pop();
+                    newItem = {
+                        id: last.id + 1,
                         producto_id: productId,
-                        usuario_id: userId,
+                        usuario_id: 0,
                         quantity: 1,
                     };
-                    return Promise.reject([newItem, producto, location]);
+                    items.push(newItem);
                 }
-            })
-            .then(([currentItem, producto, location]) => { //If true -> Update the cart
-                //JSON
-                //Cart.update(currentItem);
-                //MySQL
-                db.Carrito.update(currentItem.dataValues, { where: { id : currentItem.id }})
-                .then(() => {
-                    console.log("Elemento del carrito actualizado");
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
 
-                //How to make the promise execute only after the DB has finished the update function
-                //or how to resolve an outer promise from an inside promise
-                //??????????????????????????????????????????????????????
-                return Promise.resolve([producto, location]);
-            }, ([newItem, producto, location]) => { //If false -> Create new cart entry
-                //JSON
-                //Cart.create(newItem);
-                //Cuando el usuario es invitado el sistema trata de añadir el nuevo registro en la tabla de carrito, pero por el constraint de la 
-                //foreign key de usuario (es decir, que no hay un usuario con el id 0) no lo permite. También, por diseño se debe modificar 
-                //algo del sistema para que permita que haya varios usuarios invitados y cada uno tenga su carrito independiente
-                //??????????????????????????????????????????????????????
-                db.Carrito.create(newItem)
-                .then(() => {
-                    console.log("Nuevo elemento añadido al carrito");
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-                //How to make the promise execute only after the DB has finished the update function
-                //or how to resolve an outer promise from an inside promise
-                //??????????????????????????????????????????????????????
-                return Promise.resolve([producto, location]);
-            })
-            .then(([producto, location]) => { //Avanzar
-                let productName = producto.name;
+                console.log(items);
+
+                res.cookie('cart', items, { maxAge: (3600 * 24) * 1000 });
+
                 //Notify user about new product creation
-                let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName, tipo: "bg-success"};
+                notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "producto al carrito", nombre: productName.name, tipo: "bg-success"};
 
                 req.app.notification = notification;
 
-                console.log("Llegué hasta aquí");
                 if(location == '') {
                     res.redirect('/');
                 } else if (location.length == 1){
-                    if(location == 'wishlist'){
-                        //Delete item from wishlist if user had it there 
-                        notification = {activo: 1, accion: "agregación", accionDos: "añadido y eliminado", elemento: "producto al carrito y eliminación de la lista de deseos", nombre: productName, tipo: "bg-success"};
-                        let wlId = parseInt(req.query.wishlist);
-                        //JSON
-                        //Wishlist.deleteProductFromWishlist(wlId, productId);
-                        //MySQL
-                        db.Productos_Lista_de_deseos.destroy({ where: { [Op.and]: [
-                            {producto_id : productId},
-                            {lista_de_deseo_id: wlId}
-                        ] }})
-                        .then(() => {
-                            res.redirect('/' + location);
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
-                    } else {
-                        res.redirect('/' + location);
-                    }
+                    res.redirect('/' + location);
                 } else {
                     let output = '';
                     for(it of location) { 
@@ -224,114 +316,170 @@ const shoppingController = {
                     }
                     res.redirect(output);
                 }
-            }) 
-            .catch((err) => {
-                console.log(err);
-            });
+                
+            } else {
+                res.redirect('/product');
+            }
 
-        }, () => { //If false -> Redirect to product view
-            return res.redirect('/product');
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        }
 
     },
-    increaseItem: (req, res) => {
+    increaseItem: async (req, res) => {
         let cartId = parseInt(req.params.id);
-        
-        //JSON
-        //let currentItem = Cart.findByPk(cartId); 
-        //MySQL
-        db.Carrito.findByPk(cartId)
-        .then((currentItem) => {
-            if(currentItem != undefined){
-                return Promise.resolve(currentItem);
-            }
-            return Promise.reject();
-        })
-        .then((currentItem) => { //If true -> Continue
+        let productName;
+
+        if(req.session.userLogged){
             //JSON
-            //let productName = Product.findByPk(currentItem.product_id).name;
+            //let currentItem = Cart.findByPk(cartId); 
             //MySQL
-            let productName = db.Producto.findByPk(currentItem.producto_id);
-            currentItem.quantity = currentItem.quantity + 1;
-            //JSON
-            //Cart.update(currentItem);
-            //MySQL
-            let carrito = db.Carrito.update(currentItem, { where: { id: currentItem.id }});
-
-            Promise.all([productName, carrito])
-            .then(([productName, carrito]) => {
-                //Notify user about new product creation
-                let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "un producto al carrito", nombre: productName, tipo: "bg-success"};
-
-                req.app.notification = notification;
-
-                res.redirect('/cart');
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-
-        }, () => { //If false -> Redirect to cart page
-            return res.redirect('/cart');
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-        
-    },
-    decreaseItem: (req, res) => {
-        let cartId = parseInt(req.params.id);
-
-        //JSON
-        //let currentItem = Cart.findByPk(cartId); 
-        //MySQL
-        db.Carrito.findByPk(cartId)
-        .then((currentItem) => {
-            if(currentItem != undefined){
-                return Promise.resolve(currentItem);
-            }
-            return Promise.reject();
-        })
-        .then((currentItem) => { //If true -> Continue
-            //JSON
-            //let productName = Product.findByPk(currentItem.product_id).name;
-            //MySQL
-            db.Producto.findByPk(currentItem.producto_id)
-            .then((productName) => {
-                currentItem.quantity = currentItem.quantity - 1;
-                if(currentItem.quantity == 0){
-                    //Trigger modal for deleting the element
-                } else {
-                    //JSON
-                    //Cart.update(currentItem);
-                    //MySQL
-                    db.Carrito.update(currentItem, { where: { id: currentItem.id }})
-                    .then(() => {
-                        //Notify user about new product creation
-                        let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "un producto del carrito", nombre: productName, tipo: "bg-danger"};
-
-                        req.app.notification = notification;
-
-                        res.redirect('/cart');                        
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-
+            db.Carrito.findByPk(cartId)
+            .then((currentItem) => {
+                if(currentItem != undefined){
+                    return Promise.resolve(currentItem);
                 }
+                return Promise.reject();
+            })
+            .then((currentItem) => { //If true -> Continue
+                //JSON
+                //let productName = Product.findByPk(currentItem.product_id).name;
+                //MySQL
+                productName = db.Producto.findByPk(currentItem.producto_id);
+                currentItem.quantity = currentItem.quantity + 1;
+                //JSON
+                //Cart.update(currentItem);
+                //MySQL
+                let carrito = db.Carrito.update(currentItem, { where: { id: currentItem.id }});
+
+                Promise.all([productName, carrito])
+                .then(([productName, carrito]) => {
+                    //Notify user about new product creation
+                    let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "un producto al carrito", nombre: productName, tipo: "bg-success"};
+
+                    req.app.notification = notification;
+
+                    res.redirect('/cart');
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            }, () => { //If false -> Redirect to cart page
+                return res.redirect('/cart');
             })
             .catch((err) => {
                 console.log(err);
             });
-        }, () => { //If false -> Redirect to cart
-            return res.redirect('/cart');
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        } else {
+            let items = req.cookies.cart;
+            let currentItem = items.find(item => item.id == cartId); 
+            console.log(currentItem);
+
+            if(currentItem == undefined){
+                return res.redirect('/cart');
+            }
+
+            try {
+                productName = await db.Producto.findByPk(currentItem.producto_id);    
+            } catch (error) {
+                console.log(error);
+            }
+
+            currentItem.quantity = currentItem.quantity + 1;
+            let index = items.findIndex(element => element.id == currentItem.id);
+            items[index] = currentItem;
+
+            res.cookie('cart', items, { maxAge: (3600 * 24) * 1000 });
+
+            //Notify user about new product creation
+            let notification = {activo: 1, accion: "agregación", accionDos: "añadido", elemento: "un producto al carrito", nombre: productName.name, tipo: "bg-success"};
+
+            req.app.notification = notification;
+
+            res.redirect('/cart');
+        }
+        
+    },
+    decreaseItem: async (req, res) => {
+        let cartId = parseInt(req.params.id);
+        let productName;
+
+        if(req.session.userLogged){
+            //JSON
+            //let currentItem = Cart.findByPk(cartId); 
+            //MySQL
+            db.Carrito.findByPk(cartId)
+            .then((currentItem) => {
+                if(currentItem != undefined){
+                    return Promise.resolve(currentItem);
+                }
+                return Promise.reject();
+            })
+            .then((currentItem) => { //If true -> Continue
+                //JSON
+                //let productName = Product.findByPk(currentItem.product_id).name;
+                //MySQL
+                db.Producto.findByPk(currentItem.producto_id)
+                .then((productName) => {
+                    currentItem.quantity = currentItem.quantity - 1;
+                    if(currentItem.quantity == 0){
+                        //Trigger modal for deleting the element
+                    } else {
+                        //JSON
+                        //Cart.update(currentItem);
+                        //MySQL
+                        db.Carrito.update(currentItem, { where: { id: currentItem.id }})
+                        .then(() => {
+                            //Notify user about new product creation
+                            let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "un producto del carrito", nombre: productName, tipo: "bg-danger"};
+
+                            req.app.notification = notification;
+
+                            res.redirect('/cart');                        
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }, () => { //If false -> Redirect to cart
+                return res.redirect('/cart');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        } else {
+            let items = req.cookies.cart;
+            let currentItem = items.find(item => item.id == cartId); 
+            console.log(currentItem);
+
+            if(currentItem == undefined){
+                return res.redirect('/cart');
+            }
+
+            try {
+                productName = await db.Producto.findByPk(currentItem.producto_id);    
+            } catch (error) {
+                console.log(error);
+            }
+
+            currentItem.quantity = currentItem.quantity - 1;
+            let index = items.findIndex(element => element.id == currentItem.id);
+            items[index] = currentItem;
+
+            res.cookie('cart', items, { maxAge: (3600 * 24) * 1000 });
+
+            //Notify user about new product creation
+            let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "un producto del carrito", nombre: productName.name, tipo: "bg-danger"};
+
+            req.app.notification = notification;
+
+            res.redirect('/cart');
+        }
+        
 
     },
     dismiss: (req, res) => {
@@ -341,6 +489,8 @@ const shoppingController = {
         res.redirect('/');
 	},
     include: (req, res) => {
+        //For when a user creates its account or logs into his/her account. So he/she can ask the user to integrate its guest cart into his account cart
+
         //Modal is closed in the JS file
 		req.app.cartFlag = 1;
         //JSON

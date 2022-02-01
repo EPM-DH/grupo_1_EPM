@@ -8,6 +8,7 @@ const db = require('../database/models');
 
 const mainController = {
 	index: (req, res) => {
+		//res.cookie('cart', [{id: 1, usuario_id: 0, producto_id: 2, quantity: 5}], { maxAge: (3600 * 24) * 1000 });
 		//MySQL
 		db.Producto.findAll({ where: { featured: 1 }, include: ['categories']})
 		.then((products) => {

@@ -7,10 +7,18 @@
 const db = require('../database/models');
 
 function cartItems(req, res, next) {
+    let items = req.cookies.cart;
+
+    if(req.session.userLogged && items && !req.app.cartFlag) {
+        res.locals.currentCart = 1; 
+    }
+
+    next();
+
     //JSON
     //let currentCart = Cart.findAllByField('user_id', 0);
     //MySQL
-    db.Carrito.findAll({ where: { usuario_id: 0 }})
+    /*db.Carrito.findAll({ where: { usuario_id: 0 }})
     .then((currentCart) => {
         if(req.session.userLogged && currentCart.length > 0 && !req.app.cartFlag) {
             res.locals.currentCart = 1;
@@ -19,7 +27,7 @@ function cartItems(req, res, next) {
     })
     .catch((err) => {
         console.log(err);
-    });
+    });*/
 
 }
 
