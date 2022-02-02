@@ -80,3 +80,67 @@ Dejar de hacer
 
 Conclusiones
 Se mejoro el tiempo en que se realizan los trabajos que se realiza, hay que seguir trabjando en la comunicacion, para comunicar los cambios que se realizan. El usar ramas, ha sido eficiente.
+
+Sprint 4
+
+Comenzar a hacer 
+    
+    Ser mas activos en el trello para ver que tareas se necesitan completar
+    Tomar mas iniciativa por el proyecto
+    Mas trabajo
+
+Hacer más 
+
+    Iniciativa en el proyecto
+    Reportar cambios en el repositotio de GIT
+    Iteraciones del proyecto
+
+Continuar haciendo 
+    Seguir con la metodología gitflow y branches para no afectar el trabajo de los demás
+    Proactividad al momento de separar y asignar tareas
+    Expresar dudas y opiniones
+    Revisar en conjunto los cambios hechos
+    Mostrar Interes en el proyecto
+    Ser empaticos con las necesidades y dificultades individuales
+    Hacer pruebas para detectar posibles errores en el comportamiento de la pagina
+    Actualizar sobre los cambios cuando un miembro del equipo se ausenta
+
+Hacer menos 
+    Expresar estres cuando no hay  avances
+    Realizar cambios a la branch de main
+    Abstenerse de preguntar si hay dudas
+
+Dejar de hacer 
+    Ignorar los sprints del proyecto
+    No reportar cambios en el repositorio
+
+Conclusiones
+Se lograron los objetivos del Sprint en tiempo y se logra avanzar un poco con los abjetivos del siguiente Sprint, hay que seguir trabjando en la comunicacion, aun se puede mejorar.
+
+Sprint 5
+
+Comenzar a hacer 
+    
+    ....
+
+Hacer más 
+
+    Ir más allá de los requisitos del proyecto
+    Tomar mas iniciativa en el proyecto
+    Colaboracion mas equitativa en el proyecto
+    Mejorar la comunicacion
+
+Continuar haciendo 
+    Tomar iniciativa en el proyecto
+    Cumplir con los objetivos del sprint
+    Probar la ejecución del código en busca de fallas
+    Dar opiniones constructivas sobre lo que se esta realizando
+
+Hacer menos 
+    Ignorar los sprints
+
+Dejar de hacer 
+    Ser apáticos en el proyecto
+
+Conclusiones
+El proyecto va avanzando bastante bien. Se estan realizando las actividades de manera individual y validano de manera colectiva.
