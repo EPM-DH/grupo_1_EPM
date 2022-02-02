@@ -1,4 +1,4 @@
-<% for (item of list.products) { %>
+<% for (item of list.productosL) { %>
     <div class="row justify-content-center mt-3">
         <div class="col-sm-11 producto-linea">
             <div class="row">
@@ -37,12 +37,12 @@
                         <a href="/cart/add/<%= item.id %>?wishlist=<%= list.id %>" class="noUnderline">Añadir al carrito</a>
                     </button>
                     <!-- Button trigger modal -->
-                    <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal_<%= item.identifier %>" style="width: 80%;">
+                    <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal_<%= list.identifier %>_<%= item.identifier %>" style="width: 80%;">
                         Eliminar de la lista
                     </button>
                 </div>
             </div>
-            <%- include('../partials/confirmationModal.ejs', {elemento: 'wishlist2', id: item.id, identifier: item.identifier }) %> 
+            <%- include('../partials/confirmationModal.ejs', {elemento: 'wishlist2', id: item.id, identifier: item.identifier, listIdentifier: list.identifier }) %> 
         </div>
     </div>
 <% } %>

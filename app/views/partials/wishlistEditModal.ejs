@@ -31,8 +31,8 @@
                     <div class="col-12">
                         <select name="status" id="status">
                             <%= list.status %>
-                            <option value="Privada" <% if(list.status == 'Privada') { %> selected <% } %>>Privada</option>
-                            <option value="Pública" <% if(list.status == 'Pública') { %> selected <% } %>>Pública</option>
+                            <option value="1" <% if(list.visibility_id == 1) { %> selected <% } %>>Privada</option>
+                            <option value="2" <% if(list.visibility_id == 2) { %> selected <% } %>>Pública</option>
                         </select>
                     </div>
                 </div>

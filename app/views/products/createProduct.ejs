@@ -43,14 +43,14 @@
                 </div>
                 <div class="row justify-content-center mt-3">
                     <div class="col-7"><h3>Categorías</h3></div>
-                    <% let i = 0; for(category of categories) { %>
+                    <% let i = 1; for(category of categories) { %>
                         <div class="col-7">
-                            <input class="form-check-input" type="checkbox" value="<%= category %>" id="<%= category %>Check" name="categories" <%= (locals.old && old.categories && old.categories.find(categoria => categoria == category)) ? 'checked' : '' %>>
-                            <label class="form-check-label" for="<%= category %>Check">
-                                <%= category %>
+                            <input class="form-check-input" type="checkbox" value="<%= category.id %>" id="<%= category.name %>Check" name="categories" <%= (locals.old && old.categories && old.categories.find(categoria => categoria == category.name)) ? 'checked' : '' %>>
+                            <label class="form-check-label" for="<%= category.name %>Check">
+                                <%= category.name %>
                             </label>
                         </div>
-                    <% } %>
+                    <% i++; } %>
                     <div class="col-7">
                         <div class="text-danger">
                             <% if(locals.errors && errors.categories) { %> 
@@ -166,10 +166,13 @@
                 <!-- Pending to add carousel images multi input form element -->
                 <br>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-11 center">
-                        <button type="submit" class="boton-estandar boton-flex">
+                    <div class="col-11 col-sm-4 center verticalSeparateDown">
+                        <button type="submit" class="boton-estandar anchorFormat">
                             Crear producto
                         </button>
+                    </div>
+                    <div class="col-11 col-sm-4 center verticalSeparateTop">
+                        <a href="/product/cancel" type="button" class="boton-estandar anchorFormat deleteButton">Cancelar</a>
                     </div>
                 </div>
             </form>

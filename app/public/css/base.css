@@ -557,8 +557,8 @@ input[type=number]::-webkit-outer-spin-button {
 .cart-basket {
     font-size: 0.8rem;
     position: absolute;
-    top: 119px;
-    left: 22px;
+    top: 3px;
+    left: 10px;
     width: 15px;
     height: 15px;
     color: #fff;
@@ -568,10 +568,23 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 1px;
 }
 
+.makeRelative {
+    position: relative;
+}
+
 /* For ordering wishlist */
 .flexChange {
     flex-direction: column;
     justify-content: center!important;
+}
+
+/* For product form */
+.verticalSeparateDown {
+    margin-bottom: 5px;
+}
+
+.verticalSeparateTop {
+    margin-top: 5px;
 }
 
 /* For compatibility purposes */
@@ -580,6 +593,15 @@ input[type=number]::-webkit-outer-spin-button {
     .feature .feature-box .iconset::after {
         left: 36%;
         height: 150%;
+    }
+
+    /* For product form */
+    .verticalSeparateDown {
+        margin-bottom: 0;
+    }
+
+    .verticalSeparateTop {
+        margin-top: 0;
     }
 }
 
@@ -776,8 +798,7 @@ input[type=number]::-webkit-outer-spin-button {
     /* For shopping cart number */
     .cart-basket {
         position: absolute;
-        top: 150px;
-        left: 24px;
+        left: 14px;
         width: 18px;
         height: 18px;
         padding-bottom: 2px;
@@ -823,13 +844,16 @@ input[type=number]::-webkit-outer-spin-button {
     /* For shopping cart number */
     .cart-basket {
         font-size: 0.9rem;
-        position: absolute;
+        /*position: absolute;
         top: 26px;
         left: auto;
-        right: 230px;
+        right: 230px;*/
+        top: 3px;
+        right: 0px;
+        left: auto;
         width: 18px;
         height: 18px;
-        padding-bottom: 2px;
+        /*padding-bottom: 2px;*/
     }
 }
 
@@ -1060,9 +1084,9 @@ input[type=number]::-webkit-outer-spin-button {
     /* For shopping cart number */
     .cart-basket {
         font-size: 1.1rem;
-        position: absolute;
+        /*position: absolute;
         top: 22px;
-        right: 345px;
+        right: 345px;*/
         width: 20px;
         height: 20px;
     }
