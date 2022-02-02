@@ -29,10 +29,12 @@ function cartItems(req, res, next) {
     } else {
         let items = req.cookies.cart;
 
-        for(item of items) {
-            countItems += item.quantity;
+        if(items){
+            for(item of items) {
+                countItems += item.quantity;
+            }
         }
-    
+
         res.locals.countItems = countItems;
     
         next();    

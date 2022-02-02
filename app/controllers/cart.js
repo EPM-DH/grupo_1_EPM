@@ -274,26 +274,35 @@ const shoppingController = {
 
                 let items = req.cookies.cart;
                 console.log(items);
-                let currentItem = items.find(item => item.producto_id == productId);
-                
+                let currentItem;
                 let newItem;
-
-                if(currentItem) { //Si hay un producto idéntico ya añadido 
-                    //y el id del usuario logeado es igual al del producto que está en la BD
-                    currentItem.quantity = currentItem.quantity + 1;
-                    let index = items.findIndex(element => element.id == currentItem.id);
-                    items[index] = currentItem;
-                    
+                if(items){
+                    currentItem = items.find(item => item.producto_id == productId);
+                    if(currentItem) { //Si hay un producto idéntico ya añadido 
+                        //y el id del usuario logeado es igual al del producto que está en la BD
+                        currentItem.quantity = currentItem.quantity + 1;
+                        let index = items.findIndex(element => element.id == currentItem.id);
+                        items[index] = currentItem;
+                        
+                    } else {
+                        let all = [...items];
+                        let last = all.pop();
+                        newItem = {
+                            id: last.id + 1,
+                            producto_id: productId,
+                            usuario_id: 0,
+                            quantity: 1,
+                        };
+                        items.push(newItem);
+                    }
                 } else {
-                    let all = [...items];
-                    let last = all.pop();
                     newItem = {
-                        id: last.id + 1,
+                        id: 1,
                         producto_id: productId,
                         usuario_id: 0,
                         quantity: 1,
                     };
-                    items.push(newItem);
+                    items = [newItem];
                 }
 
                 console.log(items);
@@ -488,15 +497,64 @@ const shoppingController = {
 
         res.redirect('/');
 	},
-    include: (req, res) => {
+    include: async (req, res) => {
         //For when a user creates its account or logs into his/her account. So he/she can ask the user to integrate its guest cart into his account cart
 
         //Modal is closed in the JS file
 		req.app.cartFlag = 1;
+        let userId = req.session.userLogged.id;
+        let items = req.cookies.cart;
+        /*console.log("Cart of cookie");
+        console.log(items);*/
+
+        for(item of items) {
+            /*console.log("Item to be added");
+            console.log(item);*/
+            let elemento;
+            try {
+                elemento = await db.Carrito.findOne({where: { usuario_id: userId, producto_id: item.producto_id }});
+            } catch (error) {
+                console.log(error);
+            }
+            /*console.log("Item in DB");
+            console.log(elemento);*/
+            if(elemento) {
+                //console.log("Existo");
+                elemento.quantity += item.quantity;
+                /*console.log("Elemento a actualizar");
+                console.log(elemento);*/
+                try {
+                    await db.Carrito.update(elemento.dataValues, {where: { id: elemento.id }});
+                } catch (error) {
+                    console.log(error);
+                }   
+            } else {
+                //console.log("Soy nuevo");
+                item.usuario_id = userId;
+                delete item.id;
+                /*console.log("Elemento a añadir");
+                console.log(item);*/
+                try {
+                    await db.Carrito.create(item);
+                } catch (error) {
+                    console.log(error);
+                }   
+            }
+        }
+
+        res.clearCookie('cart');
+
+        //Notify user about cart item deletion
+        let notification = {activo: 1, accion: "integración", accionDos: "integrado", elemento: "elementos del carrito de invitado", nombre: 'Carrito de invitado', tipo: "bg-success"};
+
+        req.app.notification = notification;
+
+        res.redirect('/');
+
         //JSON
         //let allCart = Cart.findAll();
         //MySQL
-        db.Carrito.findAll()
+        /*db.Carrito.findAll()
         .then((allCart) => {
             //Think of better implementation
 
@@ -537,7 +595,7 @@ const shoppingController = {
         })
         .catch((err) => {
             console.log(err);
-        });
+        });*/
 
         /*for(item of allCart) {
             console.log("Item: ");
