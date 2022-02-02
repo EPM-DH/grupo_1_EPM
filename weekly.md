@@ -24,3 +24,34 @@ Revision de algunas librerias
 Debate sobre el diseño Modelo Vista Controlador
 Revision de avances en el Sprint
 Divison de tareas para terminar los entregables
+
+06/12/2021
+Se emepezo a trabajar en los campos que se usarian para los productos
+Se mostro avances de CRUD
+
+13/12/2021
+Se mostro avance de la creacion de usuarios
+Se mostro la creacion y eliminacion de productos
+
+20/12/2021
+Se reviso avance y vieron pendientes
+
+27/12/2021
+Sin reunion
+
+3/1/2021
+Sin reunion
+
+10/1/2021
+Se reviso estructura de archivos a seguir
+● Rutas: app/routes/users.js
+● Controlador: app/controllers/user.js
+● Vistas: app/views/users/
+● Directorio para imágenes: app/public/img/users/
+● Colección: app/data/usuarios.json
+Se acordo trabajar en el login
+
+17/1/2021
+Se reviso login de usuario
+Se probo la funcion de recordar 
+Se acordo empezar a revisar la base de datos para el siguiente Sprint

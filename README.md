@@ -1,7 +1,6 @@
-Se debe instalar express npm install express
+Se deben instalar dependencias npm install 
 Se debe de ejecutar app.js desde la carpeta de app
 El proyecto integrador se encuentra dentro de larpeta app
-Dentro de la carpeta app se debe instalar express de forma local mediante npm install express
 Se puede ejecutar app.js usando node app.js
 
 grupo_1_EPM
@@ -167,3 +166,115 @@ offcanvas.ejs
 7. Página: creación y edición de productos
 
 Hecho. Grupo1_EPM\views\
+
+Sprint 4
+
+1. Archivo retro.md con el resultado de la retrospectiva.
+
+Se dejan todas retrospectivas en el archivo retro.md
+
+2. Archivo weakly.md con sus opiniones sobre las daylies/weeklies.
+
+Se actualiza el archivo weekly.md
+
+3. Actualizar tablero de trabajo en Trello
+
+Tablero de Trello
+https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
+
+Repositorio Github
+https://github.com/EPM-DH/grupo_1_EPM.git
+
+4. Archivos products.json y users.json con datos de productos y usuarios..
+
+Hecho, Archivos en la carpeta data
+
+products.json
+id
+name
+price
+categorias
+descripcion corta
+descripcion larga
+caracteristicas
+identificador
+vendidos
+tobuy
+devueltos
+imagen
+
+users.json
+id
+primernombre
+apellido
+email
+password
+avatar
+rol/categoria
+
+5. Administración completa de productos:
+
+Hecho... CRUD de productos
+○ Listado
+○ Detalle
+○ Creación
+○ Edición
+○ Eliminación
+
+Sprint 5
+
+1. Realizar un breve retrospectiva.
+
+Se dejan todas retrospectivas en el archivo retro.md
+
+2. Actualizar el tablero de trabajo
+
+Tablero de Trello
+https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
+
+Repositorio Github
+https://github.com/EPM-DH/grupo_1_EPM.git
+
+3. Implementar daily / weekly standups.
+
+Se actualiza el archivo weekly.md
+
+
+4. Implementar la entidad de usuarios.
+
+Hecho, Se tiene la siguiente esytructura de archivos
+
+● Rutas: app/routes/users.js
+● Controlador: app/controllers/user.js
+● Vistas: app/views/users/
+● Directorio para imágenes: app/public/img/users/
+● Colección: app/data/usuarios.json
+
+5. Implementar el registro de usuarios
+
+Hecho
+
+Se puede acceder desde el boton de registro o desde la ruta
+http://localhost:3500/user/register
+
+6. Implementar el login de usuarios
+
+Hecho
+
+Se puede acceder desde el boton de ingresa o desde la ruta
+http://localhost:3500/user/login
+
+7. (Opcional) Implementar la función de recordar al usuario
+
+Hecho
+
+Se creo la casilla de seleccion, se puede visualizar desde el boton de ingresa o desde la ruta
+http://localhost:3500/user/login
+
+8. Implementar rutas de huéspedes y de usuarios
+
+Hecho
+
+Seguida de las rutas se coloco como comentario que rutas son accesibles dependiendo si se accede como invitado, como usuario estandar o como administrador.
+
+** Los usuarios se pueden ver en el archivo usuarios.json la contraseña para la mayoria de usuarios es "Hola1234", se puede crear un usuario y cambiar el rol de estandar a administrador para ver las diferentes funcionalidades.
