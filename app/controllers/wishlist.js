@@ -17,6 +17,7 @@ const wishlistController = {
 
 		if(req.app.notification){
 			notification = req.app.notification;
+            req.app.notification = undefined;
 		}
 
         let userId = parseInt(req.session.userLogged.id);

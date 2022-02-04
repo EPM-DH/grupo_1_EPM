@@ -103,6 +103,7 @@ const userController = {
 
 		if(req.app.notification){
 			notification = req.app.notification;
+			req.app.notification = undefined;
 		}
 
 		res.render('users/login', { notification });
@@ -191,6 +192,7 @@ const userController = {
 
 		if(req.app.notification){
 			notification = req.app.notification;
+			req.app.notification = undefined;
 		}
 
 		db.Usuario.findOne({ where: { email: req.session.userLogged.email }})
@@ -452,6 +454,7 @@ const userController = {
 	
 			if(req.app.notification){
 				notification = req.app.notification;
+				req.app.notification = undefined;
 			}
 	
 			res.render('users/manage', { breadcrumbList, urlList, usuarios, notification });
