@@ -6,6 +6,7 @@ const { validationResult } = require('express-validator');
 
 //Model for MySQL
 const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 const wishlistController = {
     retrieveWishlist: (req, res) => {
@@ -71,7 +72,7 @@ const wishlistController = {
 			let newWishlist = { //Validate if identifier is unique
                 usuario_id: parseInt(userId),
                 image: 'default.png',
-                identifier: identifier + userId + '_',
+                identifier: identifier + userId + '_', 
                 visibility_id: parseInt(req.body.status),
                 name: req.body.name,
 			};
@@ -81,7 +82,16 @@ const wishlistController = {
 			//Wishlist.create(newWishlist);
             //MySQL
             db.Lista_de_deseo.create({...newWishlist})
-            .then(() => {
+            .then(async (lista) => {
+                let listId = lista.id;
+                
+                let newList = {
+                    ...lista.dataValues,
+                    identifier: lista.identifier + listId,
+                };
+
+                await db.Lista_de_deseo.update(newList, { where: { id: listId }});
+
                 //Notify user about new list creation
                 let notification = {activo: 1, accion: "creación", accionDos: "creado", elemento: "lista", nombre: req.body.name, tipo: "bg-success"};
 
@@ -135,8 +145,13 @@ const wishlistController = {
             //Notify user about wishlist action
             let notification = {activo: 1, accion: "agregación", accionDos: "agregado", elemento: "elemento de la wishlist", nombre: producto.name, tipo: "bg-success"};
 
+            let wishId = parseInt(listIdentifier[3]);
+
             //Si ya existe en la wishlist
-            db.Productos_Lista_de_deseos.count({ where: { producto_id: id }})
+            db.Productos_Lista_de_deseos.count({ where: { [Op.and]: [
+                {producto_id: id},
+                {lista_de_deseo_id: wishId}
+            ] }})
             .then((number) => {
                 if(number != 0){
                     return Promise.reject();
@@ -149,7 +164,7 @@ const wishlistController = {
                 //JSON
                 //Wishlist.update(list);
                 //MySQL
-                db.Productos_Lista_de_deseos.create({producto_id: id, lista_de_deseo_id: listIdentifier})
+                db.Productos_Lista_de_deseos.create({producto_id: id, lista_de_deseo_id: wishId})
                 .then(() => {
                     res.redirect('/product/' + id);
                 })
@@ -194,15 +209,18 @@ const wishlistController = {
         .then((list) => { //If true -> Continue
             if(errors.isEmpty()){ //No hay errores
                 let nuevaLista = {
-                    ...list,
-                    ...req.body
+                    ...list.dataValues,
+                    ...req.body,
+                    visibility_id: parseInt(req.body.status)
                 }
-    
+                
+                delete nuevaLista.status;
+
                 //If wishlist exists, update 
                 //JSON
                 //Wishlist.update(nuevaLista);
                 //MySQL
-                db.Lista_de_deseo.update(...nuevaLista, { where: { id: id }})
+                db.Lista_de_deseo.update(nuevaLista, { where: { id: id }})
                 .then(() => {
                     //Notify user about wishlist action
                     let notification = {activo: 1, accion: "edición", accionDos: "editado", elemento: "wishist", nombre: list.name, tipo: "bg-success"};
