@@ -26,6 +26,7 @@ const productController = {
 
 			if(req.app.notification){
 				notification = req.app.notification;
+				req.app.notification = undefined;
 			}
 
 			res.render('products/products', {products, notification});
@@ -66,6 +67,7 @@ const productController = {
 
 			if(req.app.notification){
 				notification = req.app.notification;
+				req.app.notification = undefined;
 			}
 
 			let id = 0;

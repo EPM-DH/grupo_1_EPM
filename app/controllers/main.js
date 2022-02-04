@@ -17,6 +17,7 @@ const mainController = {
 
 			if(req.app.notification){
 				notification = req.app.notification;
+				req.app.notification = undefined;
 			}
 
 			res.render('home', {products, notification});	
@@ -45,6 +46,7 @@ const mainController = {
 
 		if(req.app.notification){
 			notification = req.app.notification;
+			req.app.notification = undefined;
 		}
 
 		res.render('contact', { notification, breadcrumbList, urlList });
