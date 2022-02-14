@@ -4,10 +4,12 @@ const { body } = require('express-validator'); //Body y check son lo mismo, pero
 const path = require('path');
 
 const validations = [
-    body('nombre').notEmpty().withMessage('El nombre no puede estar vacío'),
-    body('apellido').notEmpty().withMessage('El apellido no puede estar vacío'),
+    body('nombre').notEmpty().withMessage('El nombre no puede estar vacío').bail()
+        .isLength({ min: 2 }).withMessage('El nombre debe contener al menos 2 caracteres'),
+    body('apellido').notEmpty().withMessage('El apellido no puede estar vacío').bail()
+        .isLength({ min: 2 }).withMessage('El apellido debe contener al menos 2 caracteres'),
     body('email').notEmpty().withMessage('El email no puede estar vacío').bail()
-        .isEmail().withMessage('Debes escribir un formato de correo válido'), ///Check if email is in use
+        .isEmail().withMessage('Debes escribir un formato de correo válido'), 
     body('contrasena').notEmpty().withMessage('La contraseña no puede estar vacía').bail()
         .isLength({ min: 8 }).withMessage('La contraseña debe ser de mínimo 8 caracteres').bail()
         .isStrongPassword().withMessage('La contraseña debe contener al menos 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial'),
