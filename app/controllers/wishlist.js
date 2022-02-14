@@ -53,7 +53,7 @@ const wishlistController = {
                 req.app.ident = undefined;
             }
 
-            res.render('users/wishlist', { lists, breadcrumbList, urlList, notification, errors, old, ident });
+            res.render('wishlists/wishlist', { lists, breadcrumbList, urlList, notification, errors, old, ident });
         })
         .catch((err) => {
             console.log(err);

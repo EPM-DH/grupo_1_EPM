@@ -55,71 +55,71 @@ $('#editModal').on('click', () => {
 });
 
 window.onload = (event) => {
-    let myAlert = document.querySelectorAll('.toast')[0];
-    if (myAlert) {
-      let bsAlert = new bootstrap.Toast(myAlert);
-      bsAlert._config.delay = 4000;
-      bsAlert.show();
-    }
+  let myAlert = document.querySelectorAll('.toast')[0];
+  if (myAlert) {
+    let bsAlert = new bootstrap.Toast(myAlert);
+    bsAlert._config.delay = 4000;
+    bsAlert.show();
+  }
 
-    //To add the name of the list to the button
-    let identifier = $('.list-group .active').text();
-    extract(identifier);
+  //To add the name of the list to the button
+  let identifier = $('.list-group .active').text();
+  extract(identifier);
 
-    //To make the modal appear when an error in addition detected 
-    if($('#addWishlistModal').css('display') == 'block'){
-      $('#addWishlistModal').modal('show');
+  //To make the modal appear when an error in addition detected 
+  if($('#addWishlistModal').css('display') == 'block'){
+    $('#addWishlistModal').modal('show');
 
-      $('.closing').on('click', () => {
-        window.location='/wishlist';
-      });
-    }
-
-    //To make the modal appear when an error in edition detected 
-    //First change the focus of the list-group 
-    //Get all the modals
-    let modals = $("[id^='editWishlistModal_']");
-    //Get the modal with the display block
-    let modal = modals.filter(function() {
-      return $(this).css('display') == 'block';
+    $('.closing').on('click', () => {
+      window.location='/wishlist';
     });
-    //Only do if the is a display:block property
-    if(modal.length != 0){
-      //To change the active class
-      //Get the identifier from modal
-      let id = modal.attr('id');
-      let ident = id.replace('editWishlistModal_', '');
-      //Find the active class and remove the active class
-      let active = $('.list-group .active');
-      active.removeClass('active');
-      //Find the class the should be active and add the class
-      let newActiveClass = $("a[href*=" + ident + "]");
-      newActiveClass.addClass('active');
-      //Finally change the list showing in the background
-      //Get the element and remove the class from it
-      let activeList = $('.tab-content .active');
-      activeList.removeClass('active');
-      activeList.removeClass('show');
-      //Add the active class to the other element
-      let newActiveTabClass = $("div[id^=list-" + ident + "]");
-      newActiveTabClass.addClass('active');
-      newActiveTabClass.addClass('show');
+  }
 
-      //The make the modal appear 
-      modal.modal('show');
-      //To be able to close the modal if wanted
-      $('.closing').on('click', () => {
-        window.location='/wishlist';
-      });
-    }
+  //To make the modal appear when an error in edition detected 
+  //First change the focus of the list-group 
+  //Get all the modals
+  let modals = $("[id^='editWishlistModal_']");
+  //Get the modal with the display block
+  let modal = modals.filter(function() {
+    return $(this).css('display') == 'block';
+  });
+  //Only do if the is a display:block property
+  if(modal.length != 0){
+    //To change the active class
+    //Get the identifier from modal
+    let id = modal.attr('id');
+    let ident = id.replace('editWishlistModal_', '');
+    //Find the active class and remove the active class
+    let active = $('.list-group .active');
+    active.removeClass('active');
+    //Find the class the should be active and add the class
+    let newActiveClass = $("a[href*=" + ident + "]");
+    newActiveClass.addClass('active');
+    //Finally change the list showing in the background
+    //Get the element and remove the class from it
+    let activeList = $('.tab-content .active');
+    activeList.removeClass('active');
+    activeList.removeClass('show');
+    //Add the active class to the other element
+    let newActiveTabClass = $("div[id^=list-" + ident + "]");
+    newActiveTabClass.addClass('active');
+    newActiveTabClass.addClass('show');
 
-    /*if($('#editWishlistModal_').css('display') == 'block'){
-      $('#editWishlistModal_').modal('show');
+    //The make the modal appear 
+    modal.modal('show');
+    //To be able to close the modal if wanted
+    $('.closing').on('click', () => {
+      window.location='/wishlist';
+    });
+  }
 
-      $('.closing').on('click', () => {
-        let url = $('.modal-body').find('form').attr('action');
-        let productId = url.charAt(url.length - 1);
-        window.location='/product/' + productId;
-      });
-    }*/
+  /*if($('#editWishlistModal_').css('display') == 'block'){
+    $('#editWishlistModal_').modal('show');
+
+    $('.closing').on('click', () => {
+      let url = $('.modal-body').find('form').attr('action');
+      let productId = url.charAt(url.length - 1);
+      window.location='/product/' + productId;
+    });
+  }*/
 };
