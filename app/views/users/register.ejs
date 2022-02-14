@@ -22,6 +22,8 @@
                         </div>
                         <div class="col-7">
                             <input type="text" class="form-estandar form-control <%= locals.errors && errors.nombre ? 'is-invalid' : '' %>" name="nombre"  id="nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>" required>
+                            <div class="text-danger jsFront">
+                            </div>
                             <div class="text-danger">
                                 <% if(locals.errors && errors.nombre) { %> 
                                     <%= errors.nombre.msg %> 
@@ -37,6 +39,8 @@
                         </div>
                         <div class="col-7">
                             <input type="text" class="form-estandar form-control <%= locals.errors && errors.apellido ? 'is-invalid' : '' %>" name="apellido" id="apellido" value="<%= locals.old && old.apellido ? old.apellido : '' %>" required>
+                            <div class="text-danger jsFront">
+                            </div>
                             <div class="text-danger">
                                 <% if(locals.errors && errors.apellido) { %> 
                                     <%= errors.apellido.msg %> 
@@ -52,6 +56,8 @@
                         </div>
                         <div class="col-7">
                             <input type="email" class="form-estandar form-control <%= locals.errors && errors.email ? 'is-invalid' : '' %>" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" required>
+                            <div class="text-danger jsFront">
+                            </div>
                             <div class="text-danger">
                                 <% if(locals.errors && errors.email) { %> 
                                     <%= errors.email.msg %> 
@@ -67,6 +73,8 @@
                         </div>
                         <div class="col-7">
                             <input type="password" class="form-estandar form-control <%= locals.errors && errors.contrasena ? 'is-invalid' : '' %>" name="contrasena" id="contrasena" required>
+                            <div class="text-danger jsFront">
+                            </div>
                             <div class="text-danger">
                                 <% if(locals.errors && errors.contrasena) { %> 
                                     <%= errors.contrasena.msg %> 
@@ -82,6 +90,8 @@
                         </div>
                         <div class="col-7">
                             <input type="password" class="form-estandar form-control <%= locals.errors && errors.confirmarcontrasena ? 'is-invalid' : '' %>" name="confirmarcontrasena" id="confirmarcontrasena" required>
+                            <div class="text-danger jsFront">
+                            </div>
                             <div class="text-danger">
                                 <% if(locals.errors && errors.confirmarcontrasena) { %> 
                                     <%= errors.confirmarcontrasena.msg %> 
@@ -95,6 +105,8 @@
                         </div>
                         <div class="col-7">
                             <input type="file" name="avatar" id="avatar">
+                            <div class="text-danger jsFront">
+                            </div>
                             <div class="text-danger">
                                 <% if(locals.errors && errors.avatar) { %> 
                                     <%= errors.avatar.msg %> 
@@ -111,6 +123,8 @@
                                         Condiciones  y autorizo el uso de mis datos de acuerdo 
                                         a la <a href="/privacy">Declaración de Privacidad</a></p>
                                 </label>
+                                <div class="text-danger jsFront">
+                                </div>
                                 <div class="text-danger">
                                     <% if(locals.errors && errors.checkPrivacidad) { %> 
                                         <%= errors.checkPrivacidad.msg %> 

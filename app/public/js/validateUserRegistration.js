@@ -91,28 +91,29 @@ window.addEventListener('load', () => {
     });
 
     userAvatar.addEventListener('change', () => {
-        let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+        let acceptedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
         let extension = userAvatar.value.split('.').pop();
 
         if(!acceptedExtensions.includes(extension.toLowerCase())){
             userAvatar.nextElementSibling.innerText = `Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`;
+        } else {
+            userAvatar.nextElementSibling.innerText = '';
         }
         
     });
 
     form.addEventListener('submit', (e) => {
         let error = false;
-        let errores = document.querySelectorAll('div.text-danger');
+        let errores = document.querySelectorAll('div.jsFront');
         errores.forEach((elemento) => {
             if(elemento.innerText != ''){
-                console.log("Hola");
                 error = true;
             } 
         });
 
         if(error){
             e.preventDefault();
-            globalValidations.innerText = "Existen errores con los datos ingresados, favor de corregirlos antes de enviar el formulario";
+            globalValidations.innerText = "Existen errores con los datos ingresados, favor de corregirlos antes de intentar registrar un usuario";
         }
     });
 
