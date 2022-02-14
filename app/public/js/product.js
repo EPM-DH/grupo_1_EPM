@@ -71,7 +71,7 @@ window.onload = (event) => {
     });
 
     productShortDescription.addEventListener('change', () => {
-        if(productShortDescription.value.length < 5){
+        if(productShortDescription.value.length < 20){
             productShortDescription.nextElementSibling.innerText = "La descripción corta del producto debe tener al menos 20 caracteres";
         } else {
             productShortDescription.nextElementSibling.innerText = "";

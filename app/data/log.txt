@@ -1,0 +1,23 @@
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Guest ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /wishlist
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /contact
+El usuario Guest ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /contact
+El usuario Guest ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/profile
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /wishlist
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /wishlist
