@@ -39,7 +39,6 @@ const userController = {
 			//Check that there isn't a user registered with the same email already
 			//JSON
 			//let userInDB = User.findByField('email', req.body.email);
-			let userInDB;
 
 			//MySQL
 			db.Usuario.count({where: { email: req.body.email }})
