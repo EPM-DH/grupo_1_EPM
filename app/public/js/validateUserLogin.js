@@ -12,6 +12,10 @@ window.addEventListener('load', () => {
     let globalValidations = document.querySelector('.global');
     let form = document.querySelector('form.userLogin');
 
+    //To make the cursor focus in the first input of the form
+    userEmail.focus();
+    userEmail.select();
+
     //Events
     userEmail.addEventListener('blur', () => {
         if(userEmail.value == ""){

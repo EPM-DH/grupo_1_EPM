@@ -9,6 +9,10 @@ window.addEventListener('load', () => {
     let passwordCheck = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
     let form = document.querySelector('form.userRegister');
 
+    //To make the cursor focus in the first input of the form
+    userName.focus();
+    userName.select();
+
     //Events
     userName.addEventListener('blur', () => {
         if(userName.value == ""){
