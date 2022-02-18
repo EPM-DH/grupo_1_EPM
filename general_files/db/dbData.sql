@@ -1,3 +1,5 @@
+USE DH_EPM_local;
+
 /*
 -- Query: SELECT * FROM DH_EPM_local.Productos
 LIMIT 0, 1000

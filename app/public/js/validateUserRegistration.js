@@ -53,8 +53,28 @@ window.addEventListener('load', () => {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           )){
             userEmail.nextElementSibling.innerText = "El email introducido no tiene un formato válido";
-        } else {
+        } else { //Tiene formato válido
             userEmail.nextElementSibling.innerText = "";
+    
+            let settings = {
+                "headers": {
+                    "Access-Control-Allow-Origin": "*",
+                }
+            };
+
+            fetch('http://localhost:3500/api/v2/user/email?email=' + userEmail.value, settings)
+            .then((dat) => {
+                return dat.json();
+            })
+            .then((correo) => {
+                if(correo.email == userEmail.value){
+                    userEmail.nextElementSibling.innerText = "El email ingresado ya está siendo utilizado por otra cuenta";
+                } 
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+
         }
     })
 
