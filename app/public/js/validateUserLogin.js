@@ -12,6 +12,10 @@ window.addEventListener('load', () => {
     let globalValidations = document.querySelector('.global');
     let form = document.querySelector('form.userLogin');
 
+    //To make the cursor focus in the first input of the form
+    userEmail.focus();
+    userEmail.select();
+
     //Events
     userEmail.addEventListener('blur', () => {
         if(userEmail.value == ""){
@@ -26,6 +30,25 @@ window.addEventListener('load', () => {
             userEmail.nextElementSibling.innerText = "El email introducido no tiene un formato válido";
         } else {
             userEmail.nextElementSibling.innerText = "";
+
+            let settings = {
+                "headers": {
+                    "Access-Control-Allow-Origin": "*",
+                }
+            };
+
+            fetch('http://localhost:3500/api/v2/user/email?email=' + userEmail.value, settings)
+            .then((dat) => {
+                return dat.json();
+            })
+            .then((correo) => {
+                if(correo.email != userEmail.value){
+                    userEmail.nextElementSibling.innerText = "El email ingresado no ha sido registrado aún. Favor de crear una cuenta para poder iniciar sesión";
+                } 
+            })
+            .catch((e) => {
+                console.log(e);
+            });
         }
     })
 

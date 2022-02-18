@@ -49,6 +49,10 @@ window.onload = (event) => {
     let globalValidations = document.querySelector('.global');
     let form = document.querySelector('form.productRegister');
 
+    //To make the cursor focus in the first input of the form
+    productName.focus();
+    productName.select();
+
     //Events
     productName.addEventListener('blur', () => {
         if(productName.value == ""){
