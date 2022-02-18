@@ -28,7 +28,9 @@ LIMIT 0, 1000
 */
 INSERT INTO Usuarios (`id`,`firstName`,`lastName`,`email`,`password`,`avatar`,`rol_id`) VALUES (1,'Juan Manuel','Ledesma Rangel','jujuan27@hotmail.com','$2a$10$Uy7e64kOdqzZzKkDMepwjeu9l8OMp5uQIjPODaWuTuOdGmjxcOYX6','FotoBanderas_1641175730211.JPG',2);
 INSERT INTO Usuarios (`id`,`firstName`,`lastName`,`email`,`password`,`avatar`,`rol_id`) VALUES (2,'Ma Guadalupe','Adriana Rangel','lupita.rangel1@hotmail.com','$2a$10$ezGDo6WGVZALUTfe88TtwO8K.LFPFWQkoX57i9pbcWPgzv2OJ.dGy','cosmo_1641962472531.jpg',1);
-
+INSERT INTO Usuarios (`id`,`firstName`,`lastName`,`email`,`password`,`avatar`,`rol_id`) VALUES (3,'Jonathan','Alvarez','abejotav1@gmail.com','$2a$10$5o0V.xJHgijZGmUEX1I7JeeL82ysqRaauoKC5hgqXNVrQXx8UukQ2','51307882275_7479b2422c_1645168108965.jpg',1);
+INSERT INTO Usuarios (`id`,`firstName`,`lastName`,`email`,`password`,`avatar`,`rol_id`) VALUES (4,'Administrador','General','correo@dominio.com','$2a$10$fSTYX8sUZyMo8WtUXrR/zem3e5lzCVb2Bu5VOJeYfg6q8w/0CyxTO','32baa76e93fdd34480516570925ac30d_1645168169578.jpg',2);
+INSERT INTO Usuarios (`id`,`firstName`,`lastName`,`email`,`password`,`avatar`,`rol_id`) VALUES (5,'Usuario','Generico','correo2@dominio.com','$2a$10$os3LGhg.vS1R/ND1l3nczOOEOUSQpJ9W7TjxhZj1jS07wiW3IS/pC','default.png',1);
 /*
 -- Query: SELECT * FROM DH_EPM_local.Carritos
 LIMIT 0, 1000

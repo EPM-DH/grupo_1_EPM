@@ -97,7 +97,7 @@ Se dejan todas retrospectivas en el archivo retro.md
 Tablero de Trello
 https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
 Repositorio Github
-https://github.com/EPM-DH/Grupo1_EPM_S.git
+https://github.com/EPM-DH/Grupo1_EPM.git
 
 3. Crear la estructura de archivos utilizando Node.js+Express
 
