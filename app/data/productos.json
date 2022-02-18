@@ -1,137 +1,84 @@
-[
- {
-  "name": "PETZL ATC Escalada",
-  "price": 599,
-  "categories": [
-   "Escalada",
-   "Básicos",
-   "Seguridad",
-   "Singing rock"
-  ],
-  "shortDescription": "Dispositivo de aseguramiento / rappel versátil y liviano, para usar con uno o dos hilos de cuerda y capacidad para asegurar a un seguidor del ancla",
-  "longDescription": "Conocido por ser versátil y ligero, REVERSO es un dispositivo de seguridad para escalada y montañismo de uno o varios largos. Te permite asegurar a tu compañero de escalada, hacer rappel y usar el modo Reverso para asegurar a uno o dos seguidores. El diseño específico permite que la cuerda se deslice suavemente a través del dispositivo y reduce el desgaste. Es compatible con la mayoría de los diámetros de cuerda: simple de 8,5 a 10,5 mm, mitad de 7,1 a 9,2 mm y gemela de 6,9 ​​a 9,2 mm.",
-  "characteristics": [
-   "Gestualidad común, basada en el acompañamiento de la cuerda en el aparato y la sujeción permanente con una mano en la cuerda lado frenado.",
-   "Fluidez de la circulación de la cuerda en el aparato.",
-   "Control de frenado, gracias a las zonas de frenado en V y acanaladuras.",
-   "Esquemas de instalación grabados en el asegurador (para el aseguramiento y el modo Reverso).",
-   "Permite asegurar a un escalador y realizar descensos en rápel con una o dos cuerdas.",
-   "Modo Reverso que permite asegurar a uno o dos segundos con asistencia al frenado.",
-   "Orificio de desbloqueo que permite dar cuerda al segundo con un simple mosquetón.",
-   "Compacto y ultraligero: sólo 57 g.",
-   "Mayor durabilidad, gracias al diseño redondeado del paso de cuerda, que limita el desgaste del aparato.",
-   "Adecuado para la mayoría de diámetros de cuerda dinámica (simple de 8,5 a 10,5 mm, doble de 7,1 a 9,2 mm y gemela de 6,9 a 9,2 mm)."
-  ],
-  "rating": 5,
-  "identifier": "Petzl",
-  "featured": 1,
-  "id": 1,
-  "vendidos": 5,
-  "image": "front.png",
-  "carouselImages": [
-   "front.png",
-   "front.png",
-   "front.png"
-  ]
- },
- {
-  "id": 2,
-  "name": "ESLINGA DYNEEMA QUICKDRAW 16 MM",
-  "price": 65,
-  "categories": [
-   "Escalada",
-   "Mosquetones y conectores",
-   "Singing rock"
-  ],
-  "shortDescription": "Eslinga para un juego de cintas exprés. Esta eslinga de 16 mm es ideal para todas las aplicaciones donde el bajo peso y la alta resistencia son lo primero",
-  "longDescription": "Eslinga para un juego de cintas exprés. Esta eslinga de 16 mm es ideal para todas las aplicaciones donde el bajo peso y la alta resistencia son lo primero.",
-  "characteristics": [
-   "Ideal para la personalización de su propia cinta rápida o el reemplazo de la eslinga incorrecta",
-   "Ligero, delgado y aún muy fuerte",
-   "Excelente relación peso-resistencia",
-   "Longitud disponible: 13 cm",
-   "Material: Dyneema",
-   "Ancho: 16 mm",
-   "Resistencia: 22 kN",
-   "Certificación: CE 1019, EN 566, UIAA"
-  ],
-  "identifier": "Eslinga",
-  "vendidos": 8,
-  "rating": 4,
-  "featured": 0,
-  "image": "eslinga.jpg",
-  "carouselImages": [
-   "eslinga.jpg",
-   "eslinga.jpg",
-   "eslinga.jpg"
-  ]
- },
- {
-  "id": 3,
-  "name": "Momentum Men’s",
-  "price": 1628,
-  "categories": [
-   "Arneses",
-   "Black Diamond",
-   "Escalada",
-   "Montañismo",
-   "Parques de aventura y Vía Ferrata"
-  ],
-  "shortDescription": "Una hebilla de rápido ajuste preenhebrada ahorra tiempo y elimina errores al atar, mientras que el Dual Core Construction pone énfasis en la comodidad.",
-  "longDescription": "Para los escaladores versátiles que saben que perder el tiempo jugando con las perneras y ajustando un cinturón es una pérdida de tiempo, el Black Diamond Momentum ofrece un diseño que ahorra tiempo, para todos los estilos de escalada. Una hebilla de rápido ajuste preenhebrada ahorra tiempo y elimina errores al atar, mientras que el Dual Core Construction pone énfasis en la comodidad. Las perneras TrakFIT se ajustan fácilmente durante los días fríos de otoño o los ardientes días de verano durante un múltilargo, y cuatro ganchos moldeados a presión y un lazo de arrastre hacen de éste el todo terreno más popular.",
-  "characteristics": [
-   "Hebilla de rápido ajuste pre enhebrado.",
-   "Cinturón en forma de megáfono construido con Dual Core Construction.",
-   "Ajuste trakFIT para una fácil personalización de las perneras.",
-   "Ascensor trasero, elástico y ajustable.",
-   "Cuatro ganchos moldeados a presión.",
-   "Lazo de arrastre.",
-   "Peso: 302 g"
-  ],
-  "identifier": "Momentum",
-  "vendidos": 70,
-  "rating": 3,
-  "featured": 1,
-  "image": "momentum.jpeg",
-  "carouselImages": [
-   "momentum.jpeg",
-   "momentum.jpeg",
-   "momentum.jpeg"
-  ]
- },
- {
-  "id": 4,
-  "name": "COSMO 160 LM",
-  "price": 914,
-  "categories": [
-   "Escalada",
-   "Black Diamond",
-   "Montañismo",
-   "Parques de aventura y Vía Ferrata",
-   "Cañonismo y Espeleo",
-   "Lámparas",
-   "Senderismo y Campismo"
-  ],
-  "shortDescription": "Lámpara en correa para actividades al aire libre",
-  "longDescription": "El Cosmo cuenta con 160 lúmenes de potencia y seis modos diferentes de iluminación, incluyendo la visión nocturna de color rojo, que todos ajustan con un solo interruptor pulsador. Y con una construcción resistente al agua elegante y moderno, el Cosmo sigue brillando el camino a través de las tormentas inesperadas, precipitación y por la tarde noche.",
-  "rating": 2,
-  "identifier": "COSMO",
-  "characteristics": [
-   "1 TriplePower LED, LED y 1 DoublePower 1 DoublePower roja LED emiten 160 lúmenes (ajuste máximo)",
-   "Modo de visión nocturna roja tiene valores de proximidad y luz estroboscópica, y activa sin recorrer el modo de blanco",
-   "Diseño elegante y moderno con la cubierta inclinable utiliza 3 pilas AAA",
-   "Los ajustes incluyen modos de proximidad y distancia, oscurecimiento, luz estroboscópica, la visión nocturna de color rojo y el modo de bloqueo",
-   "IPX4: Tormenta de prueba probados para soportar la lluvia y aguanieve desde cualquier ángulo.",
-   "Lúmenes: 160",
-   "Peso con pilas: 87 g (3,0 oz)"
-  ],
-  "vendidos": 123,
-  "featured": 0,
-  "image": "cosmo.jpg",
-  "carouselImages": [
-   "cosmo.jpg",
-   "cosmo.jpg",
-   "cosmo.jpg"
-  ]
- }
+[{
+    "name": "PETZL ATC Escalada",
+    "price": 599,
+    "categories": [
+        "Escalada",
+        "Básicos",
+        "Seguridad",
+        "Singing rock"
+    ],
+    "shortDescription": "Dispositivo de aseguramiento / rappel versátil y liviano, para usar con uno o dos hilos de cuerda y capacidad para asegurar a un seguidor del ancla",
+    "longDescription": "Conocido por ser versátil y ligero, REVERSO es un dispositivo de seguridad para escalada y montañismo de uno o varios largos. Te permite asegurar a tu compañero de escalada, hacer rappel y usar el modo Reverso para asegurar a uno o dos seguidores. El diseño específico permite que la cuerda se deslice suavemente a través del dispositivo y reduce el desgaste. Es compatible con la mayoría de los diámetros de cuerda: simple de 8,5 a 10,5 mm, mitad de 7,1 a 9,2 mm y gemela de 6,9 ​​a 9,2 mm.",
+    "characteristics": ["Gestualidad común, basada en el acompañamiento de la cuerda en el aparato y la sujeción permanente con una mano en la cuerda lado frenado.","Fluidez de la circulación de la cuerda en el aparato.","Control de frenado, gracias a las zonas de frenado en V y acanaladuras.","Esquemas de instalación grabados en el asegurador (para el aseguramiento y el modo Reverso).","Permite asegurar a un escalador y realizar descensos en rápel con una o dos cuerdas.","Modo Reverso que permite asegurar a uno o dos segundos con asistencia al frenado.","Orificio de desbloqueo que permite dar cuerda al segundo con un simple mosquetón.","Compacto y ultraligero: sólo 57 g.","Mayor durabilidad, gracias al diseño redondeado del paso de cuerda, que limita el desgaste del aparato.","Adecuado para la mayoría de diámetros de cuerda dinámica (simple de 8,5 a 10,5 mm, doble de 7,1 a 9,2 mm y gemela de 6,9 a 9,2 mm)."],
+    "rating": 5,
+    "identifier": "Petzl",
+    "featured": 1,
+    "id": 1,
+    "vendidos": 5,
+    "image": "front.png",
+    "carouselImages": ["front.png","front.png","front.png"]
+    },
+    {
+    "id": 2,
+    "name": "ESLINGA DYNEEMA QUICKDRAW 16 MM",
+    "price": 65,
+    "categories": [
+        "Escalada",
+        "Mosquetones y conectores",
+        "Singing rock"
+    ],
+    "shortDescription": "Eslinga para un juego de cintas exprés. Esta eslinga de 16 mm es ideal para todas las aplicaciones donde el bajo peso y la alta resistencia son lo primero",
+    "longDescription": "Eslinga para un juego de cintas exprés. Esta eslinga de 16 mm es ideal para todas las aplicaciones donde el bajo peso y la alta resistencia son lo primero.",
+    "characteristics": ["Ideal para la personalización de su propia cinta rápida o el reemplazo de la eslinga incorrecta","Ligero, delgado y aún muy fuerte","Excelente relación peso-resistencia","Longitud disponible: 13 cm","Material: Dyneema","Ancho: 16 mm","Resistencia: 22 kN","Certificación: CE 1019, EN 566, UIAA"],
+    "identifier": "Eslinga",
+    "vendidos": 8,
+    "rating": 4,
+    "featured": 0,
+    "image": "eslinga.jpg",
+    "carouselImages": ["eslinga.jpg","eslinga.jpg","eslinga.jpg"]
+    },
+    {
+    "id": 3,
+    "name": "Momentum Men’s",
+    "price": 1628,
+    "categories": [
+        "Arneses",
+        "Black Diamond",
+        "Escalada",
+        "Montañismo",
+        "Parques de aventura y Vía Ferrata"
+    ],
+    "shortDescription": "Una hebilla de rápido ajuste preenhebrada ahorra tiempo y elimina errores al atar, mientras que el Dual Core Construction pone énfasis en la comodidad.",
+    "longDescription": "Para los escaladores versátiles que saben que perder el tiempo jugando con las perneras y ajustando un cinturón es una pérdida de tiempo, el Black Diamond Momentum ofrece un diseño que ahorra tiempo, para todos los estilos de escalada. Una hebilla de rápido ajuste preenhebrada ahorra tiempo y elimina errores al atar, mientras que el Dual Core Construction pone énfasis en la comodidad. Las perneras TrakFIT se ajustan fácilmente durante los días fríos de otoño o los ardientes días de verano durante un múltilargo, y cuatro ganchos moldeados a presión y un lazo de arrastre hacen de éste el todo terreno más popular.",
+    "characteristics": ["Hebilla de rápido ajuste pre enhebrado.","Cinturón en forma de megáfono construido con Dual Core Construction.","Ajuste trakFIT para una fácil personalización de las perneras.","Ascensor trasero, elástico y ajustable.","Cuatro ganchos moldeados a presión.","Lazo de arrastre.","Peso: 302 g"],
+    "identifier": "Momentum",
+    "vendidos": 70,
+    "rating": 3,
+    "featured": 1,
+    "image": "momentum.jpeg",
+    "carouselImages": ["momentum.jpeg","momentum.jpeg","momentum.jpeg"]
+    },
+    {
+    "id": 4,
+    "name": "COSMO 160 LM",
+    "price": 914,
+    "categories": [
+        "Escalada",
+        "Black Diamond",
+        "Montañismo",
+        "Parques de aventura y Vía Ferrata",
+        "Cañonismo y Espeleo",
+        "Lámparas",
+        "Senderismo y Campismo"
+    ],
+    "shortDescription": "Lámpara en correa para actividades al aire libre",
+    "longDescription": "El Cosmo cuenta con 160 lúmenes de potencia y seis modos diferentes de iluminación, incluyendo la visión nocturna de color rojo, que todos ajustan con un solo interruptor pulsador. Y con una construcción resistente al agua elegante y moderno, el Cosmo sigue brillando el camino a través de las tormentas inesperadas, precipitación y por la tarde noche.",
+    "rating": 2,
+    "identifier": "COSMO",
+    "characteristics": ["1 TriplePower LED, LED y 1 DoublePower 1 DoublePower roja LED emiten 160 lúmenes (ajuste máximo)","Modo de visión nocturna roja tiene valores de proximidad y luz estroboscópica, y activa sin recorrer el modo de blanco","Diseño elegante y moderno con la cubierta inclinable utiliza 3 pilas AAA","Los ajustes incluyen modos de proximidad y distancia, oscurecimiento, luz estroboscópica, la visión nocturna de color rojo y el modo de bloqueo","IPX4: Tormenta de prueba probados para soportar la lluvia y aguanieve desde cualquier ángulo.","Lúmenes: 160","Peso con pilas: 87 g (3,0 oz)"],
+    "vendidos": 123,
+    "featured": 0,
+    "image": "cosmo.jpg",
+    "carouselImages": ["cosmo.jpg","cosmo.jpg","cosmo.jpg"]
+}
 ]

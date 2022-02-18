@@ -1,19 +1,41 @@
 const { validationResult } = require('express-validator');
 
-//Models
-const Product = require('../models/Product');
+//Models for JSON
+//const Product = require('../models/Product');
+
+//Model for MySQL
+const db = require('../database/models');
 
 const mainController = {
 	index: (req, res) => {
-		let productos = Product.findFeatured();
-		
+		//res.cookie('cart', [{id: 1, usuario_id: 0, producto_id: 2, quantity: 5}], { maxAge: (3600 * 24) * 1000 });
+		//MySQL
+		db.Producto.findAll({ where: { featured: 1 }, include: ['categories']})
+		.then((products) => {
+
+			let notification = '';
+
+			if(req.app.notification){
+				notification = req.app.notification;
+				req.app.notification = undefined;
+			}
+
+			res.render('home', {products, notification});	
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+
+		//JSON
+		/*let productos = Product.findFeatured();
+
 		let notification = '';
 
 		if(req.app.notification){
 			notification = req.app.notification;
 		}
 
-		res.render('home', {products: productos, notification});
+		res.render('home', {products: productos, notification});*/
 	},
 	retrieveContact: (req, res) => {
 		let breadcrumbList = ["Página de inicio", "Contáctanos"];
@@ -24,6 +46,7 @@ const mainController = {
 
 		if(req.app.notification){
 			notification = req.app.notification;
+			req.app.notification = undefined;
 		}
 
 		res.render('contact', { notification, breadcrumbList, urlList });

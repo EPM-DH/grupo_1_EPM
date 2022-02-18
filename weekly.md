@@ -55,3 +55,11 @@ Se acordo trabajar en el login
 Se reviso login de usuario
 Se probo la funcion de recordar 
 Se acordo empezar a revisar la base de datos para el siguiente Sprint
+
+24/1/2021
+Se trabajo en la base de datos
+Se ajustaron detalles del Script
+
+14/2/2021
+Se trabajo en las notificacionenes en el Front
+Se acordo dar revisiones en busca de errores

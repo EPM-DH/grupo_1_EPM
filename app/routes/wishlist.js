@@ -7,7 +7,7 @@ const authRoutes = require('../middlewares/authRoutes');
 const validationsWishlist = require('../middlewares/validateWishlist'); 
 
 //To view the wishlist page
-router.get('/', authRoutes, wishlistController.retrieveWishlist); //Solamente un usuario que este logeado puede ver sus órdenes
+router.get('/', authRoutes, wishlistController.retrieveWishlist); //Solamente un usuario que este logeado puede ver sus listas
 
 // To process the new list creation 
 router.post('/create/:id', authRoutes, validationsWishlist, wishlistController.create); //Solamente un usuario logeado puede crear una lista

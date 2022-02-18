@@ -144,3 +144,31 @@ Dejar de hacer
 
 Conclusiones
 El proyecto va avanzando bastante bien. Se estan realizando las actividades de manera individual y validano de manera colectiva.
+
+Sprint 6 Y 7
+
+Comenzar a hacer 
+    
+    ....
+
+Hacer más 
+
+    Investigar otras soluciones posibles
+    Tomar mas iniciativa en el proyecto
+    Colaboracion mas equitativa en el proyecto
+
+
+Continuar haciendo 
+    Tomar iniciativa en el proyecto
+    Cumplir con los objetivos del sprint
+    Probar la ejecución del código en busca de fallas
+    Seguir con la comunicacion via mensajes
+
+Hacer menos 
+    Ignorar los sprints
+
+Dejar de hacer 
+    Ser apáticos en el proyecto
+
+Conclusiones
+Aunque se juntaron los Spring 6 y 7, por estar realacionados, cada uno debe de tener sus propios avances, la venataja es que se tenia avanzado y la pagina esta funcionanado.

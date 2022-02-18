@@ -87,8 +87,8 @@ const Cart = {
     deleteAllProductsFromCartByProductId: function(productId) {
         let allItems = this.findAll();
         let finalItems = allItems.filter(cart => cart.product_id !== productId);
-        console.log(this.cartFilePath)
-        fs.writeFileSync(this.cartFilePath, JSON.stringify(finalItems, null, ' '));
+
+        fs.writeFileSync(this.wishlistFilePath, JSON.stringify(finalItems, null, ' '));
         return true;
     },
 

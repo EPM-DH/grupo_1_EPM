@@ -4,7 +4,7 @@
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-5 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="/img/users/<%= userLogged.avatar %>"><span class="font-weight-bold profile-details"><%= userLogged.firstName %> <%= userLogged.lastName %></span><span class="text-black-50 profile-details"><%= userLogged.email %></span>
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="/img/users/<%= usuario.avatar %>"><span class="font-weight-bold profile-details"><%= usuario.firstName %> <%= usuario.lastName %></span><span class="text-black-50 profile-details"><%= usuario.email %></span>
                     <!-- Button trigger modal --><br>
                     <button type="button" class="boton-estandar anchorFormat deleteButton" data-toggle="modal" data-target="#confirmationModal">Eliminar</button>
                 </div>
@@ -14,9 +14,15 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Configuración del perfil</h4>
                     </div>
-                    <form action="/user/edit/<%= userLogged.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form action="/user/edit/<%= usuario.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="editUser">
                         <div class="row mt-3">
-                            <div class="col-md-12"><label for="nombre">Nombre</label><input type="text" class="form-estandar form-control <%= locals.errors && errors.nombre ? 'is-invalid' : '' %>" name="nombre"  id="nombre" value="<%= userLogged.firstName %>">
+                            <div class="col-md-12">
+                                <div class="text-danger global">
+                                </div>
+                            </div>
+                            <div class="col-md-12"><label for="nombre">Nombre</label><input type="text" class="form-estandar form-control <%= locals.errors && errors.nombre ? 'is-invalid' : '' %>" name="nombre"  id="nombre" value="<%= usuario.firstName %>" required>
+                                <div class="text-danger jsFront">
+                                </div>
                                 <div class="text-danger">
                                     <% if(locals.errors && errors.nombre) { %> 
                                         <%= errors.nombre.msg %> 
@@ -24,7 +30,9 @@
                                 </div></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label for="apellido">Apellido</label><input type="text" class="form-estandar form-control <%= locals.errors && errors.apellido ? 'is-invalid' : '' %>" name="apellido" id="apellido" value="<%= userLogged.lastName %>">
+                            <div class="col-md-12"><label for="apellido">Apellido</label><input type="text" class="form-estandar form-control <%= locals.errors && errors.apellido ? 'is-invalid' : '' %>" name="apellido" id="apellido" value="<%= usuario.lastName %>" required>
+                                <div class="text-danger jsFront">
+                                </div>
                                 <div class="text-danger">
                                     <% if(locals.errors && errors.apellido) { %> 
                                         <%= errors.apellido.msg %> 
@@ -32,7 +40,9 @@
                                 </div></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label for="email">E-mail</label><input type="email" class="form-estandar form-control <%= locals.errors && errors.email ? 'is-invalid' : '' %>" name="email" id="email" value="<%= userLogged.email %>">
+                            <div class="col-md-12"><label for="email">E-mail</label><input type="email" class="form-estandar form-control <%= locals.errors && errors.email ? 'is-invalid' : '' %>" name="email" id="email" value="<%= usuario.email %>" required>
+                                <div class="text-danger jsFront">
+                                </div>
                                 <div class="text-danger">
                                     <% if(locals.errors && errors.email) { %> 
                                         <%= errors.email.msg %> 
@@ -69,6 +79,8 @@
                             </div>
                             <div class="col-7">
                                 <input type="file" name="avatar" id="avatar">
+                                <div class="text-danger jsFront">
+                                </div>
                                 <div class="text-danger">
                                     <% if(locals.errors && errors.avatar) { %> 
                                         <%= errors.avatar.msg %> 
@@ -103,12 +115,12 @@
             </div>-->
         </div>
         <%- include('../partials/userToast.ejs') %>
-        <%- include('../partials/confirmationModal.ejs', {elemento: 'user', id: userLogged.id}) %> 
+        <%- include('../partials/confirmationModal.ejs', {elemento: 'user', id: usuario.id}) %> 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/js/toast.js"></script>
+    <script src="/js/validateEditUser.js"></script>
 </body>
 <%- include('../partials/footer.ejs') %>

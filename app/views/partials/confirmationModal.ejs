@@ -1,5 +1,5 @@
   <!-- Modal -->
-  <div class="modal fade show" <% if(locals.identifier) { %> id="confirmationModal_<%= identifier %>" <% } else { %> id="confirmationModal" <% } %>  tabindex="-1" role="dialog" aria-labelledby="confirmationModalTitle" aria-hidden="true">
+  <div class="modal fade show" <% if(locals.identifier && locals.listIdentifier) { %> id="confirmationModal_<%= listIdentifier %>_<%= identifier %>" <% } else if (locals.identifier) { %> id="confirmationModal_<%= identifier %>" <% } else { %> id="confirmationModal" <% } %>  tabindex="-1" role="dialog" aria-labelledby="confirmationModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">

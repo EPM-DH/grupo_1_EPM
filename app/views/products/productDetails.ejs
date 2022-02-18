@@ -46,7 +46,7 @@
 					<div class="col up">
 						<% for (categoria of product.categories) { %>
 						<button class="boton etiqueta-producto">
-						  <div><%= categoria %></div>
+						  <div><%= categoria.name %></div>
 						</button>
 						<% } %>
 					</div>
@@ -63,24 +63,26 @@
 						<div class="col-5">
 							<a type="button" class="boton-estandar boton-flex anchorFormat" href="/cart/add/<%= product.id %>">Añadir al carrito</a>
 						</div>
-						<div class="col-5">
-							<!-- Default dropright button -->
-							<div class="btn-group dropright">
-								<button type="button" class="boton-estandar anchorFormat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #0dcaf0; border-color: #0dcaf0;">
-									Agregar a una lista
-								</button>
-								<div class="dropdown-menu">
-									<h6 class="dropdown-header">Listas disponibles</h6>
-									<ul>
-										<% for(item of wishLists) { %>
-											<li><a href='/wishlist/add/<%= product.id %>?wishlist=<%= item.identifier %>'><%= item.name %></a></li>
-										<% } %>
-									</ul>
-									<div class="dropdown-divider"></div>
-									<a style="padding-left: 10%;" href="#" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</a>
+						<% if (locals.isLogged) { %>
+							<div class="col-5">
+								<!-- Default dropright button -->
+								<div class="btn-group dropright">
+									<button type="button" class="boton-estandar anchorFormat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #0dcaf0; border-color: #0dcaf0;">
+										Agregar a una lista
+									</button>
+									<div class="dropdown-menu">
+										<h6 class="dropdown-header">Listas disponibles</h6>
+										<ul>
+											<% for(item of wishLists) { %>
+												<li><a href='/wishlist/add/<%= product.id %>?wishlist=<%= item.identifier %>'><%= item.name %></a></li>
+											<% } %>
+										</ul>
+										<div class="dropdown-divider"></div>
+										<a style="padding-left: 10%;" href="#" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</a>
+									</div>
 								</div>
 							</div>
-						</div>
+						<% } %>
 					</div>
 
 					<% if (locals.isLogged && locals.userLogged.rol == 'administrador') { %>

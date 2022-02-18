@@ -2,8 +2,8 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
+    "password": 'root',
+    "database": "DH_EPM_local",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

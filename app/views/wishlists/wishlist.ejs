@@ -38,7 +38,7 @@
                         <div class="col-12 col-md-4">
                         <div class="list-group" id="list-tab" role="tablist">
                             <% let i = 0; for(list of lists) { %>
-                                <a onclick="updateActive(this)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center <%= i === 0 ? 'active' : '' %>" id="list-<%= list.identifier %>-list" data-toggle="list" href="#list-<%= list.identifier %>" role="tab" aria-controls="<%= list.identifier %>"><%= list.name %> (<%= list.status %>)<span class="badge badge-primary badge-pill" style="background-color: #4D003C; border-radius: .75rem;"><%= list.products.length %></span></a>    
+                                <a onclick="updateActive(this)" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center <%= i === 0 ? 'active' : '' %>" id="list-<%= list.identifier %>-list" data-toggle="list" href="#list-<%= list.identifier %>" role="tab" aria-controls="<%= list.identifier %>"><%= list.name %> (<%= list.visibilidad.name %>)<span class="badge badge-primary badge-pill" style="background-color: #4D003C; border-radius: .75rem;"><%= list.productosL.length %></span></a>    
                             <% i++; } %>
                         </div>
                         </div>

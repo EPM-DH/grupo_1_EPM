@@ -1,7 +1,9 @@
+//Models for JSON
+//const Order = require('../models/Order');
+//const Product = require('../models/Product');
 
-//Models
-const Order = require('../models/Order');
-const Product = require('../models/Product');
+//Model for MySQL
+const db = require('../database/models');
 
 const orderController = {
     retrieveOrders: (req, res) => {
@@ -11,18 +13,17 @@ const orderController = {
 
         let userId = parseInt(req.session.userLogged.id);
 
-        let orders = Order.findAllByField('user_id', userId);
+        //JSON
+        //let orders = Order.findAllByField('user_id', userId);
+        //MySQL
+        db.Pedido.findAll({ where: { usuario_id: userId }, include: ['producto', 'estatus']})
+        .then((orders) => {
+            res.render('users/orders', { orders, breadcrumbList, urlList });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
-        for(order of orders) {
-            let product = Product.findByPk(order.product_id);
-            order.image = product.image;
-            order.name = product.name;
-            order.identifier = product.identifier;
-            order.shortDescription = product.shortDescription;
-            order.total = product.price;
-        }
-
-        res.render('users/orders', { orders, breadcrumbList, urlList });
     },
 };
 

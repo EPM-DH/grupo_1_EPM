@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
             },
             allowNull: false
         },
-        lista_de_deseos_id: {
+        lista_de_deseo_id: {
             type: dataTypes.INTEGER,
             references: {
                 model: 'Lista_de_deseos',
