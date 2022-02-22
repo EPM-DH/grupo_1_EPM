@@ -1,0 +1,13 @@
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /api/v2/product/1
+El usuario Guest ingresó en la ruta /api/v2/product/1
