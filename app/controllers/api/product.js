@@ -1,6 +1,9 @@
 //Model for MySQL
 const db = require('../../database/models');
 
+//Path
+const basePath = require('../../app');
+
 const productController = {
     productIdentifier: (req, res) => {
 		db.Producto.findOne({ where: { identifier: req.query.identifier }})
@@ -36,7 +39,7 @@ const productController = {
                             name : product.name,
                             description: product.shortDescription,
                             categories: catego,
-                            detail : 'http://localhost:3500/api/v2/product/' + product.id,
+                            detail : basePath.basePath + 'api/v2/product/' + product.id,
                         });
                         
                     }
@@ -56,13 +59,13 @@ const productController = {
                     let nextPage = '';
                     let previousPage = '';
                     if(page + 1 < pages){
-                        nextPage = 'http://localhost:3500/api/v2/product?page=' + (page + 1);
+                        nextPage = basePath.basePath + 'api/v2/product?page=' + (page + 1);
                     } else {
                         nextPage = null;
                     } 
 
                     if(page - 1 > 0){
-                        previousPage = 'http://localhost:3500/api/v2/product?page=' + (page - 1);
+                        previousPage = basePath.basePath + 'api/v2/product?page=' + (page - 1);
                     } else {
                         previousPage = null;
                     }
@@ -99,7 +102,7 @@ const productController = {
                             name : product.name,
                             description: product.shortDescription,
                             categories: catego,
-                            detail : 'http://localhost:3500/api/v2/product/' + product.id,
+                            detail : basePath.basePath + 'api/v2/product/' + product.id,
                         });
                         
                     }
@@ -144,7 +147,7 @@ const productController = {
                     name : producto.name,
                     description: producto.shortDescription,
                     categories: catego,
-                    image : 'http://localhost:3500/img/products/' + producto.image, 
+                    image : basePath.basePath + 'img/products/' + producto.image, 
 
                  });
             } else {

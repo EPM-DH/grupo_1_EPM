@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
                 }
             };
 
-            fetch('http://localhost:3500/api/v2/user/email?email=' + userEmail.value, settings)
+            fetch(basePath + 'api/v2/user/email?email=' + userEmail.value, settings)
             .then((dat) => {
                 return dat.json();
             })

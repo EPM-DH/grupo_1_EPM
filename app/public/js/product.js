@@ -135,7 +135,7 @@ window.onload = (event) => {
                     }
                 };
     
-                fetch('http://localhost:3500/api/v2/product/identifier?identifier=' + productIdentifier.value, settings)
+                fetch(basePath + 'api/v2/product/identifier?identifier=' + productIdentifier.value, settings)
                 .then((dat) => {
                     return dat.json();
                 })
