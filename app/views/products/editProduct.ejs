@@ -1,4 +1,4 @@
-<%- include('../partials/header.ejs', {title: 'Crear producto', home: 0}) %>
+<%- include('../partials/header.ejs', {title: 'Editar producto', home: 0}) %>
 <%- include('../partials/navbar.ejs') %>
 <%- include('../partials/offcanvas.ejs') %>
 
@@ -40,6 +40,8 @@
                     </div>
                     <div class="col-7">
                         <input type="number" class="form-estandar form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>" name="price" id="price" value="<%= product.price %>" required>
+                        <div class="text-danger jsFront">
+                        </div>
                         <div class="text-danger">
                             <% if(locals.errors && errors.price) { %> 
                                 <%= errors.price.msg %> 
@@ -86,6 +88,8 @@
                     </div>
                     <div class="col-7">
                         <textarea class="form-control <%= locals.errors && errors.longDescription ? 'is-invalid' : '' %>" id="longDescription" rows="4" name="longDescription" required><%= product.longDescription %></textarea>
+                        <div class="text-danger jsFront">
+                        </div>
                         <div class="text-danger">
                             <% if(locals.errors && errors.longDescription) { %> 
                                 <%= errors.longDescription.msg %> 
@@ -122,6 +126,8 @@
                     </div>
                     <div class="col-7">
                         <input type="number" class="form-estandar form-control <%= locals.errors && errors.rating ? 'is-invalid' : '' %>" name="rating"  id="rating" value="<%= product.rating %>" required>
+                        <div class="text-danger jsFront">
+                        </div>
                         <div class="text-danger">
                             <% if(locals.errors && errors.rating) { %> 
                                 <%= errors.rating.msg %> 
@@ -137,6 +143,8 @@
                     </div>
                     <div class="col-7">
                         <input type="text" class="form-estandar form-control <%= locals.errors && errors.identifier ? 'is-invalid' : '' %>" name="identifier"  id="identifier" value="<%= product.identifier %>" required>
+                        <div class="text-danger jsFront">
+                        </div>
                         <div class="text-danger">
                             <% if(locals.errors && errors.identifier) { %> 
                                 <%= errors.identifier.msg %> 
@@ -157,7 +165,7 @@
                         <label for="imagenPrincipal" class="form-label">Sube la imagen principal:</label>
                     </div>
                     <div class="col-7">
-                        <input type="file" name="imagenPrincipal" id="file" required>
+                        <input type="file" name="imagenPrincipal" id="imagenPrincipal" required>
                         <div class="text-danger jsFront">
                         </div>
                         <div class="text-danger">
