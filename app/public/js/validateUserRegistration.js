@@ -1,12 +1,4 @@
 window.addEventListener('load', () => {
-    //For toast
-    let myAlert = document.querySelectorAll('.toast')[0];
-    if (myAlert) {
-      let bsAlert = new bootstrap.Toast(myAlert);
-      bsAlert._config.delay = 4000;
-      bsAlert.show();
-    }
-
     let userName = document.querySelector('input#nombre');
     let userLastName = document.querySelector('input#apellido');
     let userEmail = document.querySelector('input#email');
@@ -16,6 +8,10 @@ window.addEventListener('load', () => {
     let globalValidations = document.querySelector('.global');
     let passwordCheck = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
     let form = document.querySelector('form.userRegister');
+
+    //To make the cursor focus in the first input of the form
+    userName.focus();
+    userName.select();
 
     //Events
     userName.addEventListener('blur', () => {
@@ -57,8 +53,28 @@ window.addEventListener('load', () => {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           )){
             userEmail.nextElementSibling.innerText = "El email introducido no tiene un formato válido";
-        } else {
+        } else { //Tiene formato válido
             userEmail.nextElementSibling.innerText = "";
+    
+            let settings = {
+                "headers": {
+                    "Access-Control-Allow-Origin": "*",
+                }
+            };
+
+            fetch('http://localhost:3500/api/v2/user/email?email=' + userEmail.value, settings)
+            .then((dat) => {
+                return dat.json();
+            })
+            .then((correo) => {
+                if(correo.email == userEmail.value){
+                    userEmail.nextElementSibling.innerText = "El email ingresado ya está siendo utilizado por otra cuenta";
+                } 
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+
         }
     })
 

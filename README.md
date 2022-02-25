@@ -1,7 +1,7 @@
 Se deben instalar dependencias npm install 
 Se debe de ejecutar app.js desde la carpeta de app
 El proyecto integrador se encuentra dentro de larpeta app
-Se puede ejecutar app.js usando node app.js
+Se puede ejecutar app.js usando node app.js o npm run start
 
 grupo_1_EPM
 e-comerce, articulos para montaña

@@ -29,6 +29,10 @@ window.onload = (event) => {
   let globalValidations = document.querySelector('.global');
   let form = document.querySelector('form.contactForm');
 
+  //To make the cursor focus in the first input of the form
+  contactName.focus();
+  contactName.select();
+
   //Events
   contactName.addEventListener('blur', () => {
     if(contactName.value == ""){

@@ -31,8 +31,8 @@
   "firstName": "Jonathan",
   "lastName": "Alvarez",
   "email": "abejotav1@gmail.com",
-  "password": "$2a$10$B9nfqJOLhKB8KCxLDsDMG.6Xsr0Df016ATHRoNQOXdVYuanEKBM7G",
-  "avatar": "P1100237_1643077222777.JPG",
+  "password": "Hola1234",
+  "avatar": "",
   "rol": "estandar"
  },
  {
@@ -40,18 +40,8 @@
   "firstName": "Ma Guadalupe",
   "lastName": "Adriana Rangel",
   "email": "lupita.rangel1@hotmail.com",
-  "password": "$2a$10$B9nfqJOLhKB8KCxLDsDMG.6Xsr0Df016ATHRoNQOXdVYuanEKBM7G",
+  "password": "$2a$10$ezGDo6WGVZALUTfe88TtwO8K.LFPFWQkoX57i9pbcWPgzv2OJ.dGy",
   "avatar": "cosmo_1641962472531.jpg",
   "rol": "estandar"
- },
- {
-  "id": 6,
-  "firstName": "Administrador",
-  "lastName": "General",
-  "email": "correo@dominio.com",
-  "password": "$2a$10$B9nfqJOLhKB8KCxLDsDMG.6Xsr0Df016ATHRoNQOXdVYuanEKBM7G",
-  "avatar": "default.png",
-  "rol": "administrador"
  }
 ]
-

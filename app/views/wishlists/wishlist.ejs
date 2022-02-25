@@ -9,32 +9,33 @@
                     <div class="d-flex flex-row justify-content-center col-md-3 col-12 flexNoCenter">
                         <h1 class="tc">Listas de deseos</h1>
                     </div>
-                    <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
-                        <button class="boton-estandar boton-flex" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</button>    
-                    </div>
-                    <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
-                        <button type="button" class="boton-estandar boton-flex editButton" data-toggle="modal" data-target="#editWishlistModal_<%= lists[0].identifier %>" id="editModal">Editar lista</button>
-                    </div>
-                    <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal" id="confirmationModal" style="width: 80%;">
-                            Eliminar lista
-                        </button>
-                    </div>
-                </div>
-                <div class="pushLeft">
-                    <%- include('../partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="row">
                     <% if (lists.length == 0) { %>
                         <div class="row justify-content-center mt-3">
                           <h2 style="text-align: center">
                             No tienes ninguna lista de deseos creada hasta el momento
                           </h2>
                         </div>
+                    </div></div></div></div>
                     <% } else { %>
+                        <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
+                            <button class="boton-estandar boton-flex" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</button>    
+                        </div>
+                        <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
+                            <button type="button" class="boton-estandar boton-flex editButton" data-toggle="modal" data-target="#editWishlistModal_<%= lists[0].identifier %>" id="editModal">Editar lista</button>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="boton-estandar boton-flex deleteButton" data-toggle="modal" data-target="#confirmationModal" id="confirmationModal" style="width: 80%;">
+                                Eliminar lista
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pushLeft">
+                        <%- include('../partials/breadcrumb.ejs', {breadcrumbList, urlList}) %> 
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
                         <div class="col-12 col-md-4">
                         <div class="list-group" id="list-tab" role="tablist">
                             <% let i = 0; for(list of lists) { %>
@@ -51,13 +52,13 @@
                             <% i++; } %>
                         </div>
                         </div>
-                    <% } %>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>    
-    <%- include('../partials/userToast.ejs') %>
-    <%- include('../partials/wishlistModal.ejs') %> 
+        </div>    
+        <%- include('../partials/userToast.ejs') %>
+        <%- include('../partials/wishlistModal.ejs') %> 
+        <% } %>
 
 <script
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

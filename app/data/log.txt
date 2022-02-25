@@ -1,189 +1,76 @@
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /wishlist
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/profile
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /wishlist
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /wishlist
 El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /favicon.ico
-El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /cart
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /about
-El usuario Guest ingresó en la ruta /faq
-El usuario Guest ingresó en la ruta /privacy
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /about
-El usuario Guest ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /faq
-El usuario Guest ingresó en la ruta /privacy
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
 El usuario Guest ingresó en la ruta /user/login
 El usuario Jonathan Alvarez ingresó en la ruta /
 El usuario Jonathan Alvarez ingresó en la ruta /product
 El usuario Jonathan Alvarez ingresó en la ruta /user/logout
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /favicon.ico
 El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /contact
 El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /product/create
+El usuario Administrador General ingresó en la ruta /user/profile
+El usuario Administrador General ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /wishlist
+El usuario Administrador General ingresó en la ruta /order
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /cart/add/1
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /cart
+El usuario Administrador General ingresó en la ruta /wishlist
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /cart
+El usuario Administrador General ingresó en la ruta /cart/delete/2?_method=DELETE
+El usuario Administrador General ingresó en la ruta /cart
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /product/create
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /cart/add/1
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /cart
+El usuario Administrador General ingresó en la ruta /wishlist
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
 El usuario Guest ingresó en la ruta /user/login
 El usuario Jonathan Alvarez ingresó en la ruta /
-El usuario Jonathan Alvarez ingresó en la ruta /user/logout
+El usuario Jonathan Alvarez ingresó en la ruta /wishlist
+El usuario Jonathan Alvarez ingresó en la ruta /product
+El usuario Jonathan Alvarez ingresó en la ruta /product
+El usuario Jonathan Alvarez ingresó en la ruta /wishlist
+El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
 El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /product/cancel
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/edit/1
-El usuario Administrador General ingresó en la ruta /product/cancel
-El usuario Administrador General ingresó en la ruta /product/1
-El usuario Administrador General ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product/edit/5
-El usuario Guest ingresó en la ruta /user/login
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /wishlist
+El usuario Jonathan Alvarez ingresó en la ruta /product
+El usuario Jonathan Alvarez ingresó en la ruta /user/profile
+El usuario Jonathan Alvarez ingresó en la ruta /order
+El usuario Jonathan Alvarez ingresó en la ruta /wishlist
