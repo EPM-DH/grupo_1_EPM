@@ -50,3 +50,7 @@ app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
 app.use((req, res, next) => {
     res.status(404).render('not-found');
 });
+
+let basePath = `http://localhost:${port}/`;
+
+exports.basePath = basePath;

@@ -1,0 +1,31 @@
+El usuario Guest ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /api/v2/user?page=1
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user?page=1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/user/1
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user?page=1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product?page=1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /

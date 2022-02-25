@@ -1,6 +1,9 @@
 //Model for MySQL
 const db = require('../../database/models');
 
+//Path
+const basePath = require('../../app');
+
 const userController = {
     allUsers: (req, res) => {
         let page = parseInt(req.query.page);
@@ -16,7 +19,7 @@ const userController = {
                             id : user.id,
                             name : user.firstName + ' ' + user.lastName,
                             email : user.email,
-                            detail : 'http://localhost:3500/api/v2/user/' + user.id,
+                            detail : basePath.basePath + 'api/v2/user/' + user.id,
                         });
                     }
 
@@ -25,13 +28,13 @@ const userController = {
                     let nextPage = '';
                     let previousPage = '';
                     if(page + 1 < pages){
-                        nextPage = 'http://localhost:3500/api/v2/user?page=' + (page + 1);
+                        nextPage = basePath.basePath + 'api/v2/user?page=' + (page + 1);
                     } else {
                         nextPage = null;
                     } 
 
                     if(page - 1 > 0){
-                        previousPage = 'http://localhost:3500/api/v2/user?page=' + (page - 1);
+                        previousPage = basePath.basePath + 'api/v2/user?page=' + (page - 1);
                     } else {
                         previousPage = null;
                     }
@@ -60,7 +63,7 @@ const userController = {
                             id : user.id,
                             name : user.firstName + ' ' + user.lastName,
                             email : user.email,
-                            detail : 'http://localhost:3500/api/v2/user/' + user.id,
+                            detail : basePath.basePath + 'api/v2/user/' + user.id,
                         });
                     }
 
@@ -87,7 +90,7 @@ const userController = {
                     id : usuario.id,
                     name : usuario.firstName + ' ' + usuario.lastName,
                     email : usuario.email,
-                    avatar : 'http://localhost:3500/img/users/' + usuario.avatar, 
+                    avatar : basePath.basePath + 'img/users/' + usuario.avatar, 
 
                  });
             } else {
