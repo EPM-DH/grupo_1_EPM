@@ -2,6 +2,19 @@
 const db = require('../../database/models');
 
 const productController = {
+    productIdentifier: (req, res) => {
+		db.Producto.findOne({ where: { identifier: req.query.identifier }})
+        .then((producto) => {
+            if(producto){
+                res.status(200).json({ producto: producto.identifier });
+            } else {
+                res.status(200).json({ producto: undefined });
+            }
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+    },
     allProducts: (req, res) => {
         let page = parseInt(req.query.page);
         if(page) {

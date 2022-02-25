@@ -78,6 +78,7 @@ const userController = {
         }
 	},
     userDetail: (req, res) => {
+        console.log("Hola");
         let id = req.params.id;
 		db.Usuario.findByPk(id)
         .then((usuario) => {

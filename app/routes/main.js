@@ -6,11 +6,10 @@ const mainController = require('../controllers/main');
 const cartItems = require('../middlewares/cartItems'); 
 const validationsContact = require('../middlewares/validateContact'); 
 
-router.get('/', cartItems, mainController.index); //Cualquiera puede ver/entrar a la página principal 
-
 // For contact page
 router.get('/contact', mainController.retrieveContact); //Cualquiera puede ver/entrar a la página de contáctanos 
 
+//For contat us page
 router.post('/contact', validationsContact, mainController.contact); //Cualquiera puede enviar un formulario de contáctanos 
 
 // For about us page
@@ -21,5 +20,8 @@ router.get('/privacy', mainController.retrievePrivacy); //Cualquiera puede ver/e
 
 // For faq page
 router.get('/faq', mainController.retrieveFaq); //Cualquiera puede ver/entrar a la página de contáctanos 
+
+//For home page
+router.get('/', cartItems, mainController.index); //Cualquiera puede ver/entrar a la página principal 
 
 module.exports = router;

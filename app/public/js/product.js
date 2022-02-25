@@ -44,7 +44,11 @@ window.onload = (event) => {
 
     //Form validation in events
     let productName = document.querySelector('input#name');
+    let productPrice = document.querySelector('input#price');
     let productShortDescription = document.querySelector('textarea#shortDescription');
+    let productLongDescription = document.querySelector('textarea#longDescription');
+    let productRating = document.querySelector('input#rating');
+    let productIdentifier = document.querySelector('input#identifier');
     let productImage = document.querySelector('input#imagenPrincipal');
     let globalValidations = document.querySelector('.global');
     let form = document.querySelector('form.productRegister');
@@ -68,6 +72,14 @@ window.onload = (event) => {
         }
     });
 
+    productPrice.addEventListener('blur', () => {
+        if(productPrice.value == ""){
+            productPrice.nextElementSibling.innerText = "El precio del producto no puede estar vacío";
+        } else {
+            productPrice.nextElementSibling.innerText = "";
+        } 
+    });
+
     productShortDescription.addEventListener('blur', () => {
         if(productShortDescription.value == ""){
             productShortDescription.nextElementSibling.innerText = "La descripción corta del producto no puede estar vacía";
@@ -79,6 +91,63 @@ window.onload = (event) => {
             productShortDescription.nextElementSibling.innerText = "La descripción corta del producto debe tener al menos 20 caracteres";
         } else {
             productShortDescription.nextElementSibling.innerText = "";
+        }
+    });
+
+    productLongDescription.addEventListener('blur', () => {
+        if(productLongDescription.value == ""){
+            productLongDescription.nextElementSibling.innerText = "La descripción larga del producto no puede estar vacía";
+        } 
+    });
+
+    productLongDescription.addEventListener('change', () => {
+        if(productLongDescription.value.length < 40){
+            productLongDescription.nextElementSibling.innerText = "La descripción larga del producto debe tener al menos 40 caracteres";
+        } else {
+            productLongDescription.nextElementSibling.innerText = "";
+        }
+    });
+
+    productRating.addEventListener('blur', () => {
+        if(productRating.value == ""){
+            productRating.nextElementSibling.innerText = "La calificación del producto no puede estar vacía";
+        } else {
+            productRating.nextElementSibling.innerText = "";
+        } 
+    });
+
+    productIdentifier.addEventListener('blur', () => {
+        if(productIdentifier.value == ""){
+            productIdentifier.nextElementSibling.innerText = "El identificador del producto no puede estar vacío";
+        } 
+    });
+
+    productIdentifier.addEventListener('change', () => {
+        if(productIdentifier.value.length < 6){
+            productIdentifier.nextElementSibling.innerText = "El identificador del producto debe tener al menos 6 caracteres";
+        } else {
+            productIdentifier.nextElementSibling.innerText = "";
+
+            if(document.title == "Crear producto"){
+                let settings = {
+                    "headers": {
+                        "Access-Control-Allow-Origin": "*",
+                    }
+                };
+    
+                fetch('http://localhost:3500/api/v2/product/identifier?identifier=' + productIdentifier.value, settings)
+                .then((dat) => {
+                    return dat.json();
+                })
+                .then((identifier) => {
+                    if(identifier.producto == productIdentifier.value){
+                        productIdentifier.nextElementSibling.innerText = "El identificador ingresado ya se encuentra en uso. Favor de utilizar uno diferente";
+                    } 
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            }
         }
     });
 

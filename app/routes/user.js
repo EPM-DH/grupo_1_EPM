@@ -15,6 +15,15 @@ const isAdmin = require('../middlewares/isAdmin');
 
 /* CRUD Usuarios */
 
+// To process the user editing
+router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit, userController.update); //Solamente un usuario que este logeado puede editar su perfil
+
+//To delete a user
+router.delete('/delete/:id', authRoutes, userController.delete); //Solamente un usuario que este logeado puede eliminar su cuenta
+
+// To process the rol editing
+router.post('/updateRol/:id', authRoutes, isAdmin, userController.mange); //Solamente un usuario logeado y que sea administrador puede promover a administrador a un usuario
+
 // To retrieve the register page
 router.get('/register', nonAuthRoutes, userController.retrieveRegister); //Solamente un usuario que no este logeado puede ver la página de registro de un usuario
 
@@ -34,16 +43,7 @@ router.get('/logout', authRoutes, userController.logout); //Solamente un usuario
 // To retrieve the user profile page
 router.get('/profile', authRoutes, userController.profile); //Solamente un usuario que este logeado puede ver su perfil
 
-// To process the user editing
-router.put('/edit/:id', authRoutes, uploadFile.single('avatar'), validationsEdit, userController.update); //Solamente un usuario que este logeado puede editar su perfil
-
-//To delete a user
-router.delete('/delete/:id', authRoutes, userController.delete); //Solamente un usuario que este logeado puede eliminar su cuenta
-
 // To retrieve the users rol editing dashboard
 router.get('/manage', authRoutes, isAdmin, userController.retrieveMange); //Solamente un usuario logeado y que sea administrador puede manejar a los usuarios
-
-// To process the rol editing
-router.post('/updateRol/:id', authRoutes, isAdmin, userController.mange); //Solamente un usuario logeado y que sea administrador puede promover a administrador a un usuario
 
 module.exports = router;
