@@ -29,15 +29,14 @@ function CategoriasTotal() {
                 </div>
                 <div className="card-body">
                     <div className="row">
-                        {
-                            
-                            categorias.map((categoria, i) => {
-                                return (
-                                        <div className="col-lg-6 mb-4" key={Object.keys(categoria)+i}>
-                                            <div className="card bg-dark text-white shadow">
-                                                <div className="card-body d-flex justify-content-between align-items-center">{Object.keys(categoria)} <span className="badge bg-primary">{Object.values(categoria)}</span></div>
-                                            </div>
-                                        </div>);
+                        {categorias.length === 0 && <p>No hay categorías existentes por el momento</p>}
+                        {categorias.length > 0 && categorias.map((categoria, i) => {
+                            return (
+                                    <div className="col-lg-6 mb-4" key={Object.keys(categoria)+i}>
+                                        <div className="card bg-dark text-white shadow">
+                                            <div className="card-body d-flex justify-content-between align-items-center">{Object.keys(categoria)} <span className="badge bg-complementary">{Object.values(categoria)}</span></div>
+                                        </div>
+                                    </div>);
                             })
                         }
                     </div>

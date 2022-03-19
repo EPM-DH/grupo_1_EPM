@@ -5,6 +5,7 @@ function FilaProducto(props){
     return (
                 <tr>
                     <td>{props.name}</td>
+                    <td>${props.price}</td>
                     <td>{props.description}</td>
                     <td>
                         <ul>

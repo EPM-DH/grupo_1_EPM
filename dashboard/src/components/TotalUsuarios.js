@@ -17,7 +17,8 @@ function TotalUsuarios() {
             setTotalUsuarios(result.count);
         })
         .catch((e) => {
-            console.log(e);
+            alert('Favor de logearse para poder visualizar información de los usuarios');
+            //console.log(e);
         });
 		
 	}, []);

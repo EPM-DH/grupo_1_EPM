@@ -32,6 +32,7 @@ function ListadoProductos() {
                         <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Precio</th>
                                 <th>Descripción</th>
                                 <th>Categorías</th>
                             </tr>
@@ -39,6 +40,7 @@ function ListadoProductos() {
                         <tfoot>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Precio</th>
                                 <th>Descripción</th>
                                 <th>Categorías</th>
                             </tr>

@@ -28,22 +28,22 @@ function SideBar(){
                 {/*<!-- Heading -->*/}
                 <div className="sidebar-heading">Acciones</div>
 
-                {/*<!-- Nav Item - Pages -->*/}
+                {/*<!-- Nav Item - Last product detail -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/lastProduct">
-                        <i className="fas fa-fw fa-folder"></i>
+                        <i className="fas fa-info-circle"></i>
                         <span>Detalle último producto</span>
                     </Link>
                 </li>
 
-                {/*<!-- Nav Item - Charts -->*/}
+                {/*<!-- Nav Item - Total # of products per category -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/totalCategoriesProducts">
-                        <i className="fas fa-fw fa-chart-area"></i>
+                        <i className="fas fa-th-list"></i>
                         <span>Total de productos por categoría</span></Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
+                {/*<!-- Nav Item - Table with all registered products -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/productsList">
                         <i className="fas fa-fw fa-table"></i>
