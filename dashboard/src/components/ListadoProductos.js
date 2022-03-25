@@ -23,8 +23,7 @@ function ListadoProductos() {
 	}, []);
 
     return (
-        /* <!-- DataTales Example --> */
-        <div className="card shadow mb-4">
+        productos && <div className="card shadow mb-4">
             <div className="card-body">
                 <h2>Lista de productos registrados</h2>
                 <div className="table-responsive">
