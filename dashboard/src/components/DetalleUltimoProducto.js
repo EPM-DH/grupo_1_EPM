@@ -35,14 +35,16 @@ function DetalleUltimoProducto() {
                     <div className="text-center">
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={producto.image} alt="Imagen ultimo producto"/>
                     </div>
+                    <h6><strong>Descripción corta</strong></h6>
                     <p>{producto.description}</p>
+                    <h6><strong>Precio producto</strong></h6>
                     <p className="precio-producto">${producto.price}</p>
+                    <h6><strong>Categorías del producto</strong></h6>
                     <ul>
-                        {producto && <p>Este producto no tiene categorías asociadas</p>}
-                        {/*producto.categories.length > 0 && producto.categories.map((categoria, i) => {
+                        {producto.categories.length > 0 ? producto.categories.map((categoria, i) => {
                                 return <li key={categoria+i}>{categoria}</li>
-                            })
-                        */}
+                            }) : <p>Este producto no tiene categorías asociadas</p>
+                        }
                     </ul>
                     {/*<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle del producto</a>*/}
                 </div>
