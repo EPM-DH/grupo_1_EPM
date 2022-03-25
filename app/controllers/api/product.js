@@ -38,8 +38,10 @@ const productController = {
                             id : product.id,
                             name : product.name,
                             description: product.shortDescription,
+                            price: product.price,
                             categories: catego,
                             detail : basePath.basePath + 'api/v2/product/' + product.id,
+                            image : basePath.basePath + 'img/products/' + product.image, 
                         });
                         
                     }
@@ -101,8 +103,10 @@ const productController = {
                             id : product.id,
                             name : product.name,
                             description: product.shortDescription,
+                            price: product.price,
                             categories: catego,
                             detail : basePath.basePath + 'api/v2/product/' + product.id,
+                            image : basePath.basePath + 'img/products/' + product.image, 
                         });
                         
                     }
@@ -146,6 +150,7 @@ const productController = {
                     id : producto.id,
                     name : producto.name,
                     description: producto.shortDescription,
+                    price: producto.price,
                     categories: catego,
                     image : basePath.basePath + 'img/products/' + producto.image, 
 
