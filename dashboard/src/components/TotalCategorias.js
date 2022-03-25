@@ -23,7 +23,7 @@ function TotalCategorias() {
 	}, []);
 
 	return(
-		<SmallCard color="warning" title="Total de Categorias" quantity={totalCategorias} icon="fab fa-buffer"/>
+		totalCategorias && <SmallCard color="warning" title="Total de Categorias" quantity={totalCategorias} icon="fab fa-buffer"/>
 	);
 }
 

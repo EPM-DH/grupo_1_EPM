@@ -23,7 +23,7 @@ function TotalProductos() {
 	}, []);
 
 	return(
-		<SmallCard color="primary" title="Total de productos" quantity={totalProductos} icon="fas fa-shopping-basket"/>
+		totalProductos && <SmallCard color="primary" title="Total de productos" quantity={totalProductos} icon="fas fa-shopping-basket"/>
 	);
 }
 
