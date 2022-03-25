@@ -14,6 +14,8 @@ const productRouter = require('./routes/product');
 const cartRouter = require('./routes/cart');
 const orderRouter = require('./routes/order');
 const wishlistRouter = require('./routes/wishlist');
+const userApiRouter = require('./routes/api/user');
+const productApiRouter = require('./routes/api/product');
 const userLogged = require('./middlewares/userLogged');
 //const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
 const logger = require('./middlewares/logger'); //Only needed when working with JSON files
@@ -29,6 +31,7 @@ app.use(session({ secret: "Nuestro mensaje secreto", //Debe ir antes de que se e
                   saveUninitialized: false }));
 app.use(cookieParser()); 
 //app.use(userActivity); //Only needed when working with JSON files
+app.set("view engine", "ejs");
 app.use(userLogged);
 app.use(logger);
 app.use(cartItems);
@@ -39,10 +42,15 @@ app.use('/product', productRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
 app.use('/wishlist', wishlistRouter); 
-app.set("view engine", "ejs");
+app.use('/api/v2/user', userApiRouter); 
+app.use('/api/v2/product', productApiRouter);
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
 
 app.use((req, res, next) => {
     res.status(404).render('not-found');
 });
+
+let basePath = `http://localhost:${port}/`;
+
+exports.basePath = basePath;

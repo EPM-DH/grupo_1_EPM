@@ -145,7 +145,7 @@ const wishlistController = {
             //Notify user about wishlist action
             let notification = {activo: 1, accion: "agregación", accionDos: "agregado", elemento: "elemento de la wishlist", nombre: producto.name, tipo: "bg-success"};
 
-            let wishId = parseInt(listIdentifier[3]);
+            let wishId = parseInt(listIdentifier[5]);
 
             //Si ya existe en la wishlist
             db.Productos_Lista_de_deseos.count({ where: { [Op.and]: [

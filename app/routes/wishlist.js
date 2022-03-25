@@ -6,9 +6,6 @@ const wishlistController = require('../controllers/wishlist');
 const authRoutes = require('../middlewares/authRoutes'); 
 const validationsWishlist = require('../middlewares/validateWishlist'); 
 
-//To view the wishlist page
-router.get('/', authRoutes, wishlistController.retrieveWishlist); //Solamente un usuario que este logeado puede ver sus listas
-
 // To process the new list creation 
 router.post('/create/:id', authRoutes, validationsWishlist, wishlistController.create); //Solamente un usuario logeado puede crear una lista
 
@@ -23,5 +20,8 @@ router.delete('/delete/:id', authRoutes, wishlistController.deleteItem); //Solam
 
 //To delete a list from a wishlist
 router.delete('/deleteList/:id', authRoutes, wishlistController.delete); //Solamente un usuario logeado puede eliminar una lista de una wishlist
+
+//To view the wishlist page
+router.get('/', authRoutes, wishlistController.retrieveWishlist); //Solamente un usuario que este logeado puede ver sus listas
 
 module.exports = router;

@@ -1,76 +1,51 @@
+El usuario Guest ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/logout
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /api/v2/user?page=1
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user?page=1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/product?page=1
+El usuario Guest ingresó en la ruta /api/v2/user/1
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user?page=1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product?page=1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
 El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /favicon.ico
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Jonathan Alvarez ingresó en la ruta /
-El usuario Jonathan Alvarez ingresó en la ruta /product
-El usuario Jonathan Alvarez ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /favicon.ico
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /user/profile
-El usuario Administrador General ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Administrador General ingresó en la ruta /
-El usuario Administrador General ingresó en la ruta /wishlist
-El usuario Administrador General ingresó en la ruta /order
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /cart/add/1
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /cart
-El usuario Administrador General ingresó en la ruta /wishlist
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /cart
-El usuario Administrador General ingresó en la ruta /cart/delete/2?_method=DELETE
-El usuario Administrador General ingresó en la ruta /cart
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product/create
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /cart/add/1
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /cart
-El usuario Administrador General ingresó en la ruta /wishlist
-El usuario Administrador General ingresó en la ruta /product
-El usuario Administrador General ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Jonathan Alvarez ingresó en la ruta /
-El usuario Jonathan Alvarez ingresó en la ruta /wishlist
-El usuario Jonathan Alvarez ingresó en la ruta /product
-El usuario Jonathan Alvarez ingresó en la ruta /product
-El usuario Jonathan Alvarez ingresó en la ruta /wishlist
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
 El usuario Guest ingresó en la ruta /user/login
 El usuario Jonathan Alvarez ingresó en la ruta /
-El usuario Jonathan Alvarez ingresó en la ruta /wishlist
-El usuario Jonathan Alvarez ingresó en la ruta /product
+El usuario Jonathan Alvarez ingresó en la ruta /img/users/51307882275_7479b2422c_1645168108965.jpg
 El usuario Jonathan Alvarez ingresó en la ruta /user/profile
-El usuario Jonathan Alvarez ingresó en la ruta /order
-El usuario Jonathan Alvarez ingresó en la ruta /wishlist
+El usuario Jonathan Alvarez ingresó en la ruta /img/users/51307882275_7479b2422c_1645168108965.jpg
+El usuario Jonathan Alvarez ingresó en la ruta /user/edit/3?_method=PUT
+El usuario Jonathan Alvarez ingresó en la ruta /img/users/51307882275_7479b2422c_1645168108965.jpg
+El usuario Jonathan Alvarez ingresó en la ruta /user/edit/3?_method=PUT
+El usuario Jonathan Alvarez ingresó en la ruta /img/users/51307882275_7479b2422c_1645168108965.jpg
+El usuario Jonathan Alvarez ingresó en la ruta /user/profile
+El usuario Jonathan Alvarez ingresó en la ruta /img/users/51307882275_7479b2422c_1645168108965.jpg
+El usuario Jonathan Alvarez ingresó en la ruta /product
+El usuario Jonathan Alvarez ingresó en la ruta /img/users/51307882275_7479b2422c_1645168108965.jpg
