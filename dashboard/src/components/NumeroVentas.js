@@ -2,19 +2,19 @@ import React from "react";
 import SmallCard from './SmallCard';
 import { useEffect, useState } from 'react';
 
-function TotalCategorias() {
-    const [totalCategorias, setTotalCategorias] = useState(0);
+function NumeroVentas() {
+    const [numeroVentas, setTotalNumeroVentas] = useState(0);
 
 	// Para API
 	const path = '/api/v2/';
 
 	useEffect(() => {
-        fetch(`${path}product`)
+        fetch(`${path}order`)
         .then((data) => {
             return data.json();
         })
         .then((result) => {
-            setTotalCategorias(result.countByCategory.length);
+            setTotalNumeroVentas(result.numberOfOrders);
         })
         .catch((e) => {
             console.log(e);
@@ -23,8 +23,8 @@ function TotalCategorias() {
 	}, []);
 
 	return(
-		<SmallCard color="warning" title="Total de Categorias" quantity={totalCategorias} icon="fab fa-buffer"/>
+		<SmallCard color="danger" title="Numero de Ventas" quantity={numeroVentas} icon="fas fa-hashtag"/>
 	);
 }
 
-export default TotalCategorias;
+export default NumeroVentas;
