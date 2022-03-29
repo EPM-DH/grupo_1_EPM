@@ -24,7 +24,7 @@ function TotalUsuarios() {
 	}, []);
 
 	return(
-		totalUsuarios && <SmallCard color="success" title="Total de Usuarios" quantity={totalUsuarios} icon="fas fa-user"/>
+		<SmallCard color="success" title="Total de Usuarios" quantity={totalUsuarios} icon="fas fa-user"/>
 	);
 }
 
