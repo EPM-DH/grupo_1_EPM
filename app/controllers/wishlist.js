@@ -127,6 +127,11 @@ const wishlistController = {
         let id = parseInt(req.params.id); //Id del producto a agregar a la Wishlist
         let listIdentifier = req.query.wishlist; //Identificador de la wishlist
 
+        //'tes61_12'
+        //Words = First 3 letters of chosen name for the list (tes)
+        //First section = user id (61)
+        //Second section = list id (12)
+
         //JSON
         //let list = Wishlist.findByField('identifier', listIdentifier);
         //let producto = Product.findByPk(id);
@@ -135,17 +140,17 @@ const wishlistController = {
         let product = db.Producto.findByPk(id);
 
         Promise.all([lista, product])
-        .then(([list, producto]) => {
+        .then(([lista, producto]) => {
             if(producto != undefined){
-                return Promise.resolve([list, producto]);
+                return Promise.resolve([lista, producto]);
             }
             return Promise.reject();
         })
-        .then(([list, producto]) => { //If true -> Continue 
+        .then(([lista, producto]) => { //If true -> Continue 
             //Notify user about wishlist action
             let notification = {activo: 1, accion: "agregación", accionDos: "agregado", elemento: "elemento de la wishlist", nombre: producto.name, tipo: "bg-success"};
 
-            let wishId = parseInt(listIdentifier[5]);
+            let wishId = parseInt(listIdentifier.substr(listIdentifier.indexOf('_') + 1, listIdentifier.length));
 
             //Si ya existe en la wishlist
             db.Productos_Lista_de_deseos.count({ where: { [Op.and]: [

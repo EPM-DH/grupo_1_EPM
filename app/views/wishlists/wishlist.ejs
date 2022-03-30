@@ -15,6 +15,10 @@
                             No tienes ninguna lista de deseos creada hasta el momento
                           </h2>
                         </div>
+                        <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">
+                            <button class="boton-estandar boton-flex" data-toggle="modal" data-target="#addWishlistModal">Crear nueva</button>    
+                        </div>
+                        <%- include('../partials/wishlistModal.ejs') %> 
                     </div></div></div></div>
                     <% } else { %>
                         <div class="d-flex flex-row justify-content-center col-md-2 col-12 flexNoCenter">

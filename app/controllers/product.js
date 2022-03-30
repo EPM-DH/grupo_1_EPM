@@ -1,5 +1,6 @@
-//const fs = require('fs');
-//const path = require('path');
+//For working with multer
+const fs = require('fs');
+const path = require('path');
 
 //To import categories
 //const categoriesFilePath = path.join(__dirname, '../data/categories.json');
@@ -509,7 +510,7 @@ const productController = {
 		//JSON
 		//let producto = Product.findByPk(id);
 		//MySQL
-		db.Producto.findByPk()
+		db.Producto.findByPk(id)
 		.then((producto) => {
 			if(producto != undefined){
 				return Promise.resolve(producto);
@@ -523,11 +524,24 @@ const productController = {
 			//Remover producto eliminado de la wishlist
 			let lista = db.Productos_Lista_de_deseos.destroy({ where: { producto_id: id }});
 
+			//Remover producto eliminado de la tabla de categorías
+			let categoria = db.Productos_Categorias.destroy({ where: { producto_id: id }});
+
 			//Eliminar de los productos
 			let product = db.Producto.destroy({ where: { id: id }});
 
-			Promise.all([carrito, lista, product])
+			Promise.all([carrito, lista, categoria, product])
 			.then(() => {
+				//Destroy image saved by multer
+				fs.unlinkSync(path.join(__dirname, '/../public/img/products', producto.image), (err) => {
+					if (err) {
+						console.error(err);
+						return;
+					}
+				
+					console.log('File removed successfully');
+				});
+
 				//Notify user about product deletion
 				let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "producto", nombre: producto.name, tipo: "bg-danger"};
 
