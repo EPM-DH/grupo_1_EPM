@@ -1,75 +1,8 @@
-El usuario Guest ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/user/1
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/product
 El usuario Guest ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /search
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=lupita.rangel1@hotmail.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/login
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /cart
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /order
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /wishlist
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/profile
-El usuario Ma Guadalupe Adriana Rangel ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/manage
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/iuredebitisatque.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/maioresexcepturiexplicabo.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/velquieaque.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/autvoluptatibusquod.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/dictanostrumfacilis.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/suscipitindistinctio.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/fugiteta.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/delectuslaborumofficia.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/oditquiipsum.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/optiodoloreaut.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/quisquamutvoluptatem.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/aliquamidnihil.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/voluptatemvoluptatibusminus.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/utessequi.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/odioquoquia.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/quiaasperioresanimi.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/quiaconsequunturoptio.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/providentenimet.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/odioaccusamusreprehenderit.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/corporisquisquamneque.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/fugiatipsamomnis.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/etdoloroccaecati.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/optiosuntneque.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/voluptatemaquia.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/omnisaccusamusut.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/aspernaturassumendacommodi.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/harumeaesse.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/quieaquecupiditate.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/inventorehicvoluptatum.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/nesciuntveroasperiores.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /cart
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /cart/add/3
 El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /cart/add/1
 El usuario Guest ingresó en la ruta /product
@@ -78,18 +11,10 @@ El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /cart
 El usuario Guest ingresó en la ruta /cart/increase/1
 El usuario Guest ingresó en la ruta /cart
-El usuario Guest ingresó en la ruta /sdfsfsdfds
-El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /sdsfdf
+El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /product/50
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /profile
-El usuario Guest ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /contact
-El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /product/5000
 El usuario Guest ingresó en la ruta /product
 El usuario Guest ingresó en la ruta /user/profile
 El usuario Guest ingresó en la ruta /user/login
@@ -98,226 +23,76 @@ El usuario Guest ingresó en la ruta /contact
 El usuario Guest ingresó en la ruta /faq
 El usuario Guest ingresó en la ruta /privacy
 El usuario Guest ingresó en la ruta /search
+El usuario Guest ingresó en la ruta /search
 El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
+El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=dfsdf@email.com
 El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
 El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/register
 El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=asasa@email.com
 El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
 El usuario Guest ingresó en la ruta /user/login
 El usuario Test Test ingresó en la ruta /
 El usuario Test Test ingresó en la ruta /cart/include
 El usuario Test Test ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /cart/add/39
-El usuario Test Test ingresó en la ruta /
 El usuario Test Test ingresó en la ruta /cart
-El usuario Test Test ingresó en la ruta /cart/increase/20
+El usuario Test Test ingresó en la ruta /cart/delete/26?_method=DELETE
 El usuario Test Test ingresó en la ruta /cart
-El usuario Test Test ingresó en la ruta /cart/delete/21?_method=DELETE
-El usuario Test Test ingresó en la ruta /cart
-El usuario Test Test ingresó en la ruta /login
-El usuario Test Test ingresó en la ruta /user/login
-El usuario Test Test ingresó en la ruta /user/profile
+El usuario Test Test ingresó en la ruta /cart/increase/25
 El usuario Test Test ingresó en la ruta /cart
 El usuario Test Test ingresó en la ruta /user/login
 El usuario Test Test ingresó en la ruta /user/profile
 El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/create/1
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Guest ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_12
-El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/delete/1?_method=DELETE&wishlist=12
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/deleteList/12?_method=DELETE
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/create/0
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/deleteList/13?_method=DELETE
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /wishlist
 El usuario Test Test ingresó en la ruta /wishlist/create/0
 El usuario Test Test ingresó en la ruta /wishlist
 El usuario Test Test ingresó en la ruta /product
 El usuario Test Test ingresó en la ruta /product/1
-El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes61_14
+El usuario Test Test ingresó en la ruta /wishlist/add/1?wishlist=tes69_18
 El usuario Test Test ingresó en la ruta /product/1
 El usuario Test Test ingresó en la ruta /product
 El usuario Test Test ingresó en la ruta /product/2
-El usuario Test Test ingresó en la ruta /wishlist/add/2?wishlist=tes61_14
+El usuario Test Test ingresó en la ruta /wishlist/create/2
+El usuario Test Test ingresó en la ruta /product/2
+El usuario Test Test ingresó en la ruta /wishlist/add/2?wishlist=tes69_19
 El usuario Test Test ingresó en la ruta /product/2
 El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /cart
-El usuario Test Test ingresó en la ruta /cart/delete/20?_method=DELETE
-El usuario Test Test ingresó en la ruta /cart
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /cart/add/2?wishlist=14
+El usuario Test Test ingresó en la ruta /wishlist/edit/18?_method=PUT
 El usuario Test Test ingresó en la ruta /wishlist
 El usuario Test Test ingresó en la ruta /cart
 El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/edit/14?_method=PUT
+El usuario Test Test ingresó en la ruta /cart/add/2?wishlist=19
 El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/delete/1?_method=DELETE&wishlist=14
+El usuario Test Test ingresó en la ruta /cart
 El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/deleteList/14?_method=DELETE
+El usuario Test Test ingresó en la ruta /wishlist/delete/1?_method=DELETE&wishlist=18
 El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/create/0
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /wishlist/create/0
-El usuario Test Test ingresó en la ruta /wishlist
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/2
-El usuario Test Test ingresó en la ruta /wishlist/add/2?wishlist=tes61_15
-El usuario Test Test ingresó en la ruta /product/2
-El usuario Test Test ingresó en la ruta /wishlist/add/2?wishlist=tes61_16
-El usuario Test Test ingresó en la ruta /product/2
-El usuario Test Test ingresó en la ruta /product
-El usuario Test Test ingresó en la ruta /product/4
-El usuario Test Test ingresó en la ruta /wishlist/add/4?wishlist=tes61_15
-El usuario Test Test ingresó en la ruta /product/4
+El usuario Test Test ingresó en la ruta /wishlist/deleteList/18?_method=DELETE
 El usuario Test Test ingresó en la ruta /wishlist
 El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /user/edit/61?_method=PUT
+El usuario Test Test ingresó en la ruta /user/edit/69?_method=PUT
 El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /user/edit/61?_method=PUT
-El usuario Test Test ingresó en la ruta /user/edit/61?_method=PUT
-El usuario Test Test ingresó en la ruta /user/profile
+El usuario Testing Test ingresó en la ruta /user/edit/69?_method=PUT
+El usuario Testing Test ingresó en la ruta /user/delete/69?_method=DELETE
+El usuario Testing Test ingresó en la ruta /user/profile
 El usuario Testing Test ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Guest ingresó en la ruta /user/
-El usuario Guest ingresó en la ruta /
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /
-El usuario Testing Test ingresó en la ruta /product
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/61?_method=DELETE
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /
-El usuario Testing Test ingresó en la ruta /user/login
-El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario test Test ingresó en la ruta /
-El usuario test Test ingresó en la ruta /user/profile
-El usuario test Test ingresó en la ruta /user/delete/62?_method=DELETE
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Test Test ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /user/delete/63?_method=DELETE
-El usuario Test Test ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Testing Test ingresó en la ruta /
+El usuario Testing Test ingresó en la ruta /product/1
 El usuario Testing Test ingresó en la ruta /cart/add/1
+El usuario Testing Test ingresó en la ruta /product/1
+El usuario Testing Test ingresó en la ruta /cart
+El usuario Testing Test ingresó en la ruta /cart/increase/28
+El usuario Testing Test ingresó en la ruta /cart
+El usuario Testing Test ingresó en la ruta /cart/increase/28
+El usuario Testing Test ingresó en la ruta /cart
+El usuario Testing Test ingresó en la ruta /cart/increase/28
+El usuario Testing Test ingresó en la ruta /cart
+El usuario Testing Test ingresó en la ruta /user/profile
+El usuario Guest ingresó en la ruta /product
 El usuario Testing Test ingresó en la ruta /
-El usuario Testing Test ingresó en la ruta /cart/add/3
-El usuario Testing Test ingresó en la ruta /
-El usuario Testing Test ingresó en la ruta /cart
-El usuario Testing Test ingresó en la ruta /cart/increase/23
-El usuario Testing Test ingresó en la ruta /cart
-El usuario Testing Test ingresó en la ruta /cart/increase/24
-El usuario Testing Test ingresó en la ruta /cart
-El usuario Testing Test ingresó en la ruta /wishlist
-El usuario Testing Test ingresó en la ruta /wishlist/create/0
 El usuario Testing Test ingresó en la ruta /wishlist
 El usuario Testing Test ingresó en la ruta /user/profile
-El usuario Testing Test ingresó en la ruta /user/delete/64?_method=DELETE
+El usuario Testing Test ingresó en la ruta /user/delete/69?_method=DELETE
 El usuario Testing Test ingresó en la ruta /user/logout
 El usuario Guest ingresó en la ruta /
 El usuario Guest ingresó en la ruta /user/login
@@ -325,11 +100,10 @@ El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.c
 El usuario Guest ingresó en la ruta /user/login
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/manage
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/iuredebitisatque.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/maioresexcepturiexplicabo.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/suscipitindistinctio.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/velquieaque.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/autvoluptatibusquod.png?size=50x50&set=set1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/maioresexcepturiexplicabo.png?size=50x50&set=set1
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/velquieaque.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/dictanostrumfacilis.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/fugiteta.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/delectuslaborumofficia.png?size=50x50&set=set1
@@ -355,9 +129,8 @@ El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://rob
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/quieaquecupiditate.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/inventorehicvoluptatum.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/nesciuntveroasperiores.png?size=50x50&set=set1
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/updateRol/4
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/updateRol/5
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/manage
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/suscipitindistinctio.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/maioresexcepturiexplicabo.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/velquieaque.png?size=50x50&set=set1
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://robohash.org/autvoluptatibusquod.png?size=50x50&set=set1
@@ -389,100 +162,45 @@ El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /img/users/https://rob
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/create
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product/identifier?identifier=Momentum
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product/identifier?identifier=testing45
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product/identifier?identifier=Test123
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/create
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/40?_method=PUT
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/41
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/41
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/41
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/edit/41?_method=PUT
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/41
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/delete/40?_method=DELETE
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/41
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/delete/41?_method=DELETE
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/register
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/profile
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /order
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /user/logout
 El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/order
 El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Test Adriana Rangel ingresó en la ruta /
-El usuario Test Adriana Rangel ingresó en la ruta /user/profile
-El usuario Test Adriana Rangel ingresó en la ruta /user/delete/65?_method=DELETE
-El usuario Test Adriana Rangel ingresó en la ruta /user/profile
-El usuario Guest ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Test Test ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /user/delete/66?_method=DELETE
-El usuario Guest ingresó en la ruta /user
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Test Test ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /user/delete/67?_method=DELETE
-El usuario Guest ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/register
-El usuario Guest ingresó en la ruta /user/login
-El usuario Guest ingresó en la ruta /api/v2/user/email?email=test@email.com
-El usuario Guest ingresó en la ruta /user/login
-El usuario Test Test ingresó en la ruta /
-El usuario Test Test ingresó en la ruta /user/profile
-El usuario Test Test ingresó en la ruta /user/delete/68?_method=DELETE
-El usuario Test Test ingresó en la ruta /user/logout
-El usuario Guest ingresó en la ruta /
-El usuario Guest ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
 El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /api/v2/user/email?email=jujuan27@hotmail.com
 El usuario Guest ingresó en la ruta /user/login
 El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Guest ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/delete/40?_method=DELETE
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Guest ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/40
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/delete/40?_method=DELETE
-El usuario Guest ingresó en la ruta /
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/39
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product/delete/39?_method=DELETE
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /product
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /cart
-El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/user
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/order
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product
+El usuario Juan Manuel Ledesma Rangel ingresó en la ruta /api/v2/product

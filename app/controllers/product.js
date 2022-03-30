@@ -517,18 +517,18 @@ const productController = {
 			}
 			return Promise.reject();
 		})
-		.then((producto) => { //If true -> Procedemos con la eliminación
+		.then(async (producto) => { //If true -> Procedemos con la eliminación
 			//Remover producto eliminado del carrito 
-			let carrito = db.Carrito.destroy({ where: { producto_id: id }});
+			let carrito = await db.Carrito.destroy({ where: { producto_id: id }});
 
 			//Remover producto eliminado de la wishlist
-			let lista = db.Productos_Lista_de_deseos.destroy({ where: { producto_id: id }});
+			let lista = await db.Productos_Lista_de_deseos.destroy({ where: { producto_id: id }});
 
 			//Remover producto eliminado de la tabla de categorías
-			let categoria = db.Productos_Categorias.destroy({ where: { producto_id: id }});
+			let categoria = await db.Productos_Categorias.destroy({ where: { producto_id: id }});
 
 			//Eliminar de los productos
-			let product = db.Producto.destroy({ where: { id: id }});
+			let product = await db.Producto.destroy({ where: { id: id }});
 
 			Promise.all([carrito, lista, categoria, product])
 			.then(() => {
