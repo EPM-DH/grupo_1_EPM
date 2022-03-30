@@ -403,7 +403,7 @@ const userController = {
 			}
 			return Promise.reject();
 		})
-		.then((usuario) => { //If true -> Si existe el usuario a eliminar
+		.then( async (usuario) => { //If true -> Si existe el usuario a eliminar
 			//JSON
 			//Delete the user cart as well
 			//Cart.deleteCartByUserId(id);
@@ -412,10 +412,10 @@ const userController = {
 			//User.delete(id);
 
 			//MySQL
-			let deleteCart = db.Carrito.destroy({ where: { usuario_id: id }});
-			let deleteWishlistMiddle = db.sequelize.query('DELETE pl FROM Productos_Lista_de_deseos as pl INNER JOIN Lista_de_deseos as l ON l.id = pl.lista_de_deseo_id WHERE l.usuario_id = ' + id);
-			let deleteWishlist = db.Lista_de_deseo.destroy({ where: { usuario_id: id }});
-			let deleteUser = db.Usuario.destroy({ where: { id: id }});
+			let deleteCart = await db.Carrito.destroy({ where: { usuario_id: id }});
+			let deleteWishlistMiddle = await db.sequelize.query('DELETE pl FROM Productos_Lista_de_deseos as pl INNER JOIN Lista_de_deseos as l ON l.id = pl.lista_de_deseo_id WHERE l.usuario_id = ' + id);
+			let deleteWishlist = await db.Lista_de_deseo.destroy({ where: { usuario_id: id }});
+			let deleteUser = await db.Usuario.destroy({ where: { id: id }});
 
 			//Promise all
 			Promise.all([deleteCart, deleteWishlistMiddle, deleteWishlist, deleteUser])
