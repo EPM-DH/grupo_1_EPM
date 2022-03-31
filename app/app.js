@@ -16,6 +16,7 @@ const orderRouter = require('./routes/order');
 const wishlistRouter = require('./routes/wishlist');
 const userApiRouter = require('./routes/api/user');
 const productApiRouter = require('./routes/api/product');
+const orderApiRouter = require('./routes/api/order');
 const userLogged = require('./middlewares/userLogged');
 //const userActivity = require('./middlewares/userActivity'); //Only needed when working with JSON files
 const logger = require('./middlewares/logger'); //Only needed when working with JSON files
@@ -44,6 +45,7 @@ app.use('/order', orderRouter);
 app.use('/wishlist', wishlistRouter); 
 app.use('/api/v2/user', userApiRouter); 
 app.use('/api/v2/product', productApiRouter);
+app.use('/api/v2/order', orderApiRouter);
 
 app.listen(port, () => console.log(`Servidor corriendo en puerto ${port}`));
 

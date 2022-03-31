@@ -373,3 +373,62 @@ pass: Hola1234/
 - Deberá ser un archivo válido (JPG, JPEG, PNG, GIF).
 ○ (Opcional) Tablas secundarias
 - Verificar que los valores existan en base. Es decir, que los valores de talles, colores, etc. que lleguen sean válidos en la base.
+
+Sprint 8
+
+1. Realizar un breve retrospectiva.
+
+Se dejan todas retrospectivas en el archivo retro.md
+
+2. Actualizar el tablero de trabajo
+
+Tablero de Trello
+https://trello.com/invite/b/uCNikJ9O/acf08b6c20cf7c698f246943e431067e/proyecto-integrador-e1-dh
+
+Repositorio Github
+https://github.com/EPM-DH/grupo_1_EPM.git
+
+3. Implementar daily / weekly standups.
+
+Se actualiza el archivo weekly.md
+
+4. API de usuarios.
+
+Se debe atentificar para ver esta informacion
+
+api/users/
+http://localhost:3500/api/v2/
+
+api/users/:id
+http://localhost:3500/api/v2/user/1
+
+api/users/email
+http://localhost:3500/api/v2/product
+
+5. API de productos
+
+Caulquiera la puede visualizar
+
+api/products/
+http://localhost:3500/api/v2/product/
+
+api/products/:i
+http://localhost:3500/api/v2/product/1
+
+Se debe atentificar para ver esta informacion
+
+api/products/identifier
+http://localhost:3500/api/v2/product/identifier
+
+6. API de ordenes
+
+Caulquiera la puede visualizar
+
+api/order/
+http://localhost:3500/api/v2/order/
+
+7. Dashboard en React
+
+Accesible desde la carpeta dashboard dede npm start en 
+http://localhost:3000/
+

@@ -1,6 +1,9 @@
 const { validationResult } = require('express-validator');
 //For hashing the password
 const bcrypt = require('bcryptjs');
+//For working with multer
+const fs = require('fs');
+const path = require('path');
 
 //Models for JSON
 const User = require('../models/User');
@@ -396,11 +399,11 @@ const userController = {
 		db.Usuario.findByPk(id)
 		.then((usuario) => {
 			if(usuario != undefined){
-				Promise.resolve(usuario);
+				return Promise.resolve(usuario);
 			}
-			Promise.reject();
+			return Promise.reject();
 		})
-		.then((usuario) => { //If true -> Si existe el usuario a eliminar
+		.then( async (usuario) => { //If true -> Si existe el usuario a eliminar
 			//JSON
 			//Delete the user cart as well
 			//Cart.deleteCartByUserId(id);
@@ -409,13 +412,27 @@ const userController = {
 			//User.delete(id);
 
 			//MySQL
-			let deleteCart = db.Carrito.destroy({ where: { usuario_id: id }});
-			let deleteWishlist = db.Lista_de_deseo.destroy({ where: { usuario_id: id }});
-			let deleteUser = db.Usuario.destroy({ where: { id: id }});
+			let deleteCart = await db.Carrito.destroy({ where: { usuario_id: id }});
+			let deleteWishlistMiddle = await db.sequelize.query('DELETE pl FROM Productos_Lista_de_deseos as pl INNER JOIN Lista_de_deseos as l ON l.id = pl.lista_de_deseo_id WHERE l.usuario_id = ' + id);
+			let deleteWishlist = await db.Lista_de_deseo.destroy({ where: { usuario_id: id }});
+			let deleteUser = await db.Usuario.destroy({ where: { id: id }});
 
 			//Promise all
-			Promise.all([deleteCart, deleteWishlist, deleteUser])
+			Promise.all([deleteCart, deleteWishlistMiddle, deleteWishlist, deleteUser])
 			.then(() => {
+
+				if(usuario.avatar != 'default.png'){
+					//Destroy image saved by multer
+					fs.unlinkSync(path.join(__dirname, '/../public/img/users', usuario.avatar), (err) => {
+						if (err) {
+							console.error(err);
+							return;
+						}
+					
+						console.log('File removed successfully');
+					});
+				}
+
 				//Notify user about user deletion
 				let notification = {activo: 1, accion: "eliminación", accionDos: "eliminado", elemento: "usuario", nombre: usuario.firstName, tipo: "bg-danger"};
 

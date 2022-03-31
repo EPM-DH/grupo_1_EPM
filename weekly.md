@@ -63,3 +63,9 @@ Se ajustaron detalles del Script
 14/2/2021
 Se trabajo en las notificacionenes en el Front
 Se acordo dar revisiones en busca de errores
+
+24/3/2021
+Se actualizaron tablas y recursos en el codigo
+Se acordo dar revisiones en busca de errores
+Se acordo crear un video para poder presentar el projecto integrador
+
