@@ -380,3 +380,150 @@ El usuario Guest ingresó en la ruta /api/v2/product
 El usuario Guest ingresó en la ruta /api/v2/user/abejotav1@gmail.com
 El usuario Guest ingresó en la ruta /user/login
 El usuario Guest ingresó en la ruta /api/v2/user/email
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /favicon.ico
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /favicon.ico
+El usuario Guest ingresó en la ruta /api/v2/
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo2@dominio.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user/
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user/1
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/product
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user/1
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user/email
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/product/
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/product/1
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/product/identifier
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/order/
+El usuario Jonathan Alvarez ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /user/login
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /product
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo2@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Usuario Generico ingresó en la ruta /
+El usuario Usuario Generico ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo2@dominio.com
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /product
+El usuario Administrador General ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /api/v2/user
+El usuario Administrador General ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /api/v2/user/1
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /api/v2/user/1
+El usuario Administrador General ingresó en la ruta /api/v2/user/email
+El usuario Administrador General ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/user/email
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/product/
+El usuario Guest ingresó en la ruta /api/v2/product/1
+El usuario Guest ingresó en la ruta /api/v2/product/identifier
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /api/v2/product/identifier
+El usuario Administrador General ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/product/identifier
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=abejotav1@gmail.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Jonathan Alvarez ingresó en la ruta /
+El usuario Jonathan Alvarez ingresó en la ruta /user/logout
+El usuario Guest ingresó en la ruta /
+El usuario Guest ingresó en la ruta /api/v2/order/
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/user
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /api/v2/order
+El usuario Guest ingresó en la ruta /api/v2/product
+El usuario Guest ingresó en la ruta /user/login
+El usuario Guest ingresó en la ruta /api/v2/user/email?email=correo@dominio.com
+El usuario Guest ingresó en la ruta /user/login
+El usuario Administrador General ingresó en la ruta /
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/user
+El usuario Administrador General ingresó en la ruta /api/v2/order
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/order
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/order
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/user
+El usuario Administrador General ingresó en la ruta /api/v2/order
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/order
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/order
+El usuario Administrador General ingresó en la ruta /api/v2/product
+El usuario Administrador General ingresó en la ruta /api/v2/user

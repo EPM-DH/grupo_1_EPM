@@ -397,13 +397,11 @@ Se actualiza el archivo weekly.md
 Se debe atentificar para ver esta informacion
 
 api/users/
-http://localhost:3500/api/v2/
+http://localhost:3500/api/v2/user
 
 api/users/:id
 http://localhost:3500/api/v2/user/1
 
-api/users/email
-http://localhost:3500/api/v2/product
 
 5. API de productos
 
@@ -415,10 +413,6 @@ http://localhost:3500/api/v2/product/
 api/products/:i
 http://localhost:3500/api/v2/product/1
 
-Se debe atentificar para ver esta informacion
-
-api/products/identifier
-http://localhost:3500/api/v2/product/identifier
 
 6. API de ordenes
 

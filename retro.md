@@ -172,3 +172,28 @@ Dejar de hacer
 
 Conclusiones
 Aunque se juntaron los Spring 6 y 7, por estar realacionados, cada uno debe de tener sus propios avances, la venataja es que se tenia avanzado y la pagina esta funcionanado.
+
+Sprint 8
+
+Comenzar a hacer 
+    
+    ....
+
+Hacer más 
+
+    ....
+
+Continuar haciendo 
+
+    Probar la app
+    Participar en conjunto
+    Comunicarse de manera eficaz
+
+Hacer menos 
+    ....
+
+Dejar de hacer 
+    ....
+
+Conclusiones
+Cada App tiene sus pros y sus contras al momento de comparar con alguna similar, toda app puede mejorarse, es buscar cosas que la haga mas eficiente, mas atractiva y que mejore la experencia tanto del usuario como de quien la analiza.
